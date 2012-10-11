@@ -10,7 +10,7 @@ import wlv.mt.features.util.Sentence;
 /**
  * PCFG Parse log likelihood
  * 
- * @author lefterav
+ * @author Eleftherios Avramidis
  */
 public class Feature9305 extends Feature {
 
