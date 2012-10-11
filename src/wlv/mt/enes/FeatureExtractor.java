@@ -24,7 +24,7 @@ import wlv.mt.tools.*;
  * <config file>
  *
  *
- * @author Catalina Hallett & Mariano Felice<br>
+ * @author Catalina Hallett, Mariano Felice, Eleftherios Avramidis<br>
  */
 public class FeatureExtractor {
 
@@ -468,6 +468,13 @@ public class FeatureExtractor {
 
         loadGiza();
         processNGrams();
+        
+        try{
+        	
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
 
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
@@ -483,6 +490,17 @@ public class FeatureExtractor {
                     .isRegistered("targetPosTagger");
             POSProcessor posSourceProc = null;
             POSProcessor posTargetProc = null;
+            
+            //lefterav: Berkeley parser modifications start here
+            //Check if user has defined the grammar files for source 
+            //and target language
+        
+            
+            BParserProcessor sourceParserProcessor = new BParserProcessor();
+            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
+            BParserProcessor targetParserProcessor = new BParserProcessor();
+            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);           
+            
 //			if (posSourceExists) {
 //				posSourceProc = new POSProcessor(sourcePosOutput);
 //				 posSource = new BufferedReader(new InputStreamReader(new
@@ -524,6 +542,12 @@ public class FeatureExtractor {
                 targetSent.computeNGrams(3);
                 pplProcSource.processNextSentence(sourceSent);
                 pplProcTarget.processNextSentence(targetSent);
+            	
+                //lefterav: Parse code here
+                sourceParserProcessor.processNextSentence(sourceSent);
+            	targetParserProcessor.processNextSentence(targetSent);
+                
+                
 //                                pplPosTarget.processNextSentence(targetSent);
                 ++sentCount;
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
