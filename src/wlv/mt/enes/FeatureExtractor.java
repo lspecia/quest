@@ -24,7 +24,7 @@ import wlv.mt.tools.*;
  * <config file>
  *
  *
- * @author Catalina Hallett, Mariano Felice, Eleftherios Avramidis<br>
+ * @author Catalina Hallett, Mariano Felice<br>
  */
 public class FeatureExtractor {
 
