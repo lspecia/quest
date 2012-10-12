@@ -5,6 +5,14 @@ Machine translation (MT) quality estimation (QE) open source system that impleme
 used in systems submitted to the shared task, and possibly new features, and that can be customized
 to particular applications.
 
+Dependencies
+============
+
+The libraries required to compile and run the code are included in the "lib" directory in the root directory of the distribution. The Java libraries should be included there when possible. Here is a list of libraries that should be downloaded and placed in the "lib" directory:
+
+- Stanford POS Tagger ( http://nlp.stanford.edu/software/tagger.shtml#Download )
+
+
 How to implement a feature?
 ===========================
 
@@ -45,8 +53,6 @@ process (using Java's ProcessBuilder class). The results can then be
 retrieved in the form of output files by the Java code. More examples
 of different cases are in src/wlv/mt/tools/
 
+More information about implementation can be found in the MTFeatures.docx development guide file:
 
-Dependencies
-============
-
-- Stanford POS Tagger ( http://nlp.stanford.edu/software/tagger.shtml#Download )
+https://github.com/lspecia/quest/blob/master/doc/MTFeatures.docx
