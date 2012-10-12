@@ -122,4 +122,6 @@
     <feature class="wlv.mt.features.impl.bb.Feature1122" description="Named Entity feature: difference in number of PERSON entities in source and target normalised by total number of person entities (max between english and arabic)" index="1122"/>
     <feature class="wlv.mt.features.impl.bb.Feature1123" description="Named Entity feature: difference in number of ORGANIZATION entities in source and target normalised by total number of person entities (max between english and arabic)" index="1123"/>
     <feature class="wlv.mt.features.impl.bb.Feature1124" description="Named Entity feature: difference in number of LOCATION entities in source and target normalised by total number of person entities (max between english and arabic)" index="1124"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1300" description="Kullback-Leibler divergence of source and target topic distributions" index="1300"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1301" description="Jensen-Shannon divergence of source and target topic distributions" index="1301"/>
 </features>
