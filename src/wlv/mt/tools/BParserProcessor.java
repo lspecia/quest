@@ -58,9 +58,8 @@ public class BParserProcessor extends ResourceProcessor {
 		
 		//ask the parser to perform a parse of the sentence
 		parser.getParseFeatures(s.getText(), tokenizer);
-		String parseTree = parser.getParseTree();
 		
-		s.setValue("bparser.parse", parseTree);
+		s.setValue("bparser.parse", parser.getParseTree());
 		s.setValue("bparser.loglikelihood", parser.getLoglikelihood());
 		s.setValue("bparser.avgConfidence", parser.getAvgConfidence());
 		s.setValue("bparser.bestParseConfidence", parser.getBestParseConfidence());
