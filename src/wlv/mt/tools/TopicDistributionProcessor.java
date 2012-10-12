@@ -7,8 +7,9 @@ import wlv.mt.features.util.*;
 import java.io.*;
 
 /**
- * Processes a file containing topic distributions, one line (document, sentence, segment, etc.) is the topic vector
- * corresponding the line of the source or target sentences.
+ * This class allows to process a file containing topic distributions. Each line of the file corresponds to a topic vector of
+ * <i>n</i> dimensions.
+ * Topic vectors are obtained by a pre-processing step independant from the feature extraction process.
  *
  * @author Raphael Rubino
  *
