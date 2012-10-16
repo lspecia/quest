@@ -518,6 +518,17 @@ public class FeatureExtractor {
 
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
+	    
+	    /**
+            * BEGIN: Added by Raphael Rubino for the Topic Model Features
+	    */
+            String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
+            String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
+            TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
+            TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+            /**
+            * END: Added by Raphael Rubino for the Topic Model Features
+            */
 
             //read in each line from the source and target files
             //create a sentence from each
