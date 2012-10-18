@@ -11,11 +11,19 @@ import java.util.*;
  * able to compute the feature value. <br> Classes extending Feature will have
  * to provide their own method for computing the feature value by implementing
  *
+ * Modified by José de Souza (desouza@fbk.eu)
+ * - the value attribute was transformed into a HashMap<Integer, String>;
+ * - the get*() and set*() methods were updated accordingly;
+ * - each value in the hash corresponds to a different feature and the feature
+ * counter is automatically incremented every time it is used. The counter starts
+ * at 1.
+ *
  * @see Feature.run
  */
 public abstract class Feature {
 
-    private float value = 0;
+    private Integer featureCounter = 1;
+    private HashMap<Integer, String> values;
     private boolean computable;
     private String index;
     private String description;
@@ -24,24 +32,36 @@ public abstract class Feature {
     /**
      * returns the value
      */
-    public float getValue() {
-        return value;
+    public String getValue(Integer key) {
+        return values.get(key);
     }
 
     /**
-     * sets the feature value
+     * Sets a float feature value
      *
      * @param value the new value
      */
     public void setValue(float value) {
-        this.value = value;
+        this.values.put(featureCounter, String.valueOf(value));
+        this.featureCounter++;
     }
+
+    /**
+     * Sets a String feature value
+     *
+     * @param value the new value
+     */
+    public void setValue(String value) {
+        this.values.put(featureCounter, value);
+        this.featureCounter++;
+    }
+
 
     /*
      * returns a string representation of the Feature value
      */
     public String toString() {
-        return new String(value + "");
+        return this.values.toString();
     }
 
     /**
@@ -90,6 +110,14 @@ public abstract class Feature {
      */
     public String getIndex() {
         return index;
+    }
+
+    /**
+     *
+     * @return the number of features returned by this feature class implementation.
+     */
+    public Integer getFeaturesNumber() {
+        return this.featureCounter;
     }
 
     /**

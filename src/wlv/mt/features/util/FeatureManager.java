@@ -187,7 +187,10 @@ public class FeatureManager {
             if (f.isComputable()) {
 //				System.out.print(f.getIndex()+"\t");
                 f.run(source, target);
-                result.append(f.getValue() + "\t");
+                Integer featsNumber = f.getFeaturesNumber();
+                for (int i = 1; i < featsNumber; i++) {
+                    result.append(f.getValue(i) + "\t");
+            }
 
             } else {
                 Logger.log("Feature " + f.getIndex() + " cannot run because some of its dependencies are missing.");
