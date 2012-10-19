@@ -188,7 +188,7 @@ public class FeatureManager {
 //				System.out.print(f.getIndex()+"\t");
                 f.run(source, target);
                 Integer featsNumber = f.getFeaturesNumber();
-                for (int i = 1; i < featsNumber; i++) {
+                for (int i = 1; i <= featsNumber; i++) {
                     result.append(f.getValue(i) + "\t");
             }
 
