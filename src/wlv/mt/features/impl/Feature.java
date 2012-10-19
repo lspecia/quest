@@ -57,8 +57,8 @@ public abstract class Feature {
      * @param value the new value
      */
     public void setValue(String value) {
-        this.values.put(featureCounter, value);
         this.featureCounter++;
+        this.values.put(featureCounter, value);
     }
 
 
