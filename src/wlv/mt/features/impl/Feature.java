@@ -16,18 +16,23 @@ import java.util.*;
  * - the get*() and set*() methods were updated accordingly;
  * - each value in the hash corresponds to a different feature and the feature
  * counter is automatically incremented every time it is used. The counter starts
- * at 1.
+ * at 0. When a new value is added the counter is incremented and point to the
+ * last inserted key.
  *
  * @see Feature.run
  */
 public abstract class Feature {
 
-    private Integer featureCounter = 1;
-    private HashMap<Integer, String> values;
+    private Integer featureCounter = 0;
+    private Map<Integer, String> values;
     private boolean computable;
     private String index;
     private String description;
     private HashSet<String> resources;
+
+    public Feature() {
+        this.values = new HashMap<Integer, String>();
+    }
 
     /**
      * returns the value
@@ -42,8 +47,8 @@ public abstract class Feature {
      * @param value the new value
      */
     public void setValue(float value) {
-        this.values.put(featureCounter, String.valueOf(value));
         this.featureCounter++;
+        this.values.put(featureCounter, String.valueOf(value));
     }
 
     /**
