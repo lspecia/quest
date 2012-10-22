@@ -159,4 +159,18 @@ public abstract class Feature {
         }
         resources.add(resource);
     }
+
+    /**
+     * Resets the internal state of the Feature object. The actual implementation
+     * clears the values of the feature and reinitializes the feature counter.
+     *
+     * @author José de Souza (desouza@fbk.eu)
+     */
+    public void reset() {
+        // if the number of items in the hash is too high,
+        // consider using a new instance of HashMap instead of using clear()
+        // José de Souza
+        this.values.clear();
+        this.featureCounter = 0;
+    }
 }
