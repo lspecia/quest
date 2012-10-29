@@ -16,35 +16,20 @@
     <feature class="wlv.mt.features.impl.bb.Feature1014" description="perplexity of the target sentence without end of sentence marker" index="1014"/>
     <feature class="wlv.mt.features.impl.bb.Feature1015" description="number of occurrences of the target word within the target hypothesis (averaged for all words in the hypothesis - type/token ratio)" index="1015"/>
     <feature class="wlv.mt.features.impl.bb.Feature1016" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.01)" index="1016"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1017" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.01)" index="1017"/>
     <feature class="wlv.mt.features.impl.bb.Feature1018" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.05)" index="1018"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1019" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.05)" index="1019"/>
     <feature class="wlv.mt.features.impl.bb.Feature1020" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.1)" index="1020"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1021" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.1)" index="1021"/>
     <feature class="wlv.mt.features.impl.bb.Feature1022" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.2)" index="1022"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1023" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.2)" index="1023"/>
     <feature class="wlv.mt.features.impl.bb.Feature1024" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5)" index="1024"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1025" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.5)" index="1025"/>
     <feature class="wlv.mt.features.impl.bb.Feature1026" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.01) weighted by the frequency of each word in the source corpus" index="1026"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1027" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.01) weighted by the frequency of each word in the source corpus" index="1027"/>
     <feature class="wlv.mt.features.impl.bb.Feature1028" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1028"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1029" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1029"/>
     <feature class="wlv.mt.features.impl.bb.Feature1030" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.1) weighted by the frequency of each word in the source corpus" index="1030"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1031" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.1) weighted by the frequency of each word in the source corpus" index="1031"/>
     <feature class="wlv.mt.features.impl.bb.Feature1032" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.2) weighted by the frequency of each word in the source corpus" index="1032"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1033" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.2) weighted by the frequency of each word in the source corpus" index="1033"/>
     <feature class="wlv.mt.features.impl.bb.Feature1034" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1034"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1035" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1035"/>
     <feature class="wlv.mt.features.impl.bb.Feature1036" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.01) weighted by the inverse frequency of each word in the source corpus" index="1036"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1037" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.01) weighted by the inverse frequency of each word in the source corpus" index="1037"/>
     <feature class="wlv.mt.features.impl.bb.Feature1038" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.05) weighted by the inverse frequency of each word in the source corpus" index="1038"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1039" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.05) weighted by the inverse frequency of each word in the source corpus" index="1039"/>
     <feature class="wlv.mt.features.impl.bb.Feature1040" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.1) weighted by the inverse frequency of each word in the source corpus" index="1040"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1041" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.1) weighted by the inverse frequency of each word in the source corpus" index="1041"/>
     <feature class="wlv.mt.features.impl.bb.Feature1042" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.2) weighted by the inverse frequency of each word in the source corpus" index="1042"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1043" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.2) weighted by the inverse frequency of each word in the source corpus" index="1043"/>
     <feature class="wlv.mt.features.impl.bb.Feature1044" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.5) weighted by the inverse frequency of each word in the source corpus" index="1044"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1045" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.5) weighted by the inverse frequency of each word in the source corpus" index="1045"/>
     <feature class="wlv.mt.features.impl.bb.Feature1046" description="average unigram frequency in quartile_1 of frequency (lower frequency words) in the corpus of the source sentence" index="1046"/>
     <feature class="wlv.mt.features.impl.bb.Feature1047" description=" average unigram frequency in quartile_2 of frequency (lower frequency words) in the corpus of the source sentence" index="1047"/>
     <feature class="wlv.mt.features.impl.bb.Feature1048" description="average unigram frequency in quartile 3 of frequency (lower frequency words) in the corpus of the source sentence" index="1048"/>
@@ -94,7 +79,7 @@
     <feature class="wlv.mt.features.impl.bb.Feature1092" description="ratio of percentage of nouns in the source and target" index="1092"/>
     <feature class="wlv.mt.features.impl.bb.Feature1093" description="ratio of percentage of verbs in the source and target" index="1093"/>
     <feature class="wlv.mt.features.impl.bb.Feature1094" description="ratio of percentage of pronouns in the source and target" index="1094"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1097" description="coherence of target" index="1097"/>
+    <!--feature class="wlv.mt.features.impl.bb.Feature1097" description="coherence of target" index="1097"/>
     <feature class="wlv.mt.features.impl.bb.Feature1098" description="number of dependencies with aligned constituents normalized by the total number of dependencies (max between source and target)" index="1098"/>
     <feature class="wlv.mt.features.impl.bb.Feature1099" description="number of dependencies with aligned constituents normalized by the total number of dependencies (max between source and target), with the order of the constituents ignored" index="1099"/>
     <feature class="wlv.mt.features.impl.bb.Feature1100" description="number of dependencies with well aligned constituents (Giza threshold 0.1) normalized by the total number of dependencies (max between source and target)" index="1100"/>
@@ -121,15 +106,5 @@
     <feature class="wlv.mt.features.impl.bb.Feature1121" description="number of ORGANIZATION entities in source that are aligned to ORGANIZATION entities in target" index="1121"/>
     <feature class="wlv.mt.features.impl.bb.Feature1122" description="Named Entity feature: difference in number of PERSON entities in source and target normalised by total number of person entities (max between english and arabic)" index="1122"/>
     <feature class="wlv.mt.features.impl.bb.Feature1123" description="Named Entity feature: difference in number of ORGANIZATION entities in source and target normalised by total number of person entities (max between english and arabic)" index="1123"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1124" description="Named Entity feature: difference in number of LOCATION entities in source and target normalised by total number of person entities (max between english and arabic)" index="1124"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1300" description="Kullback-Leibler divergence of source and target topic distributions" index="1300"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1301" description="Jensen-Shannon divergence of source and target topic distributions" index="1301"/>
-    <feature class="wlv.mt.features.impl.bb.Feature9300"  index="9300"/>
-    <feature class="wlv.mt.features.impl.bb.Feature9301"  index="9301"/>
-    <feature class="wlv.mt.features.impl.bb.Feature9302"  index="9302"/>
-    <feature class="wlv.mt.features.impl.bb.Feature9303"  index="9303"/>
-    <feature class="wlv.mt.features.impl.bb.Feature9304"  index="9304"/>
-    <feature class="wlv.mt.features.impl.bb.Feature9305"  index="9305"/>
-    <feature class="wlv.mt.features.impl.bb.Feature9306"  index="9306"/>
-    <feature class="wlv.mt.features.impl.bb.Feature9307"  index="9307"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1124" description="Named Entity feature: difference in number of LOCATION entities in source and target normalised by total number of person entities (max between english and arabic)" index="1124"/-->
 </features>

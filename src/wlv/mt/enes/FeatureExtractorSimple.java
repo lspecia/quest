@@ -212,7 +212,7 @@ public class FeatureExtractorSimple {
         String absoluteOutputFilePath = (new File(relativeFilePath))
                 .getAbsolutePath();
         String posSourceTaggerPath = resourceManager.getString(lang
-                + ".postagger.exePath");
+                    + ".postagger.exePath");
         String outPath = "";
         try {
             Class c = Class.forName(posName);
@@ -474,6 +474,23 @@ public class FeatureExtractorSimple {
                     .isRegistered("targetPosTagger");
             POSProcessor posSourceProc = null;
             POSProcessor posTargetProc = null;
+            
+            
+            
+     /*         
+          
+            //lefterav: Berkeley parser modifications start here
+            //Check if user has defined the grammar files for source 
+            //and target language
+        
+            
+            BParserProcessor sourceParserProcessor = new BParserProcessor();
+            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
+            BParserProcessor targetParserProcessor = new BParserProcessor();
+            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
+            
+            */
+            
             if (posSourceExists) {
                 posSourceProc = new POSProcessor(sourcePosOutput);
                 posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
@@ -489,6 +506,21 @@ public class FeatureExtractorSimple {
 
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
+            
+            
+            
+             
+	    /**
+            * BEGIN: Added by Raphael Rubino for the Topic Model Features
+	    */
+   //         String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
+     //       String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
+       //     TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
+         //   TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+            /**
+            * END: Added by Raphael Rubino for the Topic Model Features
+            */ 
+	    
 
             //read in each line from the source and target files
             //create a sentence from each
