@@ -27,7 +27,8 @@ public class Feature9300 extends Feature {
 	}
 	
 	public void run(Sentence source, Sentence target) {
-		setValue(new Float((Double) source.getValue("bparser.loglikelihood")));
+         //   System.out.println((Float)source.getValue("bparser.loglikelihood"));
+            setValue(new Float((Double) source.getValue("bparser.loglikelihood")));
 	}
 
 }

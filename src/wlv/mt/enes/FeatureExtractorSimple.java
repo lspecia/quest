@@ -429,6 +429,7 @@ public class FeatureExtractorSimple {
                 + ".out";
         String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
+        
         String pplSourcePath = resourceManager.getString("input")
                 + File.separator + sourceLang + File.separator + sourceFileName
                 + resourceManager.getString("tools.ngram.output.ext");
@@ -477,19 +478,31 @@ public class FeatureExtractorSimple {
             
             
             
-     /*         
+             
           
             //lefterav: Berkeley parser modifications start here
             //Check if user has defined the grammar files for source 
             //and target language
-        
+ //   if ( ResourceManager.isRegistered("BParser")){   
             
             BParserProcessor sourceParserProcessor = new BParserProcessor();
             sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
             BParserProcessor targetParserProcessor = new BParserProcessor();
             targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
             
-            */
+   // }
+    
+    
+     /**
+            * BEGIN: Added by Raphael Rubino for the Topic Model Features
+	    */
+            String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
+            String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
+            TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
+            TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+            /**
+            * END: Added by Raphael Rubino for the Topic Model Features
+            */ 
             
             if (posSourceExists) {
                 posSourceProc = new POSProcessor(sourcePosOutput);
@@ -510,16 +523,7 @@ public class FeatureExtractorSimple {
             
             
              
-	    /**
-            * BEGIN: Added by Raphael Rubino for the Topic Model Features
-	    */
-   //         String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
-     //       String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
-       //     TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
-         //   TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
-            /**
-            * END: Added by Raphael Rubino for the Topic Model Features
-            */ 
+	   
 	    
 
             //read in each line from the source and target files
@@ -532,9 +536,13 @@ public class FeatureExtractorSimple {
                 sourceSent = new Sentence(lineSource, sentCount);
                 targetSent = new Sentence(lineTarget, sentCount);
 
-                //System.out.println("Processing sentence "+sentCount);
-                //System.out.println("SORCE: " + sourceSent.getText());
-                //System.out.println("TARGET: " + targetSent.getText());
+                System.out.println("Processing sentence "+sentCount);
+                System.out.println("SORCE: " + sourceSent.getText());
+                System.out.println("TARGET: " + targetSent.getText());
+               
+                
+                
+                
                 if (posSourceExists) {
                     posSourceProc.processSentence(sourceSent);
                 }
@@ -546,6 +554,15 @@ public class FeatureExtractorSimple {
                 pplProcSource.processNextSentence(sourceSent);
                 pplProcTarget.processNextSentence(targetSent);
                 pplPosTarget.processNextSentence(targetSent);
+             
+                   //lefterav: Parse code here
+                 sourceParserProcessor.processNextSentence(sourceSent);
+            	targetParserProcessor.processNextSentence(targetSent);
+               
+                
+                sourceTopicDistributionProcessor.processNextSentence(sourceSent);
+                 targetTopicDistributionProcessor.processNextSentence(targetSent);
+                
                 ++sentCount;
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
                 output.newLine();
