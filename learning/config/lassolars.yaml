@@ -1,0 +1,57 @@
+# This configuration file follows the YAML format (www.yaml.org)
+# Please note that the indentation used is 4 spaces.
+
+# input
+x_train: /home/user/path/to/training/features.csv
+y_train: /home/user/path/to/training/response.csv
+x_test: /home/user/path/to/test/features.csv
+y_test: /home/user/path/to/test/response.csv
+#labels: /home/user/path/to/features/labels.csv
+
+# learning
+scale: true
+
+# feature_selection methods available: RandomizedLasso, ExtraTreesClassifier
+# feature_selection:
+#     method: RandomizedLasso
+#     parameters:
+# #        alpha: aic
+#         scaling: .5
+#         sample_fraction: .75
+#         n_resampling: 200
+#         selection_threshold: .25
+#         fit_intercept: True
+#         normalize: True
+#         max_iter: 500
+#         n_jobs: 1
+#         verbose: True
+
+#    method: ExtraTreesClassifier
+#    parameters:
+#        n_estimators: 10
+#        cv: 10
+#        min_samples_split: 1
+#        min_samples_leaf: 1
+#        min_density: 1
+#        bootstrap: False
+#        compute_importances: True
+#        n_jobs: 1
+#        random_state: None
+#        verbose: True
+
+learning: 
+    method: LassoLars
+    optimize:
+        alpha: [0, 1.0, 100]
+        cv: 10
+        n_jobs: 1
+        verbose: True
+# available parameters for LassoLarsCV (values presented are the default values)
+    parameters:
+        alpha: 1.0
+        max_iter: 500
+        normalize: True   
+        fit_intercept: True
+        fit_path: True
+        verbose: False
+

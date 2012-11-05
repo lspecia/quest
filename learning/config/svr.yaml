@@ -1,0 +1,43 @@
+# This configuration file follows the YAML format (www.yaml.org)
+# Please note that the indentation used is 4 spaces.
+
+mode: regression
+
+# input
+x_train: /home/user/path/to/training/features.csv
+y_train: /home/user/path/to/training/response.csv
+x_test: /home/user/path/to/test/features.csv
+y_test: /home/user/path/to/test/response.csv
+#labels: /home/user/path/to/features/labels.csv
+
+
+scale: true
+
+#feature_selection:
+#    method: RandomizedLasso
+#    parameters:
+#        cv: 10
+        
+# learning
+learning: 
+    method: SVR
+    optimize:
+        #kernel: [linear, rbf, poly]
+        kernel: [rbf]
+        # begin, end, number of samples to generate
+        C: [1, 10, 2]
+        gamma: [0.0001, 0.01, 2]
+        epsilon: [0.1, 0.2, 2]
+        cv: 3
+        n_jobs: 1
+        verbose: True
+        
+    scorer: [mae, rmse]
+    
+    parameters:
+        C: 10
+        gamma: 0.0034
+        epsilon: 0.18
+    
+#[output]
+#plot = blo
