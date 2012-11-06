@@ -45,6 +45,7 @@ quite straightforward. It is formed by key and value pairs that map directly
 to dictionaries (in Python) or hash tables with string keys. One example is
 as follows:
 
+```
 learning:
     method: LassoLars
     parameters:
@@ -54,6 +55,7 @@ learning:
         fit_intercept: True
         fit_path: True
         verbose: False
+```
 
 Each keyword followed by a ":" represents an entry in a hash. In this example,
 the dictionary contains an entry "learning" that points to another dictionary
@@ -63,6 +65,8 @@ Please note that each level in the example above is indented with 4 spaces.
 
 For more information about the YAML format please refer to http://www.yaml.org/ .
 
+Configuration files for the implemented algorithms are available in the config/
+directory.
 
 Available algorithms
 ====================
@@ -174,3 +178,61 @@ implemented by scikit-learn. In this example only the "RBF" kernel is used.
 
 For more information about the GridSearchCV class please refer to
 http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV
+
+
+Feature selection
+=================
+
+Another possible option is to perform feature selection prior to the learning
+process. To set up a feature selection algorithm it is necessary to add the
+"feature_selection" section to the configuration file. This section is
+independent of the "learning" section:
+
+```
+feature_selection:
+    method: RandomizedLasso
+    parameters:
+        cv: 10
+
+learning:
+    ...
+```
+
+Currently, the following feature selection algorithms are available:
+
+* RandomizedLasso: works by resampling the training data and computing a Lasso
+on each resampling. The features selected more often are good features.
+The exposed parameters are:
+
+    - alpha
+    - scaling
+    - sample_fraction
+    - n_resampling
+    - selection_threshold
+    - fit_intercept
+    - verbose
+    - normalize
+    - max_iter
+    - n_jobs
+
+These parameters and the method are documented at:
+http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RandomizedLasso.html#sklearn.linear_model.RandomizedLasso
+
+
+* ExtraTreesClassifier: meta estimator that fits a number of randomized decision trees (a.k.a. extra-trees) on various sub-samples of the dataset and use averaging to improve the predictive accuracy and control over-fitting.
+The exposed parameters are:
+
+    - n_estimators
+    - max_depth
+    - min_samples_split
+    - min_samples_leaf
+    - min_density
+    - max_features
+    - bootstrap
+    - compute_importances
+    - n_jobs
+    - random_state
+    - verbose
+
+Documentation about the parameters and the method can be found at:
+http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier
