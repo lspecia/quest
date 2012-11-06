@@ -146,7 +146,7 @@ optimize parameters using cross-validation. To optimize the C, gamma and
 epsilon parameters for the SVR, the learning section of the configuration
 file could look as follows:
 
-"""
+```
 learning:
     method: SVR
 optimize:
@@ -157,20 +157,20 @@ optimize:
     cv: 3
     n_jobs: 1
     verbose: True
-"""
+```
 
 The parameter kernel is a list of strings representing the available kernels
 implemented by scikit-learn. In this example only the "RBF" kernel is used.
 
-The SVR parameters C, gamma and epsilon are set with lists with 3 indexes:
+* The SVR parameters C, gamma and epsilon are set with lists with 3 indexes:
     - the beginning of the range (begin value included)
     - the end of the range (end value included)
     - the number of samples to be generated within [beginning, end]
 
-The remaining parameters modify the behavior of the GridSearchCV class:
-    - 'cv' is the number of cross-validation folds
-    - 'n_jobs' is the number of parallel jobs scheduled to run the CV process
-    - 'verbose' is a boolean or integer value indicating the level of verbosity
+* The remaining parameters modify the behavior of the GridSearchCV class:
+    - cv is the number of cross-validation folds
+    - n_jobs is the number of parallel jobs scheduled to run the CV process
+    - verbose is a boolean or integer value indicating the level of verbosity
 
 For more information about the GridSearchCV class please refer to
 http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV
