@@ -40,21 +40,21 @@ def assert_string(generic_list):
 def open_datasets(train_path, train_ref_path, test_path, 
                   test_ref_path, delim, labels_path=None):
     
-    if not os.path.isfile(os.path.abspath(train_path)):
+    if not os.path.isfile(train_path):
         raise IOError("training dataset path is not valid: %s" % train_path)
     
-    if not os.path.isfile(os.path.abspath(train_ref_path)):
+    if not os.path.isfile(train_ref_path):
         raise IOError("training references path is not valid: %s" % train_ref_path)
     
-    if not os.path.isfile(os.path.abspath(test_path)):
+    if not os.path.isfile(test_path):
         raise IOError("test dataset path is not valid: %s" % test_path)
     
-    if not os.path.isfile(os.path.abspath(test_ref_path)):
+    if not os.path.isfile(test_ref_path):
         raise IOError("test references path is not valid: %s" % test_ref_path)
 
     labels = []
     if labels_path is not None:
-        if not os.path.isfile(os.path.abspath(labels_path)):
+        if not os.path.isfile(labels_path):
             raise IOError("labels file is not valid: %s" % labels_path)
 
         labels = read_labels_file(labels_path, delim)
