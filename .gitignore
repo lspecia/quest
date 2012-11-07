@@ -11,3 +11,6 @@ project.properties
 
 # MacOS temp files
 .DS_Store
+
+# Python bytecode
+*.pyc
