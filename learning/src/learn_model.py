@@ -49,7 +49,7 @@ __updated__ = '2012-11-01'
 DEBUG = 0
 PROFILE = 0
 
-DEFAULT_SEP = ","
+DEFAULT_SEP = "\t"
 
 class CLIError(Exception):
     '''Generic exception to raise and log different fatal errors.'''
