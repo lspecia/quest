@@ -5,7 +5,7 @@ The function of this package of Python scripts is to build models for
 machine translation (MT) quality estimation (QE). The input files are
 a set of instances with features that describe sentence pairs (source
 and target sentences). The features can be extracted using the FeatureExtractor
-program available with which this program is bundled.
+program available in the same repository this package is bundled.
 
 
 Installation
