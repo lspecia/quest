@@ -11,37 +11,62 @@ import java.util.*;
  * able to compute the feature value. <br> Classes extending Feature will have
  * to provide their own method for computing the feature value by implementing
  *
+ * Modified by José de Souza (desouza@fbk.eu)
+ * - the value attribute was transformed into a HashMap<Integer, String>;
+ * - the get*() and set*() methods were updated accordingly;
+ * - each value in the hash corresponds to a different feature and the feature
+ * counter is automatically incremented every time it is used. The counter starts
+ * at 0. When a new value is added the counter is incremented and point to the
+ * last inserted key.
+ *
  * @see Feature.run
  */
 public abstract class Feature {
 
-    private float value = 0;
+    private Integer featureCounter = 0;
+    private Map<Integer, String> values;
     private boolean computable;
     private String index;
     private String description;
     private HashSet<String> resources;
 
-    /**
-     * returns the value
-     */
-    public float getValue() {
-        return value;
+    public Feature() {
+        this.values = new HashMap<Integer, String>();
     }
 
     /**
-     * sets the feature value
+     * returns the value
+     */
+    public String getValue(Integer key) {
+        return values.get(key);
+    }
+
+    /**
+     * Sets a float feature value
      *
      * @param value the new value
      */
     public void setValue(float value) {
-        this.value = value;
+        this.featureCounter++;
+        this.values.put(featureCounter, String.valueOf(value));
     }
+
+    /**
+     * Sets a String feature value
+     *
+     * @param value the new value
+     */
+    public void setValue(String value) {
+        this.featureCounter++;
+        this.values.put(featureCounter, value);
+    }
+
 
     /*
      * returns a string representation of the Feature value
      */
     public String toString() {
-        return new String(value + "");
+        return this.values.toString();
     }
 
     /**
@@ -93,6 +118,14 @@ public abstract class Feature {
     }
 
     /**
+     *
+     * @return the number of features returned by this feature class implementation.
+     */
+    public Integer getFeaturesNumber() {
+        return this.featureCounter;
+    }
+
+    /**
      * sets the index
      *
      * @param index the new index as integer
@@ -125,5 +158,19 @@ public abstract class Feature {
             resources = new HashSet<String>();
         }
         resources.add(resource);
+    }
+
+    /**
+     * Resets the internal state of the Feature object. The actual implementation
+     * clears the values of the feature and reinitializes the feature counter.
+     *
+     * @author José de Souza (desouza@fbk.eu)
+     */
+    public void reset() {
+        // if the number of items in the hash is too high,
+        // consider using a new instance of HashMap instead of using clear()
+        // José de Souza
+        this.values.clear();
+        this.featureCounter = 0;
     }
 }

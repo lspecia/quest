@@ -8,6 +8,6 @@
     <feature class="wlv.mt.features.impl.bb.Feature9305"  index="9305"/>
     <feature class="wlv.mt.features.impl.bb.Feature9306"  index="9306"/>
     <feature class="wlv.mt.features.impl.bb.Feature9307"  index="9307"/>
-	<!--feature class="wlv.mt.features.impl.bb.Feature1300" description="Kullback-Leibler divergence of source and target topic distributions" index="1300"/>
-    	<feature class="wlv.mt.features.impl.bb.Feature1301" description="Jensen-Shannon divergence of source and target topic distributions" index="1301"/-->
+	<feature class="wlv.mt.features.impl.bb.Feature1300" description="Kullback-Leibler divergence of source and target topic distributions" index="1300"/>
+    	<feature class="wlv.mt.features.impl.bb.Feature1301" description="Jensen-Shannon divergence of source and target topic distributions" index="1301"/>
 </features>

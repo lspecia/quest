@@ -1,0 +1,1690 @@
+ART NC ADJ PREP NC ADJ
+1 sentences, 6 words, 0 OOVs
+0 zeroprobs, logprob= -7.36148 ppl= 11.2626 ppl1= 16.8622
+
+NC NP QT ART ADJ CC NC ADJ VLfin CM QT ART NC CC ART NC COLON ART NC NC PREP ART ORD NC ADJ CM QT VLfin PREP ART ADJ NC VLfin PDEL NC CQUE VMfin VLinf CQUE PPO NC SE VLfin FS
+1 sentences, 44 words, 0 OOVs
+0 zeroprobs, logprob= -52.6008 ppl= 14.7539 ppl1= 15.6846
+
+NC NP VSfin ART NC CC NC ADJ FS
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -8.48852 ppl= 7.06076 ppl1= 8.77341
+
+ADV VLfin ART ADJ NC ADJ PREP ART NC ADJ CM CQUE VLfin ART NC NC PREP NC FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -14.0997 ppl= 5.06973 ppl1= 5.52191
+
+ART CQUE NC VHfin VLadj VLadj VSfin ART ADJ CM ART NC CQUE VLfin CM NEG PREP NC ADV ADJ CM CSUBX QT ART NC PREP NC NC QT FS
+1 sentences, 30 words, 0 OOVs
+0 zeroprobs, logprob= -38.558 ppl= 17.531 ppl1= 19.2871
+
+NEG VSfin ADV ART NC PREP ART VLadj CM VLfin CM CSUBX QT ART NC PREP ART CQUE VEfin ADV FS QT QT PREP ART QT NC CM NC CM NC CC ART NC PREP NC QT FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -47.2774 ppl= 16.302 ppl1= 17.5445
+
+QT ART NC CC ART NC QT NC CM ART NC PREP NC NC PREP CARD NC CC ADV NP NC CC NC CM PREP QU NC PREP ART NC CM PREP ART NC CC NC PREP ADJ NC CM ART NC CM ART NC PREP NC CC NC FS
+1 sentences, 50 words, 0 OOVs
+0 zeroprobs, logprob= -47.9407 ppl= 8.7099 ppl1= 9.09522
+
+QU PREP DM NC SE VLfin PREP NC FS
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -8.52 ppl= 7.11213 ppl1= 8.84436
+
+NC ADJ PDEL NC VSfin ART NC PREP ART NC NC PREP NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -10.5854 ppl= 5.07803 ppl1= 5.70299
+
+VSfin ART NC ADV PREP ART NC PREP CQUE ART NC ADJ VEfin NC PREP ART ADJ NC PREP NC PREP ART NC ADJ FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -19.1233 ppl= 5.43891 ppl1= 5.82012
+
+QT ART NC CC ART NC QT NC PREP NC ADJ PREP QU NC PREP NC COLON ART NC CM ART NC CM ART NC ADJ CM NC CM NC ADJ FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -30.0658 ppl= 8.14862 ppl1= 8.70072
+
+VLadj PREP DM NC VHfin NC VLinf PREP PPX SEMICOLON CARD VLfin ART NC PREP NC PREP ART NC SEMICOLON NC NC VSfin ART NC ADJ FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -32.5681 ppl= 14.5595 ppl1= 16.0778
+
+DM VSfin ART NC ADJ CM ADV PREP ART NC FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -7.81542 ppl= 4.48007 ppl1= 5.13443
+
+ART NC NC DM ART NC PREP ART NC CSUBX ART NC ADJ CM ART NC ADJ CQUE VLfin PREP NC FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -20.1049 ppl= 7.48387 ppl1= 8.20086
+
+CSUBX ART NC PREP NC VSfin VLadj PREP ART NC CM CC PPX VSfin ART NC PREP NC PREP PPO NC CM NC PPX VLinf CC VLinf FS
+1 sentences, 28 words, 0 OOVs
+0 zeroprobs, logprob= -29.9824 ppl= 10.8112 ppl1= 11.7706
+
+ADV NC VLfin ART CQUE VLfin VLger CM ADV PREP ART NC PREP ART CQUE DM NC VSfin CQUE VLinf FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -24.4648 ppl= 12.943 ppl1= 14.6214
+
+QT NC PREP NC CM QT ART NC NP VLfin CM QT VHfin VSadj VLadj PREP VLfin CM NC CM ART NC CM ART NC CM NC ADJ CM ART NC PREP NC CM NC CM NC CC NC QT FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -45.8853 ppl= 12.3739 ppl1= 13.1569
+
+QT ART NC CC ART NC QT VLfin NC CSUBX VLfin NC ADJ CM ART NC PREP ART NC NC CM CC NC NC CM ART ADJ NC PREP ART NC PREP ADJ NC NC FS
+1 sentences, 36 words, 0 OOVs
+0 zeroprobs, logprob= -35.9306 ppl= 9.35617 ppl1= 9.95572
+
+PPO NC VSfin ADV VLadj PREP NC CM NC CC QU ADV VLadj ADJ FS
+1 sentences, 15 words, 0 OOVs
+0 zeroprobs, logprob= -21.4782 ppl= 21.9983 ppl1= 27.0323
+
+ART NC PREP PPO NC VMfin VSinf ADJ CC NC CM CCAD VSfin ADJ ADV ADJ PREP ART NC FS VLfin ART NC PREP ADJ NC CM NC ADJ FS
+1 sentences, 30 words, 0 OOVs
+0 zeroprobs, logprob= -28.5 ppl= 8.3053 ppl1= 8.91252
+
+PREP VLinf PREP ART NC NC PREP ART NC VLfin COLON QT VLfin VLfin CM PREP QU NC QT FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -23.3575 ppl= 12.9498 ppl1= 14.7189
+
+QT NC NC CM ADJ CM NC NC NC VLfin CM VLfin CM NC PREP NC FS QT
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -26.4987 ppl= 24.8125 ppl1= 29.6587
+
+NC VLfin PREP ART NC PREP NC PREP NC FS
+1 sentences, 10 words, 0 OOVs
+0 zeroprobs, logprob= -6.45105 ppl= 3.85886 ppl1= 4.41677
+
+VHfin CM VLfin CM QT CARD VLadj NC ADJ ADJ PREP ART NC PREP NC CM CARD VLadj ADJ PREP NC QT FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -33.7902 ppl= 25.5814 ppl1= 29.4536
+
+QU NC VSfin PREP NC CC ADJ FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -10.6294 ppl= 15.172 ppl1= 21.3144
+
+ART PREP PPX ADJ VLfin PPO ADJ NC PREP ART NC CC VLfin PREP NC COLON QT VLfin CQUE CM ADV PREP QU CM ADV ART CQUE ART NC VSfin VLadj PREP PREP VLinf PREP NC ADJ PREP ART NC CC NC CM ART NC PREP ART ADV CC ART ADJ NC CM CC VLinf CQUE QU ART NC VLfin ADV CC CQUE NEG VHfin NC PREP PPO NC NC CC NC VLfin NC QT FS
+1 sentences, 76 words, 0 OOVs
+0 zeroprobs, logprob= -82.8537 ppl= 11.913 ppl1= 12.3078
+
+PREP ART ADJ ART NC ADJ VLfin CQUE VLfin PREP VLinf CM CC ART NC ADJ VSfin CQUE NC NC CC ADJ FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -25.5031 ppl= 11.5513 ppl1= 12.8479
+
+QU NC VSfin PREP ART ADJ NC VLadj CM CC PREP ADJ NC PREP NC FS
+1 sentences, 16 words, 0 OOVs
+0 zeroprobs, logprob= -16.9091 ppl= 9.87759 ppl1= 11.3977
+
+QT ART NC VHfin VLadj QU NC ADJ PREP ART NC ADJ CM QT ART NC NP VLfin CM QT ART NC PREP ART NC QT FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -29.878 ppl= 11.67 ppl1= 12.7818
+
+NC ART NC PREP ART CQUE NC VLfin QT ART ADJ NC PREP ART NC PDEL ADJ NC COLON ART VLinf CC ADV VLadj PREP NC PREP NC PREP ADV VLadj NC CQUE VLfin PPO NC CSUBX ADJ NC PREP ART NC FS QT
+1 sentences, 44 words, 0 OOVs
+0 zeroprobs, logprob= -51.9368 ppl= 14.261 ppl1= 15.1489
+
+NC NP VLadj ADV PREP ART NC CQUE VLfin VLinf ART PREP ART NC ADJ PREP NC CSUBX ART NC CSUBI VLinf NC PAL NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -23.2954 ppl= 7.29112 ppl1= 7.87007
+
+QT ART NC ADJ ADV PREP DM VMfin VCLIinf PREP ART NC PREP NC ADJ CM CQUE NC VLfin CC NC PREP PPO ADJ PREP ART NC PREP VLinf PREP ART NC QT CM VLfin FS
+1 sentences, 36 words, 0 OOVs
+0 zeroprobs, logprob= -40.6743 ppl= 12.5691 ppl1= 13.4847
+
+QT PREP ART CQUE ADV VLfin ADJ NC PREP PPO NC CM CQUE ADV SE VLfin PREP ART NC QT FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -22.0614 ppl= 10.0645 ppl1= 11.2342
+
+PREP DM PREP ART NC PAL ADJ NC NP NC CM NC PREP ART NC VSfin NC CCAD NC CM ADV VLadj PREP PPO NC ADJ FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -32.1891 ppl= 14.1127 ppl1= 15.5664
+
+PREP NC PREP ADJ NC VLfin ART NC PREP CQUE ART NC VHfin QT NC ADV NC ADJ COLON NC NC CM NC ADJ CM VLfin ADJ QT FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -35.1715 ppl= 14.8724 ppl1= 16.3233
+
+ART NC VLfin PREP VLinf PREP VLinf PPO NC NC VLger PPX NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -18.1908 ppl= 16.3199 ppl1= 19.9223
+
+ART ADJ NC PREP ART NC ADJ ADV VHfin VSadj ADJ CM CSUBX VLfin NP QT ART QT ADJ NC CC NC CM ADJ QT CC VLfin CM CSUBX VLfin NC ADJ QT ART QT QU VLadj PREP ART NC ADJ CM QT PREP NC ADJ FS
+1 sentences, 47 words, 0 OOVs
+0 zeroprobs, logprob= -62.1917 ppl= 19.7543 ppl1= 21.0488
+
+PPO NC VSfin ART NC ADJ VLger NC PREP ART NC PREP NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -15.3227 ppl= 10.5078 ppl1= 12.4302
+
+VHfin NC QT ALFS VCLIinf FS
+1 sentences, 6 words, 0 OOVs
+0 zeroprobs, logprob= -14.4811 ppl= 117.148 ppl1= 259.133
+
+ADV PREP ART NC ADJ CM ART ADJ PREP NC VLadj
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -13.7577 ppl= 14.0112 ppl1= 17.8115
+
+ADJ PREP NC VHfin VLadj CM QU PREP PPX CQUE VLfin NC ADJ FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -17.4146 ppl= 14.4868 ppl1= 17.5347
+
+NEG SE VMfin VLinf PREP NC PREP ART NC NC CM CSUBX ART NC NC PREP NC CM NC CQUE VLfin ART NC CC VLadj ART NC PREP ADJ PREP ART ADJ NC FS
+1 sentences, 34 words, 0 OOVs
+0 zeroprobs, logprob= -28.2504 ppl= 6.41436 ppl1= 6.77475
+
+CC NC CM ART NC ADJ PAL NC ADJ ADJ PREP NC SE VLfin ADV PREP CARD NC PREP ART NC CC ART NC FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -22.7204 ppl= 7.47934 ppl1= 8.10621
+
+ART NC VLfin VLadj PREP VLinf VLfin ART NC PREP QU NC FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -11.7741 ppl= 6.93436 ppl1= 8.04821
+
+ART NC VLadj VLadj VLfin ADV NC NC VLadj CQUE VLfin PREP VLinf ART ADJ NC PREP NC PREP ADJ ADJ NC CSUBI VLinf PREP ART NC VLfin FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -30.5605 ppl= 10.4396 ppl1= 11.3191
+
+ART NC NC PREP NC VSfin ART NC PREP ART NC CM PREP VLfin NC PDEL NC ADJ FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -16.9773 ppl= 7.06102 ppl1= 7.82609
+
+ART NC PREP VLinf PREP ART NC QT NC PREP ART ADJ NMEA QT CM VLfin ART NC VLadj PREP ART NC CM CQUE SE VHfin VLadj PREP ART NP VLfin CSUBX QT ART NC QT FS
+1 sentences, 37 words, 0 OOVs
+0 zeroprobs, logprob= -41.6119 ppl= 12.4466 ppl1= 13.3244
+
+QT ART NC NC CQUE VLfin ADJ PREP PPX VLinf PREP NC ADJ VSfin PREP ART NC ADJ NC PDEL NC FS QT
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -29.7001 ppl= 17.2784 ppl1= 19.5573
+
+ART NC PREP ART NC VSfin ART NC PREP ART NC FS
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -7.20898 ppl= 3.58539 ppl1= 3.98794
+
+QT VEfin ADJ VCLIinf CSUBX ART ADJ NC PREP NC CQUE VEfin PREP ART NC CM QT VHfin VLadj FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -30.9498 ppl= 29.7714 ppl1= 35.2768
+
+ART NC PREP NC NC NC PREP NC NC CC NC ADJ PREP NC NC CC ART ADJ NC VLfin VLinf CM ADV PDEL NC PREP VLfin CM ADV PREP VLinf FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -32.4403 ppl= 9.61698 ppl1= 10.3219
+
+NC CSUBX ART NC ADJ VLadj PREP ART NC PREP PPO NC ADJ NC CM QU NC ADV SE VLfin PPO NC CC PREP ART NC FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -25.3373 ppl= 8.03346 ppl1= 8.67796
+
+NEG VHfin NC VSfin VLadj PREP CARD COLON CARD NC CM ART ADJ VLfin CM VLger PREP ART NC NC CSUBI VLinf PPO NC FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -29.1242 ppl= 13.1875 ppl1= 14.6207
+
+ART NC PREP ART NC SE VLfin VLadj PREP VLinf FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -8.63179 ppl= 5.23981 ppl1= 6.09127
+
+NC NC ADJ CM ART NC NC PDEL NC PREP ADJ QT CM VLfin CQUE VEfin PREP PPO NC FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -23.2875 ppl= 12.8507 ppl1= 14.6007
+
+NC VLfin VLfin NC PREP NC PREP ART NC NC NC CM ADJ PAL NC PREP ART NC ADJ CM VSfin ADJ CSUBI VLinf NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -24.4335 ppl= 8.03425 ppl1= 8.70465
+
+CSUBX ART ADJ NC NC PREP NC PREP ART NC ADJ PREP NC QT NC ADJ CM VLger NC CC NC PREP NC CC NC NC VLadj PREP NC CM ART NC PDEL NC PREP NC CM VLadj CSUBI VLinf ART CQUE VHfin VLadj NC FS
+1 sentences, 46 words, 0 OOVs
+0 zeroprobs, logprob= -42.4245 ppl= 7.99188 ppl1= 8.36126
+
+QU NC CQUE SE VLfin PREP VLinf VSfin VLadj PREP NC CM ART NC CQUE VLfin PREP ART NC NC ADV ADV FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -22.7832 ppl= 8.89814 ppl1= 9.78528
+
+ART NC PREP NC VLfin NC VLadj ADV PREP ART NC PREP ART NC CM ADV PDEL NC PDEL NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -16.6413 ppl= 5.7072 ppl1= 6.20073
+
+QU VLfin ART NC CM CC ART ADJ NC PREP ADV VLinf FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -14.9755 ppl= 11.7404 ppl1= 14.1894
+
+CC CARD NC VLadj PREP ART NC CM ART NC FS NC VLfin FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -18.4326 ppl= 16.9372 ppl1= 20.7308
+
+ART NC PREP ART NC PREP NC VSfin VLadj PREP VLinf ART NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -9.80358 ppl= 4.50373 ppl1= 5.01483
+
+QU PREP ART NC SE VLfin PREP ART NC PREP CARD COLON CARD PREP ART NC CM ART NC FS NC VLfin FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -24.5899 ppl= 10.5823 ppl1= 11.7254
+
+ART NC PREP NC VHfin VSadj ADJ PREP CARD NC ADV CM ART ADJ VLfin FS
+1 sentences, 16 words, 0 OOVs
+0 zeroprobs, logprob= -17.7671 ppl= 11.095 ppl1= 12.8957
+
+NC VLfin VLfin PREP CARD NC VSfin VLadj PREP ART NC FS
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -12.9966 ppl= 9.99402 ppl1= 12.1074
+
+ART ADJ PREP ART NC VSfin PREP QT NC ADJ CC NC PREP ART NP CM QT VHfin VLadj FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -24.7069 ppl= 15.0148 ppl1= 17.1928
+
+ART NC PREP NC ADJ NC PREP ART NC VEfin NC NC NC CM ART NC PREP NC CM ART ADJ NC VLadj PREP ART NC FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -25.0163 ppl= 7.82418 ppl1= 8.44363
+
+NC VSfin VLadj PREP ART NC NC CM ART NC NC PDEL NC CM CC PREP ART NC NC CM ART NC PE FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -23.3536 ppl= 8.593 ppl1= 9.39869
+
+PREP DM NC CM ART ADJ SE VHfin VLadj VLinf ART NC ADJ ADV ADJ ADV PDEL NC ADJ FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -18.571 ppl= 7.66181 ppl1= 8.48297
+
+PREP ART NC VLadj CM QU NC CM QU PREP NC CM VSfin VLadj VLger PREP ART NC ADJ FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -21.5957 ppl= 10.675 ppl1= 12.0167
+
+PREP CARD NC VSfin PREP ART NC PDEL NC FS
+1 sentences, 10 words, 0 OOVs
+0 zeroprobs, logprob= -10.1923 ppl= 8.44456 ppl1= 10.4529
+
+PREP PREP CARD NC CM PE PE NC NC CM CARD NC NC PREP ART PE PREP ART NC PREP ADJ CM CC QU SE VHfin VLadj VLger ART NC PREP ART NC PREP ART ADJ VLfin FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -43.8698 ppl= 13.3311 ppl1= 14.2715
+
+PAL NC CM ART ADJ CC ART NC VSfin VLadj FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -12.9298 ppl= 11.9532 ppl1= 14.9775
+
+VLinf PREP ART NC QT NC VLfin PREP VLinf NC PREP NC
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -16.5234 ppl= 18.665 ppl1= 23.8203
+
+ART NC CQUE VLfin PREP NC PREP ART NC VLinf PREP ART NC CQUE VHfin VLadj PPO NC PREP NC ART NC VLadj NC CSUBI VLinf ART NC ART NC CM VLger ART NC VSfin ADJ CC ADJ PREP PPO NC ADJ PREP NC CQUE VLfin PREP NC ADJ FS
+1 sentences, 50 words, 0 OOVs
+0 zeroprobs, logprob= -43.3169 ppl= 7.06889 ppl1= 7.35086
+
+ART NC VSfin ADV ART NC NC PREP NC PREP ART NC CM NC NC CARD CM PREP PPO NC CSUBI VLinf ART NC FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -21.3036 ppl= 6.59732 ppl1= 7.11447
+
+CARD CARD CC CARD NC PREP ART NC CM NC NC CC QU NC CQUE SE VLfin PREP ART NC QT ART ADJ VLadj VLfin PPO NC PREP NC PREP NC FS CARD CM PREP ART NC CQUE ART NC PREP ART NC VHfin VLadj CSUBX NC ADJ PREP PPO ADJ CSUBI VLinf ART NC PREP ART NC ART NC PREP NC ADJ VLadj PREP NC PREP NC CSUBI VLinf PPO VLfin NC PREP ART NC NC FS
+1 sentences, 78 words, 0 OOVs
+0 zeroprobs, logprob= -74.5249 ppl= 8.77715 ppl1= 9.02501
+
+NC NC VHfin VLadj ADV CQUE NC FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -10.2869 ppl= 13.8991 ppl1= 19.3135
+
+PREP ART NC NC NC ART NC VLadj CM PPC VLfin ART NC ADJ VLfin NC QU ART NC VSfin ART NC PDEL VLadj SE VLfin PREP NMON FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -31.7787 ppl= 11.4628 ppl1= 12.4686
+
+ART NC PREP ART VLadj PREP NC CM VLadj CQUE QU PREP ART VLfin NC CQUE PPC VLfin NC PREP NC PREP ART NC VLfin VLadj FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -26.3755 ppl= 8.74948 ppl1= 9.48136
+
+NC PREP NC CARD NC VLfin CQUE VLfin ART NC PREP NC CM ART NC PREP NC CQUE VLfin NC SEMICOLON VLfin PREP VLinf ART NC PREP VLfin PREP ART NC CSUBI VLinf ART NC PREP ART NC CM ADV PREP ART NC ADJ ADJ PREP NC FS
+1 sentences, 48 words, 0 OOVs
+0 zeroprobs, logprob= -39.0059 ppl= 6.25227 ppl1= 6.49564
+
+NC ADJ CM ART NC PDEL NC PREP NC PREP ART NC CM VLfin ART NC NEG ADJ VLfin ART NC CC CM CSUBF CM NEG VLfin VLinf PPO NC ADJ FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -24.9146 ppl= 5.68838 ppl1= 6.00595
+
+ADV ART NC PREP ART VLfin VLadj PREP ART NC NC CM ART NP VHfin NC PREP PREP ART NC PREP NC PREP ART NC PREP NC ADJ PREP ART NC CSUBI VLinf ART NC PREP NC ADJ CM VLger ADJ NC VLadj NC VLfin CSUBX VLfin NC ADJ ADJ FS
+1 sentences, 51 words, 0 OOVs
+0 zeroprobs, logprob= -44.767 ppl= 7.25946 ppl1= 7.54718
+
+VLfin CQUE CM CSUBF NEG VHfin NC PREP NC NC CC QU NC PREP ART NC ADJ PREP ART NC ADJ CC ADJ CM CODE NC ADJ VLfin PPO NC PREP NC PREP ART NC CODE PREP NP CM NP CM CC CARD VSfin CQUE VLinf PREP NC CARD CC CARD PREP ART ADJ NC FS
+1 sentences, 56 words, 0 OOVs
+0 zeroprobs, logprob= -57.4569 ppl= 10.1863 ppl1= 10.6173
+
+VLinf ART NC PREP CARD PREP CARD NC NC VLadj PREP ART NC ADJ CODE PREP NC CM ADV ART CARD PREP CARD PREP ART NC CQUE VLfin PREP ART NC CM ART NC VLfin CM QT NEG VSfin NC ART NC PREP VLadj NC CQUE VMfin VLinf VLinf CSUBI VLinf ART NC ADJ QT FS
+1 sentences, 56 words, 0 OOVs
+0 zeroprobs, logprob= -57.7434 ppl= 10.3049 ppl1= 10.7432
+
+ART NC ADV VLfin CQUE ART ADJ NC PREP ART NC VMfin VHinf VSadj VLadj PREP ART NC PREP ART NC PREP NC CQUE VLfin ART NC PREP NC NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -23.831 ppl= 5.55543 ppl1= 5.87139
+
+PREP ART NC CM ART NC VLadj PREP VLinf NC
+1 sentences, 10 words, 0 OOVs
+0 zeroprobs, logprob= -12.5267 ppl= 13.7654 ppl1= 17.8923
+
+PREP NC VLfin NC CC NC PREP NC NC ADV VLadj CSUBI VEinf PREP NC PREP QU VLadj PREP ART NC PREP NC FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -24.4223 ppl= 9.48179 ppl1= 10.4134
+
+QU ART CQUE VLfin VSfin PREP ART NC CSUBI VLinf NC CM VLfin ADJ NC ADJ CSUBI VSinf VLadj CC VLadj CC NC ADJ PAL NC FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -30.2784 ppl= 12.0607 ppl1= 13.2258
+
+ART NC CM ART NC PREP NC ADJ PDEL NC VLfin PREP VLinf ART NC VLadj PREP ART NC ADV NC LP NC NC FS RP CM PREP PE FS ADV ADV LP NC ADJ FS RP CC NC NC VLfin LP NC NC FS RP CM VLger NC PREP PPO NC ART NC CC ART NC ADJ PREP PPO QT NC QT FS
+1 sentences, 64 words, 0 OOVs
+0 zeroprobs, logprob= -83.0405 ppl= 18.9472 ppl1= 19.8384
+
+QT DM NC VLfin VLger ART NC ADJ PREP NC CSUBF VLinf PREP VLinf PPO NC QT CM VHfin QU NC FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -29.608 ppl= 19.3777 ppl1= 22.1726
+
+QT VSfin ART NC PREP NC ADJ PREP PPO NC ADJ QT FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -14.6954 ppl= 11.2118 ppl1= 13.5026
+
+ART NC VMfin VLinf ADJ CM CCAD QU PREP ART NC VLfin VHfin VSadj ADJ ADV FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -21.6388 ppl= 15.9279 ppl1= 18.7444
+
+DM NC CM ART NC PREP QU NC VLfin PREP ART PREP QU CC ART NC ADJ PREP ART NC PREP ART NC PREP NC CSUBI VLinf CC VLinf PREP ART NC ADJ PREP ART NC PREP ART NC PREP ART VLfin PREP NC FS
+1 sentences, 45 words, 0 OOVs
+0 zeroprobs, logprob= -32.3777 ppl= 5.05665 ppl1= 5.24209
+
+PREP NMON CM NP CC NP VLfin ART NC CQUE VLfin ART NC VLadj PREP ART NC ADJ ADJ PREP NC FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -18.5904 ppl= 6.431 ppl1= 6.99872
+
+ART NC PREP NC VSfin VLadj PREP ART NC PREP ART ADJ NC ADJ CM CC ADV NC PREP ART NC PREP ART NC FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -16.6021 ppl= 4.35052 ppl1= 4.61405
+
+CCAD ART ADJ VLfin PREP CQUE VLfin NC PREP ART NC CM ART NC ADV VLfin PREP ART NC CQUE VLfin VLadj ART NC PREP ART NC ADJ PREP NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -29.3726 ppl= 8.27738 ppl1= 8.8614
+
+CQUE VLfin ART NC ADJ PREP ART NC PREP NC ADJ NC PREP ART NC VLinf ART ADJ CSUBI VLinf PREP NC QT ART NC PREP ART NC CM CCAD NEG ADV VLadj ADV CSUBI VLinf PREP ART NC ADJ FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -37.5525 ppl= 7.83625 ppl1= 8.23978
+
+NC VLfin PREP ART ADJ NC PREP NC CM CC NC VSfin VLadj NC FS CODE FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -20.9022 ppl= 14.4955 ppl1= 16.9646
+
+ART NC PREP ART VLfin NC ADV NC FS CARD FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -13.8594 ppl= 14.2873 ppl1= 18.1947
+
+ADV ART NC VLfin VEinf ADJ CSUBI VLinf FS
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -10.9183 ppl= 12.3546 ppl1= 16.3359
+
+ART NC PDEL NC PREP ART NC ADJ QT VLfin PAL NC PREP NC PREP PPO ADJ NC CC NC ADJ PREP VCLIinf QT ALFS QT VLfin PREP ART NC CC NC PREP ART NC VLadj PREP NC CC PPO NC PREP NC CQUE VLfin PREP NC ADJ CSUBI VLinf PREP ART NC PREP NC PREP PPO ADJ ADJ CC NC QT FS
+1 sentences, 63 words, 0 OOVs
+0 zeroprobs, logprob= -58.234 ppl= 8.12654 ppl1= 8.40134
+
+ART NC NP QT VLfin ART NC ADJ PREP ART NC PREP ART NC ALFS ADJ PREP NC PREP ART NC PREP NC FS QT
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -22.8679 ppl= 7.57767 ppl1= 8.21707
+
+ART NC VLadj VLinf ART NC ADJ PREP ART NC ADJ NC CM CC VLfin PREP VLinf PREP ART NC CSUBX ART NC PREP NMON VLfin FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -26.2847 ppl= 8.68438 ppl1= 9.4082
+
+ART NC NC VLfin ART NC CQUE NEG VLfin VLadj ART NC ADJ PREP ART ADJ NC ADJ FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -14.6445 ppl= 5.39792 ppl1= 5.89881
+
+PREP ART NC CM ART NC NP DM NC PREP ART VLfin ADJ CQUE VLfin ART VLadj ADJ CM ART ADJ NC ADJ PREP ADV QU ART NC PDEL NC CC QU NC FS
+1 sentences, 34 words, 0 OOVs
+0 zeroprobs, logprob= -32.9138 ppl= 8.71757 ppl1= 9.29083
+
+ART NC CM VLadj PREP NC FS NC NC LP NC VLfin FS RP CM VLfin ART ORD VLfin ADJ PREP ART VLadj CC QU QU NC CSUBI VLinf ART NC NC PREP ART NC CC NC DM NC FS
+1 sentences, 40 words, 0 OOVs
+0 zeroprobs, logprob= -50.1672 ppl= 16.7336 ppl1= 17.9548
+
+ART NC VSfin NC CARD PREP CARD VLfin ADJ CQUE SE VHfin VLadj DM NC CM PREP ART ADJ NC PREP NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -22.448 ppl= 8.61652 ppl1= 9.46234
+
+PREP NC CM CARD NC VLfin PREP NC PREP ART NC NEG VLfin VLinf ART NC PREP ART VLfin FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -18.0195 ppl= 7.21229 ppl1= 7.96117
+
+NC NC PDEL VLadj CM QU NC VLfin VLinf ART NC PREP NC VLadj PDEL NC VMfin VLinf CM CSUBX NC FS NC NC ADJ LP NC NC RP VLfin VLinf ART NC PREP CARD NC PREP NC FS
+1 sentences, 39 words, 0 OOVs
+0 zeroprobs, logprob= -47.2259 ppl= 15.1582 ppl1= 16.2525
+
+NP FS NC NC ADJ ADJ FS LP NC ADJ FS RP VHfin VLadj ART NC PREP VLfin VLinf ART NC PREP ART NC PREP NC CC ART NC ADJ CM PREP QU NC FS
+1 sentences, 35 words, 0 OOVs
+0 zeroprobs, logprob= -38.1723 ppl= 11.4906 ppl1= 12.3208
+
+ART VLfin ART NC PDEL NC PREP NC PDEL ADJ NC VSfin ART VLfin ADJ CM CSUBX VSfin CARD CQUE VLfin ART VLfin PREP NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -29.4764 ppl= 12.3515 ppl1= 13.6053
+
+QU NC ADV VLfin VLinf ART NC PREP NC ADJ CSUBX SE VLfin PREP CARD NC PREP ART NC NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -18.9507 ppl= 7.26769 ppl1= 7.98758
+
+ART NC VSfin ADJ PREP NC PREP ART PREP NC PREP ART CARD CM CSUBX ART NC ADV VLadj NC PREP CARD VLfin QU CARD VLadj CM ADV NC VLadj PREP ART NC NC FS
+1 sentences, 35 words, 0 OOVs
+0 zeroprobs, logprob= -38.9417 ppl= 12.0702 ppl1= 12.9605
+
+ART NC VLfin PREP VLinf NC ART NC NC VSfin VLadj PREP CARD CM CCAD ADV VSfin VLadj PREP ART NC PREP CARD FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -24.1432 ppl= 9.24119 ppl1= 10.1383
+
+CARD NC ADV PREP ART NC PPC VLfin PREP NC PREP NC PREP ART NC ADJ PREP VLfin CM NC FS NC NC LP NC ADJ FS RP VLadj PREP ART NC ADJ ART NC PREP ART NC CM NC ADJ PREP ART NC VLfin NC QT ART NC NP NC QT CC VLfin CQUE VLfin VLinf ADJ NC CQUE PPX VLfin VLinf PAL NC FS
+1 sentences, 66 words, 0 OOVs
+0 zeroprobs, logprob= -74.0864 ppl= 12.7575 ppl1= 13.2593
+
+ART VLfin CQUE VLfin PREP NP PREP ART QT CARD SLASH CARD QT PREP NC NC CM NC VLadj VLadj VLfin CC VLfin NC CSUBI VLinf FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -38.3007 ppl= 23.3283 ppl1= 26.2147
+
+ART NC VLadj PPO ADJ NC PREP NC PREP ART NC VLadj PREP ART NC CQUE PPO NC VLadj CC NC ART NC PREP PPO NC CM VLger PREP ART PREP ART NC ADJ PREP PPO NC FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -34.456 ppl= 7.64692 ppl1= 8.06744
+
+VLfin CARD NC CM CQUE VHfin VLadj ART NC VLinf PREP ART NC PREP VLinf PPO NC PREP NC CC NC PREP ART NC PREP ART NC FS
+1 sentences, 28 words, 0 OOVs
+0 zeroprobs, logprob= -22.2194 ppl= 5.83696 ppl1= 6.21657
+
+ART VLadj PREP NC CC PPO NC CM NC NC NC CM VLfin NC PREP ART NC ADJ QT CARD SLASH CARD QT ADJ CQUE VLadj PREP NC PREP ART NC PREP ART NC PREP PPO ADJ NC CM QT NC COLON ART NC PREP NC CC NC QT FS
+1 sentences, 50 words, 0 OOVs
+0 zeroprobs, logprob= -58.5157 ppl= 14.04 ppl1= 14.8018
+
+ART NC NC ADJ PREP ART NC PREP ART NC FS CARD NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -11.8404 ppl= 6.15684 ppl1= 7.01036
+
+PREP ART NC VLadj PREP NC PREP ART ORD NC CM VSfin VLadj PREP PPO NC PREP NC CM PPO NC PPO CC ART ADJ NC PREP QU PPO NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -29.8729 ppl= 8.58083 ppl1= 9.19693
+
+VLfin PPX VSfin ADJ CSUBI VLinf ART CC CARD NC CSUBX PPO NC VLfin PREP PPX FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -23.4666 ppl= 20.1234 ppl1= 24.0099
+
+NC NC ADV CM NC VSfin VLadj ADJ PREP ART NC PREP NC CSUBX NC VLinf PPO NC VLinf PREP NC NC ADJ FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -29.0963 ppl= 14.5832 ppl1= 16.306
+
+ART NC PREP ART NC FS
+1 sentences, 6 words, 0 OOVs
+0 zeroprobs, logprob= -3.45239 ppl= 3.11314 ppl1= 3.76183
+
+CC ADV CM PPO ORD NC COLON QT NC NC FS QT
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -18.5214 ppl= 26.5902 ppl1= 34.9501
+
+PREP ART NC CM NC VLadj QU NC NP QT NC QT ART NC PREP ART NC PREP PPO NC PDEL NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -24.0665 ppl= 10.064 ppl1= 11.1268
+
+ART NC VLadj PREP NP VLfin CQUE ART NC VHfin VLadj ART NC ADJ PREP ART NC PREP NC COLON ART VLfin VSfin VLadj VLinf PREP NC VLfin NC PREP ART QT NC ADJ VLfin VHfin ADJ QT CC NC ADJ QT PE QT PE NP QT FS QT
+1 sentences, 49 words, 0 OOVs
+0 zeroprobs, logprob= -57.4411 ppl= 14.0871 ppl1= 14.8685
+
+PREP ART VLadj PREP NC CM NC CM CQUE VLfin CARD NC PREP ART NC QU ADJ CM VLfin CQUE NEG VLfin NC PDEL ADJ PREP ART NC FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -29.2404 ppl= 9.43369 ppl1= 10.1927
+
+NC ADJ NC VLfin VLinf SE VLfin PREP ART NC ADJ CC VLfin VSger ADJ PREP ART NC CSUBX NC NC NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -24.5578 ppl= 10.5498 ppl1= 11.6878
+
+QT ART NC PREP NC VLfin CM QT VLfin ADJ NC FS
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -15.9851 ppl= 16.9677 ppl1= 21.4829
+
+PREP ART NC PREP PPO NC QT ART NC CM NC VLfin PREP NC CM VHfin QU CM QT PPX QT VHfin VSadj VLadj FS QT
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -36.8712 ppl= 23.2059 ppl1= 26.1892
+
+QT NC CM VLfin VLinf CM QT NC CM PPX NEG VHfin VSadj VLadj QT QT NC VLfin FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -32.135 ppl= 40.4345 ppl1= 49.1267
+
+PPX QT VHfin VLfin PREP VLinf ALFS FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -24.7001 ppl= 555.206 ppl1= 1223.24
+
+CC PPX QT VLfin PREP VLinf DM CM CC PPX QT VLfin PREP VLinf CC PPX QT VLfin PREP VLinf NC ADJ CQUE ADV FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -39.9231 ppl= 34.3165 ppl1= 39.5296
+
+ART NC VSfin ART NC NC ADJ CQUE VHfin VLadj CARD PREP NC PREP NC PREP NC NC PREP ART NC PREP NC FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -19.3946 ppl= 5.96739 ppl1= 6.42849
+
+NC NC VLfin ART NC PREP NC CM ART NC CC ART NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -10.7118 ppl= 5.17748 ppl1= 5.82273
+
+ADV CM QU NC PREP NC CC NC CM NC CC VLfin NC PREP NC PREP NC PREP NC FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -16.4162 ppl= 6.04958 ppl1= 6.6193
+
+QT ART NC CC NC VSfin ADJ ADJ QT CM VHfin QU NC VLfin CM CQUE VLfin ART NC PREP NC FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -26.6243 ppl= 14.3741 ppl1= 16.2254
+
+ART ADJ NC ADJ PREP ART NC CM ADV VLfin ART NC ADJ ADV NC CM NC FS NC VLfin CM VLfin ART NC PREP ART NC PREP NC ADJ FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -28.3346 ppl= 7.68166 ppl1= 8.20385
+
+QT SE VLfin CSUBX ART NC PREP NC PREP NC CM QT ART ADJ NC PREP ART NC ADJ FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -19.7442 ppl= 8.71369 ppl1= 9.70985
+
+ACRNM PPC VLfin FS
+1 sentences, 4 words, 0 OOVs
+0 zeroprobs, logprob= -6.59815 ppl= 20.8752 ppl1= 44.6208
+
+ART NC PREP NC NC VLfin ART ADJ NC CQUE SE VHfin VLadj PREP ART NC CC ART ADJ ADV CM ADV NC ADJ ADJ FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -23.4793 ppl= 7.40633 ppl1= 7.99925
+
+ART NC SE VHfin VLadj PREP NC PREP PPO NC FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -8.72883 ppl= 5.3383 ppl1= 6.21628
+
+QT CCAD VLfin CQUE ART NC NC PREP CQUE QU VMfin VSinf ADJ VSfin VLadj PREP ART NC PREP VLadj NC FS QT
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -32.5531 ppl= 22.7184 ppl1= 26.0226
+
+ART NC VSfin ADV ADJ PREP NC ADJ CM CQUE NEG VLfin VLinf NC CC PREP NC PREP ART NC CQUE VLfin FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -19.4072 ppl= 6.43628 ppl1= 6.97899
+
+ADV SE VLfin NC PREP CQUE ART NC CQUE VLinf NC VLadj PREP ART NC VLadj PREP ART NC PREP NC VSfin ADV ADJ FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -20.7051 ppl= 6.25677 ppl1= 6.73293
+
+CSUBX NC CM ART ADJ PREP ART NC PREP ART NC VLinf NC PREP NC CC PREP NC PREP NC PREP NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -19.2575 ppl= 6.34447 ppl1= 6.87514
+
+QU VLinf PREP ART NC PREP NC CSUBX SE VLfin PREP ART NC CC NC PREP NC ADJ FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -16.9776 ppl= 7.06123 ppl1= 7.82634
+
+QU PPC VLfin CSUBX VHfin ART QT VLadj CM VLfin NC PREP ART NC CM QT VLfin NC CM CQUE VLfin PREP NC CC NC PREP ART ADJ NC PDEL NC PREP NC FS
+1 sentences, 34 words, 0 OOVs
+0 zeroprobs, logprob= -40.0113 ppl= 13.9053 ppl1= 15.0246
+
+PREP PPO NC PREP NC CM VLfin CM VLfin ART NC PREP CQUE QU ART NC ADV VLfin VLadj CSUBX VLfin VLinf PREP ART NC PREP NC ART ADJ NC ADV ADV PREP PPO NC PREP ART NC FS
+1 sentences, 39 words, 0 OOVs
+0 zeroprobs, logprob= -33.7404 ppl= 6.97446 ppl1= 7.33059
+
+QT CSUBX VLfin PREP PPO NC CM SE VLfin CSUBI VLinf ART NC ADJ CM QT NC NC VLger PREP PPO NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -26.5181 ppl= 12.7327 ppl1= 14.222
+
+ART NC PREP ART NC SE VMfin CM ADV CM PREP ART NC ADJ PREP ART NC FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -13.3069 ppl= 5.01606 ppl1= 5.4862
+
+NC PREP NC NC ADJ NC VSfin VLadj PREP NC PREP ART NC CQUE VLfin QU NC PREP ART NC CC VLfin QU NC ADJ PREP ART NC PREP NC CC NC FS
+1 sentences, 33 words, 0 OOVs
+0 zeroprobs, logprob= -27.3253 ppl= 6.36334 ppl1= 6.73037
+
+QT CQUE CM CSUBX NC CM ADV NEG NC NC ADJ PREP NC CQUE VSfin ADV ADV PREP ART ORD NC ADJ QT CM VLfin ART NC ADJ VLadj VLfin NC CM PAL NC PREP ART NC ADJ PREP NC FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -48.4656 ppl= 14.2542 ppl1= 15.2086
+
+NC NC VLadj PREP ART NC PREP NC CQUE VHfin VLadj CM ART NC PREP NC CQUE VHfin VLadj CC ART NC PREP PPO NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -20.684 ppl= 5.83546 ppl1= 6.2451
+
+ADJ SE VLfin PREP ART ADJ NC CSUBI VLinf NC ADJ PREP ART NC
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -13.6721 ppl= 8.15588 ppl1= 9.47492
+
+DM NC CM ART VLfin NC NP CSUBX CARD NC CC NC VLfin ART NC PREP ART NC PREP VLadj ADJ PREP ART NC FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -26.1625 ppl= 10.1449 ppl1= 11.1301
+
+CSUBX NEG CM NC PREP NC NC VLger PREP ART ADJ FS
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -15.1373 ppl= 14.6017 ppl1= 18.2573
+
+NP FS NC ADJ VSfin PREP CARD NC CC CARD NC VLadj ART NC VLfin CQUE VSfin VLadj PREP ART NC VLadj FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -28.0485 ppl= 14.7465 ppl1= 16.5768
+
+VSfin PREP NMON PREP CARD CM CC VSfin ART NC PREP NC PREP PPO NC PREP NC NC ADJ CM PAL NC PREP VLfin ADJ CM ADV CSUBI VLinf PREP ART NC CSUBX PPX SE VLfin PREP ART NC ADJ VLinf ART CARD NC PREP NC FS
+1 sentences, 47 words, 0 OOVs
+0 zeroprobs, logprob= -46.8263 ppl= 9.45251 ppl1= 9.91524
+
+VHfin VLadj CSUBX VLfin VLinf PREP PPX PREP PPO NC PREP ART NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -15.2268 ppl= 10.3543 ppl1= 12.2357
+
+QT ART NC ADJ NC CM QT VLfin ADJ FS
+1 sentences, 10 words, 0 OOVs
+0 zeroprobs, logprob= -15.6994 ppl= 26.7435 ppl1= 37.1484
+
+QT CQUE ART PREP NC CM QT VLfin FS
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -19.1625 ppl= 82.461 ppl1= 134.637
+
+ART NC VLfin CQUE NC CC NC NEG VLfin VLinf NC VLadj PREP ART NC CM PREP NC PREP ART NC QT NC ADJ FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -24.279 ppl= 8.58632 ppl1= 9.35749
+
+NC PREP NC PREP VLfin ADJ CM NC CM NC CM NC CM ART NC ADV VLadj CARD NC CCAD NC PREP CARD PREP ART ADJ NC NC CARD NC CC CARD NC CM QU ART REL VLfin CQUE VSfin VLadj CC VLadj ADV PREP NC VLadj CM CC PREP CQUE PPC VLfin NEG VLinf CM VLinf CM CC VLinf ADJ NC PREP ART VLadj NC FS
+1 sentences, 67 words, 0 OOVs
+0 zeroprobs, logprob= -81.3079 ppl= 15.6929 ppl1= 16.3512
+
+NC VLfin CQUE VLfin ADV PREP ART NC PREP ART NC ADJ CSUBX ART NC VLfin PREP PPX FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -15.7063 ppl= 6.09978 ppl1= 6.70883
+
+QT ART NC VSfin ART NC ADJ CM QT VLfin FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -16.2906 ppl= 22.7796 ppl1= 30.2663
+
+QT NP VSfin ART NC CQUE SE VLfin PREP ART NC CSUBI VLinf ART NC PREP NC FS ART NC FS QT
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -22.2033 ppl= 9.2334 ppl1= 10.2151
+
+NC VLfin ADV CQUE PREP ART NC PREP NC CM CQUE VHfin VSadj VLadj PREP ADV CODE QU NC CM QU PREP ART REL VLfin VSinf NC PREP NC PREP NC FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -36.0871 ppl= 12.4036 ppl1= 13.419
+
+PPO NC COLON PREP VLinf QU ART NC PREP DM NC NC VLinf QU PPO NC PREP ART ADJ NC CM PREP NC VLinf NC VLfin PREP VLinf ADJ NC CM CSUBX VSfin ADJ CM CSUBI VLinf ART NC PREP FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -49.321 ppl= 14.9386 ppl1= 15.957
+
+ART NC PREP NC PREP ART NC PREP NC CM VLadj PREP NC ADJ NC NC CM VHfin VLadj ART NC CSUBI VLinf PAL NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -21.3369 ppl= 6.16957 ppl1= 6.61682
+
+CODE PREP ART NC PDEL NC ADJ VLfin ART NC NC CM ART NC ADJ NEG VSfin ADJ PREP ART NC VLadj PREP NP VMinf NC FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -31.7468 ppl= 13.6087 ppl1= 14.9902
+
+ART NC PREP NC SE VLfin PREP VLinf NC PREP DM NC FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -9.65145 ppl= 4.89091 ppl1= 5.52611
+
+ADV PREP NC CC NC CM NC PREP NC VLadj ADV VLger ART NC QU NC NC ADJ CM ADV PREP VLinf PREP ART NC ADJ PREP NC PREP NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -30.2376 ppl= 8.80897 ppl1= 9.44946
+
+ART NC COLON PREP ART CARD NC CM CARD NC VLadj VHfin ADJ NC CM CARD NC PREP PPX PREP VLinf NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -31.0512 ppl= 19.6699 ppl1= 22.39
+
+VSfin NC PREP CQUE ART NC CSUBI VLinf NC CM VLfin VLfin FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -14.4584 ppl= 10.7831 ppl1= 12.9475
+
+PPX NC ADJ PREP PPO NC SEMICOLON QU CARD NC PREP NC CM NC PREP ART NC FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -23.3587 ppl= 16.9591 ppl1= 19.8474
+
+PREP ART NC PREP NC PREP NC CM ART NC PREP ART NC ADJ PREP NC NC VLger ART NC PREP ART CARD ADJ NC ADJ PREP ADV VLinf ART NC ADJ FS
+1 sentences, 33 words, 0 OOVs
+0 zeroprobs, logprob= -26.523 ppl= 6.02682 ppl1= 6.36396
+
+ADV CM ART NC PREP NC ADJ PREP NC NC VLger ART NC PREP ART NC CQUE SE VLfin PREP ART QT NC PREP NC QT NC VLadj PREP ART NC PREP NC CSUBI VLinf PREP NC NC QU ADV CM NC NC CSUBX NC ADJ PDEL NC PREP ART NC PREP ART NC PREP NC CM ART NC PREP NC ADJ FS
+1 sentences, 63 words, 0 OOVs
+0 zeroprobs, logprob= -52.8308 ppl= 6.69086 ppl1= 6.8958
+
+PPO NC NC ART NC PREP NMON PREP PREP PREP ART NC PREP ART NC CM VLinf PREP ART NC ADJ PREP ART NC PREP CQUE SE VLfin ART NC PREP VLfin PREP ART NC CQUE VLfin CQUE VSfin VLadj ADV PREP ART NC FS
+1 sentences, 45 words, 0 OOVs
+0 zeroprobs, logprob= -40.7637 ppl= 7.69426 ppl1= 8.05117
+
+CARD NC ADV SE VHfin VLadj PREP ART NC PREP ART NC PREP NC PREP NC CC NC CM VLger ART NC PREP ADJ FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -21.0045 ppl= 6.42486 ppl1= 6.92115
+
+PREP CARD VLfin CARD NC ADJ CM NP NP ART NC PREP NC NC ADJ PREP ART NC CC NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -20.4948 ppl= 8.54247 ppl1= 9.46116
+
+CCAD NC VSfin ADV ADJ CM CC PREP ART NC PREP ART ADJ NC CM DM NC VLfin ADV ART CARD PREP CARD PREP ART VLfin CARD ADJ VLadj DM NC FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -36.3213 ppl= 12.608 ppl1= 13.6471
+
+ART NC CM VLadj PREP NC CM VLfin ADV ART NC PREP NC COLON PREP CARD CM CARD PREP CARD PREP NC VLadj PREP ART NC VSfin PREP NC NC ART NC PREP ART NC PDEL NC PREP NC ADJ FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -35.4354 ppl= 6.97752 ppl1= 7.31609
+
+ART NC PREP ART NC PREP NC VLinf PPO NC CSUBX ART ORD PREP ART NC PREP NC FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -16.1167 ppl= 6.39493 ppl1= 7.05096
+
+DM NC CM VLfin CM VSfin VLadj CSUBI VLinf ART NC PREP PPO NC CARD NC VLadj PREP ART NC PREP ADJ CM ART ADJ CM CC NC FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -30.0715 ppl= 10.055 ppl1= 10.888
+
+CARD NC NC NC CSUBX NC PREP NC PDEL ADJ NC CM CQUE ADV VSfin VLadj FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -21.0827 ppl= 14.834 ppl1= 17.3843
+
+QT VLfin ART NC PREP CQUE ART NC VSfin NC ADJ CM QT VLfin FS
+1 sentences, 15 words, 0 OOVs
+0 zeroprobs, logprob= -20.2202 ppl= 18.3555 ppl1= 22.2852
+
+QT PPX VLfin PREP ART NC ADJ CM CC CSUBX VHfin VLadj CM VLfin VLger PREP PPO NC PREP NC CM QT CQUE CCNEG ADV VEfin QT ALFS PPO NC FS CQUE VEfin PPO NC QT FS QT
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -62.842 ppl= 40.8634 ppl1= 45.0544
+
+NC VSfin VLadj PREP VLinf ART NC ADJ CM CQUE ADV PPO NC PREP ART NC PREP NC CM PREP ART CQUE PPO NC PREP ART NC FS
+1 sentences, 28 words, 0 OOVs
+0 zeroprobs, logprob= -23.0962 ppl= 6.25777 ppl1= 6.68133
+
+PREP NMON PREP CODE VSfin ADJ PREP NEG NC ADJ CM VLinf VLinf QU NC FS
+1 sentences, 16 words, 0 OOVs
+0 zeroprobs, logprob= -22.1974 ppl= 20.2177 ppl1= 24.3972
+
+PREP NC ART NC VLadj PREP NC CC PPO NC NC VLfin CM VSfin ADV ADV CM VLfin ADV NC CM NC PREP NC PREP ART NC NC VLfin NC ART NC FS
+1 sentences, 33 words, 0 OOVs
+0 zeroprobs, logprob= -33.3345 ppl= 9.55933 ppl1= 10.2362
+
+ADV CM VLfin CM QT PREP PPO NC VLfin VMinf VLinf QT FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -18.7831 ppl= 21.961 ppl1= 27.852
+
+ART CQUE VLfin PREP PPX CC ART NC VSfin DM VLfin CQUE VHfin VSadj VLadj PREP PPO ORD VLadj FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -27.2737 ppl= 19.8951 ppl1= 23.1038
+
+ADV CM QT ART NC ADV ADV PREP PPX DOTS CCAD VSfin ADJ PREP PPX PREP VLinf FS QT
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -30.8754 ppl= 34.9758 ppl1= 42.1715
+
+DM NC VLfin VLinf CSUBX ADJ NC ADV VLadj PREP VLinf FS
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -13.9316 ppl= 11.794 ppl1= 14.4866
+
+CSUBX ART NC PE QT ALFS VLinf PPO NC CM ADJ CM VLadj PREP ART NC CM NC PREP PPO NC PREP QU NC PREP NC ADJ FS
+1 sentences, 28 words, 0 OOVs
+0 zeroprobs, logprob= -31.4763 ppl= 12.1728 ppl1= 13.3093
+
+QT VLfin VLger PREP ART NC PREP DM NC PREP CQUE SE VLfin ART NC CM QT VLfin FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -23.4076 ppl= 14.8041 ppl1= 17.0601
+
+ADV PREP CQUE SE VLfin PREP ART ADJ NC PDEL NC PREP ADJ PREP NC CM NC NC NC VLfin ADV QU NC VLinf PPO NC NP NC PREP NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -32.9152 ppl= 10.6807 ppl1= 11.5287
+
+CSUBX NC VMfin VHinf VLadj ADJ CM VEfin ADV PREP ADJ PREP ART NC COLON VLfin VLadj ADV PREP ART NC ADJ PREP PPO NC PREP PPO NC CM VLger PREP QU PREP ART CARD PREP NC CQUE VLinf PREP ART NC PREP ADJ PREP ART NC PREP NC ADJ FS
+1 sentences, 51 words, 0 OOVs
+0 zeroprobs, logprob= -53.59 ppl= 10.7294 ppl1= 11.2405
+
+ADV PREP ART NC PREP DM NC CM ART NC VLfin VLinf NC PREP DM NC FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -13.3078 ppl= 5.48681 ppl1= 6.0647
+
+CCAD NC VLfin VLinf PREP PPX FS
+1 sentences, 7 words, 0 OOVs
+0 zeroprobs, logprob= -12.8866 ppl= 40.8156 ppl1= 69.3338
+
+NC NC VLfin PREP VLinf PREP NC FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -7.50469 ppl= 6.8211 ppl1= 8.67134
+
+QT VHfin VLadj NC PREP CQUE NEG VEfin CQUE VLfin VLinf PREP PPX PREP QU QT CM VLfin VLfin NC CM ART ADJ NC PREP ART NC VLadj ADV PREP ART NC ADJ ADJ PREP NC NC NC VLfin FS
+1 sentences, 40 words, 0 OOVs
+0 zeroprobs, logprob= -51.1953 ppl= 17.7282 ppl1= 19.0494
+
+NC PREP VLinf PREP NC NC VSfin ADV VLadj CM VLfin NC CM CQUE ART NC VLfin ADV VLinf ART NC PREP ART NC PREP ART NC CSUBI VLinf PPO ADJ VLadj PREP ART NC ADJ NC ART NC ADJ VHfin VEadj VLger PREP NC FS
+1 sentences, 46 words, 0 OOVs
+0 zeroprobs, logprob= -44.2208 ppl= 8.72707 ppl1= 9.14792
+
+ART NC PREP NC VLadj ADJ NC PREP NC PREP NC PREP ADJ PREP QU NC CC ADV PPC ADJ PREP NC CM CCAD PREP VLinf PREP ART ADJ NC CC ART NC NC CM ART NC NC PREP ART NC PREP VLinf ART VLfin CQUE VHfin VLadj NC PREP PPO NC ADJ CM ART NC PREP ART NC CC NC PREP PPO ADJ NC FS
+1 sentences, 66 words, 0 OOVs
+0 zeroprobs, logprob= -57.7734 ppl= 7.28264 ppl1= 7.50506
+
+PREP VLinf PREP NC PREP NC CM NC CC PPO NC VHfin VMadj VLfin NC PREP CARD NC PREP CARD NC PREP ADJ NC PREP CARD NC NC NC QU PREP VLinf ART NC FS
+1 sentences, 35 words, 0 OOVs
+0 zeroprobs, logprob= -40.9086 ppl= 13.6883 ppl1= 14.7509
+
+QT VSfin ART ADJ NC CSUBI VLinf ART NC QT CM VLfin NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -17.2146 ppl= 14.0488 ppl1= 16.9673
+
+QU PREP ART NC NEG VSfin QU CQUE ADJ COLON VLfin NC PREP NC PREP ADJ VLfin PREP VSinf NC CM NC CC VLadj PREP ART NP FS
+1 sentences, 28 words, 0 OOVs
+0 zeroprobs, logprob= -34.4362 ppl= 15.3976 ppl1= 16.9771
+
+CCAD PREP ART NC PREP NC CM QT ART CQUE VLinf PPO NC PREP NC PREP ART NC PREP NC ADJ CM NC ADJ CC ADV ADJ CQUE DM CQUE VLfin VLfin NC PREP ART NC PREP NC QT FS
+1 sentences, 40 words, 0 OOVs
+0 zeroprobs, logprob= -43.0173 ppl= 11.1996 ppl1= 11.8969
+
+VLfin PREP NC VSfin VLfin ART NC PREP NC NC SE VLfin VLger PREP ART ADJ NC ADJ PREP NC PREP ART ADJ FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -24.3024 ppl= 9.37769 ppl1= 10.2944
+
+PREP QU NC CM ART NC PREP NC VSfin CQUE VLfin PPX NC NC CQUE NEG VLfin PREP ART NC ADJ PREP ART NC FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -22.1161 ppl= 7.08956 ppl1= 7.66732
+
+QT ADV CM CSUBX SE VLfin VLfin NC PDEL NC ADJ ADJ CM VLfin ADV ADJ VLinf QT FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -26.9278 ppl= 22.202 ppl1= 26.1369
+
+QT VLfin CQUE VLinf PREP ART NC CC NEG VLinf ART NC QT CM VLfin NC FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -20.8661 ppl= 14.4287 ppl1= 16.8817
+
+QU VLfin ART NC VLfin VLinf ART NC PREP VLinf CC VLinf ART NC PREP NC ADJ FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -14.3162 ppl= 5.66873 ppl1= 6.24232
+
+NC VLfin CQUE ART NC QT NC CM CSUBX NC ADJ CM VLfin VLinf ART NC CC PREP VLinf CSUBI VLinf PREP ART NC CQUE VLadj CARD QU NC NC VLfin FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -38.0329 ppl= 14.2073 ppl1= 15.4357
+
+QT NEG SE VMfin VLinf PREP ART NC CSUBX NEG SE VMfin VLinf CM QT VLfin NC CM ADJ ART NC CC NC PDEL NC PREP ART NC ADJ CM ART NC CC ART NC PREP ART NC PREP NC PREP ART NC PREP NC CM VLfin PREP ART NC PREP NC FS
+1 sentences, 53 words, 0 OOVs
+0 zeroprobs, logprob= -45.128 ppl= 6.85021 ppl1= 7.10349
+
+QT VHfin VLadj ART NC PREP VLinf PREP ART NC PREP NC PREP NC CQUE NEG SE VLfin QT FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -21.7041 ppl= 10.8025 ppl1= 12.1675
+
+NC ART NC PDEL NC VHfin VLadj PREP NC PREP NC NC CC ART NC PREP VLfin NC CM ART NC ADJ PREP ART CARD NC CM CC ART NC PREP NC ADJ LP ADV VLger NC NC VMfin VLinf NC NC PREP NC ADJ PREP QU NC VHfin VLadj CQUE ART NC VLfin VLinf PPO ADJ NC PREP NC ADJ PREP QU PREP ART NC FS RP
+1 sentences, 68 words, 0 OOVs
+0 zeroprobs, logprob= -66.5747 ppl= 9.22254 ppl1= 9.52883
+
+ART NC PREP NC CCAD VLinf ART NC NC VLger PREP PPX CM PPC VLfin CC NEG NC ART NC CSUBI VMinf VLinf ADJ PREP ART ADJ NC PREP NC VSfin VLinf CQUE ART NC PREP ART VLfin PPO NC NC FS
+1 sentences, 42 words, 0 OOVs
+0 zeroprobs, logprob= -44.8708 ppl= 11.0537 ppl1= 11.7045
+
+CCAD NC NC VLfin CSUBX ART NC PREP NC PREP VLinf NC PREP ART VLfin CQUE CCNEG ADV VLfin FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -27.3106 ppl= 19.9758 ppl1= 23.2022
+
+QT NEG VLfin ADV PREP ART NC ADJ ADV VLadj PREP ART NC PREP CQUE ART NC VLfin VEinf VLger PPO NC QT CM VLfin NC ADJ CM NC PREP ART NC NC PREP NC CM PREP ART NC PREP CARD VHfin VLadj PREP NC PREP ART NC QT NC NC NC FS
+1 sentences, 53 words, 0 OOVs
+0 zeroprobs, logprob= -53.3767 ppl= 9.73774 ppl1= 10.165
+
+QT CSUBF PREP PPX VLfin CM VSfin NC PREP PPX CC PPO NC QT FS
+1 sentences, 15 words, 0 OOVs
+0 zeroprobs, logprob= -25.0528 ppl= 36.7957 ppl1= 46.7933
+
+CSUBF VLfin ART NC PREP ART ADJ FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -7.33051 ppl= 6.5238 ppl1= 8.24733
+
+PREP NC CM VSfin ADJ VLinf NC PREP ART NC PREP NC PREP ART NC CC ART NC VLadj VSfin ADJ FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -16.4899 ppl= 5.21136 ppl1= 5.61746
+
+QT ART CQUE PPX VLfin PREP NC CC ART CQUE PPX PREP NC VSfin CARD NC ADV ADJ QT CM VLfin NP FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -33.4419 ppl= 24.7407 ppl1= 28.4443
+
+PREP PPX CM CSUBI PPO NC CSUBX ART ADJ NC CM NP VLfin ART NC CC ART VLfin ADJ VSfin ART ADJ NC PREP NC QU VMfin VLinf FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -31.6026 ppl= 11.3089 ppl1= 12.2955
+
+QT NEG VHfin NC ADJ CSUBI VLinf PREP ART NC ADJ CC VLinf PREP ART NC ADJ QT CM VLfin FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -23.6097 ppl= 11.835 ppl1= 13.3129
+
+QT ART NC ADJ VMfin VSinf PREP ART ADJ NC CC ART NC PREP QU PREP ART ADJ ADJ VLfin NC PREP PPX QT FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -29.6682 ppl= 13.8383 ppl1= 15.3719
+
+QT ADJ CC ADJ QT COLON NC NC NC VLfin ORD NC NC ADJ
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -29.2507 ppl= 89.1344 ppl1= 122.838
+
+NC NC NC CM ART NC CQUE VLfin PREP NC QU NC CQUE VLfin ART NC PREP CARD NC PREP NC DM NC CM VHfin VLadj PREP NC ADJ CSUBX ART QT NC QT NC NC ADJ PREP PPO ORD NC PREP NC FS
+1 sentences, 44 words, 0 OOVs
+0 zeroprobs, logprob= -42.3809 ppl= 8.74579 ppl1= 9.18763
+
+QT PPX VLfin PAL NC CSUBX VHfin VLadj PPO NC PREP NC CQUE VLfin ART ADJ PREP VLfin CC CSUBX VLfin ART NC FS QT
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -33.2377 ppl= 18.9833 ppl1= 21.3554
+
+QT VLfin ART NC CCAD NEG PPX VLfin ADJ FS QT
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -17.9838 ppl= 31.5248 ppl1= 43.1413
+
+ART NC NC NC VLadj NC PREP DM NC CSUBX NC QT NEG VLfin VLinf ADV ART NC CSUBI VLinf DM NC CSUBX ART NC PREP NC PREP VLinf PPO NC QT FS
+1 sentences, 33 words, 0 OOVs
+0 zeroprobs, logprob= -35.9647 ppl= 11.4232 ppl1= 12.2982
+
+PREP ART ADJ NC SE VLfin PREP VLinf NC CM CQUE VLfin ART NC ADJ PREP NC CM CSUBI VLinf ART NC PREP PPO NC CM PAL NC PREP ART NC FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -24.5839 ppl= 5.55862 ppl1= 5.86472
+
+ADV NC NC PREP VLinf ADJ VLfin ADJ NC PREP CARD NC ADJ CM PPC NP VLfin PREP NC PREP NC PREP CARD NC CM CC VLfin CQUE ART NC VLfin ART ADJ NC PREP QU ART VLfin CC NC PREP CARD NC FS
+1 sentences, 44 words, 0 OOVs
+0 zeroprobs, logprob= -49.0237 ppl= 12.2862 ppl1= 13.007
+
+PREP PREP CARD NC CC NC PREP ART NC VLfin PREP ART NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -13.355 ppl= 7.76839 ppl1= 8.99345
+
+QU VLfin PREP ART NC PREP CQUE VLinf NC PREP ART NC CM QU CSUBI VLinf CQUE NC VLadj PREP NC FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -24.4882 ppl= 11.6066 ppl1= 12.9748
+
+QU NC PREP ART NC PREP VLinf PREP ART NC FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -8.71999 ppl= 5.32925 ppl1= 6.20478
+
+QT NC CQUE VLfin ADJ CC ADJ QT CM VLfin CARD NC VLfin NC ADJ NC FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -23.52 ppl= 20.2612 ppl1= 24.184
+
+QT VEfin ADJ CM CCAD PREP NC VHfin VLadj ART QU NC CSUBI VLinf CC VLinf ART NC QT FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -26.707 ppl= 18.6967 ppl1= 21.6447
+
+CSUBI ART NC VLfin NC CSUBI VLinf NC PREP ART ADJ NC QT QT NC CM ART NC NC CQUE NEG VLfin ADJ CM CC VHfin VLadj CQUE NEG VHfin NC PREP CQUE VHfin VLadj PREP NC FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -45.3617 ppl= 14.5586 ppl1= 15.6217
+
+VMfin CQUE NC VLfin CQUE ART CARD PREP NC NC VLfin VSinf ART NC PREP CARD CM PREP ART NC PREP NC ADJ FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -24.0009 ppl= 9.12082 ppl1= 10.0008
+
+CCAD CQUE NEG QT ALFS ADJ VLinf ART NC CC ART NC CQUE ART NC ADJ ADJ VLfin FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -30.0668 ppl= 31.8669 ppl1= 38.2352
+
+CARD NC PREP ART NC PREP NC PREP NC NC VLadj CM VLger PREP ART NC DM NC
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -22.0993 ppl= 14.5587 ppl1= 16.8943
+
+PREP ART NC PREP NC VLadj PREP NC PREP NC FS CARD CM VHfin QU CQUE PREP NC PREP NC PREP NC VLfin NC VLinf ART ADJ NC CSUBX ART ADJ NC ADJ FS
+1 sentences, 34 words, 0 OOVs
+0 zeroprobs, logprob= -32.6164 ppl= 8.54866 ppl1= 9.10556
+
+CCAD ART CQUE ART VLadj PREP NC VLfin VLinf NC NC ADV PREP ART VLadj VLfin VLadj ADV PREP ART NC PREP ART NC PREP NC ADJ PREP ART ADJ NC DM NC CM VSfin ADJ DM NC ADJ VLadj PREP NC ADJ CC NC NC FS
+1 sentences, 47 words, 0 OOVs
+0 zeroprobs, logprob= -50.0028 ppl= 11.0084 ppl1= 11.5848
+
+ADV PREP CARD CM NC NC VEfin VLger ART NC PREP ART NC PREP NC ADJ PREP ART NC PREP ART NC ADJ CM CC NC SE VLfin PREP NC PREP ART NC PREP NC PREP NC PREP ART ADJ CM VLadj ADV FS
+1 sentences, 44 words, 0 OOVs
+0 zeroprobs, logprob= -37.7511 ppl= 6.90103 ppl1= 7.21074
+
+PREP DM NC VLfin VSadj ADV CARD NC PREP CQUE ART NC PREP NC VHfin VSadj VLadj PREP NC CM CC VLfin ADV VLger PREP ART NC PREP PPO ADJ NC ADJ CM PREP ART NC PREP ART NC ADJ PREP NC FS
+1 sentences, 43 words, 0 OOVs
+0 zeroprobs, logprob= -36.1474 ppl= 6.63029 ppl1= 6.92848
+
+CSUBX ART ADJ NC PREP ART VLadj NC VSfin VLadj PREP ART ADJ CM VLfin CQUE ART VLadj PDEL NC VLfin VLfin PREP ART NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -27.2574 ppl= 10.2219 ppl1= 11.1779
+
+VLfin ADV PREP ART NC PREP NC PREP NC CQUE ART ADJ NC NC SE VLfin PREP ART NC PDEL NC FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -16.509 ppl= 5.22135 ppl1= 5.62872
+
+DM NC CM ADV NC VLadj CM VSfin ART NC PDEL CODE NMEA NC VLadj PREP NC COLON ART NC PREP VLadj CM VLger PREP VLfin NC DM NC CC NC FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -44.4478 ppl= 22.2281 ppl1= 24.4902
+
+CC ADV ADJ FS
+1 sentences, 4 words, 0 OOVs
+0 zeroprobs, logprob= -4.81055 ppl= 9.16454 ppl1= 15.9455
+
+ADV VHfin NC PREP CQUE ART NC PREP NC QT NC VLadj PREP ART NC CM ADV VLfin NC ADJ PREP ART NC CM VLger PREP NC CSUBI VLinf NC ADJ PREP NC CC NC PREP ART ADJ NC FS
+1 sentences, 40 words, 0 OOVs
+0 zeroprobs, logprob= -34.942 ppl= 7.11613 ppl1= 7.47395
+
+VLadj ADV PREP ART VEfin PREP VLinf CM ART NC CC ART NC CM QU PREP ADJ NC PREP ART VLadj CM CSUBX NC PREP NC PREP NC VLfin ART CQUE NC VLfin CQUE QU NC VLger ART NC CC ART ADJ CM CC VLfin PPO ADJ NC PDEL NC PREP ART NC FS
+1 sentences, 54 words, 0 OOVs
+0 zeroprobs, logprob= -56.6938 ppl= 10.7348 ppl1= 11.2172
+
+VSfin ART NC CQUE VLinf NC NC PREP NC PREP NC QT NC CM CCAD VHfin QU PREP NC CC NC PREP ART NC PREP NC CQUE VLfin VLadj CM ART ADJ NC PAL NC PREP NC FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -37.1725 ppl= 8.97721 ppl1= 9.51096
+
+VLfin ART NC PREP ART NC VLfin CC VLfin VSinf FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -11.8435 ppl= 9.70413 ppl1= 11.9311
+
+ART ADJ PE PREP CARD ADJ VLadj VLfin NC COLON
+1 sentences, 10 words, 0 OOVs
+0 zeroprobs, logprob= -18.1323 ppl= 44.5034 ppl1= 65.0478
+
+PREP NC VHfin VLadj PREP VLinf ART NC COLON
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -11.0362 ppl= 12.6947 ppl1= 16.8364
+
+QT PREP ART NC PREP ART NC CM PPX QT ALFS QT ADV VLinf COLON QT NC PREP NC VLinf NC FS QT CC ART NC CQUE SE ADV VSfin COLON QT NP CM PREP ART CQUE VLfin ART NC PREP CQUE ADV QT FS QT
+1 sentences, 46 words, 0 OOVs
+0 zeroprobs, logprob= -70.2219 ppl= 31.1948 ppl1= 33.6173
+
+NC VLfin PREP NC VLfin ART CQUE VLfin CM NC VLfin PREP NC ADV ADV PREP ART NC FS
+1 sentences, 19 words, 0 OOVs
+0 zeroprobs, logprob= -20.6924 ppl= 10.8298 ppl1= 12.2765
+
+ART NC VLfin PAL NC PPO NC CSUBI VLinf ART NC PREP NC FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -11.8056 ppl= 6.12404 ppl1= 6.97035
+
+PREP ART NC NP COLON
+1 sentences, 5 words, 0 OOVs
+0 zeroprobs, logprob= -7.29592 ppl= 16.4432 ppl1= 28.7862
+
+NC PREP NC VLfin ART QT NC ADJ QT CQUE VHfin VLadj PREP NC NC DASH ART NC CQUE VLfin PREP ART NC PREP NC ADJ ART ADJ NC CC VLinf NC PREP ADJ NC ADJ FS
+1 sentences, 37 words, 0 OOVs
+0 zeroprobs, logprob= -37.9724 ppl= 9.98332 ppl1= 10.6239
+
+ART NC VHfin VSadj ADV VLadj PREP ADV CM CCAD VLadj PREP NC QT NC VLadj PREP ART NC PREP ART NC ADJ CSUBX ART NC PREP NC VSfin ADJ FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -29.3575 ppl= 8.26842 ppl1= 8.8515
+
+VLfin NC NC CC NC VLfin PREP NC ART NC VLger ART NC PREP NC CM VLger ART NC CM CC ADV ART NC PREP NC PREP ART SYM ALFS PREP QU CSUBX NC PREP ART ADJ NC PREP NC ADJ FS
+1 sentences, 42 words, 0 OOVs
+0 zeroprobs, logprob= -45.083 ppl= 11.18 ppl1= 11.8415
+
+QT SE VLfin ART NC PREP QU ART NC ART ADJ NC PREP NC CC PPC VLfin NC PREP NC PDEL NC CC CQUE VLfin PREP NC PREP ART NMEA ADJ ADV PREP ART NC PREP NC ADV CM VLadj PREP NC QT VLfin PREP ART NP FS
+1 sentences, 48 words, 0 OOVs
+0 zeroprobs, logprob= -49.2278 ppl= 10.1076 ppl1= 10.6067
+
+VLadj PREP NC VLfin PREP NC ART ADJ NC CQUE NC CC NC ADV VLfin PREP CM VLfin ART NC PREP NC PREP ART NC ADJ PREP ART VLfin PREP ART NC CC VLger PREP VLinf PREP ART NC CM PREP VLinf PPO ADJ NC PREP NC ADJ FS
+1 sentences, 49 words, 0 OOVs
+0 zeroprobs, logprob= -46.9341 ppl= 8.68323 ppl1= 9.07482
+
+CSUBX QU NC PREP ART NC ADJ VHfin VLadj PREP VLfin PREP ART NC CSUBI VLinf PREP ART NC ADJ CM ART CARD SE VLfin ADJ VLfin ADV PREP CQUE ART ADJ NC VHfin VLadj PREP VLinf VLinf ART NC FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -39.6586 ppl= 8.79535 ppl1= 9.27436
+
+CSUBI VLinf PREP ART NC PREP ADJ LP CC NC VLger NC NC RP COLON
+1 sentences, 15 words, 0 OOVs
+0 zeroprobs, logprob= -23.5452 ppl= 29.6191 ppl1= 37.1259
+
+QT CQUE VLfin ART ADJ NC PREP NC CM VSfin ART NC NC PPX VLfin VLadj PREP DM NC CC SE VLfin PPO NC PREP ART CQUE ART NC VEfin CC ART NC CQUE SE VLfin PREP PPO NC QT FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -46.1327 ppl= 12.5429 ppl1= 13.341
+
+VSfin ADV ADJ CSUBX ART NC CM VLfin ART ADJ NC ADJ NC NC CM CC PPX VLfin PREP ART NC PREP NC FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -20.8105 ppl= 6.79858 ppl1= 7.3638
+
+NC ADV CM CSUBX PREP NC CM CQUE VLfin ART NC CQUE VLfin PREP ART NC PREP ART NC NP COLON
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -20.1274 ppl= 8.22018 ppl1= 9.08756
+
+PREP ADJ NC VLger NC COLON
+1 sentences, 6 words, 0 OOVs
+0 zeroprobs, logprob= -11.5612 ppl= 44.8332 ppl1= 84.5018
+
+PPX VLfin ART NC PREP ART NC PREP NC CM PREP ART CQUE ART NC NEG PREP NC NC FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -21.6699 ppl= 10.7622 ppl1= 12.1198
+
+ART NC CC NC VLfin NC NC CM ADV LP PREP DM NC PREP NC RP CQUE VLfin ART NC CC ART NC NC VLinf VLadj PREP ART NC PREP NC NC FS
+1 sentences, 33 words, 0 OOVs
+0 zeroprobs, logprob= -37.148 ppl= 12.3763 ppl1= 13.3567
+
+NC VLfin VHinf NC QU ART VLfin ADJ FS
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -12.3416 ppl= 17.1461 ppl1= 23.5122
+
+VLfin ADV PREP ART NC PREP PPX FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -6.98257 ppl= 5.96817 ppl1= 7.46141
+
+VHfin NC ADJ VMfin VLinf DASH QU NC VMfin QT ALFS VLinf ADJ VLinf CM NC CM NC CM NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -35.525 ppl= 41.1882 ppl1= 49.1662
+
+VMfin VLinf PREP CARD NC PREP PPO NC DASH DM NC DASH NC QU ADJ DOTS
+1 sentences, 16 words, 0 OOVs
+0 zeroprobs, logprob= -26.6786 ppl= 37.096 ppl1= 46.4954
+
+NC VLfin CQUE ADJ NC NC CM ADJ NC VLinf FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -16.7322 ppl= 24.7941 ppl1= 33.1976
+
+CSUBX NEG PREP ART NC ADJ CM VLfin VLger NC ADJ PREP QU NC FS
+1 sentences, 15 words, 0 OOVs
+0 zeroprobs, logprob= -14.4954 ppl= 8.05314 ppl1= 9.25472
+
+NC CC VLfin VLinf PREP ART NC ADJ NC ADJ CSUBX NC VLfin NC
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -18.762 ppl= 17.8157 ppl1= 21.885
+
+ART NC PREP CQUE ART NC ADJ VLadj PREP NC ADJ VLfin ADV PREP VLinf ART NC PREP NC VSfin VLinf ART NC PREP ART NC NC PREP NC ADJ PREP ART NC CM CARD PREP PPO NC CM NP NP CC NC ADJ CM VEfin VLger PREP ART NC VLadj PREP ART NC PREP NC CQUE VLfin ART NC PREP ART ADJ NC FS
+1 sentences, 65 words, 0 OOVs
+0 zeroprobs, logprob= -54.4291 ppl= 6.67856 ppl1= 6.87655
+
+ART NC VSfin ART VLadj NC CM CSUBX ART CARD NC SE VLfin PREP ART NC CSUBI VLinf PREP ART NC PREP NC FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -20.7327 ppl= 6.75009 ppl1= 7.3091
+
+CARD PREP ART NC PREP NC VEfin ART NC PREP CARD NC NC VLger ART NC ADJ ADJ NC VLadj PREP ART NC ART NC VLadj CM ART NC CQUE VHfin VSadj ART NC PREP NC ADJ PREP NC ADJ FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -38.0635 ppl= 8.05887 ppl1= 8.47966
+
+ART NC CQUE VLfin PREP VLinf PREP ART NC CC VLfin CQUE ART NC VLfin VSinf VLadj VSfin ADJ CQUE SE NC NC CM CQUE VLfin CSUBX NC ADJ ADJ PREP ART NC PREP NC NC NC FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -37.9516 ppl= 9.39976 ppl1= 9.97069
+
+ART NC NC CM NC ADJ CM VSfin CARD PREP ADV CARD NC PREP NC CQUE VLfin PREP VLinf ART NC ADJ PREP ART NC NC CM ART ADJ NC VLadj PREP VLinf ART NC ADJ ADJ FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -32.8694 ppl= 6.96313 ppl1= 7.32797
+
+QU NC CQUE VLfin ART NC CM NC ADJ CM VLfin ART PREP ART NC ADJ CQUE VLfin PREP ART NC CM ART NC ADJ PREP NC ADJ FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -23.5434 ppl= 6.09226 ppl1= 6.48395
+
+QU NC VEfin ADJ ADJ NC NP CM CQUE VLfin ART ADJ NC ADJ PREP ART NC PREP ART NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -21.3671 ppl= 9.35902 ppl1= 10.4107
+
+ART NC VLfin NC PREP ART NC PREP NC NC ADV PREP ART NC PDEL NC PREP ART NC FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -14.1988 ppl= 4.74389 ppl1= 5.12792
+
+CC QU PREP DM VLfin PREP NC PREP ART NC PREP NC FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -12.0263 ppl= 7.22806 ppl1= 8.41589
+
+ADV CM NC NC ADJ PDEL NC PREP NC CQUE VLfin ART NC PREP ADJ NC ADJ FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -14.4616 ppl= 5.76946 ppl1= 6.35946
+
+CSUBX VSfin CM CQUE ADV VLfin PREP ART NC PDEL VLfin NC CM CQUE NC NC CM QT ART NC NC VMfin VLinf PREP NC PREP NC VLadj CC QU NC CSUBI CQUE ART NC VMfin NEG VSinf ART NC CM ART NC PREP NC CM CC VLfin PREP ART NC PREP QU NC FS QT
+1 sentences, 56 words, 0 OOVs
+0 zeroprobs, logprob= -64.3232 ppl= 13.4424 ppl1= 14.0809
+
+ADV CM ART NC PREP NC CC NC PREP CARD PREP ART NC PREP NC PREP ART NC CM NC ADV PREP ART NC PREP ART ADJ NC ADJ CM VSfin ADJ CSUBI CQUE ART NC ART NC PDEL NC NC FS
+1 sentences, 42 words, 0 OOVs
+0 zeroprobs, logprob= -33.088 ppl= 5.88149 ppl1= 6.13492
+
+QT DM ADJ NC PREP ART NC CC ART NC PREP ART NC VLfin ART NC PREP QU NC CQUE ART NC SE VLfin PREP ART ADJ NC CQUE SE VLfin PREP QU ART NC NC ADJ QT CM VLfin NC VLinf CM ART NC PREP ART NC ADV FS
+1 sentences, 50 words, 0 OOVs
+0 zeroprobs, logprob= -45.1459 ppl= 7.6774 ppl1= 7.99684
+
+QT ART NC VSfin NC CC VLger PREP ART NC NC ADJ PREP NC CQUE VHfin NC VLadj PREP ART NC QT FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -27.5858 ppl= 14.1061 ppl1= 15.8264
+
+PPO NC CC NC PREP ART NC PREP NC PREP DM NC VLfin QU NC PREP NC CM CC VSfin ADJ FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -20.4313 ppl= 7.73249 ppl1= 8.4859
+
+NC CC NC VHfin VLadj QU NC PREP NC CQUE VLfin ADV ADV NC ART NC PDEL NC PREP NC VLadj PREP NC CSUBX ART NC NC FS
+1 sentences, 28 words, 0 OOVs
+0 zeroprobs, logprob= -27.4325 ppl= 8.82978 ppl1= 9.54408
+
+CC NC QT NC CM NP CM VSfin ART ADJ NC NC PREP ART NC FS
+1 sentences, 16 words, 0 OOVs
+0 zeroprobs, logprob= -19.2338 ppl= 13.5332 ppl1= 15.9263
+
+VLfin NC CSUBX NC ADJ PREP ART NC VLfin CSUBX ART ORD NC ADJ PREP ART NC VSfin VLadj PREP NC PDEL NC FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -23.4304 ppl= 8.65396 ppl1= 9.46816
+
+VLfin VHfin VLadj QU NC ART NC FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -12.3727 ppl= 23.6995 ppl1= 35.2032
+
+VLfin PREP NC NC PREP QU NC CODE NC CODE NC PREP ART NC PREP CARD NC FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -21.5546 ppl= 13.6286 ppl1= 15.7571
+
+VSfin ADJ NC VLfin CSUBX ART NC VLfin ART NC PREP CARD NC PREP PPO NC FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -16.4745 ppl= 8.22715 ppl1= 9.31295
+
+CCAD VSfin ART ADJ NC CSUBX ART NC VSfin ADJ PDEL NP NC PE FS CM CC ART NC PREP ART NC PREP ART CARD NC ART NC VLfin PREP CARD CARD PREP NC FS
+1 sentences, 35 words, 0 OOVs
+0 zeroprobs, logprob= -41.1966 ppl= 13.9428 ppl1= 15.033
+
+ADV ADJ VSfin ADV NC VLfin ART NC COLON ART VLfin ADJ CM ART ADJ NC PREP NC PDEL NC NC NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -26.838 ppl= 13.1296 ppl1= 14.6849
+
+NC PREP ART NC PREP NC VLfin PPO NC ADV NC PREP NC NC ADJ PREP NC PREP QU NC NC CARD NC NC CARD FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -26.424 ppl= 9.52066 ppl1= 10.3826
+
+ADV ART NC CM NC QU NC NC NC CARD NC NC CM ART NC ADJ CM CQUE VLfin ADV ADJ ADJ PREP NC CC NC PREP NC FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -30.4828 ppl= 10.3775 ppl1= 11.2495
+
+NC NC PREP CARD PREP ART NC PREP CARD CARD PREP NC FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -11.4632 ppl= 6.58868 ppl1= 7.61698
+
+QT ADV ADV ART ADJ ADJ PREP NC QT CM VLfin ART NC ADJ NC ADV FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -24.4663 ppl= 22.8685 ppl1= 27.4912
+
+QT ART NC PREP DM NC VSfin ADV ADJ QT FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -13.4102 ppl= 13.1074 ppl1= 16.5619
+
+NC CM NEG NC VLfin ART NC CSUBI VLinf ART NC CM CCAD ART NC PREP ART NC PDEL ADJ NC ADV ADJ PREP ART NC ADJ CSUBX VSfin CARD PREP PPO ADJ NC NC NEG VSfin ADV ADJ CSUBX ART NC NC VLger NC PREP ART ADJ NC PDEL NC FS
+1 sentences, 52 words, 0 OOVs
+0 zeroprobs, logprob= -47.8996 ppl= 8.01246 ppl1= 8.33962
+
+VSfin ADJ CSUBX NC ADV ADJ CQUE QU NC VLfin PREP VLinf CC VLinf NC NC CSUBX VLfin ART NC PDEL NC CM ADV VLadj FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -27.3323 ppl= 10.2875 ppl1= 11.2524
+
+QT VLfin ART NC ADJ QT CM VLfin FS
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -13.9704 ppl= 24.9483 ppl1= 35.667
+
+NC PREP VLinf PREP ART NC VLfin VLfin CARD NC ADV PREP NC VLfin CQUE VLfin VLinf ART NC PREP ART ADJ NC CM CQUE VLfin ADV PREP ART NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -27.8458 ppl= 7.41621 ppl1= 7.91139
+
+SE VLfin ART NC CSUBI VLinf NC VLfin ADV PREP NC VLadj NC NC CC NC FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -17.3543 ppl= 9.20721 ppl1= 10.4916
+
+NC PE VLfin VLinf ART CARD PERCT PREP SYM CARD FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -20.8646 ppl= 54.7924 ppl1= 78.847
+
+ART NC ADJ VLfin ART NC PREP ART NC PREP ART NC PDEL NC ADJ PREP NC ADJ PDEL NC ADJ CM CC ART NC ADJ ADJ LP NP RP FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -22.3063 ppl= 4.97821 ppl1= 5.24275
+
+QT ART NC PREP ART NC VLadj PREP QU ART NC ADJ CC CM ADV CM ADV VSfin ADJ CM NEG VLfin PREP NC CCAD PREP QU ART NC QT CM VLfin ADJ NC VLfin PREP ART VLadj ADJ CM ART ADJ NC PREP ART NC PDEL NC FS
+1 sentences, 49 words, 0 OOVs
+0 zeroprobs, logprob= -46.4251 ppl= 8.48208 ppl1= 8.86036
+
+ART ADJ NC PREP NC PREP CARD NC PREP VLinf ART NC PREP ART NC CARD FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -13.7246 ppl= 5.78736 ppl1= 6.417
+
+CCAD VSfin ART NC PREP NC CM CC ART NC PREP NC VSfin ART NC ADJ PREP DM NC FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -19.7009 ppl= 8.6724 ppl1= 9.66154
+
+ART NC VLfin VLinf ART NC ADJ PREP NC FS
+1 sentences, 10 words, 0 OOVs
+0 zeroprobs, logprob= -7.58723 ppl= 4.89495 ppl1= 5.73751
+
+NC VLfin VHinf VLfin ADV ADV NC CM CQUE VLfin VLadj VLfin ADV PREP ART NC ADJ FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -21.2299 ppl= 13.1027 ppl1= 15.116
+
+ADV CM ART ADJ PREP PPO NC ART NC ADJ PDEL NC ADJ CM CC NC CM SE VLfin PREP VLinf NC CSUBX ART NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -24.0811 ppl= 7.79636 ppl1= 8.43715
+
+ADJ NC CM ART ADJ PREP ART ADJ NC PREP ART NC ADJ CM CC NC CM CQUE ADV VLfin VLadj CM NC PREP ADJ CM ART ADJ NC PREP ART NC VLadj CC VLadj ADV PREP ART NC ADJ PREP CARD FS
+1 sentences, 43 words, 0 OOVs
+0 zeroprobs, logprob= -37.3224 ppl= 7.05077 ppl1= 7.37841
+
+NC ADV SE VLfin PREP VLinf ART NC ADJ FS
+1 sentences, 10 words, 0 OOVs
+0 zeroprobs, logprob= -7.62924 ppl= 4.93819 ppl1= 5.79328
+
+VLfin CM NC NC PREP ART NC ADJ PREP NC CM VLadj NC PREP ART NC PREP VLfin CC VHfin VLadj PREP ART NC NC PREP VLinf ART NC FS
+1 sentences, 30 words, 0 OOVs
+0 zeroprobs, logprob= -26.3516 ppl= 7.08032 ppl1= 7.55767
+
+VLfin PREP QU NC VHfin VEadj VLadj PREP NC PREP ART VLfin CQUE SE VLfin PREP ART NC CM NC CC NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -20.5902 ppl= 7.20983 ppl1= 7.85644
+
+VSfin NC NC ADJ PDEL NC CM CC VHfin VLadj NC CSUBI VLinf ART ADJ VLadj PREP NC PREP ART NC PREP NMON PREP CARD FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -24.8624 ppl= 8.33356 ppl1= 9.04164
+
+ADV CM ART NC VHfin VLadj FS
+1 sentences, 7 words, 0 OOVs
+0 zeroprobs, logprob= -6.27806 ppl= 6.09197 ppl1= 7.88616
+
+PREP ART NC CM ADV CM CCAD ART ADJ NC ADV VLfin CM ART VLinf NC ART NC PDEL NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -23.4739 ppl= 11.668 ppl1= 13.1161
+
+ART NC NC CQUE VLfin ART NC PREP ART NC ADJ CM VLfin NC NC CM PREP NC CM NC PREP NC CC VLfin COLON QT VLfin CQUE DM NC VLfin VSinf ADV ADJ CM VLger PREP ADV PREP ART NC CQUE VLfin QT FS
+1 sentences, 45 words, 0 OOVs
+0 zeroprobs, logprob= -43.8451 ppl= 8.97747 ppl1= 9.42617
+
+VLfin VLfin PREP NC CSUBI VLinf PREP VLinf PREP ART NC PDEL NC
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -15.7892 ppl= 13.4214 ppl1= 16.3889
+
+ART NC PREP NC PREP NC VHfin VLadj ART ADJ CC ADJ CSUBI VEinf VLadj CSUBI VLinf PREP VLinf PREP ART NC PDEL NC PREP ART NC PREP ART NC ADJ CSUBI VLinf ART NC PREP ADJ NC CQUE VLfin PREP VLinf ART NC PREP ART NC ADJ FS
+1 sentences, 49 words, 0 OOVs
+0 zeroprobs, logprob= -33.8534 ppl= 4.7541 ppl1= 4.90779
+
+VLfin PREP NP LP NC CM NC CM ADJ CM ADJ RP NC PREP ART NC PREP NC PREP ART QT NC ADJ QT CC VLfin CQUE ART NC ADJ ADJ PREP ART NC ADJ CC NC VLfin PREP VLinf ART NC PREP ADJ NC PREP ART NC ADJ FS
+1 sentences, 50 words, 0 OOVs
+0 zeroprobs, logprob= -49.6494 ppl= 9.40845 ppl1= 9.83985
+
+QT VEfin PREP DM ADJ QT FS
+1 sentences, 7 words, 0 OOVs
+0 zeroprobs, logprob= -16.0611 ppl= 101.774 ppl1= 196.99
+
+QT NC CQUE QU CQUE VMfin VLinf PREP NC PREP VLinf PREP ART NC VSfin NC QT CM VLfin PREP ART NC ADJ PREP ART VLadj PAL NC PDEL NC ADJ ADJ PREP NC FS
+1 sentences, 35 words, 0 OOVs
+0 zeroprobs, logprob= -38.7089 ppl= 11.8918 ppl1= 12.7635
+
+QT NC VMfin VSinf VLadj CM PREP QU NC CM CCAD NEG VMfin VSinf NC QT FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -22.0679 ppl= 16.8265 ppl1= 19.866
+
+QT NC CQUE CSUBX ADJ CC ART NC VMfin VLinf CM PREP QU ART NC QT FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -23.6565 ppl= 20.6182 ppl1= 24.6354
+
+ART NC ADJ PREP NC VHfin VSadj ADV VLadj PREP ART NC PREP ART NC ADJ PREP ART NC NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -13.8314 ppl= 4.25304 ppl1= 4.55656
+
+PREP ART NC ADJ CM ART NC PREP ART NC PREP NC SE VHfin VLadj ADV CC ART ORD NC PREP NC CC NC VHfin VLadj FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -22.0194 ppl= 6.11516 ppl1= 6.53934
+
+ART NC PREP ART NC PREP ART NC ADJ PREP NC VHfin VLadj NC CQUE VLfin VLinf ART NC ADJ PREP ART NC CC VLadj VLfin ADJ NC ADJ CSUBI VCLIinf PREP VLinf PREP ART NC PDEL NC VLinf ART NC FS
+1 sentences, 42 words, 0 OOVs
+0 zeroprobs, logprob= -35.1908 ppl= 6.58249 ppl1= 6.88455
+
+NC NC VLfin CQUE QU NC ADJ SE VLfin PREP NC PDEL NC CM CCAD QU NC ADJ NC CSUBX PPC VLfin PREP ART NC PDEL NC PREP VLfin NC PREP ART NC CM ART NC PREP NC ADJ NC VLfin ART ADJ VMinf PREP NC PREP ART NC ADJ FS
+1 sentences, 51 words, 0 OOVs
+0 zeroprobs, logprob= -48.889 ppl= 8.71309 ppl1= 9.0909
+
+NP VLfin CM VLfin PREP ART NC PREP NC CM VLfin CQUE QT ART NC NC QU ART ADJ QT CSUBI VLinf PREP ART NC PDEL NC CSUBX PPO ADJ NC VEfin VLger ART NC PREP ART NC CC ART NC PREP ART NC PREP NC ADJ FS
+1 sentences, 48 words, 0 OOVs
+0 zeroprobs, logprob= -47.4574 ppl= 9.30078 ppl1= 9.74309
+
+QT NC VLfin PREP ART NC PDEL NC CSUBI VLinf VSger ADJ CC ADJ QT CM VLfin FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -24.4098 ppl= 19.2631 ppl1= 22.7039
+
+QT VLfin NC ADJ CC VLfin CQUE VLinf ART ADJ NC PREP NC QT FS
+1 sentences, 15 words, 0 OOVs
+0 zeroprobs, logprob= -17.3285 ppl= 12.1069 ppl1= 14.2967
+
+QT NEG VSfin ART NC CM VSfin ART ADJ CM CSUBX ADV VLfin VLinf NC PREP NC PREP CARD PREP NC NC CC NC ADJ QT FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -30.0007 ppl= 11.7884 ppl1= 12.9163
+
+QU VLfin CQUE ART NC PREP NC ADV ADJ VHfin QU NC VLinf PREP ADJ NC CSUBX SE VLfin PREP PPO ADJ ADJ NC ADJ FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -28.7657 ppl= 11.6251 ppl1= 12.7754
+
+NP NP CM ART NC PREP ART NC PREP NC CM VLfin CQUE VLfin ADV ADV ADJ CSUBI VLinf ART NC PREP NC PREP ART ADJ NC NC CM PREP ART REL PREP CARD CARD VLfin PREP ADV PREP SYM CARD CC ADV PAL ADJ FS
+1 sentences, 46 words, 0 OOVs
+0 zeroprobs, logprob= -48.3402 ppl= 10.6786 ppl1= 11.2428
+
+QT PREP NC NC SE VLfin ART CQUE ART NC VLinf PREP ART NC PREP CARD CC VLinf PREP NC PREP ART NC CC NEG VLinf NC QT CM VLfin FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -39.276 ppl= 16.8801 ppl1= 18.4913
+
+VLfin ADV CM ART NC NC PDEL NC ADJ ADJ CM PREP ART ADJ NC VLadj PREP NC ART NC PREP ART NC VMfin VCLIinf CSUBI VLinf PREP NC ADJ CC ADV VLadj PREP ART NC PDEL NC ADJ PREP NC PREP NC PREP ADV VLadj CM VLadj PREP NC ADJ CSUBX ART NC FS
+1 sentences, 55 words, 0 OOVs
+0 zeroprobs, logprob= -49.1391 ppl= 7.54195 ppl1= 7.82416
+
+NC NC VLfin CQUE ART NC PREP ART NC PDEL NC VLadj QT ADJ NC ADJ QT PREP QU NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -22.8304 ppl= 10.9081 ppl1= 12.2226
+
+ART NC PDEL VLfin PREP CARD PREP CARD ART NC ADJ PREP NC PREP CARD SLASH CARD VLfin ADV QT NC PREP ART NC QT PREP ART NC PREP NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -33.2004 ppl= 10.9022 ppl1= 11.7755
+
+VLfin NC PDEL NC PREP ADJ NC PREP NC
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -11.5486 ppl= 14.2842 ppl1= 19.1943
+
+ART NC PREP ART NC ADJ ADJ VLfin ART NC PREP ART NC ART NC CM VLfin NC PREP CQUE ART NC ADJ VLfin ART NC ADJ CC VLfin ART NC PREP NC PREP ART NC PDEL NC CM PREP ART NC PREP NC PREP NC CM PREP ART NC ADJ FS
+1 sentences, 52 words, 0 OOVs
+0 zeroprobs, logprob= -34.3487 ppl= 4.44722 ppl1= 4.5767
+
+VLfin CQUE ART NC PDEL NC CSUBI VLinf PREP ART NC ADJ CC ART ADJ VLadj NC VLfin ART CARD PERCT NC ADJ CC VLinf PREP QU ADJ NC FS
+1 sentences, 30 words, 0 OOVs
+0 zeroprobs, logprob= -30.8299 ppl= 9.87442 ppl1= 10.6577
+
+QT DM NC VLfin ART NC PREP VLfin VLinf NC ADJ CC VLinf ADV NC QT FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -22.5202 ppl= 17.8287 ppl1= 21.121
+
+QT CSUBX ART NC NC PREP ART NC PREP NC VLfin NC NEG NC ADV VLadj PREP ART NC CM NC NC VLfin VLfin VLadj PREP ART ADJ NC PREP ART NC VLadj QT CM VLfin PREP NC FS
+1 sentences, 39 words, 0 OOVs
+0 zeroprobs, logprob= -42.0465 ppl= 11.2502 ppl1= 11.9706
+
+QT VLfin VLinf ART NC PREP NC CM VLger NC PREP ART NC CC ART NC PREP NC CQUE VLinf ART NC QT FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -24.0699 ppl= 9.17899 ppl1= 10.0673
+
+QT NC VLfin VLinf NC CM ART CQUE SE VLfin PREP ART NC PREP ART NC PREP NC PREP NC PREP NC CM CC NC ADJ CC ADJ ADJ VLadj QT FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -30.151 ppl= 8.1972 ppl1= 8.75422
+
+QT ART NC PREP ART NC PREP ART NC PREP NC VLfin ART ADJ NC PREP NC CSUBX ART VMinf VLinf NC ADJ PDEL NC QT FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -27.033 ppl= 9.23559 ppl1= 10.0282
+
+QT ART NC VSfin ART NC PREP ART NC ADJ PREP ART NC PREP ART NC CM CC NEG VMfin VCLIinf CQUE VLfin QT FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -24.0701 ppl= 8.42894 ppl1= 9.17918
+
+CSUBX ART NC ADJ CC ART ADJ NC PREP NC VLfin ART NC PREP ART NC ADJ CC VLinf ART NC CSUBI VLinf PREP NC PDEL NC VLfin NC PREP VCLIinf FS
+1 sentences, 32 words, 0 OOVs
+0 zeroprobs, logprob= -26.6436 ppl= 6.41772 ppl1= 6.80161
+
+NC VHfin VSadj QU NC NC VLfin PREP ART ADJ NC CM CSUBX NC PREP ART NC PDEL NC PREP NC PREP NC PREP NC ADJ VLadj PREP ART NC CC ART NC ADJ CC VLinf CQUE VEfin PREP NC ADJ FS
+1 sentences, 42 words, 0 OOVs
+0 zeroprobs, logprob= -37.0814 ppl= 7.28378 ppl1= 7.63641
+
+PREP ART NC PREP VLfin PREP ART NC VLadj CM ART NC PREP ART NC VLadj ART ADJ NC PREP ART CQUE VLfin VLfin PREP ART ADJ NC ART NC CCAD NC NC FS
+1 sentences, 34 words, 0 OOVs
+0 zeroprobs, logprob= -30.9046 ppl= 7.63817 ppl1= 8.10886
+
+QT VSfin ART NC PREP NC QT FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -11.2475 ppl= 17.7715 ppl1= 25.4648
+
+QT VSfin ART NC PREP NC QT FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -11.2475 ppl= 17.7715 ppl1= 25.4648
+
+QT VSfin ART NC PREP NC CM ART NC PREP NC CM NC CC NC PREP ADJ NC VLadj ADJ CSUBI VLinf ART NC QT CM ADJ VLfin PREP PPO NC ADJ PREP ART NC FS
+1 sentences, 36 words, 0 OOVs
+0 zeroprobs, logprob= -35.4192 ppl= 9.06305 ppl1= 9.63531
+
+QT VSfin ART NC CQUE VLfin ART ADJ NC CM ART ADJ NC CC VSfin ADJ CSUBI VLinf PREP PPO NC ADJ QT FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -25.3403 ppl= 10.3183 ppl1= 11.3722
+
+QT ADV CM VLfin PREP ART NC DOTS QT
+1 sentences, 9 words, 0 OOVs
+0 zeroprobs, logprob= -16.0325 ppl= 40.1101 ppl1= 60.4495
+
+PREP ART NC PREP PPO NC PREP NP CC NP CM NC VLadj ADJ NC PREP NC NC QT VLinf ADJ NC ADJ COLON NC NC PREP NC PREP ART NC CM ART NC CC ART NC SEMICOLON VLfin ADV NC NC CSUBI VSinf ADV VLadj CC VLadj PREP QU ART NC SEMICOLON CC VLfin ART NC ADJ PREP ART NC PREP NC PREP NC QT FS
+1 sentences, 67 words, 0 OOVs
+0 zeroprobs, logprob= -68.1402 ppl= 10.0476 ppl1= 10.3996
+
+CC NC VLfin CQUE QU PREP ART ADJ NC PREP NC VLfin VLinf PPC VLfin CM VLadj ART ADV VLadj CC QU NC PREP ART ORD NC PREP ART NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -33.084 ppl= 10.8113 ppl1= 11.6742
+
+VLfin VLinf ART NC
+1 sentences, 4 words, 0 OOVs
+0 zeroprobs, logprob= -6.66003 ppl= 21.4786 ppl1= 46.239
+
+ART NC PREP ART NC ADJ VLfin NC ADJ CC VLfin ART NC CC ART NC VSfin PREP ART NC ADJ FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -17.0941 ppl= 5.53635 ppl1= 5.9842
+
+ART NC VLadj ART NC ADJ ADJ NC VSfin VLadj PREP ART NC ADJ VLger CQUE ART NC ADJ CM NC NC CM CQUE ART ORD NC NC CM ADV ADV VSfin ART ADJ FS
+1 sentences, 35 words, 0 OOVs
+0 zeroprobs, logprob= -37.9351 ppl= 11.3175 ppl1= 12.13
+
+VLinf VHfin VLadj NC CC NC NC FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -14.0173 ppl= 36.0979 ppl1= 56.5155
+
+NC ART NC CC PREP NC ADJ VLfin VLinf NC PREP NC PREP NC ADJ ART NC PREP VLadj ADJ VLadj PREP NC ADJ FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -23.4761 ppl= 7.99698 ppl1= 8.69046
+
+ART NC ADJ ADJ NC ADJ VHfin VSadj VLadj PREP NP CSUBI VLinf NC VLadj PREP ART NC PREP ART NC ADJ FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -18.1478 ppl= 5.70373 ppl1= 6.15227
+
+VHfin VHadj NC PREP ART CQUE ART NC NC VHfin VLadj NC NC CSUBI VLinf ADJ PREP PPO NC NC FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -25.1322 ppl= 13.8795 ppl1= 15.7316
+
+NC CQUE VLfin VLinf ART ADJ NC VLger ART NC CQUE VLinf CC VLinf NC ADJ FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -16.7103 ppl= 8.47906 ppl1= 9.61516
+
+NC VLfin VLinf VLfin FS
+1 sentences, 5 words, 0 OOVs
+0 zeroprobs, logprob= -7.40819 ppl= 17.1671 ppl1= 30.3136
+
+PREP ART ADJ ADJ CM NC VLfin CM VMfin VHinf VLadj PREP QU NC PDEL CARD PAL CARD NC FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -25.584 ppl= 16.5304 ppl1= 19.0195
+
+QU NC NC CQUE VLfin VLger CARD NC PREP ART CARD ORD ART NC PREP NC ADV FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -23.205 ppl= 16.6463 ppl1= 19.4612
+
+ADV PREP VSinf ART NC PREP NC ADJ ALFS CM VLfin CM PREP NC CM ADV ART NC VSfin NP CM QT NC CM QT VLfin ART NC VSfin ART ADJ NC PREP NC VLadj PREP NC ADJ VLadj PREP ART NC CARD NC PREP NC NC VLinf NC PREP NC PREP NC CM ADV PREP ART ADJ CC ART ADJ FS
+1 sentences, 62 words, 0 OOVs
+0 zeroprobs, logprob= -69.5785 ppl= 12.7181 ppl1= 13.2506
+
+CARD PREP ART NC PREP ART NC VSfin CQUE ART ADJ PREP ART ADJ NC PREP ART NC SE VHfin VLadj FS
+1 sentences, 22 words, 0 OOVs
+0 zeroprobs, logprob= -17.8946 ppl= 5.99825 ppl1= 6.50712
+
+ART NC VLadj NC VMfin VLinf PREP ART NC VLger PREP NC NC CM NC NC ADJ CM NC NC CC NC FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -24.9744 ppl= 10.9799 ppl1= 12.1855
+
+VLfin QU NC CQUE VLfin ART NC ADJ PREP ART ADJ CC ADV NC ADJ PREP NC PREP ART NC CM CC NC ADJ CQUE ART VLfin ART NC VSfin ART ADJ NC CQUE VSfin ADJ CSUBI VLinf CC NC CSUBI VLinf PREP ADJ NC ADJ NC ADV CSUBX PPO NC ADJ VLfin ART NC CM NC CM CC ART NC PREP NC FS
+1 sentences, 64 words, 0 OOVs
+0 zeroprobs, logprob= -63.7682 ppl= 9.57303 ppl1= 9.91696
+
+ADJ ADJ NC VLadj PREP NC QU ADV CM VCLIinf PREP NC CM ART NC PREP PPO ADJ NC CC CSUBI VLinf ADV VLfin NC QU FS
+1 sentences, 27 words, 0 OOVs
+0 zeroprobs, logprob= -34.1873 ppl= 16.6332 ppl1= 18.4585
+
+VLfin PREP ART NC CQUE NC VLfin NC PREP NC CM VLfin CQUE ART NC NP QT NC VLadj QT NC CSUBX ART NC VLinf NC QT QU VLadj NC QT NC VLfin VLinf PREP ADJ NC ART NC PREP ART NC CQUE VLfin VLadj PREP ADV NC PREP PPO NC CQUE ART NC VLfin LP CCAD ART NC VSfin VLfin PREP VSinf QT NC QT RP FS
+1 sentences, 68 words, 0 OOVs
+0 zeroprobs, logprob= -91.5314 ppl= 21.2101 ppl1= 22.1845
+
+NC VLfin VLinf CSUBX VLfin NC VLger FS
+1 sentences, 8 words, 0 OOVs
+0 zeroprobs, logprob= -11.5523 ppl= 19.2125 ppl1= 27.7992
+
+VLfin PREP VLinf ART NC PREP NC CSUBI VLinf ART NC NC ADV FS
+1 sentences, 14 words, 0 OOVs
+0 zeroprobs, logprob= -11.8483 ppl= 6.1643 ppl1= 7.01947
+
+ART NC CSUBI VLinf PPO NC CM NC CM ADJ NC FS
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -11.2661 ppl= 7.35564 ppl1= 8.68638
+
+ADJ PPC VLfin VLinf CSUBX VLfin ADV NC PPO NC QU ART NC CSUBI NEG VLinf NC ADJ CSUBX VLfin ART NC VLfin ADJ PREP ART VLfin PREP ART NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -37.663 ppl= 15.0303 ppl1= 16.4034
+
+ADV VLinf ART NC PREP ADJ CC ADJ NC NEG ADJ FS
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -13.5513 ppl= 11.0258 ppl1= 13.4672
+
+VLfin DM NC NC ADJ CM NEG ART NC PREP NC FS
+1 sentences, 12 words, 0 OOVs
+0 zeroprobs, logprob= -12.9396 ppl= 9.89366 ppl1= 11.9758
+
+NC NC VLfin VLinf PPO NC ADJ CSUBI VLinf PREP VLinf PPO NC CM VLfin NC PPO NC PREP ART NC CM SE VLfin PREP ART NC CM VLinf PPO NC PREP NC ADJ CC VLfin QT NC VLadj NC QT NC CQUE CSUBF ADJ PREP NC CC NC PREP NC CSUBX QU ART NC ADJ FS
+1 sentences, 57 words, 0 OOVs
+0 zeroprobs, logprob= -64.0284 ppl= 12.7039 ppl1= 13.2833
+
+ADV CM VLinf NC PREP ART NC PREP ART NC FS
+1 sentences, 11 words, 0 OOVs
+0 zeroprobs, logprob= -7.36156 ppl= 4.10642 ppl1= 4.66909
+
+NC ADJ VLfin NC CC VLinf ART VLadj VLfin CSUBX VLger PPO VLadj VLfin VEfin ADJ CM VLinf ART NC PREP PPO NC FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -33.1576 ppl= 21.1984 ppl1= 24.075
+
+ART NC ADJ ADV VLfin VLinf NC NC COLON QT NEG VHfin VLadj NC ADJ PREP DM NP DOTS VLinf NC QT CC VLinf ART NC ADJ PREP PPO NC FS
+1 sentences, 31 words, 0 OOVs
+0 zeroprobs, logprob= -39.2121 ppl= 16.8027 ppl1= 18.4038
+
+ADV VLfin VLinf NC PREP NC QT NC QT PREP ART NC PREP VLinf PREP ART NC ADJ COLON QT ADV DOTS CQUE VLinf ART NC DOTS PREP ART CQUE PPX VLfin DOTS PREP ART ADJ PREP PPO NC QT FS
+1 sentences, 41 words, 0 OOVs
+0 zeroprobs, logprob= -53.5076 ppl= 18.7928 ppl1= 20.1866
+
+DM VLfin CQUE ART NC NC CQUE ADJ ADJ CC VSfin ADV ART NC ADJ FS
+1 sentences, 16 words, 0 OOVs
+0 zeroprobs, logprob= -18.8817 ppl= 12.9029 ppl1= 15.1393
+
+NEG VHfin QU NC ADJ CSUBI VLinf NC CM CCAD ART NC PREP NC PREP NC VSfin VLadj VSfin ADJ FS
+1 sentences, 21 words, 0 OOVs
+0 zeroprobs, logprob= -21.3143 ppl= 9.30749 ppl1= 10.3507
+
+DM NC VLfin QU ART NC CSUBI VLinf ART NC PREP NC NC PREP PPO NC ADJ CC ADJ FS
+1 sentences, 20 words, 0 OOVs
+0 zeroprobs, logprob= -15.7618 ppl= 5.63069 ppl1= 6.13889
+
+VLadj VLfin ART NC PREP ART ADV SE VLfin ART NC VLadj PREP ART ADJ NC NC PREP NC CM CC VLfin PREP ART NC NC VLinf NC FS
+1 sentences, 29 words, 0 OOVs
+0 zeroprobs, logprob= -27.8849 ppl= 8.5015 ppl1= 9.15265
+
+QT DM VSfin ART ADJ NC ADV CM QT NC FS NC VLfin CM ART NC PREP NP CM VLfin NC VLfin FS
+1 sentences, 23 words, 0 OOVs
+0 zeroprobs, logprob= -32.5483 ppl= 22.7081 ppl1= 26.0103
+
+VLfin CM PREP ART NC VLadj ART NC VLadj CM VLfin ART NC CSUBX ART NC PREP NC ART NC CM CC VLfin PPO NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -23.4677 ppl= 7.39903 ppl1= 7.99107
+
+VLfin VLinf CARD NC PREP NC PREP ART NC PREP NC PREP NC PREP NC FS
+1 sentences, 16 words, 0 OOVs
+0 zeroprobs, logprob= -10.5961 ppl= 4.2005 ppl1= 4.5947
+
+VSfin VLadj PREP ART NC CCAD VLadj PREP ART NC CM CQUE VHfin VLadj PREP ART VLfin CARD NC PREP NC VLadj PAL NC FS
+1 sentences, 25 words, 0 OOVs
+0 zeroprobs, logprob= -24.4305 ppl= 8.7023 ppl1= 9.48897
+
+CCAD ADJ NC ADJ PAL NC VSfin PREP ART NC CSUBI VLinf PREP ART NC PREP ART NC NC NC CC NC ADJ CM ART PREP ART ADJ NC PREP NC ADJ CC NC FS
+1 sentences, 35 words, 0 OOVs
+0 zeroprobs, logprob= -36.477 ppl= 10.3098 ppl1= 11.0204
+
+CARD VSfin CSUBX ART NC PREP NC VLadj PREP NC CM ADJ NC CM CQUE VEfin ART NC PREP NC PREP NP VLfin PREP CARD CM VLfin ART NC PREP NC PREP ART NC FS
+1 sentences, 35 words, 0 OOVs
+0 zeroprobs, logprob= -34.1123 ppl= 8.86264 ppl1= 9.43271
+
+ART QU VSfin CSUBX ART NC CQUE VSfin VLadj CSUBI VLinf PREP NC ART NC ADJ VEfin ART NC ADJ CSUBX VEfin VLadj PREP NC FS
+1 sentences, 26 words, 0 OOVs
+0 zeroprobs, logprob= -32.6116 ppl= 16.1375 ppl1= 17.9594
+
+ART NC NC VLfin CQUE VLfin VLinf NC VLfin NC PREP ART VLfin ART NC PREP PPO NC PREP NC CM PPO NC NP ADJ PREP ART NC CSUBI CQUE PPX VLfin PREP VLinf PREP ART NC FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -35.4148 ppl= 8.09228 ppl1= 8.55002
+
+VSfin NC FS CODE PDEL NC VLadj CSUBX NP NP NC CM PPO NC NC NC CM NC NC CM CC SE VLfin PREP VLinf PREP ART NC ADJ FS
+1 sentences, 30 words, 0 OOVs
+0 zeroprobs, logprob= -36.5274 ppl= 15.0766 ppl1= 16.5036
+
+CSUBX NC NC VLfin ART NC CM NC NC VLfin PAL NC PREP PPO NC NC NC PREP PPO NC CM VLger NC FS
+1 sentences, 24 words, 0 OOVs
+0 zeroprobs, logprob= -26.91 ppl= 11.9234 ppl1= 13.2206
+
+NC NC VLfin CQUE VLadj ADV PREP ART NC CC VLinf PREP PPO NC PREP ART NC FS
+1 sentences, 18 words, 0 OOVs
+0 zeroprobs, logprob= -17.4409 ppl= 8.27837 ppl1= 9.30983
+
+QT VLfin NC ADJ PREP ACRNM CC PPX VLfin COLON QT NC VLfin PPX ART CQUE PPO NC NC VLger FS QT CM PPC VLfin QT NC QT CC VLfin PREP VLinf PPO CM QT VHfin VLadj FS
+1 sentences, 38 words, 0 OOVs
+0 zeroprobs, logprob= -60.7391 ppl= 36.0922 ppl1= 39.6642
+
+QT VLfin PREP ART NC ADJ CM QT PPX QT VLfin ALFS VHfin VLadj PREP PPO NC PREP ART NC CM NC NC QT QT VHfin VLadj FS
+1 sentences, 28 words, 0 OOVs
+0 zeroprobs, logprob= -43.0913 ppl= 30.6132 ppl1= 34.5921
+
+ART NC VEfin VLger ADV ADJ CQUE PPX NC CM VHfin VLadj FS
+1 sentences, 13 words, 0 OOVs
+0 zeroprobs, logprob= -19.72 ppl= 25.6194 ppl1= 32.8792
+
+NC ADV CM ART NC VLfin ART NC VLger NC CSUBI VLinf CCAD NEG VLfin NC FS
+1 sentences, 17 words, 0 OOVs
+0 zeroprobs, logprob= -20.2673 ppl= 13.3648 ppl1= 15.5667
+
+ART NC VLfin NC NEG VLadj CM CCAD ART NC PREP ART NC CM NC NC CM VLfin CQUE VLfin ART NC PREP ADJ CC CQUE ART NC VLfin ADJ VLinf ART NC PREP ART NC PREP ART NC PREP NC FS
+1 sentences, 42 words, 0 OOVs
+0 zeroprobs, logprob= -34.7673 ppl= 6.43491 ppl1= 6.72656
+
+QT ART NC VSfin VLinf NC ADJ ADJ PREP PPO NC QT CM VLfin NC FS
+1 sentences, 16 words, 0 OOVs
+0 zeroprobs, logprob= -21.3512 ppl= 18.0282 ppl1= 21.5998
+
+file /home/mariano/Escritorio/Lucia/MTEnEs/input/spanish/target.es.tok.pos.XPOS: 422 sentences, 11184 words, 0 OOVs
+0 zeroprobs, logprob= -11859.2 ppl= 10.5152 ppl1= 11.4914

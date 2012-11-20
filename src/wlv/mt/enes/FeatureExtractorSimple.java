@@ -318,14 +318,24 @@ public class FeatureExtractorSimple {
 
         //run tokenizer for source (English)
         System.out.println("running tokenizer");
-        Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", resourceManager.getString("english.lowercase"), resourceManager.getString("english.tokenizer"), "en", forceRun);
+       
+        String truecasePath = "";
+        truecasePath = resourceManager.getString("english.truecase") + "|" + resourceManager.getString("english.truecase.model");
+        Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", truecasePath, resourceManager.getString("english.tokenizer"), "en", forceRun);
+        
+        
+        // Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", resourceManager.getString("english.lowercase"), resourceManager.getString("english.tokenizer"), "en", forceRun);
         enTok.run();
         sourceFile = enTok.getTok();
         System.out.println(sourceFile);
 
         //run tokenizer for target (Spanish)
         System.out.println("running tokenizer");
-        Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(), inputTargetFile.getPath() + ".tok", resourceManager.getString("spanish.lowercase"), resourceManager.getString("spanish.tokenizer"), "es", forceRun);
+//        Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(), inputTargetFile.getPath() + ".tok", resourceManager.getString("spanish.lowercase"), resourceManager.getString("spanish.tokenizer"), "es", forceRun);
+       
+         truecasePath = resourceManager.getString("spanish.truecase") + "|" + resourceManager.getString("spanish.truecase.model");
+         Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(),inputTargetFile.getPath()+".tok", truecasePath,resourceManager.getString("spanish.tokenizer"), "es", forceRun);
+        
         esTok.run();
         targetFile = esTok.getTok();
         System.out.println(targetFile);
@@ -483,27 +493,30 @@ public class FeatureExtractorSimple {
             //lefterav: Berkeley parser modifications start here
             //Check if user has defined the grammar files for source 
             //and target language
- //   if ( ResourceManager.isRegistered("BParser")){   
+
+           //   if ( ResourceManager.isRegistered("BParser")){   
             
             BParserProcessor sourceParserProcessor = new BParserProcessor();
             sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
             BParserProcessor targetParserProcessor = new BParserProcessor();
             targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
             
-   // }
+   // } 
     
     
      /**
             * BEGIN: Added by Raphael Rubino for the Topic Model Features
 	    */
+          
             String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
             String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
             TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
             TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
-            /**
-            * END: Added by Raphael Rubino for the Topic Model Features
-            */ 
             
+            
+            /* END: Added by Raphael Rubino for the Topic Model Features
+            */ 
+    
             if (posSourceExists) {
                 posSourceProc = new POSProcessor(sourcePosOutput);
                 posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
