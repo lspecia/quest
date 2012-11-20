@@ -184,11 +184,16 @@ public class FeatureManager {
             String index = it.next();
             f = features.get(index);
 //			System.out.println(index);
+
+            // Modified by José de Souza
+            // every new sentence pair has new features
+            // therefore, the feature object state must be reset
+            f.reset();
+
             if (f.isComputable()) {
-//				System.out.print(f.getIndex()+"\t");
                 f.run(source, target);
                 Integer featsNumber = f.getFeaturesNumber();
-                for (int i = 1; i < featsNumber; i++) {
+                for (int i = 1; i <= featsNumber; i++) {
                     result.append(f.getValue(i) + "\t");
             }
 

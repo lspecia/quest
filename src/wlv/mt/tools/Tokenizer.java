@@ -52,16 +52,16 @@ public class Tokenizer extends Resource {
         try {
             System.out.println(lowercasePath);
             System.out.println(tokPath);
-            Logger.log("Transforming the input to lower case...");
-            //Logger.log("Transforming the input to true case...");
+           // Logger.log("Transforming the input to lower case...");
+            Logger.log("Transforming the input to true case...");
 
             //run lowercase first into a temporary file
             String tempOut = output + ".temp";
-            System.out.println("running lowercase");
-            //System.out.println("running truecase");
-            String[] args = new String[]{"perl", lowercasePath, "-l", lang};
-            //String[] truecaseOptions = lowercasePath.split("\\|");
-            //String[] args = new String[]{"perl",truecaseOptions[0], "--model", truecaseOptions[1]};
+          //  System.out.println("running lowercase");
+            System.out.println("running truecase");
+           // String[] args = new String[]{"perl", lowercasePath, "-l", lang};
+            String[] truecaseOptions = lowercasePath.split("\\|");
+            String[] args = new String[]{"perl",truecaseOptions[0], "--model", truecaseOptions[1]};
             ProcessBuilder pb = new ProcessBuilder(args);
             Process process = pb.start();
             Logger.log("Executing: " + process.toString());
@@ -80,7 +80,10 @@ public class Tokenizer extends Resource {
 
             // Process any input to the process
             if (input != null) {
-                BufferedReader br = new BufferedReader(new FileReader(input));
+              //  BufferedReader br = new BufferedReader(new FileReader(input));
+               
+                BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(input), "utf-8"));
+                
                 PrintWriter writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(process.getOutputStream())), true);
 
                 // Send input to the process

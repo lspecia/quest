@@ -31,7 +31,8 @@ public class Feature1300 extends Feature {
      */
     @Override
     public void run(Sentence source, Sentence target) {
-	Float[] sourceTopicVector = (Float[]) source.getValue("topicDistribution");
+        System.out.println(source.getValue("topicDistribution"));
+        Float[] sourceTopicVector = (Float[]) source.getValue("topicDistribution");
 	Float[] targetTopicVector = (Float[]) target.getValue("topicDistribution");
 	Float klDiv = klDivergence( sourceTopicVector, targetTopicVector );
 	setValue( klDiv );

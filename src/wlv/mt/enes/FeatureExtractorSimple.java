@@ -212,7 +212,7 @@ public class FeatureExtractorSimple {
         String absoluteOutputFilePath = (new File(relativeFilePath))
                 .getAbsolutePath();
         String posSourceTaggerPath = resourceManager.getString(lang
-                + ".postagger.exePath");
+                    + ".postagger.exePath");
         String outPath = "";
         try {
             Class c = Class.forName(posName);
@@ -318,14 +318,24 @@ public class FeatureExtractorSimple {
 
         //run tokenizer for source (English)
         System.out.println("running tokenizer");
-        Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", resourceManager.getString("english.lowercase"), resourceManager.getString("english.tokenizer"), "en", forceRun);
+       
+        String truecasePath = "";
+        truecasePath = resourceManager.getString("english.truecase") + "|" + resourceManager.getString("english.truecase.model");
+        Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", truecasePath, resourceManager.getString("english.tokenizer"), "en", forceRun);
+        
+        
+        // Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", resourceManager.getString("english.lowercase"), resourceManager.getString("english.tokenizer"), "en", forceRun);
         enTok.run();
         sourceFile = enTok.getTok();
         System.out.println(sourceFile);
 
         //run tokenizer for target (Spanish)
         System.out.println("running tokenizer");
-        Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(), inputTargetFile.getPath() + ".tok", resourceManager.getString("spanish.lowercase"), resourceManager.getString("spanish.tokenizer"), "es", forceRun);
+//        Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(), inputTargetFile.getPath() + ".tok", resourceManager.getString("spanish.lowercase"), resourceManager.getString("spanish.tokenizer"), "es", forceRun);
+       
+         truecasePath = resourceManager.getString("spanish.truecase") + "|" + resourceManager.getString("spanish.truecase.model");
+         Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(),inputTargetFile.getPath()+".tok", truecasePath,resourceManager.getString("spanish.tokenizer"), "es", forceRun);
+        
         esTok.run();
         targetFile = esTok.getTok();
         System.out.println(targetFile);
@@ -429,6 +439,7 @@ public class FeatureExtractorSimple {
                 + ".out";
         String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
+        
         String pplSourcePath = resourceManager.getString("input")
                 + File.separator + sourceLang + File.separator + sourceFileName
                 + resourceManager.getString("tools.ngram.output.ext");
@@ -474,6 +485,38 @@ public class FeatureExtractorSimple {
                     .isRegistered("targetPosTagger");
             POSProcessor posSourceProc = null;
             POSProcessor posTargetProc = null;
+            
+            
+            
+             
+          
+            //lefterav: Berkeley parser modifications start here
+            //Check if user has defined the grammar files for source 
+            //and target language
+
+           //   if ( ResourceManager.isRegistered("BParser")){   
+            
+            BParserProcessor sourceParserProcessor = new BParserProcessor();
+            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
+            BParserProcessor targetParserProcessor = new BParserProcessor();
+            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
+            
+   // } 
+    
+    
+     /**
+            * BEGIN: Added by Raphael Rubino for the Topic Model Features
+	    */
+          
+            String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
+            String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
+            TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
+            TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+            
+            
+            /* END: Added by Raphael Rubino for the Topic Model Features
+            */ 
+    
             if (posSourceExists) {
                 posSourceProc = new POSProcessor(sourcePosOutput);
                 posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
@@ -489,6 +532,12 @@ public class FeatureExtractorSimple {
 
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
+            
+            
+            
+             
+	   
+	    
 
             //read in each line from the source and target files
             //create a sentence from each
@@ -500,9 +549,13 @@ public class FeatureExtractorSimple {
                 sourceSent = new Sentence(lineSource, sentCount);
                 targetSent = new Sentence(lineTarget, sentCount);
 
-                //System.out.println("Processing sentence "+sentCount);
-                //System.out.println("SORCE: " + sourceSent.getText());
-                //System.out.println("TARGET: " + targetSent.getText());
+                System.out.println("Processing sentence "+sentCount);
+                System.out.println("SORCE: " + sourceSent.getText());
+                System.out.println("TARGET: " + targetSent.getText());
+               
+                
+                
+                
                 if (posSourceExists) {
                     posSourceProc.processSentence(sourceSent);
                 }
@@ -514,6 +567,15 @@ public class FeatureExtractorSimple {
                 pplProcSource.processNextSentence(sourceSent);
                 pplProcTarget.processNextSentence(targetSent);
                 pplPosTarget.processNextSentence(targetSent);
+             
+                   //lefterav: Parse code here
+                 sourceParserProcessor.processNextSentence(sourceSent);
+            	targetParserProcessor.processNextSentence(targetSent);
+               
+                
+                sourceTopicDistributionProcessor.processNextSentence(sourceSent);
+                 targetTopicDistributionProcessor.processNextSentence(targetSent);
+                
                 ++sentCount;
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
                 output.newLine();
