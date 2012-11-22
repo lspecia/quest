@@ -234,8 +234,16 @@ public class FeatureExtractorSimple {
 
         String gizaPath = resourceManager.getString("pair." + sourceLang
                 + targetLang + ".giza.path");
-        System.out.println(gizaPath);
         Giza giza = new Giza(gizaPath);
+    }
+    
+    private static void loadGlobalLexicon() {
+        final String glmodelpath = resourceManager.getString("pair." + sourceLang
+                + targetLang + ".glmodel.path");
+        final Double minweight = Double.valueOf(
+                resourceManager.getString("pair." + sourceLang
+                    + targetLang + ".glmodel.minweight"));
+        GlobalLexicon globalLexicon = new GlobalLexicon(glmodelpath, minweight);
     }
 
     /*
@@ -470,6 +478,7 @@ public class FeatureExtractorSimple {
 
         loadGiza();
         processNGrams();
+        loadGlobalLexicon();
 
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
