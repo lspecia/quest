@@ -577,7 +577,11 @@ public class Triggers extends Resource {
             in2.close();
             out.close();
 
-            // EFFACER TOUS LES FICHIERS
+            // delete temporary files
+            for(int i=0; i<=num; i++){
+                java.io.File f = new java.io.File(filePathOut + "_" + i);
+                f.delete();
+            }
 
             elapsed = System.currentTimeMillis() - start;
             System.out.println("Computed in " + elapsed / 1000F + " sec");
