@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<features>
+    <feature class="wlv.mt.features.impl.bb.Feature1001" description="Number of tokens in source" index="1001"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1002" description="Number of tokens in target" index="1002"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1003" description="ratio of number of tokens in source and target" index="1003"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1004" description="no tokens in the target / no tokens in the source" index="1004"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1005" description="absolute difference between no tokens and source and target normalised by source length" index="1005"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1006" description="average source token length" index="1006"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1007" description="number of mismatched brackets" index="1007"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1008" description="number of mismatched quotation marks" index="1008"/>	
+    <feature class="wlv.mt.features.impl.bb.Feature1302" description="source sentence intra lingual triggers" index="1302"/>	
+    <feature class="wlv.mt.features.impl.bb.Feature1303" description="target sentence intra lingual triggers" index="1303"/>	
+    <feature class="wlv.mt.features.impl.bb.Feature1304" description="source-target sentence inter lingual mutual information" index="1304"/>	
+</features>
