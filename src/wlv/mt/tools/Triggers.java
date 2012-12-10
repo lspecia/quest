@@ -156,7 +156,7 @@ public class Triggers extends Resource {
         if (!(triggers.containsKey(tabline[0]))) {
             triggers.put(tabline[0], new HashMap<String, Float>());
         }
-        triggers.get(tabline[0]).put(tabline[1], new Float(tabline[6]));
+        triggers.get(tabline[0]).put(tabline[1], new Float(tabline[5]));
     }
 
     public void print(String s) {
@@ -457,10 +457,10 @@ public class Triggers extends Resource {
                 eofin[i] = false;
             }
 
-            Logger.log("Now, unioning partial counts" + filePathOut + "_* into " + filePathOut + "_0");
-            System.out.println("Now, unioning partial counts" + filePathOut + "_* into " + filePathOut + "_0");
+            Logger.log("Now, unioning partial counts " + filePathOut + "_* into " + filePathOut + "_0");
+            System.out.println("Now, unioning partial counts " + filePathOut + "_* into " + filePathOut + "_0");
 
-            out = new PrintWriter(new BufferedWriter(new FileWriter(filePathOut)));
+            out = new PrintWriter(new BufferedWriter(new FileWriter(filePathOut+"_0")));
 
             int nbeof = 0;
             while (nbeof != num) {
@@ -562,11 +562,11 @@ public class Triggers extends Resource {
 
                         if (nbMaxTriggers != -1) {
                             for (int i = 0; i < tab.length && i < nbMaxTriggers; i++) {
-                                out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndIm.get((String) tab[i]) + " " + strAndIm.get((String) tab[i]));
+                                out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndIm.get((String) tab[i]) + " " + strAndPIm.get((String) tab[i]));
                             }
                         } else {
                             for (int i = 0; i < tab.length; i++) {
-                                out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndIm.get((String) tab[i]) + " " + strAndIm.get((String) tab[i]));
+                                out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndIm.get((String) tab[i]) + " " + strAndPIm.get((String) tab[i]));
                             }
                         }
                     }
