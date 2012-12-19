@@ -424,8 +424,8 @@ public class FeatureExtractor {
     public void run() {
         constructFolders();
         preprocessing();
-        runBBDavidForTest();
-        //runBB();
+        //runBBDavidForTest();
+        runBB();
     }
 
         // David : I use only this subset of runBB for my tests
