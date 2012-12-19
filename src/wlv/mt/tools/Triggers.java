@@ -8,6 +8,9 @@ import java.io.InputStreamReader;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.PrintWriter;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 /**
  *
@@ -143,6 +146,9 @@ public class Triggers extends Resource {
     }
 
     private void parseLine(String line) {
+        
+        //System.out.println(line);
+        
         String[] tabline = line.split(" ");
 
         if (tabline[0].split(phraseSeparator).length > this.lengthMaxSide1) {
@@ -189,114 +195,114 @@ public class Triggers extends Resource {
     /* Now monolingual triggers are built in the same way as bilingual triggers
      * mono is a special case of bilingual : source and target are same file
     public static int buildMonolingualTriggers(String filePath, String filePathOut, int nbMaxTriggers) {
-        HashMap<String, Integer> vocabulary = new HashMap<String, Integer>();
-        HashMap<String, HashMap<String, Integer>> tr = new HashMap<String, HashMap<String, Integer>>();
-        float nblines;
-
-        long start;
-
-        try {
-            start = System.currentTimeMillis();
-            Logger.log("Building vocabulary from " + filePath + "...");
-            System.out.println("Building vocabulary from " + filePath + "...");
-            nblines = 0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "utf-8"));
-            String line = br.readLine();
-            while (line != null) {
-                nblines++;
-                String[] tabline = line.split(" ");
-                HashMap<String, Integer> vocsent = new HashMap<String, Integer>();
-                for (int i = 0; i < tabline.length; i++) {
-                    if (!vocsent.containsKey(tabline[i])) {
-                        vocsent.put(tabline[i], 1);
-                    }
-                }
-                for (String s : vocsent.keySet()) {
-                    if (vocabulary.containsKey(s)) {
-                        vocabulary.put(s, vocabulary.get(s) + 1);
-                    } else {
-                        vocabulary.put(s, 1);
-                    }
-                    for (String s2 : vocsent.keySet()) {
-                        if (!s.equals(s2)) {
-                            if (!tr.containsKey(s)) {
-                                tr.put(s, new HashMap<String, Integer>());
-                            }
-                            if (tr.get(s).containsKey(s2)) {
-                                tr.get(s).put(s2, tr.get(s).get(s2) + 1);
-                            } else {
-                                tr.get(s).put(s2, 1);
-                            }
-                        }
-                    }
-                }
-                line = br.readLine();
-            }
-            long elapsed = System.currentTimeMillis() - start;
-            System.out.println("Corpus loaded in " + elapsed / 1000F + " sec");
-            Logger.log("Corpus loaded in " + elapsed / 1000F + " sec");
-
-            start = System.currentTimeMillis();
-            Logger.log("Computing mutual information...");
-            System.out.println("Computing mutual information...");
-
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(filePathOut)));
-            Object tab[] = tr.keySet().toArray();
-            Arrays.sort(tab);
-
-            for (Object s : tab) {
-                HashMap<String, Integer> t = tr.get((String) s);
-                HashMap<String, Float> strAndIm = new HashMap<String, Float>();
-                for (String s2 : t.keySet()) {
-                    float im = (float) Math.log10((t.get(s2) / nblines) / ((vocabulary.get((String) s) / nblines) * (vocabulary.get(s2) / nblines)));
-                    float pim = (float) (t.get((String) s2) / nblines) * im;
-                    strAndIm.put(s2, pim);
-                }
-                Object tab2[] = strAndIm.keySet().toArray();
-                for (int k = 0; k < tab2.length; k++) {
-                    for (int l = k + 1; l < tab2.length; l++) {
-                        int cmp = strAndIm.get((String) tab2[k]).compareTo(strAndIm.get((String) tab2[l]));
-                        if (cmp < 0) {
-                            Object temp = tab2[k];
-                            tab2[k] = tab2[l];
-                            tab2[l] = temp;
-                        }
-                    }
-                }
-
-                if (nbMaxTriggers != -1) {
-                    for (int i = 0; i < tab2.length && i < nbMaxTriggers; i++) {
-                        String s2 = (String) tab2[i];
-                        double im = Math.log10((t.get((String) s2) / nblines) / ((vocabulary.get((String) s) / nblines) * (vocabulary.get((String) s2) / nblines)));
-                        double pim = (t.get((String) s2) / nblines) * im;
-                        out.println((String) s + " " + (String) s2 + " " + vocabulary.get((String) s) + " " + vocabulary.get((String) s2) + " " + t.get((String) s2) + " " + im + " " + pim);
-                    }
-                } else {
-                    for (int i = 0; i < tab2.length; i++) {
-                        String s2 = (String) tab2[i];
-                        double im = Math.log10((t.get((String) s2) / nblines) / ((vocabulary.get((String) s) / nblines) * (vocabulary.get((String) s2) / nblines)));
-                        double pim = (t.get((String) s2) / nblines) * im;
-                        out.println((String) s + " " + (String) s2 + " " + vocabulary.get((String) s) + " " + vocabulary.get((String) s2) + " " + t.get((String) s2) + " " + im + " " + pim);
-                    }
-                }
-
-            }
-
-            out.close();
-
-
-            elapsed = System.currentTimeMillis() - start;
-            System.out.println("Computed in " + elapsed / 1000F + " sec");
-            Logger.log("Computed in " + elapsed / 1000F + " sec");
-
-            return 0;
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
-            return -1;
-        }
-
+    HashMap<String, Integer> vocabulary = new HashMap<String, Integer>();
+    HashMap<String, HashMap<String, Integer>> tr = new HashMap<String, HashMap<String, Integer>>();
+    float nblines;
+    
+    long start;
+    
+    try {
+    start = System.currentTimeMillis();
+    Logger.log("Building vocabulary from " + filePath + "...");
+    System.out.println("Building vocabulary from " + filePath + "...");
+    nblines = 0;
+    BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "utf-8"));
+    String line = br.readLine();
+    while (line != null) {
+    nblines++;
+    String[] tabline = line.split(" ");
+    HashMap<String, Integer> vocsent = new HashMap<String, Integer>();
+    for (int i = 0; i < tabline.length; i++) {
+    if (!vocsent.containsKey(tabline[i])) {
+    vocsent.put(tabline[i], 1);
     }
-*/
+    }
+    for (String s : vocsent.keySet()) {
+    if (vocabulary.containsKey(s)) {
+    vocabulary.put(s, vocabulary.get(s) + 1);
+    } else {
+    vocabulary.put(s, 1);
+    }
+    for (String s2 : vocsent.keySet()) {
+    if (!s.equals(s2)) {
+    if (!tr.containsKey(s)) {
+    tr.put(s, new HashMap<String, Integer>());
+    }
+    if (tr.get(s).containsKey(s2)) {
+    tr.get(s).put(s2, tr.get(s).get(s2) + 1);
+    } else {
+    tr.get(s).put(s2, 1);
+    }
+    }
+    }
+    }
+    line = br.readLine();
+    }
+    long elapsed = System.currentTimeMillis() - start;
+    System.out.println("Corpus loaded in " + elapsed / 1000F + " sec");
+    Logger.log("Corpus loaded in " + elapsed / 1000F + " sec");
+    
+    start = System.currentTimeMillis();
+    Logger.log("Computing mutual information...");
+    System.out.println("Computing mutual information...");
+    
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(filePathOut)));
+    Object tab[] = tr.keySet().toArray();
+    Arrays.sort(tab);
+    
+    for (Object s : tab) {
+    HashMap<String, Integer> t = tr.get((String) s);
+    HashMap<String, Float> strAndIm = new HashMap<String, Float>();
+    for (String s2 : t.keySet()) {
+    float im = (float) Math.log10((t.get(s2) / nblines) / ((vocabulary.get((String) s) / nblines) * (vocabulary.get(s2) / nblines)));
+    float pim = (float) (t.get((String) s2) / nblines) * im;
+    strAndIm.put(s2, pim);
+    }
+    Object tab2[] = strAndIm.keySet().toArray();
+    for (int k = 0; k < tab2.length; k++) {
+    for (int l = k + 1; l < tab2.length; l++) {
+    int cmp = strAndIm.get((String) tab2[k]).compareTo(strAndIm.get((String) tab2[l]));
+    if (cmp < 0) {
+    Object temp = tab2[k];
+    tab2[k] = tab2[l];
+    tab2[l] = temp;
+    }
+    }
+    }
+    
+    if (nbMaxTriggers != -1) {
+    for (int i = 0; i < tab2.length && i < nbMaxTriggers; i++) {
+    String s2 = (String) tab2[i];
+    double im = Math.log10((t.get((String) s2) / nblines) / ((vocabulary.get((String) s) / nblines) * (vocabulary.get((String) s2) / nblines)));
+    double pim = (t.get((String) s2) / nblines) * im;
+    out.println((String) s + " " + (String) s2 + " " + vocabulary.get((String) s) + " " + vocabulary.get((String) s2) + " " + t.get((String) s2) + " " + im + " " + pim);
+    }
+    } else {
+    for (int i = 0; i < tab2.length; i++) {
+    String s2 = (String) tab2[i];
+    double im = Math.log10((t.get((String) s2) / nblines) / ((vocabulary.get((String) s) / nblines) * (vocabulary.get((String) s2) / nblines)));
+    double pim = (t.get((String) s2) / nblines) * im;
+    out.println((String) s + " " + (String) s2 + " " + vocabulary.get((String) s) + " " + vocabulary.get((String) s2) + " " + t.get((String) s2) + " " + im + " " + pim);
+    }
+    }
+    
+    }
+    
+    out.close();
+    
+    
+    elapsed = System.currentTimeMillis() - start;
+    System.out.println("Computed in " + elapsed / 1000F + " sec");
+    Logger.log("Computed in " + elapsed / 1000F + " sec");
+    
+    return 0;
+    } catch (java.io.IOException e) {
+    e.printStackTrace();
+    return -1;
+    }
+    
+    }
+     */
     public static int buildTriggers(String filePathSource, String filePathTarget, String filePathOut, int nbMaxTriggers) {
         // ONLY FOR WORD BASED TRIGGERS, NOT FOR PHRASE BASED.
         HashMap<String, Integer> vocabularySource = new HashMap<String, Integer>();
@@ -304,9 +310,20 @@ public class Triggers extends Resource {
         HashMap<String, HashMap<String, Integer>> tr = new HashMap<String, HashMap<String, Integer>>();
         float nblines;
         boolean mono = false;
-        
-        if ( filePathSource.equals(filePathTarget) )
+        PrintWriter out;
+        long elapsed;
+        HashMap<String, Float> strAndPIm = new HashMap<String, Float>();
+        HashMap<String, Integer> setWords = new HashMap<String, Integer>();
+        ArrayList<String> kstab2list = new ArrayList<String>();
+        ArrayList<String> kstablist = new ArrayList<String>();
+        HashMap<String, Integer> vocSentSource = new HashMap<String, Integer>();
+        HashMap<String, Integer> vocSentTarget = new HashMap<String, Integer>();
+        String[] tabLineSource = null;
+        String[] tabLineTarget = null;
+ 
+        if (filePathSource.equals(filePathTarget)) {
             mono = true;
+        }
 
         long start;
 
@@ -332,10 +349,11 @@ public class Triggers extends Resource {
                 if (nblines % 1000 == 0) {
                     System.out.println("   " + nblines);
                 }
-                String[] tabLineSource = lineSource.split(" ");
-                String[] tabLineTarget = lineTarget.split(" ");
-                HashMap<String, Integer> vocSentSource = new HashMap<String, Integer>();
-                HashMap<String, Integer> vocSentTarget = new HashMap<String, Integer>();
+                tabLineSource = lineSource.split(" ");
+                tabLineTarget = lineTarget.split(" ");
+                
+                vocSentSource.clear();
+                vocSentTarget.clear();
                 for (int i = 0; i < tabLineSource.length; i++) {
                     if (!vocSentSource.containsKey(tabLineSource[i])) {
                         vocSentSource.put(tabLineSource[i], 1);
@@ -388,20 +406,20 @@ public class Triggers extends Resource {
                 }
 
                 if (nblines % 100000 == 0) {
-                    long elapsed = System.currentTimeMillis() - start;
+                    elapsed = System.currentTimeMillis() - start;
                     System.out.println("(t0+" + elapsed / 1000F + " sec) : copy counts in " + filePathOut + "_" + num);
-                    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(filePathOut + "_" + num)));
+                    out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePathOut + "_" + num), "utf-8")));
                     Object kstab[] = tr.keySet().toArray();
-                    ArrayList<String> kstablist = new ArrayList<String>();
-                    for (Object s : kstab) {
-                        kstablist.add((String) s);
+                    kstablist.clear();
+                    for (Object os : kstab) {
+                        kstablist.add((String) os);
                     }
                     Collections.sort(kstablist);
                     for (String s : kstablist) {
                         Object kstab2[] = tr.get(s).keySet().toArray();
-                        ArrayList<String> kstab2list = new ArrayList<String>();
-                        for (Object s2 : kstab2) {
-                            kstab2list.add((String) s2);
+                        kstab2list.clear();
+                        for (Object os2 : kstab2) {
+                            kstab2list.add((String) os2);
                         }
                         Collections.sort(kstab2list);
                         for (String s2 : kstab2list) {
@@ -417,18 +435,18 @@ public class Triggers extends Resource {
                 lineTarget = brTarget.readLine();
             }
 
-            long elapsed = System.currentTimeMillis() - start;
+            elapsed = System.currentTimeMillis() - start;
             System.out.println("(t0+" + elapsed / 1000F + " sec) : copy counts in " + filePathOut + "_" + num);
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(filePathOut + "_" + num)));
+            out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePathOut + "_" + num), "utf-8")));
             Object kstab[] = tr.keySet().toArray();
-            ArrayList<String> kstablist = new ArrayList<String>();
+            kstablist.clear();
             for (Object s : kstab) {
                 kstablist.add((String) s);
             }
             Collections.sort(kstablist);
             for (String s : kstablist) {
                 Object kstab2[] = tr.get(s).keySet().toArray();
-                ArrayList<String> kstab2list = new ArrayList<String>();
+                kstab2list.clear();
                 for (Object s2 : kstab2) {
                     kstab2list.add((String) s2);
                 }
@@ -440,7 +458,6 @@ public class Triggers extends Resource {
             out.close();
 
 //            unioning all temporary counts files
-
 
             String word1[] = new String[num + 1];
             String word2[] = new String[num + 1];
@@ -460,7 +477,7 @@ public class Triggers extends Resource {
             Logger.log("Now, unioning partial counts " + filePathOut + "_* into " + filePathOut + "_0");
             System.out.println("Now, unioning partial counts " + filePathOut + "_* into " + filePathOut + "_0");
 
-            out = new PrintWriter(new BufferedWriter(new FileWriter(filePathOut+"_0")));
+            out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePathOut + "_0"), "utf-8")));
 
             int nbeof = 0;
             while (nbeof != num) {
@@ -510,12 +527,13 @@ public class Triggers extends Resource {
             Logger.log("Counts obtained in " + elapsed / 1000F + " sec");
 
 //            reading counts file for computing mutual information and selecting best triggers
-            
+
             start = System.currentTimeMillis();
             Logger.log("Now, computing mutual information from words and (s,t) counts...");
             System.out.println("Now, computing mutual information from words and (s,t) counts...");
 
             BufferedReader in2 = new BufferedReader(new InputStreamReader(new FileInputStream(filePathOut + "_0"), "utf-8"));
+            out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePathOut), "utf-8")));
 
             String line = in2.readLine();
             String words[] = line.split(" ");
@@ -523,9 +541,10 @@ public class Triggers extends Resource {
             String w2 = words[1];
             Integer occCouple = Integer.parseInt(words[2]);
             String currentWord = w1;
-            HashMap<String, Integer> setWords = new HashMap<String, Integer>();
+            setWords.clear();
             setWords.put(w2, occCouple);
             boolean ok = false;
+            int nbWords = 1;
 
             while (!ok) {
                 line = in2.readLine();
@@ -539,46 +558,81 @@ public class Triggers extends Resource {
                     if (w1.equals(currentWord)) {
                         setWords.put(w2, occCouple);
                     } else {
-                        HashMap<String, Float> strAndIm = new HashMap<String, Float>();
-                        HashMap<String, Float> strAndPIm = new HashMap<String, Float>();
+                        //System.out.println(currentWord + " " + setWords.size());
+                        nbWords++;
+                        if (nbWords % 1000 == 0) {
+                            System.out.println("   " + nbWords + " / " + vocabularySource.size());
+                        }
+
+                        //HashMap<String, Float> strAndIm = new HashMap<String, Float>();
+                        strAndPIm.clear();
                         for (String s : setWords.keySet()) {
                             float im = (float) Math.log10((setWords.get(s) / nblines) / ((vocabularySource.get(currentWord) / nblines) * (vocabularyTarget.get(s) / nblines)));
                             float pim = (float) (setWords.get(s) / nblines) * im;
-                            strAndIm.put(s, im);
+                            //strAndIm.put(s, im);
                             strAndPIm.put(s, pim);
                         }
 
                         Object tab[] = setWords.keySet().toArray();
-                        for (int k = 0; k < tab.length; k++) {
-                            for (int l = k + 1; l < tab.length; l++) {
-                                int cmp = strAndIm.get((String) tab[k]).compareTo(strAndIm.get((String) tab[l]));
-                                if (cmp < 0) {
-                                    Object temp = tab[k];
-                                    tab[k] = tab[l];
-                                    tab[l] = temp;
-                                }
-                            }
+                        if (nbMaxTriggers == -1) {
+                            Triggers.mysort(0, tab, strAndPIm, tab.length);
+                        } else {
+                            Triggers.mysort(0, tab, strAndPIm, nbMaxTriggers);
                         }
 
                         if (nbMaxTriggers != -1) {
                             for (int i = 0; i < tab.length && i < nbMaxTriggers; i++) {
-                                out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndIm.get((String) tab[i]) + " " + strAndPIm.get((String) tab[i]));
+                                out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndPIm.get((String) tab[i]));
                             }
                         } else {
                             for (int i = 0; i < tab.length; i++) {
-                                out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndIm.get((String) tab[i]) + " " + strAndPIm.get((String) tab[i]));
+                                out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndPIm.get((String) tab[i]));
                             }
                         }
+
+                        currentWord = w1;
+                        setWords.clear();
+                        setWords.put(w2, occCouple);
                     }
 
                 }
             }
 
+            // output for last currentWord
+            //HashMap<String, Float> strAndIm = new HashMap<String, Float>();
+            strAndPIm.clear();
+            for (String s : setWords.keySet()) {
+                float im = (float) Math.log10((setWords.get(s) / nblines) / ((vocabularySource.get(currentWord) / nblines) * (vocabularyTarget.get(s) / nblines)));
+                float pim = (float) (setWords.get(s) / nblines) * im;
+                //<strAndIm.put(s, im);
+                strAndPIm.put(s, pim);
+            }
+
+            Object tab[] = setWords.keySet().toArray();
+            if (nbMaxTriggers == -1) {
+                Triggers.mysort(0, tab, strAndPIm, tab.length);
+            } else {
+                Triggers.mysort(0, tab, strAndPIm, nbMaxTriggers);
+            }
+
+            if (nbMaxTriggers != -1) {
+                for (int i = 0; i < tab.length && i < nbMaxTriggers; i++) {
+                    out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndPIm.get((String) tab[i]));
+                }
+            } else {
+                for (int i = 0; i < tab.length; i++) {
+                    out.println(currentWord + " " + (String) tab[i] + " " + vocabularySource.get(currentWord) + " " + vocabularyTarget.get((String) tab[i]) + " " + setWords.get((String) tab[i]) + " " + strAndPIm.get((String) tab[i]));
+                }
+            }
+
+
+
+
             in2.close();
             out.close();
 
-            // delete temporary files
-            for(int i=0; i<=num; i++){
+            //delete temporary files
+            for (int i = 0; i <= num; i++) {
                 java.io.File f = new java.io.File(filePathOut + "_" + i);
                 f.delete();
             }
@@ -594,8 +648,70 @@ public class Triggers extends Resource {
         }
     }
 
-    // Build triggers from input files
-    // Output triggers file.
+    static void mysort(int prof, Object tab[], HashMap<String, Float> strAndIm, int nbMaxTriggers) {
+        int cmp;
+        int nbLeft = 0;
+        int nbRight = 0;
+        Object left[] = null;
+        Object right[] = null;
+        Object temp;
+
+        //for (int i = 0; i < prof * 3; i++) {
+        //    System.out.print(" ");
+        //}
+        //System.out.println(tab.length);
+
+        if (tab.length > 1) {
+            int m = (tab.length - 1) / 2;
+            temp = tab[m];
+            for (int i = 0; i < tab.length; i++) {
+                if (m != i) {
+                    cmp = strAndIm.get((String) tab[i]).compareTo(strAndIm.get((String) tab[m]));
+                    if (cmp > 0) {
+                        nbLeft++;
+                    } else {
+                        nbRight++;
+                    }
+                }
+            }
+            if (nbLeft > 0) {
+                left = new Object[nbLeft];
+            }
+            if (nbRight > 0) {
+                right = new Object[nbRight];
+            }
+            nbLeft = 0;
+            nbRight = 0;
+            for (int i = 0; i < tab.length; i++) {
+                if (i != m) {
+                    cmp = strAndIm.get((String) tab[i]).compareTo(strAndIm.get((String) tab[m]));
+                    if (cmp > 0) {
+                        left[nbLeft] = tab[i];
+                        nbLeft++;
+                    } else {
+                        right[nbRight] = tab[i];
+                        nbRight++;
+                    }
+                }
+            }
+            if (nbLeft > 0) {
+                mysort(prof + 1, left, strAndIm, nbMaxTriggers);
+            }
+            if (nbRight > 0 && nbLeft < nbMaxTriggers) {
+                mysort(prof + 1, right, strAndIm, nbMaxTriggers);
+            }
+            for (int i = 0; i < nbLeft; i++) {
+                tab[i] = left[i];
+            }
+            tab[nbLeft] = temp;
+            for (int i = 0; i < nbRight; i++) {
+                tab[nbLeft + 1 + i] = right[i];
+            }
+        }
+    }
+
+// Build triggers from input files
+// Output triggers file.
     public static void main(String[] args) {
         String source = null;
         String target = null;

@@ -424,9 +424,104 @@ public class FeatureExtractor {
     public void run() {
         constructFolders();
         preprocessing();
-        runBB();
+        runBBDavidForTest();
+        //runBB();
     }
 
+        // David : I use only this subset of runBB for my tests
+    public void runBBDavidForTest(){
+        File f = new File(sourceFile);
+        String sourceFileName = f.getName();
+        f = new File(targetFile);
+        String targetFileName = f.getName();
+        String outputFileName = sourceFileName + "_to_" + targetFileName
+                + ".out";
+        String out = resourceManager.getString("output") + File.separator + outputFileName;
+        System.out.println("Output will be: " + out);
+        String pplSourcePath = resourceManager.getString("input")
+                + File.separator + sourceLang + File.separator + sourceFileName
+                + ngramOutputExt;
+        String pplTargetPath = resourceManager.getString("input")
+                + File.separator + targetLang + File.separator + targetFileName
+                + ngramOutputExt;
+
+        try {
+            BufferedReader brSource = new BufferedReader(new FileReader(
+                    sourceFile));
+            BufferedReader brTarget = new BufferedReader(new FileReader(
+                    targetFile));
+            BufferedWriter output = new BufferedWriter(new FileWriter(out));
+
+            Sentence sourceSent;
+            Sentence targetSent;
+            int sentCount = 0;
+
+            String lineSource = brSource.readLine();
+            String lineTarget = brTarget.readLine();
+
+            /**
+             * Triggers (by David Langlois)
+             */
+            Triggers itl_target = 
+                    new Triggers(
+                            resourceManager.getString("target.intra.triggers.file"),
+                            Integer.parseInt(resourceManager.getString("nb.max.triggers.target.intra")),
+                            resourceManager.getString("phrase.separator"));
+            TriggersProcessor itl_target_p = new TriggersProcessor(itl_target);
+
+            Triggers itl_source = 
+                    new Triggers(
+                            resourceManager.getString("source.intra.triggers.file"),
+                            Integer.parseInt(resourceManager.getString("nb.max.triggers.source.intra")),
+                            resourceManager.getString("phrase.separator"));
+            TriggersProcessor itl_source_p = new TriggersProcessor(itl_source);
+
+
+            Triggers itl_source_target = 
+                    new Triggers(
+                            resourceManager.getString("source.target.inter.triggers.file"),
+                            Integer.parseInt(resourceManager.getString("nb.max.triggers.source.target.inter")),
+                            resourceManager.getString("phrase.separator"));
+            TriggersProcessor itl_source_target_p = 
+                    new TriggersProcessor(itl_source_target);
+                        
+            /*
+             * End modification for Triggers
+             */
+
+            //read in each line from the source and target files
+            //create a sentence from each
+            //process each sentence
+            //run the features on the sentences
+            while ((lineSource != null) && (lineTarget != null)) {
+
+                sourceSent = new Sentence(lineSource, sentCount);
+                targetSent = new Sentence(lineTarget, sentCount);
+
+                // modified by David
+                itl_source_p.processNextSentence(sourceSent);
+                itl_target_p.processNextSentence(targetSent);
+                itl_source_target_p.processNextParallelSentences(sourceSent, targetSent);
+                // end modification by David
+
+                ++sentCount;
+                output.write(featureManager.runFeatures(sourceSent, targetSent));
+                output.newLine();
+                lineSource = brSource.readLine();
+                lineTarget = brTarget.readLine();
+            }
+
+            brSource.close();
+            brTarget.close();
+            output.close();
+            Logger.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+    }
+
+    
+    
     /**
      * runs the BB features
      */
