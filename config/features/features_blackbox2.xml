@@ -67,7 +67,7 @@
     <feature class="wlv.mt.features.impl.bb.Feature1080" description="number source tokens that do not contain only a-z" index="1080"/>
     <feature class="wlv.mt.features.impl.bb.Feature1081" description="percentage of tokens in the target which do not contain only a-z" index="1081"/>
     <feature class="wlv.mt.features.impl.bb.Feature1082" description="ratio of percentage of tokens a-z in the source and tokens a-z in the target" index="1082"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1083" description="percentage of content words in the source" index="1083"/>
+   <!-- <feature class="wlv.mt.features.impl.bb.Feature1083" description="percentage of content words in the source" index="1083"/>
     <feature class="wlv.mt.features.impl.bb.Feature1084" description="percentage of content words in the target" index="1084"/>
     <feature class="wlv.mt.features.impl.bb.Feature1085" description="ratio of percentage of content words in the source and target" index="1085"/>
     <feature class="wlv.mt.features.impl.bb.Feature1086" description="LM log probability of POS of the target" index="1086"/>
@@ -78,7 +78,7 @@
     <feature class="wlv.mt.features.impl.bb.Feature1091" description="percentage of verbs in the target" index="1091"/>
     <feature class="wlv.mt.features.impl.bb.Feature1092" description="ratio of percentage of nouns in the source and target" index="1092"/>
     <feature class="wlv.mt.features.impl.bb.Feature1093" description="ratio of percentage of verbs in the source and target" index="1093"/>
-    <feature class="wlv.mt.features.impl.bb.Feature1094" description="ratio of percentage of pronouns in the source and target" index="1094"/>
+    <feature class="wlv.mt.features.impl.bb.Feature1094" description="ratio of percentage of pronouns in the source and target" index="1094"/>-->
     <!--feature class="wlv.mt.features.impl.bb.Feature1097" description="coherence of target" index="1097"/>
     <feature class="wlv.mt.features.impl.bb.Feature1098" description="number of dependencies with aligned constituents normalized by the total number of dependencies (max between source and target)" index="1098"/>
     <feature class="wlv.mt.features.impl.bb.Feature1099" description="number of dependencies with aligned constituents normalized by the total number of dependencies (max between source and target), with the order of the constituents ignored" index="1099"/>
