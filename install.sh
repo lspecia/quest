@@ -1,21 +1,9 @@
-#!/bin/sh
+#/bin/sh
 
 # download and unpack quest from FTP
 wget 15.ph-litice.cz/resources/quest.tar.gz
 tar -zxvf quest.tar.gz
 rm quest.tar.gz
-
-# download spa_ancora.gr from FTP
-wget 15.ph-litice.cz/resources/spa_ancora.gr
-mv spa_ancora.gr ./quest/lang_resources
-
-# download lex.e2s from FTP
-wget 15.ph-litice.cz/resources/lex.e2s
-mv lex.e2s ./quest/lang_resources/giza
-
-# download ngram-counts.europarl-nc.en.proc from FTP
-wget 15.ph-litice.cz/resources/ngram-counts.europarl-nc.en.proc
-mv ngram-counts.europarl-nc.en.proc ./quest/lang_resources/english
 
 # download BerkeleyParser
 wget http://berkeleyparser.googlecode.com/files/BerkeleyParser-1.7.jar
