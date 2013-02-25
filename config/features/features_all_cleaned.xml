@@ -16,35 +16,20 @@
     <feature class="shef.mt.features.impl.bb.Feature1014" description="perplexity of the target sentence without end of sentence marker" index="1014"/>
     <feature class="shef.mt.features.impl.bb.Feature1015" description="number of occurrences of the target word within the target hypothesis (averaged for all words in the hypothesis - type/token ratio)" index="1015"/>
     <feature class="shef.mt.features.impl.bb.Feature1016" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.01)" index="1016"/>
-    <feature class="shef.mt.features.impl.bb.Feature1017" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.01)" index="1017"/>
     <feature class="shef.mt.features.impl.bb.Feature1018" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.05)" index="1018"/>
-    <feature class="shef.mt.features.impl.bb.Feature1019" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.05)" index="1019"/>
     <feature class="shef.mt.features.impl.bb.Feature1020" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.1)" index="1020"/>
-    <feature class="shef.mt.features.impl.bb.Feature1021" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.1)" index="1021"/>
     <feature class="shef.mt.features.impl.bb.Feature1022" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.2)" index="1022"/>
-    <feature class="shef.mt.features.impl.bb.Feature1023" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.2)" index="1023"/>
     <feature class="shef.mt.features.impl.bb.Feature1024" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5)" index="1024"/>
-    <feature class="shef.mt.features.impl.bb.Feature1025" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.5)" index="1025"/>
     <feature class="shef.mt.features.impl.bb.Feature1026" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.01) weighted by the frequency of each word in the source corpus" index="1026"/>
-    <feature class="shef.mt.features.impl.bb.Feature1027" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.01) weighted by the frequency of each word in the source corpus" index="1027"/>
     <feature class="shef.mt.features.impl.bb.Feature1028" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1028"/>
-    <feature class="shef.mt.features.impl.bb.Feature1029" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1029"/>
     <feature class="shef.mt.features.impl.bb.Feature1030" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.1) weighted by the frequency of each word in the source corpus" index="1030"/>
-    <feature class="shef.mt.features.impl.bb.Feature1031" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.1) weighted by the frequency of each word in the source corpus" index="1031"/>
     <feature class="shef.mt.features.impl.bb.Feature1032" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.2) weighted by the frequency of each word in the source corpus" index="1032"/>
-    <feature class="shef.mt.features.impl.bb.Feature1033" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.2) weighted by the frequency of each word in the source corpus" index="1033"/>
     <feature class="shef.mt.features.impl.bb.Feature1034" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1034"/>
-    <feature class="shef.mt.features.impl.bb.Feature1035" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1035"/>
     <feature class="shef.mt.features.impl.bb.Feature1036" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.01) weighted by the inverse frequency of each word in the source corpus" index="1036"/>
-    <feature class="shef.mt.features.impl.bb.Feature1037" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.01) weighted by the inverse frequency of each word in the source corpus" index="1037"/>
     <feature class="shef.mt.features.impl.bb.Feature1038" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.05) weighted by the inverse frequency of each word in the source corpus" index="1038"/>
-    <feature class="shef.mt.features.impl.bb.Feature1039" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.05) weighted by the inverse frequency of each word in the source corpus" index="1039"/>
     <feature class="shef.mt.features.impl.bb.Feature1040" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.1) weighted by the inverse frequency of each word in the source corpus" index="1040"/>
-    <feature class="shef.mt.features.impl.bb.Feature1041" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.1) weighted by the inverse frequency of each word in the source corpus" index="1041"/>
     <feature class="shef.mt.features.impl.bb.Feature1042" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.2) weighted by the inverse frequency of each word in the source corpus" index="1042"/>
-    <feature class="shef.mt.features.impl.bb.Feature1043" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.2) weighted by the inverse frequency of each word in the source corpus" index="1043"/>
     <feature class="shef.mt.features.impl.bb.Feature1044" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.5) weighted by the inverse frequency of each word in the source corpus" index="1044"/>
-    <feature class="shef.mt.features.impl.bb.Feature1045" description="average number of translations per source word in the sentence (threshold in giza2: prob &gt; 0.5) weighted by the inverse frequency of each word in the source corpus" index="1045"/>
     <feature class="shef.mt.features.impl.bb.Feature1046" description="average unigram frequency in quartile_1 of frequency (lower frequency words) in the corpus of the source sentence" index="1046"/>
     <feature class="shef.mt.features.impl.bb.Feature1047" description=" average unigram frequency in quartile_2 of frequency (lower frequency words) in the corpus of the source sentence" index="1047"/>
     <feature class="shef.mt.features.impl.bb.Feature1048" description="average unigram frequency in quartile 3 of frequency (lower frequency words) in the corpus of the source sentence" index="1048"/>
@@ -94,7 +79,7 @@
     <feature class="shef.mt.features.impl.bb.Feature1092" description="ratio of percentage of nouns in the source and target" index="1092"/>
     <feature class="shef.mt.features.impl.bb.Feature1093" description="ratio of percentage of verbs in the source and target" index="1093"/>
     <feature class="shef.mt.features.impl.bb.Feature1094" description="ratio of percentage of pronouns in the source and target" index="1094"/>
-    <feature class="shef.mt.features.impl.bb.Feature1097" description="coherence of target" index="1097"/>
+    <!--feature class="shef.mt.features.impl.bb.Feature1097" description="coherence of target" index="1097"/>
     <feature class="shef.mt.features.impl.bb.Feature1098" description="number of dependencies with aligned constituents normalized by the total number of dependencies (max between source and target)" index="1098"/>
     <feature class="shef.mt.features.impl.bb.Feature1099" description="number of dependencies with aligned constituents normalized by the total number of dependencies (max between source and target), with the order of the constituents ignored" index="1099"/>
     <feature class="shef.mt.features.impl.bb.Feature1100" description="number of dependencies with well aligned constituents (Giza threshold 0.1) normalized by the total number of dependencies (max between source and target)" index="1100"/>
@@ -121,15 +106,69 @@
     <feature class="shef.mt.features.impl.bb.Feature1121" description="number of ORGANIZATION entities in source that are aligned to ORGANIZATION entities in target" index="1121"/>
     <feature class="shef.mt.features.impl.bb.Feature1122" description="Named Entity feature: difference in number of PERSON entities in source and target normalised by total number of person entities (max between english and arabic)" index="1122"/>
     <feature class="shef.mt.features.impl.bb.Feature1123" description="Named Entity feature: difference in number of ORGANIZATION entities in source and target normalised by total number of person entities (max between english and arabic)" index="1123"/>
-    <feature class="shef.mt.features.impl.bb.Feature1124" description="Named Entity feature: difference in number of LOCATION entities in source and target normalised by total number of person entities (max between english and arabic)" index="1124"/>
-    <feature class="shef.mt.features.impl.bb.Feature1300" description="Kullback-Leibler divergence of source and target topic distributions" index="1300"/>
-    <feature class="shef.mt.features.impl.bb.Feature1301" description="Jensen-Shannon divergence of source and target topic distributions" index="1301"/>
-    <feature class="shef.mt.features.impl.bb.Feature9300"  index="9300"/>
-    <feature class="shef.mt.features.impl.bb.Feature9301"  index="9301"/>
-    <feature class="shef.mt.features.impl.bb.Feature9302"  index="9302"/>
-    <feature class="shef.mt.features.impl.bb.Feature9303"  index="9303"/>
-    <feature class="shef.mt.features.impl.bb.Feature9304"  index="9304"/>
-    <feature class="shef.mt.features.impl.bb.Feature9305"  index="9305"/>
-    <feature class="shef.mt.features.impl.bb.Feature9306"  index="9306"/>
-    <feature class="shef.mt.features.impl.bb.Feature9307"  index="9307"/>
+    <feature class="shef.mt.features.impl.bb.Feature1124" description="Named Entity feature: difference in number of LOCATION entities in source and target normalised by total number of person entities (max between english and arabic)" index="1124"/-->
+     <feature class="shef.mt.features.impl.gb.Feature2001" description="log prob score of the hypothesis" index="2001"/>
+    <feature class="shef.mt.features.impl.gb.Feature2002" description="-log probability score (base model) normalized by source sentence length" index="2002"/>
+    <feature class="shef.mt.features.impl.gb.Feature2003" description="size of nbest list" index="2003"/>
+    <feature class="shef.mt.features.impl.gb.Feature2004" description="" index="2004"/>
+    <feature class="shef.mt.features.impl.gb.Feature2005" description="using n-best for training LM: sentence 1-gram log-probability / sentence length" index="2005"/>
+    <feature class="shef.mt.features.impl.gb.Feature2006" description="using n-best for training LM: sentence 1-gram perplexity" index="2006"/>
+    <feature class="shef.mt.features.impl.gb.Feature2007" description="using n-best for training LM: sentence 2-gram log-probability" index="2007"/>
+    <feature class="shef.mt.features.impl.gb.Feature2008" description="using n-best for training LM: sentence 2-gram log-probability / sentence length" index="2008"/>
+    <feature class="shef.mt.features.impl.gb.Feature2009" description="using n-best for training LM: sentence 2-gram perplexity" index="2009"/>
+    <feature class="shef.mt.features.impl.gb.Feature2010" description="using n-best for training LM: sentence 3-gram log-probability" index="2010"/>
+    <feature class="shef.mt.features.impl.gb.Feature2011" description="using n-best for training LM: sentence 3-gram log-probability / sentence length" index="2011"/>
+    <feature class="shef.mt.features.impl.gb.Feature2012" description="-using n-best for training LM: sentence 3-gram perplexity" index="2012"/>
+    <feature class="shef.mt.features.impl.gb.Feature2014" description="dist_feat_1" index="2014"/>
+    <feature class="shef.mt.features.impl.gb.Feature2015" description="" index="2015"/>
+    <feature class="shef.mt.features.impl.gb.Feature2016" description="dist_feat_3" index="2016"/>
+    <feature class="shef.mt.features.impl.gb.Feature2017" description="dist_feat_4" index="2017"/>
+    <feature class="shef.mt.features.impl.gb.Feature2018" description="dist_feat_5" index="2018"/>
+    <feature class="shef.mt.features.impl.gb.Feature2019" description="dist_feat_6" index="2019"/>
+    <feature class="shef.mt.features.impl.gb.Feature2020" description="dist_feat_7" index="2020"/>
+    <feature class="shef.mt.features.impl.gb.Feature2021" description="CMU phrase probability phrase_prob_feat_1" index="2021"/>
+    <feature class="shef.mt.features.impl.gb.Feature2022" description="CMU phrase probability phrase_prob_feat_2" index="2022"/>
+    <feature class="shef.mt.features.impl.gb.Feature2023" description="CMU phrase probability phrase_prob_feat_3" index="2023"/>
+    <feature class="shef.mt.features.impl.gb.Feature2024" description="CMU phrase probability phrase_prob_feat_4" index="2024"/>
+    <feature class="shef.mt.features.impl.gb.Feature2025" description="CMU phrase probability phrase_prob_feat_5" index="2025"/>
+    <feature class="shef.mt.features.impl.gb.Feature2026" description="CMU word penalty" index="2026"/>
+    <!--feature class="shef.mt.features.impl.gb.Feature2027" description="" index="2027"/>
+    <feature class="shef.mt.features.impl.gb.Feature2028" description="" index="2028"/>
+    <feature class="shef.mt.features.impl.gb.Feature2029" description="IBM dist_sc" index="2029"/>
+    <feature class="shef.mt.features.impl.gb.Feature2030" description="" index="2030"/>
+    <feature class="shef.mt.features.impl.gb.Feature2031" description="" index="2031"/>
+    <feature class="shef.mt.features.impl.gb.Feature2032" description="" index="2032"/>
+    <feature class="shef.mt.features.impl.gb.Feature2033" description="" index="2033"/>
+    <feature class="shef.mt.features.impl.gb.Feature2034" description="" index="2034"/>
+    <feature class="shef.mt.features.impl.gb.Feature2035" description="" index="2035"/>
+    <feature class="shef.mt.features.impl.gb.Feature2036" description="" index="2036"/>
+    <feature class="shef.mt.features.impl.gb.Feature2037" description="" index="2037"/>
+    <feature class="shef.mt.features.impl.gb.Feature2038" description="" index="2038"/>
+    <feature class="shef.mt.features.impl.gb.Feature2039" description="" index="2039"/>
+    <feature class="shef.mt.features.impl.gb.Feature2040" description="" index="2040"/>
+    <feature class="shef.mt.features.impl.gb.Feature2041" description="" index="2041"/-->
+    <feature class="shef.mt.features.impl.gb.Feature2042" description="maximum size of the bi-phrases for the target sentence, in terms of number of words" index="2042"/>
+    <feature class="shef.mt.features.impl.gb.Feature2043" description="CMU: proportion of unknown words" index="2043"/>
+    <feature class="shef.mt.features.impl.gb.Feature2044" description="relative frequency in the nbest list" index="2044"/>
+    <feature class="shef.mt.features.impl.gb.Feature2045" description="averaged target word statistics: score-weighted relative frequency of the word in the n-best list " index="2045"/>
+    <feature class="shef.mt.features.impl.gb.Feature2046" description="averaged target word statistics: relative frequency of the word in the n-best list occurring in the same position as the target word" index="2046"/>
+    <feature class="shef.mt.features.impl.gb.Feature2047" description="ratio of log prob (base model score) of the current hypothesis to the sum of the log prob score of all hypothesis" index="2047"/>
+    <feature class="shef.mt.features.impl.gb.Feature2048" description="ratio of log prob (base model score) of the current hypothesis to the sum of the log prob score of all hypothesis " index="2048"/>
+    <feature class="shef.mt.features.impl.gb.Feature2049" description="average size of hypotheses in the n-best list" index="2049"/>
+    <feature class="shef.mt.features.impl.gb.Feature2050" description="n-best list density (vocabulary size / average sentence length)" index="2050"/>
+    <feature class="shef.mt.features.impl.gb.Feature2051" description="fertility of the words in the source sentence compared to the n-best list in terms of words (vocabulary size / source sentence length)" index="2051"/>
+    <feature class="shef.mt.features.impl.gb.Feature2052" description="edit distance of the current hypothesis to the center hypothesis " index="2052"/>
+    <feature class="shef.mt.features.impl.gb.Feature2053" description="percentage of other hypothesis with and edit distance to the centre &lt; (current hypothesis edit distance to the centre * 0.5)" index="2053"/>
+    <feature class="shef.mt.features.impl.gb.Feature2054" description="percentage of other hypothesis with and edit distance to the centre &lt; (current hypothesis edit distance to the centre * 0.35)" index="2054"/>
+    <feature class="shef.mt.features.impl.gb.Feature2055" description="CMU: totalHypotheses" index="2055"/>
+    <feature class="shef.mt.features.impl.gb.Feature2056" description="discarded search graph nodes" index="2056"/>
+    <feature class="shef.mt.features.impl.gb.Feature2057" description="CMU: percentage of discarded graph nodes" index="2057"/>
+    <feature class="shef.mt.features.impl.gb.Feature2058" description="CMU: pruned search graph nodes" index="2058"/>
+    <feature class="shef.mt.features.impl.gb.Feature2059" description="proportion of pruned search graph nodes " index="2059"/>
+    <feature class="shef.mt.features.impl.gb.Feature2060" description="number of recombined graph nodes" index="2060"/>
+    <feature class="shef.mt.features.impl.gb.Feature2061" description="proportion of recombined graph nodes" index="2061"/>
+    <feature class="shef.mt.features.impl.gb.Feature2100" description="percentage of incorrectly translated possessive pronouns" index="2100"/>
+    <feature class="shef.mt.features.impl.gb.Feature2101" description="percentage of incorrectly translated direct object personal pronouns" index="2101"/>
+
+
 </features>
