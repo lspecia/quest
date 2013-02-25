@@ -3,8 +3,11 @@ import org.apache.commons.cli.*;
 import java.io.*;
 
 import wlv.mt.util.*;
+import wlv.mt.features.impl.Feature;
 import wlv.mt.features.util.*;
 import wlv.mt.tools.*;
+import wlv.mt.xmlwrap.*;
+import wlv.mt.tools.stf.*;
 
 /**
  * FeatureExtractor extracts Glassbox and/or Blackbox features from a pair of
@@ -25,11 +28,12 @@ import wlv.mt.tools.*;
  *
  * @author Catalina Hallett & Mariano Felice<br>
  */
-public class FeatureExtractorSimple {
+public class FeatureExtractorSimple{
 
     private static int mtSys;
     private static String workDir;
     private static String wordLattices;
+	
     private static String gizaAlignFile;
     /**
      * path to the input folder
@@ -48,17 +52,31 @@ public class FeatureExtractorSimple {
     private static String sourceLang;
     private static String targetLang;
     private static String features;
+	private static String nbestInput;
+	private static String onebestPhrases;
+	private static String onebestLog;
+
     private static boolean forceRun = false;
     private static PropertiesManager resourceManager;
     private static FeatureManager featureManager;
     private static int ngramSize = 3;
+	private static int IBM = 0;
+	private static int CMU = 1;
     private static String configPath;
+	private static String gbXML;
 
+	
     /**
+	 * set to 0 if the parameter sent to the -gb option is an xml file, 0 otherwise
+	 */
+	private int gbMode;
+    
+        /**
      * Initialises the FeatureExtractor from a set of parameters, for example
      * sent as command-line arguments
      *
-     * @param args The list of arguments
+	 * @param args
+	 *            The list of arguments
      *
      */
     public FeatureExtractorSimple(String[] args) {
@@ -108,6 +126,10 @@ public class FeatureExtractorSimple {
         Option feat = OptionBuilder.withArgName("feat").hasArgs(1)
                 .isRequired(false).create("feat");
 
+		Option gb = OptionBuilder.withArgName("gb")
+				.withDescription("GlassBox input files").hasOptionalArgs(2)
+				.hasArgs(3).create("gb");
+
         Option mode = OptionBuilder
                 .withArgName("mode")
                 .withDescription("blackbox features, glassbox features or both")
@@ -121,6 +143,8 @@ public class FeatureExtractorSimple {
         Option rebuild = new Option("rebuild", "run all preprocessing tools");
         rebuild.setRequired(false);
 
+
+		
         CommandLineParser parser = new PosixParser();
         Options options = new Options();
 
@@ -129,6 +153,7 @@ public class FeatureExtractorSimple {
         options.addOption(mode);
         options.addOption(lang);
         options.addOption(feat);
+		options.addOption(gb);
         options.addOption(rebuild);
         options.addOption(config);
 
@@ -141,7 +166,6 @@ public class FeatureExtractorSimple {
             } else {
                 resourceManager = new PropertiesManager();
             }
-
 
             if (line.hasOption("input")) {
                 // print the value of block-size
@@ -158,6 +182,35 @@ public class FeatureExtractorSimple {
                 sourceLang = resourceManager.getString("sourceLang.default");
                 targetLang = resourceManager.getString("targetLang.default");
             }
+
+			if (line.hasOption("gb")) {
+				String[] gbOpt = line.getOptionValues("gb");
+				for (String s : gbOpt)
+					System.out.println(s);
+				if (gbOpt.length > 1) {
+					mtSys = CMU;
+					nbestInput = gbOpt[0];
+					onebestPhrases = gbOpt[1];
+					onebestLog = gbOpt[2];
+					gbMode = 1;
+				} else 
+				{
+					File f = new File(gbOpt[0]);
+					if (f.isDirectory()){
+						mtSys = IBM;
+						wordLattices = gbOpt[0];
+						gbMode = 1;
+					}
+					else {
+						gbMode = 0;
+						gbXML = gbOpt[0];
+					}
+
+				}
+				
+					
+
+			}
 
             if (line.hasOption("mode")) {
                 String[] modeOpt = line.getOptionValues("mode");
@@ -193,9 +246,9 @@ public class FeatureExtractorSimple {
 
     }
 
+	
     /**
      * runs the part of speech tagger
-     *
      * @param file input file
      * @param lang language
      * @param type source or target
@@ -234,6 +287,7 @@ public class FeatureExtractorSimple {
 
         String gizaPath = resourceManager.getString("pair." + sourceLang
                 + targetLang + ".giza.path");
+        System.out.println(gizaPath);
         Giza giza = new Giza(gizaPath);
     }
     
@@ -429,12 +483,34 @@ public class FeatureExtractorSimple {
      * <li>runs the pre-processing tools <li>runs the BB features, GB features
      * or both according to the command line parameters </ul>
      */
-    public void run() {
-        constructFolders();
-        preprocessing();
-        runBB();
-    }
+	public  String initialiseGBResources() {
+		// transform the cmu output to xml
+		String xmlOut = resourceManager.getString("input") + File.separator
+				+ "systems" + File.separator;
+		File f = new File(sourceFile);
+		if (mtSys == CMU) {
+			xmlOut += "cmu_" + f.getName() + ".xml";
+			System.out.println(xmlOut);
+			CMU_XMLWrapper cmuwrap = new CMU_XMLWrapper(nbestInput, xmlOut,
+					onebestPhrases, onebestLog);
+			cmuwrap.run();
+   
+			// now send the xml output from cmuwrap to be processed
+		} else {
 
+			String nbestPath = xmlOut
+					+ f.getName().substring(0, f.getName().indexOf("."));
+			xmlOut += "ibm_" + f.getName() + ".xml";
+			System.out.println(xmlOut);
+                            IBM_XMLWrapper ibmwrap = new IBM_XMLWrapper(xmlOut, wordLattices,
+					nbestPath, resourceManager.getString("tools.openfst.path"));
+			ibmwrap.run();
+
+    }
+		return xmlOut;
+	}
+
+	
     /**
      * runs the BB features
      */
@@ -607,6 +683,7 @@ public class FeatureExtractorSimple {
         }
     }
 
+    
     private static void copyFile(File sourceFile, File destFile)
             throws IOException {
         if (sourceFile.equals(destFile)) {
@@ -650,4 +727,261 @@ public class FeatureExtractorSimple {
     public void setMod(String mod) {
         this.mod = mod;
     }
+
+
+	/**
+	 * runs the GB features
+	 */
+	public  void runGB() {
+		MTOutputProcessor mtop = null;
+
+		if (gbMode == 1)
+			gbXML = initialiseGBResources();
+
+		String nbestSentPath = resourceManager.getString("input")
+				+ File.separator + targetLang + File.separator + "temp";
+		String ngramExecPath = resourceManager.getString("tools.ngram.path");
+
+		mtop = new MTOutputProcessor(gbXML, nbestSentPath, ngramExecPath,
+				ngramSize);
+//		MorphAnalysisProcessor map = new MorphAnalysisProcessor(madaFile);
+
+		File f = new File(sourceFile);
+		String sourceFileName = f.getName();
+		f = new File(targetFile);
+		String targetFileName = f.getName();
+
+		String outputFileName = sourceFileName + "_to_" + targetFileName
+				+ ".out";
+
+		String out = resourceManager.getString("output") + File.separator + getMod()
+				+ outputFileName;
+		System.out.println("Output will be: " + out);
+
+		String lineTarget;
+
+		try {
+			BufferedReader brSource = new BufferedReader(new FileReader(
+					sourceFile));
+			BufferedReader brTarget = new BufferedReader(new FileReader(
+					targetFile));
+			BufferedWriter output = new BufferedWriter(new FileWriter(out));
+
+			ResourceManager.printResources();
+
+			Sentence targetSent;
+			Sentence sourceSent;
+			int sentCount = 0;
+
+			String lineSource;
+
+			while (((lineSource = brSource.readLine()) != null)
+					&& ((lineTarget = brTarget.readLine()) != null)) {
+
+				lineSource = lineSource.trim().substring(lineSource.indexOf(" "));
+				sourceSent = new Sentence(lineSource,
+						sentCount);
+				targetSent = new Sentence(lineTarget, sentCount);
+
+                //map.processNextSentence(sourceSent);
+				mtop.processNextSentence(sourceSent);
+
+				++sentCount;
+				output.write(featureManager.runFeatures(sourceSent, targetSent));
+				output.write("\r\n");
+
 }
+			brSource.close();
+			brTarget.close();
+			output.close();
+			featureManager.printFeatureIndeces();
+			Logger.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        }
+/*
+public void run() {
+        constructFolders();
+        preprocessing();
+        runBB();
+    }*/
+        
+        
+ 
+
+ 
+ 	public void runAll() {
+		File f = new File(sourceFile);
+                String sourceFileName = f.getName();
+                f = new File(targetFile);
+                String targetFileName = f.getName();
+                String outputFileName = sourceFileName + "_to_" + targetFileName
+                + ".out";
+                String out = resourceManager.getString("output") + File.separator + outputFileName;
+                System.out.println("Output will be: " + out);
+
+		
+		MTOutputProcessor mtop = null;
+
+		if (gbMode == 1)
+			gbXML = initialiseGBResources();
+
+		String nbestSentPath = resourceManager.getString("input")
+				+ File.separator + targetLang + File.separator + "temp";
+		String ngramExecPath = resourceManager.getString("tools.ngram.path");
+
+		mtop = new MTOutputProcessor(gbXML, nbestSentPath, ngramExecPath,
+				ngramSize);
+		
+
+		
+		
+		//wlv.mt.features.coherence.Coherence coh = new wlv.mt.features.coherence.Coherence(
+		//		getTargetFile());
+
+		String pplSourcePath = resourceManager.getString("input")
+                + File.separator + sourceLang + File.separator + sourceFileName
+                + resourceManager.getString("tools.ngram.output.ext");
+        String pplTargetPath = resourceManager.getString("input")
+                + File.separator + targetLang + File.separator + targetFileName
+                + resourceManager.getString("tools.ngram.output.ext");
+
+
+        String pplPOSTargetPath = resourceManager.getString("input")
+                + File.separator + targetLang + File.separator + targetFileName + PosTagger.getXPOS()
+                + resourceManager.getString("tools.ngram.output.ext");
+        runNGramPPL();
+
+        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
+                new String[]{"logprob", "ppl", "ppl1"});
+        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
+                new String[]{"logprob", "ppl", "ppl1"});
+
+        FileModel fm = new FileModel(sourceFile,
+                resourceManager.getString(sourceLang + ".corpus"));
+        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
+        String targetPosOutput = runPOS(targetFile, targetLang, "target");
+
+        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
+        System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
+        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
+                new String[]{"poslogprob", "posppl", "posppl1"});
+
+        loadGiza();
+        processNGrams();
+
+		try {
+			BufferedReader brSource = new BufferedReader(new FileReader(
+					sourceFileName));
+			BufferedReader brTarget = new BufferedReader(new FileReader(
+					targetFileName));
+			BufferedWriter output = new BufferedWriter(new FileWriter(out));
+			BufferedReader posSource = null;
+			BufferedReader posTarget = null;
+			boolean posSourceExists = ResourceManager
+					.isRegistered("sourcePosTagger");
+			boolean posTargetExists = ResourceManager
+					.isRegistered("targetPosTagger");
+			POSProcessor posSourceProc = null;
+			POSProcessor posTargetProc = null;
+			if (posSourceExists) {
+				posSourceProc = new POSProcessor(sourcePosOutput);
+				 posSource = new BufferedReader(new InputStreamReader(new
+				 FileInputStream(sourcePosOutput), "utf-8"));
+			}
+			if (posTargetExists) {
+				posTargetProc = new POSProcessor(targetPosOutput);
+				 posTarget = new BufferedReader(new InputStreamReader(new
+				 FileInputStream(targetPosOutput)));
+			}
+			ResourceManager.printResources();
+
+                        Sentence targetSent;
+			// HACK
+			Sentence sourceSent;
+			int sentCount = 0;
+			// HACK
+			String lineSource = brSource.readLine();
+			String lineTarget = brTarget.readLine();
+			// HACK
+			int result;
+			
+			while ((lineSource != null)	&& (lineTarget != null)) {
+
+	//the MADA-tokenised files contain start each sentence with the setence ID. We put it there (why?) - no we've got to remove it
+                           
+                                lineSource = lineSource.trim().substring(lineSource.indexOf(" ")).replace("+", "");
+				sourceSent = new Sentence(lineSource,
+						sentCount);
+				targetSent = new Sentence(lineTarget, sentCount);
+				System.out.println("Processing sentence "+sentCount);
+				if (posSourceExists) {
+
+					posSourceProc.processSentence(sourceSent);
+
+				}
+				if (posTargetExists) {
+
+					posTargetProc.processSentence(targetSent);
+				}
+
+				
+				sourceSent.computeNGrams(3);
+				targetSent.computeNGrams(3);
+
+				pplProcSource.processNextSentence(sourceSent);
+
+				pplProcTarget.processNextSentence(targetSent);
+
+				pplPosTarget.processNextSentence(targetSent);
+
+//				coh.processNextSentence(targetSent);
+
+				
+				
+                                
+				mtop.processNextSentence(sourceSent);
+
+				++sentCount;
+				output.write(featureManager.runFeatures(sourceSent, targetSent));
+				output.write("\r\n");
+				
+				 lineSource = brSource.readLine();
+				lineTarget = brTarget.readLine();
+			
+			}
+	//		featureManager.printFeatureIndeces();
+			if (posSource != null) {
+				posSource.close();
+			}
+			if (posTarget != null) {
+				posTarget.close();
+			}
+
+			brSource.close();
+			brTarget.close();
+			output.close();
+			
+			Logger.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+ public void run() {
+        constructFolders();
+        preprocessing();
+        if (getMod().equals("bb")) {
+            runBB();
+        } else if (getMod().equals("gb")) {
+            runGB();
+        } else {
+            runAll();
+        }
+    }
+
+}
+
+	
