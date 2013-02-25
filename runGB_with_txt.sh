@@ -1,0 +1,1 @@
+java -Xmx2g -XX:+UseConcMarkSweepGC -classpath build/classes:lib/commons-cli-1.2.jar:lib/stanford-postagger.jar:lib/BerkeleyParser-1.7.jar FeatureExtractorSimple -lang english spanish -input input/source.en input/target.es -mode gb -config config/config_en-es.properties -gb gb_examples/nbest.txt gb_examples/onebest.txt gb_examples/onebest.txt.log
