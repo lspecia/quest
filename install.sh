@@ -1,9 +1,9 @@
 #/bin/sh
 
 # download and unpack quest from FTP
-wget 15.ph-litice.cz/resources/quest.tar.gz
-tar -zxvf quest.tar.gz
-rm quest.tar.gz
+#wget 15.ph-litice.cz/resources/quest.tar.gz
+#tar -zxvf quest.tar.gz
+#rm quest.tar.gz
 
 # download BerkeleyParser
 wget http://berkeleyparser.googlecode.com/files/BerkeleyParser-1.7.jar
