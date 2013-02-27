@@ -466,11 +466,12 @@ public class FeatureExtractor {
 
         runNGramPPL();
 
-        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
-                new String[]{"logprob", "ppl", "ppl1"});
-        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
-                new String[]{"logprob", "ppl", "ppl1"});
+	String[] resources = new String[0];
+        resources = featureManager.getStrResources().toArray(new String[0]);
 
+        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath, resources);
+        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath, resources);
+        
         FileModel fm = new FileModel(sourceFile,
                 resourceManager.getString(sourceLang + ".corpus"));
 //              String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");

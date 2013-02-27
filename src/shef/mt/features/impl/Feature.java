@@ -155,6 +155,16 @@ public abstract class Feature {
         this.resources = resources;
     }
 
+    /**
+    * returns the resources (dependencies)
+    *
+    * @return this.resources a HashSet containing the resoucres
+    * this feature depends on
+    */
+    public HashSet<String> getResources() {
+        return this.resources;
+    }
+
     public void addResource(String resource) {
         if (resources == null) {
             resources = new HashSet<String>();

@@ -168,6 +168,39 @@ public class FeatureManager {
         }
     }
 
+    /**
+    * This method collects resources (dependencies) from Features.
+    *
+    * @return setResources: set of strings
+    */
+    public Set<String> getStrResources() {
+        Set<String> fIndeces = features.keySet();
+
+        ArrayList<String> featureIndeces = new ArrayList<String>(fIndeces);
+
+        Iterator<String> it = featureIndeces.iterator();
+
+        Feature f;
+        Set<String> setResources = new TreeSet<String>();
+        while (it.hasNext()) {
+
+            String index = it.next();
+            f = features.get(index);
+
+            HashSet<String> r = f.getResources();
+            if (r != null) {
+
+                Iterator iter = r.iterator();
+                while (iter.hasNext()) {
+
+                    String value =(String)iter.next();
+                    setResources.add(value);
+                }
+            }
+        }
+        return setResources;
+    }
+
     //HACK
     public String runFeatures(Sentence source, Sentence target) {
         StringBuffer result = new StringBuffer();
