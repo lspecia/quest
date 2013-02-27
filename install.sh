@@ -4,8 +4,8 @@
 FTPSERVER=15.ph-litice.cz/resources
 
 # create folder structure
-mkdir -p quest/lib
-mkdir -p quest/lang_resources
+mkdir -p lib
+mkdir -p lang_resources
 
 # download and unpack quest from FTP
 #wget $FTPSERVER/quest.tar.gz
@@ -14,18 +14,18 @@ mkdir -p quest/lang_resources
 
 # download BerkeleyParser
 wget http://berkeleyparser.googlecode.com/files/BerkeleyParser-1.7.jar
-mv ./BerkeleyParser-1.7.jar ./quest/lib
+mv ./BerkeleyParser-1.7.jar ./lib
 
 # download commons-cli
 wget http://ftp.halifax.rwth-aachen.de/apache//commons/cli/binaries/commons-cli-1.2-bin.tar.gz
 tar -zxvf commons-cli-1.2-bin.tar.gz
 rm commons-cli-1.2-bin.tar.gz
-cp ./commons-cli-1.2/commons-cli-1.2.jar ./quest/lib
+cp ./commons-cli-1.2/commons-cli-1.2.jar ./lib
 rm -r commons-cli-1.2
 
 # download eng_sm6.gr
 wget http://berkeleyparser.googlecode.com/files/eng_sm6.gr
-mv ./eng_sm6.gr ./quest/lang_resources
+mv ./eng_sm6.gr ./lang_resources
 
 <<tree-tagger
 # download and install tree-tagger from http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/
