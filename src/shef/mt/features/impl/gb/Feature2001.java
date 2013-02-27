@@ -30,7 +30,6 @@ public class Feature2001 extends Feature {
     @Override
     public void run(Sentence source, Sentence target) {
         // TODO Auto-generated method stub
-       
         Translation best = source.getBest();
 //		float value = Float.parseFloat(best.getAttribute("log_prob_feat"));
         float value = Float.parseFloat(best.getAttribute("prob"));

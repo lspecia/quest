@@ -55,7 +55,7 @@ public class Feature5009 extends Feature {
         String postaggerpath;
         while ((postaggerpath=br.readLine())!=null)
         {
-            if (postaggerpath.startsWith("englishspanish.postagger.scripts")) break;
+            if (postaggerpath.startsWith("sourcetarget.postagger.scripts")) break;
         }
         br.close();
         int index = postaggerpath.indexOf("=");

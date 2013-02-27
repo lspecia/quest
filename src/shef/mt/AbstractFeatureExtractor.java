@@ -1,7 +1,7 @@
 package shef.mt;
 
-import shef.mt.util.Logger;
 import shef.mt.util.PropertiesManager;
+import shef.mt.util.Logger;
 import java.io.*;
 
 

@@ -3,8 +3,8 @@
  */
 package shef.mt.features.impl.gb;
 
-import shef.mt.features.util.Translation;
 import shef.mt.features.util.Sentence;
+import shef.mt.features.util.Translation;
 import shef.mt.features.impl.Feature;
 
 import java.util.*;

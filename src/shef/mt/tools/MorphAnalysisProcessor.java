@@ -1,7 +1,7 @@
 package shef.mt.tools;
 
-import shef.mt.features.util.PronMorph;
 import shef.mt.features.util.Sentence;
+import shef.mt.features.util.PronMorph;
 import java.io.*;
 import java.util.*;
 

@@ -35,8 +35,6 @@ public class PosTreeTagger extends PosTagger {
                 ResourceManager.registerResource(lang + "PosTagger");
                 return output;
             }
-            
-             System.out.println("The script is " + path);
             String[] args = {path, input};
             ProcessBuilder pb = new ProcessBuilder(args);
 
@@ -59,9 +57,9 @@ public class PosTreeTagger extends PosTagger {
 
             String completeLine;
             while ((inputLine = brIn.readLine()) != null) {
-             //   lineCount++;
+                //lineCount++;
                 tokCount = inputLine.split("\\s+").length;
-           //     System.out.println("LINE N: " + lineCount + " TOKENS: "+tokCount+" \nLINE: "+inputLine);
+                //System.out.println("LINE Nº: " + lineCount + " TOKENS: "+tokCount+" \nLINE: "+inputLine);
                 inputLine = inputLine.replaceAll("\\s+", "");
                 completeLine = "";
                 while (completeLine.length() != inputLine.length() && (line = brOut.readLine()) != null) {
@@ -74,14 +72,11 @@ public class PosTreeTagger extends PosTagger {
                     //System.in.read();
 
                     bwXPos.write(split[1] + " ");
-                // System.out.println(" Output line is  " + line + " into " + output);
                     bw.write(line);
                     bw.newLine();
                 }
 
                 bwXPos.newLine();
-             
-                
                 bw.write(line);
                 bw.newLine();
             }
