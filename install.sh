@@ -1,7 +1,14 @@
 #/bin/sh
 
+# ftp address
+FTPSERVER=15.ph-litice.cz/resources
+
+# create folder structure
+mkdir -p quest/lib
+mkdir -p quest/lang_resources
+
 # download and unpack quest from FTP
-#wget 15.ph-litice.cz/resources/quest.tar.gz
+#wget $FTPSERVER/quest.tar.gz
 #tar -zxvf quest.tar.gz
 #rm quest.tar.gz
 
