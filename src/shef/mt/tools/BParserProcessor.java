@@ -19,7 +19,7 @@ public class BParserProcessor extends ResourceProcessor {
 	
 	BParser parser;
 	boolean tokenizer;
-	
+	public String resourceName;
 	/***
 	 * This function initializes a parser object with the desired grammar
 	 * into memeory
@@ -49,7 +49,8 @@ public class BParserProcessor extends ResourceProcessor {
 		tokenizer = false;
 		
 		//parser initialized, so register the resource, so that the features know it is available
-		ResourceManager.registerResource("BParser");
+		this.resourceName = "BParser";
+		ResourceManager.registerResource(this.resourceName);
 	}
 	
 

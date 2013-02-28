@@ -18,7 +18,7 @@ public class TopicDistributionProcessor extends ResourceProcessor {
 
     private BufferedReader bufferedReader; // BufferReader used to process the topic distribution file, line by line
     private static String topicDistributionFile; // String of the topic distribution file name
-    private static String resourceName; // String of the resource name to register in the ResourceManager
+    private String resourceName; // String of the resource name to register in the ResourceManager
 
     /**
     * @param	topicDistributionFile	a String giving the location of the topic distribution file
@@ -29,6 +29,7 @@ public class TopicDistributionProcessor extends ResourceProcessor {
         try {
             this.bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(topicDistributionFile), "utf-8"));
             this.topicDistributionFile = topicDistributionFile;
+        this.resourceName = resourceName;
 	    ResourceManager.registerResource(resourceName);
         } catch (Exception e) {
             e.printStackTrace();

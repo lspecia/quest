@@ -13,6 +13,11 @@ import shef.mt.features.util.Sentence;
  *
  */
 public abstract class ResourceProcessor {
+	private static String resourceName;
 
     public abstract void processNextSentence(Sentence source);
+    
+    public String getName(){
+    	return this.resourceName;
+    }
 }

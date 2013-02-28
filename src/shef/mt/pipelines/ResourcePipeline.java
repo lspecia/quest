@@ -1,9 +1,11 @@
 /**
  *
  */
-package shef.mt.tools;
+package shef.mt.pipelines;
 
 import shef.mt.features.util.Sentence;
+import shef.mt.tools.ResourceProcessor;
+
 import java.util.*;
 
 /**
@@ -23,9 +25,26 @@ public class ResourcePipeline {
     }
 
     public void processSentence(Sentence sent) {
-        Iterator<ResourceProcessor> it = resources.iterator();
-        while (it.hasNext()) {
-            it.next().processNextSentence(sent);
+        for (ResourceProcessor resource:resources){ 
+            resource.processNextSentence(sent);
         }
     }
+    
+    /**
+     * Run only resourceprocessors whose resourcename is specified in the list
+     * This will work onl for ResourceProcessors that clearly define this.resourceName 
+     * as a class variable
+     * @param sent
+     * @param resourceNames
+     */
+    public void processSentence(Sentence sent, Set<String> resourceNames) {
+        for (ResourceProcessor resource:resources){ 
+        	if (resourceNames.contains(resource.getName())){
+        		resource.processNextSentence(sent);
+        	}
+        }
+    }
+
+    
+    
 }
