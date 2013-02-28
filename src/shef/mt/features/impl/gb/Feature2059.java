@@ -9,7 +9,7 @@ import java.util.HashSet;
 import shef.mt.features.impl.Feature;
 
 /**
- * CMU: proportion of pruned search graph nodes
+ * MOSES: proportion of pruned search graph nodes
  *
  * @author cat
  *

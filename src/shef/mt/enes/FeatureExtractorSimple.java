@@ -2,7 +2,7 @@ package shef.mt.enes;
 
 
 
-import shef.mt.xmlwrap.CMU_XMLWrapper;
+import shef.mt.xmlwrap.MOSES_XMLWrapper;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
 import shef.mt.tools.NGramExec;
@@ -78,7 +78,7 @@ public class FeatureExtractorSimple{
     private static FeatureManager featureManager;
     private static int ngramSize = 3;
 	private static int IBM = 0;
-	private static int CMU = 1;
+	private static int MOSES = 1;
     private static String configPath;
 	private static String gbXML;
 
@@ -205,7 +205,7 @@ public class FeatureExtractorSimple{
 				for (String s : gbOpt)
 					System.out.println(s);
 				if (gbOpt.length > 1) {
-					mtSys = CMU;
+					mtSys = MOSES;
 					nbestInput = gbOpt[0];
 					onebestPhrases = gbOpt[1];
 					onebestLog = gbOpt[2];
@@ -507,7 +507,7 @@ public class FeatureExtractorSimple{
         }
 
         f = new File(input + File.separator + "systems" + File.separator
-                + "CMU");
+                + "MOSES");
         if (!f.exists()) {
             f.mkdir();
             System.out.println("folder created " + f.getPath());
@@ -531,10 +531,10 @@ public class FeatureExtractorSimple{
 		String xmlOut = resourceManager.getString("input") + File.separator
 				+ "systems" + File.separator;
 		File f = new File(sourceFile);
-		if (mtSys == CMU) {
-			xmlOut += "cmu_" + f.getName() + ".xml";
+		if (mtSys == MOSES) {
+			xmlOut += "moses_" + f.getName() + ".xml";
 			System.out.println(xmlOut);
-			CMU_XMLWrapper cmuwrap = new CMU_XMLWrapper(nbestInput, xmlOut,
+			MOSES_XMLWrapper cmuwrap = new MOSES_XMLWrapper(nbestInput, xmlOut,
 					onebestPhrases, onebestLog);
 			cmuwrap.run();
    
@@ -593,8 +593,16 @@ public class FeatureExtractorSimple{
 
         loadGiza();
         processNGrams();
-        loadGlobalLexicon();
-
+       boolean gl = false; 
+            String temp0 = resourceManager.getString("GL");
+            if (temp0.equals("1")) {
+                gl = true ;
+            }
+        
+        if (gl) {
+         loadGlobalLexicon();
+        }
+        
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
                     sourceFile));
@@ -619,12 +627,21 @@ public class FeatureExtractorSimple{
             //and target language
 
            //   if ( ResourceManager.isRegistered("BParser")){   
-            
-           BParserProcessor sourceParserProcessor = new BParserProcessor();
+            boolean bp = false; 
+            String temp = resourceManager.getString("BP");
+            if (temp.equals("1")) {
+                bp = true ;
+            }
+
+            BParserProcessor sourceParserProcessor = null;
+             BParserProcessor targetParserProcessor = null;
+             
+          if (bp) {
+            sourceParserProcessor = new BParserProcessor();
+            targetParserProcessor = new BParserProcessor();
             sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
-            BParserProcessor targetParserProcessor = new BParserProcessor();
             targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
-            
+          }
    // } 
     
     
@@ -632,12 +649,20 @@ public class FeatureExtractorSimple{
             * BEGIN: Added by Raphael Rubino for the Topic Model Features
 	    */
           
+          boolean tm = false; 
+            String temp1 = resourceManager.getString("TM");
+            if (temp1.equals("1")) {
+                tm = true ;
+            }
+          TopicDistributionProcessor sourceTopicDistributionProcessor = null;
+          TopicDistributionProcessor targetTopicDistributionProcessor = null;
+          if (tm) {
             String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
             String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
-            TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
-             TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+             sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
+             targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
             
-            
+          }
             /* END: Added by Raphael Rubino for the Topic Model Features
             */ 
     
@@ -693,13 +718,17 @@ public class FeatureExtractorSimple{
                 pplPosTarget.processNextSentence(targetSent);
              
                    //lefterav: Parse code here
-                 sourceParserProcessor.processNextSentence(sourceSent);
+        
+                if(bp){
+                sourceParserProcessor.processNextSentence(sourceSent);
             	targetParserProcessor.processNextSentence(targetSent);
-               
+                }
+                
+                if(tm){
                 
                 sourceTopicDistributionProcessor.processNextSentence(sourceSent);
                  targetTopicDistributionProcessor.processNextSentence(targetSent);
-                
+                }
                 ++sentCount;
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
                 output.newLine();

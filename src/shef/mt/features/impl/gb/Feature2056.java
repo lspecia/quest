@@ -9,7 +9,7 @@ import java.util.HashSet;
 import shef.mt.features.impl.Feature;
 
 /**
- * CMU: discarded search graph nodes
+ * MOSES: discarded search graph nodes
  *
  * @author cat
  *

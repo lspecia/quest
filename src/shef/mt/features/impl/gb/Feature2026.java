@@ -9,7 +9,7 @@ import shef.mt.features.util.Sentence;
 import java.util.*;
 
 /**
- * CMU word penalty feature
+ * MOSES word penalty feature
  *
  * @author cat
  *
@@ -18,7 +18,7 @@ public class Feature2026 extends Feature {
 
     public Feature2026() {
         setIndex("2026");
-        setDescription("CMU word penalty");
+        setDescription("MOSES word penalty");
         HashSet<String> res = new HashSet<String>();
         res.add("word_penalty_feature");
         setResources(res);

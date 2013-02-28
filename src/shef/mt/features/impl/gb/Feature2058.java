@@ -9,7 +9,7 @@ import java.util.HashSet;
 import shef.mt.features.impl.Feature;
 
 /**
- * CMU: pruned search graph nodes
+ * MOSES: pruned search graph nodes
  *
  * @author cat
  *
@@ -21,7 +21,7 @@ public class Feature2058 extends Feature {
         HashSet<String> res = new HashSet<String>();
         res.add("pruned");
         setResources(res);
-        setDescription("CMU: pruned search graph nodes");
+        setDescription("MOSES: pruned search graph nodes");
 
     }
 

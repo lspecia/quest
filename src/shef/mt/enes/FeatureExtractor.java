@@ -415,7 +415,7 @@ public class FeatureExtractor {
          }
 
          f = new File(input + File.separator + "systems" + File.separator
-         + "CMU");
+         + "MOSES");
          if (!f.exists()) {
          f.mkdir();
          System.out.println("folder created " + f.getPath());

@@ -9,7 +9,7 @@ import java.util.HashSet;
 import shef.mt.features.impl.Feature;
 
 /**
- * CMU: percentage of discarded graph nodes
+ * MOSES: percentage of discarded graph nodes
  *
  * @author cat
  *
@@ -20,7 +20,7 @@ public class Feature2057 extends Feature {
         setIndex("2057");
         HashSet<String> res = new HashSet<String>();
         res.add("discarded");
-        setDescription("CMU: percentage of discarded graph nodes");
+        setDescription("MOSES: percentage of discarded graph nodes");
         setResources(res);
 
     }
