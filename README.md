@@ -327,3 +327,9 @@ The exposed parameters are:
 
 Documentation about the parameters and the method can be found at:
 http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier
+
+
+Acknowledgement We would like to acknowledge and thank the following people who have gratefully contributed in the project:José Guilherme Camargo de Souza jose.camargo.souza@gmail.comEleftherios Avramidis eleftherios.avramidis@dfki.deRaphaël Rubino  raphael.rubino@gmail.com  Christian Buck cbuck@lantis.deLUONG Ngoc Quang quangngocluong@gmail.com David Langlois david.langlois@loria.frErwan Moreau moreaue@cs.tcd.ieWe would also like to acknowledge the European commission for funding the project    QTLauncePad under 7th framework program and Pascal 2. 
+
+License
+QuEst is licensed under the BSD. 
