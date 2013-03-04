@@ -4,13 +4,26 @@
 FTPSERVER=15.ph-litice.cz/resources
 
 # create folder structure
-mkdir -p lib
-mkdir -p lang_resources
+mkdir -p quest/lib
+mkdir -p quest/lang_resources
 
-# download and unpack quest from FTP
-#wget $FTPSERVER/quest.tar.gz
-#tar -zxvf quest.tar.gz
-#rm quest.tar.gz
+# step into quest directory
+cd quest
+
+# download and unpack client installation folder from FTP
+wget $FTPSERVER/client-inst.tar
+tar -xvf client-inst.tar
+rm client-inst.tar
+
+# download and unpack lang_resources folder from FTP
+wget $FTPSERVER/lang_resources.tar
+tar -xvf lang_resources.tar
+rm lang_resources.tar
+
+# download and unpack lib folder from FTP
+wget $FTPSERVER/lib.tar
+tar -xvf lib.tar
+rm lib.tar
 
 # download BerkeleyParser
 wget http://berkeleyparser.googlecode.com/files/BerkeleyParser-1.7.jar
