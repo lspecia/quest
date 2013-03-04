@@ -63,11 +63,11 @@ public class PosTreeTagger extends PosTagger {
                 inputLine = inputLine.replaceAll("\\s+", "");
                 completeLine = "";
                 while (completeLine.length() != inputLine.length() && (line = brOut.readLine()) != null) {
-                    //System.out.println("PROCESSED LINE: " + line);
+                   // System.out.println("PROCESSED LINE: " + line);
                     split = line.split("\t");
                     completeLine = completeLine + split[0].replaceAll(" ", "");
-                    //System.out.println("COMPLETE LINE: *" + completeLine + "*" + completeLine.length());
-                    //System.out.println("FULL LINE    : *" + inputLine + "*" + inputLine.length());
+                 //   System.out.println("COMPLETE LINE: *" + completeLine + "*" + completeLine.length());
+                   // System.out.println("FULL LINE    : *" + inputLine + "*" + inputLine.length());
                     //System.out.println("Press <Enter> to continue =)))");
                     //System.in.read();
 
@@ -77,11 +77,14 @@ public class PosTreeTagger extends PosTagger {
                 }
 
                 bwXPos.newLine();
+               //if (line != null){ 
                 bw.write(line);
-                bw.newLine();
-            }
+                
+                bw.newLine();}
+            //}
 
             brOut.close();
+           // bw.flush();
             bw.close();
             bwXPos.close();
 

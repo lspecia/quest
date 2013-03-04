@@ -19,6 +19,8 @@ import shef.mt.tools.NGramProcessor;
 import shef.mt.tools.PPLProcessor;
 import shef.mt.tools.PosTagger;
 import shef.mt.tools.GlobalLexicon;
+import shef.mt.tools.Triggers;
+import shef.mt.tools.TriggersProcessor;
 import shef.mt.features.util.Sentence;
 import shef.mt.features.util.FeatureManager;
 import org.apache.commons.cli.*;
@@ -527,7 +529,7 @@ public class FeatureExtractorSimple{
      * or both according to the command line parameters </ul>
      */
 	public  String initialiseGBResources() {
-		// transform the cmu output to xml
+		// transform the m output to xml
 		String xmlOut = resourceManager.getString("input") + File.separator
 				+ "systems" + File.separator;
 		File f = new File(sourceFile);
@@ -682,7 +684,55 @@ public class FeatureExtractorSimple{
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
             
+             /**
+             * Triggers (by David Langlois)
+             */
             
+            boolean tr = false; 
+            String temp2 = resourceManager.getString("TR");
+            if (temp2.equals("1")) {
+                tr = true ;
+            }
+          
+            
+            Triggers itl_target = null;
+            TriggersProcessor itl_target_p = null;
+            Triggers itl_source = null;
+            TriggersProcessor itl_source_p = null;
+            //TriggersProcessor itl_source_p = null;
+            Triggers itl_source_target = null;
+            TriggersProcessor itl_source_target_p = null; 
+            
+            if (tr){
+            
+              
+             itl_target = 
+                    new Triggers(
+                            resourceManager.getString("target.intra.triggers.file"),
+                            Integer.parseInt(resourceManager.getString("nb.max.triggers.target.intra")),
+                            resourceManager.getString("phrase.separator"));
+             itl_target_p = new TriggersProcessor(itl_target);
+
+             itl_source = 
+                    new Triggers(
+                            resourceManager.getString("source.intra.triggers.file"),
+                            Integer.parseInt(resourceManager.getString("nb.max.triggers.source.intra")),
+                            resourceManager.getString("phrase.separator"));
+             itl_source_p = new TriggersProcessor(itl_source);
+
+
+             itl_source_target = 
+                    new Triggers(
+                            resourceManager.getString("source.target.inter.triggers.file"),
+                            Integer.parseInt(resourceManager.getString("nb.max.triggers.source.target.inter")),
+                            resourceManager.getString("phrase.separator"));
+             itl_source_target_p = 
+                    new TriggersProcessor(itl_source_target);
+                    
+            }
+            /*
+             * End modification for Triggers
+             */
             
              
 	   
@@ -729,6 +779,16 @@ public class FeatureExtractorSimple{
                 sourceTopicDistributionProcessor.processNextSentence(sourceSent);
                  targetTopicDistributionProcessor.processNextSentence(targetSent);
                 }
+                
+                
+                  // modified by David
+                if(tr){
+                itl_source_p.processNextSentence(sourceSent);
+                itl_target_p.processNextSentence(targetSent);
+                itl_source_target_p.processNextParallelSentences(sourceSent, targetSent);
+                }
+                // end modification by David
+                
                 ++sentCount;
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
                 output.newLine();
