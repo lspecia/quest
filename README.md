@@ -1,9 +1,19 @@
 QuEst
 =====
 
-Machine translation (MT) quality estimation (QE) open source system that implements feature extractors for all or most of the information sources
-used in systems submitted to the shared task, and possibly new features, and that can be customised
-to particular applications.
+This open source software is aimed at quality estimation (QE) for machine translation. It was developed by Lucia Specia's team at the University of Sheffield and includes contributions from a number of researchers between Feb/2011 and Feb/2013. This particular release was made possible through the QuEst project (http://staffwww.dcs.shef.ac.uk/people/L.Specia/projects/quest.html). The code has two main parts: a feature extractor and a machine learning pipeline.
+
+-----------------------------------------------------------------------
+
+Feature extractor
+================
+
+This code implements a number of feature extractors, including most commonly used features in the literature, as well as many of the features used by systems submitted to the WMT2012 shared task on QE. Extractors for new features can be easily added (see the documentation under dist/).
+
+Installation
+============
+
+The program itself does not require any installation step. It requires the Java Runtime Environment, and depending on the features to be extracted, a few additional libraries (see below). If you change the code, it can be easily rebuilt using NetBeans, as a NetBeans project is distributed in this release.
 
 Dependencies
 ============
@@ -13,17 +23,16 @@ The libraries required to compile and run the code are included in the "lib" dir
 - Stanford POS Tagger 
 - Berkeley Parser 
 
+Running 
+=======
 
+We tested our software on Linux and Mac OS. We have not tested it on Windows yet. We provide shell scripts to call the feature extractor for a pre-defined list of features. 
 
-
-Running the Feature Extractor
-=============================
-
-For black box features
+For black box features:
 
 ./runBB.sh
 
-For glass box features
+For glass box features:
 
 ./runGB_with_txt.sh
 
@@ -33,32 +42,26 @@ Or
 
 
 
-These resources are made available (SMT training corpus, language models, Giza files, etc). You can download them from: 
+More information about these scripts and the code itself can be found on the development guide (dist/MTFeatures.pdf).
 
-http://dl.dropbox.com/u/6447503/resources.tbz
+Along with the code, we have provided configuration files and toy resources (SMT training corpus, language models, Giza files, etc) that should make the scripts above run without any problem. The actual resources used for the WMT12 shared task on QE You can download them from: http://www.quest.dcs.shef.ac.uk/
 
-In the repository, we have provided smaller Language models (LMs). The bigger LMs can be downloaded 
-from above mentioned link (These LMs were made available for WMT'12 QE shared task )
+NOTE: One need to adapt the configuration file by providing the paths to the scripts where they are installed on your own system.
+      i.e config/config_en-es.properties
 
-More information about argument and implementation can be found in the doc/MTFeatures.docx development guide file.
-
-
-
+More information about the input resources and how they can be created for new language pairs can be found in specific readme files under the relevant resource folders (all under 'lang_resources').
 
 
 -----------------------------------------------------------------------
 
-Learning toolkit
-================
-
-Overview
-========
+Machine learning pipeline
+=========================
 
 The function of this package of Python scripts is to build models for
 machine translation (MT) quality estimation (QE). The input files are
 a set of instances with features that describe sentence pairs (source
 and target sentences). The features can be extracted using the FeatureExtractor
-program available with which this program is bundled.
+program as explained above.
 
 
 Installation
@@ -326,10 +329,27 @@ The exposed parameters are:
     - verbose
 
 Documentation about the parameters and the method can be found at:
-http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier
+http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifie
 
+Acknowledgements
+================
 
-Acknowledgement We would like to acknowledge and thank the following people who have gratefully contributed in the project:José Guilherme Camargo de Souza jose.camargo.souza@gmail.comEleftherios Avramidis eleftherios.avramidis@dfki.deRaphaël Rubino  raphael.rubino@gmail.com  Christian Buck cbuck@lantis.deLUONG Ngoc Quang quangngocluong@gmail.com David Langlois david.langlois@loria.frErwan Moreau moreaue@cs.tcd.ieWe would also like to acknowledge the European commission for funding the project    QTLauncePad under 7th framework program and Pascal 2. 
+A number of people contributed to this code:
+
+-- Catalina Hallett, who provided an earlier version of the feature extraction code.
+-- José Guilherme Camargo de Souza, who took care of the machine learning pipeline and helped with the feature extraction code in various ways. 
+-- Kashif Shah, who is the main person taking care of the code nowadays.
+-- All of the following who visited Sheffield and added their own feature extractors to the code and also contributed with testing it:
+   -- Eleftherios Avramidis
+   -- Christian Buck 
+   -- David Langlois
+   -- Erwan Moreau
+   -- Quang Ngoc Luong 
+   -- Raphael Rubino 
+
+We thank the European commission Pascal2 Network of Excellence for the funding the visits of these and other researchers to Sheffield under the "Harvest" scheme, as well as the European commission FP7 QTLauncePad CSA for funding further development and maintenance of this software. 
+
 
 License
-QuEst is licensed under the BSD. 
+=======
+The license for the Java code and any python and shell scripts developed here is the very permissive BSD License (http://en.wikipedia.org/wiki/BSD_licenses). For pre-existing code and resources, e.g., scikit-learn and Berkeley parser, please check their websites. 
