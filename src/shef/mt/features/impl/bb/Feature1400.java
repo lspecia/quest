@@ -1,16 +1,23 @@
 package shef.mt.features.impl.bb;
 
 import java.util.HashSet;
-import java.util.StringTokenizer;
-
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;
-import shef.mt.tools.Giza;
 import shef.mt.tools.GlobalLexicon;
 
 /**
  * geometric average of target word probabilities under Global Lexicon Model
  * 
+ * The Global Lexicon Model is based on a large number of log-linear binary
+ * classifiers as suggested by Mauser et al. (2009). There is one classifier for
+ * each possible target word, giving the probability of that word appearing in 
+ * the translation of the given sentence:
+ *
+ *  p(e|f_1^J)
+ *
+ * where e is the target word in question and f_1^J = f_1, .., f_J denotes the
+ * source sentence.
+ *
  * @author Christian Buck
  */
 
