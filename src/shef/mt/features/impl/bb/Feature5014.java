@@ -53,7 +53,7 @@ public class Feature5014 extends Feature {
         String ngrampath;
         while ((ngrampath=br.readLine())!=null)
         {
-            if (ngrampath.startsWith("spanish.ngramValueList")) break;
+            if (ngrampath.startsWith("target.ngramValueList")) break;
         }
         
         br.close();

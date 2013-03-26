@@ -35,8 +35,6 @@ public class PosTreeTagger extends PosTagger {
                 ResourceManager.registerResource(lang + "PosTagger");
                 return output;
             }
-            
-             System.out.println("The script is " + path);
             String[] args = {path, input};
             ProcessBuilder pb = new ProcessBuilder(args);
 
@@ -59,34 +57,34 @@ public class PosTreeTagger extends PosTagger {
 
             String completeLine;
             while ((inputLine = brIn.readLine()) != null) {
-             //   lineCount++;
+                //lineCount++;
                 tokCount = inputLine.split("\\s+").length;
-           //     System.out.println("LINE N: " + lineCount + " TOKENS: "+tokCount+" \nLINE: "+inputLine);
+                //System.out.println("LINE Nº: " + lineCount + " TOKENS: "+tokCount+" \nLINE: "+inputLine);
                 inputLine = inputLine.replaceAll("\\s+", "");
                 completeLine = "";
                 while (completeLine.length() != inputLine.length() && (line = brOut.readLine()) != null) {
-                    //System.out.println("PROCESSED LINE: " + line);
+                   // System.out.println("PROCESSED LINE: " + line);
                     split = line.split("\t");
                     completeLine = completeLine + split[0].replaceAll(" ", "");
-                    //System.out.println("COMPLETE LINE: *" + completeLine + "*" + completeLine.length());
-                    //System.out.println("FULL LINE    : *" + inputLine + "*" + inputLine.length());
+                 //   System.out.println("COMPLETE LINE: *" + completeLine + "*" + completeLine.length());
+                   // System.out.println("FULL LINE    : *" + inputLine + "*" + inputLine.length());
                     //System.out.println("Press <Enter> to continue =)))");
                     //System.in.read();
 
                     bwXPos.write(split[1] + " ");
-                // System.out.println(" Output line is  " + line + " into " + output);
                     bw.write(line);
                     bw.newLine();
                 }
 
                 bwXPos.newLine();
-             
-                
+               //if (line != null){ 
                 bw.write(line);
-                bw.newLine();
-            }
+                
+                bw.newLine();}
+            //}
 
             brOut.close();
+           // bw.flush();
             bw.close();
             bwXPos.close();
 

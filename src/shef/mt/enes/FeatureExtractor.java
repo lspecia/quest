@@ -1,21 +1,21 @@
 package shef.mt.enes;
 
-import shef.mt.util.Logger;
 import shef.mt.util.PropertiesManager;
+import shef.mt.util.Logger;
+import shef.mt.tools.NGramProcessor;
+import shef.mt.tools.NGramExec;
+import shef.mt.tools.ResourceManager;
 import shef.mt.tools.PPLProcessor;
 import shef.mt.tools.FileModel;
-import shef.mt.tools.NGramProcessor;
-import shef.mt.tools.ResourceManager;
+import shef.mt.tools.LanguageModel;
+import shef.mt.tools.POSProcessor;
+import shef.mt.tools.Giza;
 import shef.mt.tools.Tokenizer;
 import shef.mt.tools.TopicDistributionProcessor;
 import shef.mt.tools.BParserProcessor;
 import shef.mt.tools.PosTagger;
-import shef.mt.tools.NGramExec;
-import shef.mt.tools.LanguageModel;
-import shef.mt.tools.POSProcessor;
-import shef.mt.tools.Giza;
-import shef.mt.features.util.FeatureManager;
 import shef.mt.features.util.Sentence;
+import shef.mt.features.util.FeatureManager;
 import org.apache.commons.cli.*;
 import java.io.*;
 
@@ -415,7 +415,7 @@ public class FeatureExtractor {
          }
 
          f = new File(input + File.separator + "systems" + File.separator
-         + "CMU");
+         + "MOSES");
          if (!f.exists()) {
          f.mkdir();
          System.out.println("folder created " + f.getPath());

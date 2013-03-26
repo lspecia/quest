@@ -9,7 +9,7 @@ import java.util.HashSet;
 import shef.mt.features.impl.Feature;
 
 /**
- * CMU: number of recombined graph nodes
+ * MOSES: number of recombined graph nodes
  *
  * @author cat
  *

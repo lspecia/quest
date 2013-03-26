@@ -88,10 +88,8 @@ public abstract class Feature {
         if (resources == null || resources.size() == 0) {
             return true;
         }
-      //  System.out.println(resources);
         Iterator<String> it = resources.iterator();
         while (result && it.hasNext()) {
-           // System.out.println(it.next());
             result &= ResourceManager.isRegistered(it.next());
         }
         return result;

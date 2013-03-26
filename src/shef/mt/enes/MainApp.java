@@ -110,7 +110,7 @@ public class MainApp extends javax.swing.JFrame {
         jButtonBrowseSource = new javax.swing.JButton();
         jButtonBrowseTarget = new javax.swing.JButton();
         jRadioIBM = new javax.swing.JRadioButton();
-        jRadioCMU = new javax.swing.JRadioButton();
+        jRadioMOSES = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jButtonRun = new javax.swing.JButton();
         jDialogConfig = new javax.swing.JDialog();
@@ -243,9 +243,9 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        jRadioCMU.setFont(new java.awt.Font("Tahoma", 0, 10));
-        jRadioCMU.setSelected(true);
-        jRadioCMU.setText("CMU");
+        jRadioMOSES.setFont(new java.awt.Font("Tahoma", 0, 10));
+        jRadioMOSES.setSelected(true);
+        jRadioMOSES.setText("MOSES");
 
         jLabel4.setText("MT system");
 
@@ -269,7 +269,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jRadioCMU)
+                .addComponent(jRadioMOSES)
                 .addComponent(jRadioIBM)))
                 .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,7 +325,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioCMU)
+                .addComponent(jRadioMOSES)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jButtonRun)
                 .addGap(54, 54, 54)));
@@ -817,7 +817,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioBB;
     private javax.swing.JRadioButton jRadioBBGB;
-    private javax.swing.JRadioButton jRadioCMU;
+    private javax.swing.JRadioButton jRadioMOSES;
     private javax.swing.JRadioButton jRadioGB;
     private javax.swing.JRadioButton jRadioIBM;
     private javax.swing.JScrollPane jScrollPane1;

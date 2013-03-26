@@ -9,7 +9,7 @@ import shef.mt.features.util.Sentence;
 import java.util.*;
 
 /**
- * CMU phrase probability phrase_prob_feat_3
+ * MOSES phrase probability phrase_prob_feat_3
  *
  * @author cat
  *
@@ -18,7 +18,7 @@ public class Feature2023 extends Feature {
 
     public Feature2023() {
         setIndex("2023");
-        setDescription("CMU phrase probability phrase_prob_feat_3");
+        setDescription("MOSES phrase probability phrase_prob_feat_3");
         HashSet<String> res = new HashSet<String>();
         res.add("phrase_prob_feat_3");
         setResources(res);

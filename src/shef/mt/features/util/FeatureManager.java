@@ -209,13 +209,13 @@ public class FeatureManager {
         ArrayList<String> featureIndeces = new ArrayList<String>(fIndeces);
 
         Collections.sort(featureIndeces);
-	//	System.out.println(featureIndeces.size()+" feature indeces: "+ featureIndeces);
+//		System.out.println(featureIndeces.size()+" feature indeces: "+ featureIndeces);
         Iterator<String> it = featureIndeces.iterator();
         Feature f;
         while (it.hasNext()) {
             String index = it.next();
             f = features.get(index);
-		//	System.out.println(index);
+//			System.out.println(index);
 
             // Modified by José de Souza
             // every new sentence pair has new features
@@ -233,7 +233,6 @@ public class FeatureManager {
                 Logger.log("Feature " + f.getIndex() + " cannot run because some of its dependencies are missing.");
                 System.out.println("Feature " + f.getIndex() + " cannot run because some of its dependencies are missing.");
                 features.remove(index);
-                
 //				System.out.println(features.size());
             }
         }

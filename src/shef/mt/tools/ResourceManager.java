@@ -30,7 +30,6 @@ public class ResourceManager {
     }
 
     public static boolean isRegistered(HashSet<String> res) {
-        
         return resources.containsAll(res);
     }
 

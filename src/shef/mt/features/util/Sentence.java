@@ -180,7 +180,7 @@ public class Sentence {
             System.out.println("no best in " + getIndex() + " " + getText());
             return null;
         }
-      
+
         return translations.first();
     }
 

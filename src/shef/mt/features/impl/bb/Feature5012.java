@@ -53,7 +53,7 @@ public class Feature5012 extends Feature {
         String wpppath;
         while ((wpppath=br.readLine())!=null)
         {
-            if (wpppath.startsWith("spanish.wordgraph")) break;
+            if (wpppath.startsWith("target.wordgraph")) break;
         }
         
         br.close();

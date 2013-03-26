@@ -5,8 +5,8 @@ package shef.mt.tools;
 
 import shef.mt.util.Logger;
 import shef.mt.util.ExtensionFilter;
-import shef.mt.features.util.Translation;
 import shef.mt.features.util.Sentence;
+import shef.mt.features.util.Translation;
 import shef.mt.features.util.Phrase;
 import java.io.*;
 import javax.xml.parsers.DocumentBuilder;

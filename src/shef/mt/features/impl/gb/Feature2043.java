@@ -5,7 +5,7 @@ import shef.mt.features.impl.Feature;
 import java.util.*;
 
 /**
- * CMU: proportion of unknown words
+ * MOSES: proportion of unknown words
  *
  * @author Catalina Hallett
  *
@@ -18,7 +18,7 @@ public class Feature2043 extends Feature {
         res.add("unknown");
         setResources(res);
 
-        setDescription("CMU: proportion of unknown words");
+        setDescription("MOSES: proportion of unknown words");
     }
 
     public void run(Sentence source, Sentence target) {

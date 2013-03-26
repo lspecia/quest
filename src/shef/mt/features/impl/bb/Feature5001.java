@@ -52,7 +52,7 @@ public class Feature5001 extends Feature {
         String path;
         while ((path=br.readLine())!=null)
         {
-            if (path.startsWith("english.stopwordlist")) break;
+            if (path.startsWith("source.stopwordlist")) break;
         }
         br.close();
         int index = path.indexOf("=");

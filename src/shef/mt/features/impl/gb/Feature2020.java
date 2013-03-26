@@ -8,7 +8,7 @@ import shef.mt.features.util.Sentence;
 import java.util.*;
 
 /**
- * CMU: distortion feature 7
+ * MOSES: distortion feature 7
  *
  * @author cat
  *
