@@ -2,6 +2,10 @@ package shef.mt.enes;
 
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
+import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.DefaultResourcePipeline;
+import shef.mt.tools.PPLProcessor;
+import shef.mt.tools.FileModel;
 import shef.mt.tools.NGramProcessor;
 import shef.mt.tools.NGramExec;
 import shef.mt.tools.ResourceManager;
@@ -18,6 +22,7 @@ import shef.mt.features.util.Sentence;
 import shef.mt.features.util.FeatureManager;
 import org.apache.commons.cli.*;
 import java.io.*;
+import java.util.Set;
 
 
 /**
@@ -511,11 +516,7 @@ public class FeatureExtractor {
             //Check if user has defined the grammar files for source 
             //and target language
         
-            
-            BParserProcessor sourceParserProcessor = new BParserProcessor();
-            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
-            BParserProcessor targetParserProcessor = new BParserProcessor();
-            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);           
+//bparser removed 
             
 //			if (posSourceExists) {
 //				posSourceProc = new POSProcessor(sourcePosOutput);
@@ -535,16 +536,7 @@ public class FeatureExtractor {
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
 	    
-	    /**
-            * BEGIN: Added by Raphael Rubino for the Topic Model Features
-	    */
-            String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
-            String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
-            TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
-            TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
-            /**
-            * END: Added by Raphael Rubino for the Topic Model Features
-            */
+//topic removed
 
             //read in each line from the source and target files
             //create a sentence from each
@@ -575,9 +567,13 @@ public class FeatureExtractor {
                 pplProcSource.processNextSentence(sourceSent);
                 pplProcTarget.processNextSentence(targetSent);
             	
-                //lefterav: Parse code here
-                sourceParserProcessor.processNextSentence(sourceSent);
-            	targetParserProcessor.processNextSentence(targetSent);
+                Set<String> resourceNames = featureManager.getStrResources();
+                
+                ResourcePipeline defaultPipeline = new DefaultResourcePipeline(sourceFile, targetFile, resourceManager, sourceLang, targetLang);
+                
+                defaultPipeline.processSentence(sourceSent, resourceNames);
+                defaultPipeline.processSentence(targetSent, resourceNames);
+
                 
                 
 //                                pplPosTarget.processNextSentence(targetSent);
