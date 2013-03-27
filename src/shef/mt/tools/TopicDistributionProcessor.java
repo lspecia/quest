@@ -4,7 +4,10 @@
 package shef.mt.tools;
 
 import shef.mt.features.util.Sentence;
+import shef.mt.util.PropertiesManager;
+import shef.mt.pipelines.DefaultResourcePipeline;
 import java.io.*;
+
 
 /**
  * This class allows to process a file containing topic distributions. Each line of the file corresponds to a topic vector of
@@ -19,6 +22,25 @@ public class TopicDistributionProcessor extends ResourceProcessor {
     private BufferedReader bufferedReader; // BufferReader used to process the topic distribution file, line by line
     private static String topicDistributionFile; // String of the topic distribution file name
     private String resourceName; // String of the resource name to register in the ResourceManager
+
+
+
+    public void initialize(String sourceFile, String targetFile,
+                PropertiesManager propertiesManager,
+                String sourceLang, String targetLang) {
+
+	String sourceTopicDistributionFile = propertiesManager.getString(sourceLang + ".topic.distribution");
+        String targetTopicDistributionFile = propertiesManager.getString(targetLang + ".topic.distribution");
+
+        TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
+        TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+
+	DefaultresourcePipeline drp = new DefaultResourcePipeline();
+        drp.addResourceProcessor(sourceTopicDistributionProcessor);
+        drp.addResourceProcessor(targetTopicDistributionProcessor);
+    }
+
+
 
     /**
     * @param	topicDistributionFile	a String giving the location of the topic distribution file

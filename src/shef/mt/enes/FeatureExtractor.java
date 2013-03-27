@@ -538,6 +538,7 @@ public class FeatureExtractor {
 	    
 //topic removed
 
+            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(sourceFile, targetFile, resourceManager, sourceLang, targetLang);
             //read in each line from the source and target files
             //create a sentence from each
             //process each sentence
@@ -569,7 +570,6 @@ public class FeatureExtractor {
             	
                 Set<String> resourceNames = featureManager.getStrResources();
                 
-                ResourcePipeline defaultPipeline = new DefaultResourcePipeline(sourceFile, targetFile, resourceManager, sourceLang, targetLang);
                 
                 defaultPipeline.processSentence(sourceSent, resourceNames);
                 defaultPipeline.processSentence(targetSent, resourceNames);

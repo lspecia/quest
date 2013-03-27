@@ -16,7 +16,7 @@ public class ResourcePipeline {
 
     private ArrayList<ResourceProcessor> resources;
 
-    public ResourcePipeline() {
+    public ResourcePipeline(sourceFile, targetFile, resourceManager, sourceLang, targetLang) {
         resources = new ArrayList<ResourceProcessor>();
     }
 
@@ -28,6 +28,10 @@ public class ResourcePipeline {
         for (ResourceProcessor resource:resources){ 
             resource.processNextSentence(sent);
         }
+    }
+
+    public void initialize_resources() {
+        //for resource:resources
     }
     
     /**

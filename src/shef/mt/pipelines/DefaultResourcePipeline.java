@@ -31,35 +31,30 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 	 * @param sourceLang: source language name
 	 * @param targetLang: target language name
 	 */
-	public DefaultResourcePipeline(String sourceFile, String targetFile, 
-			PropertiesManager propertiesManager, 
-			String sourceLang, String targetLang) {
-		
-		/*
-		 * Berkeley Parser 
-		 */
-		BParserProcessor sourceParserProcessor = new BParserProcessor();
-		BParserProcessor targetParserProcessor = new BParserProcessor();
-		
-        sourceParserProcessor.initialize(sourceFile, propertiesManager, sourceLang);
-        targetParserProcessor.initialize(targetFile, propertiesManager, targetLang);   
-        
-        this.addResourceProcessor(sourceParserProcessor);
-        this.addResourceProcessor(targetParserProcessor);
+	
+	ArrayList resources;
+
+	public DefaultResourcePipeline(sourceFile, targetFile, resourceManager, sourceLang, targetLang) {
+		resources = new ArrayList<ResourceProcessor>();
+		ResourceProcessor bParser = new BParser();
+		//the same for TopicProcessor
+		resources.add(bParser);
+   		// store the parameters into private class variables so that thez can be used by initialize_resources of the superclass
+	}	
+	//Remove this function as it is going to be run in the superclass through a loop
+	public void initialize_resources() {
+	/*
+	 * Berkeley Parser 
+	 */
+	BParserProcessor.initialize(String sourceFile, String targetFile, 
+		PropertiesManager propertiesManager,
+		String sourceLang, String targetLang);
 
         /*
          * Topic Model
          */
-        String sourceTopicDistributionFile = propertiesManager.getString(sourceLang + ".topic.distribution");
-        String targetTopicDistributionFile = propertiesManager.getString(targetLang + ".topic.distribution");
-        
-        TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
-        TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
-        
-        this.addResourceProcessor(sourceTopicDistributionProcessor);
-        this.addResourceProcessor(targetTopicDistributionProcessor);
-
-		
-	}
-
+	TopicDistributionProcessor.initialize(String sourceFile, String targetFile, 
+		PropertiesManager propertiesManager, 
+		String sourceLang, String targetLang);
+        }
 }
