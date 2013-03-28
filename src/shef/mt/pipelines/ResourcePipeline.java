@@ -5,6 +5,7 @@ package shef.mt.pipelines;
 
 import shef.mt.features.util.Sentence;
 import shef.mt.tools.ResourceProcessor;
+import shef.mt.util.PropertiesManager;
 
 import java.util.*;
 
@@ -16,7 +17,7 @@ public class ResourcePipeline {
 
     private ArrayList<ResourceProcessor> resources;
 
-    public ResourcePipeline(sourceFile, targetFile, resourceManager, sourceLang, targetLang) {
+    public ResourcePipeline() {
         resources = new ArrayList<ResourceProcessor>();
     }
 
@@ -29,14 +30,29 @@ public class ResourcePipeline {
             resource.processNextSentence(sent);
         }
     }
-
-    public void initialize_resources() {
-        //for resource:resources
+    
+    /**
+     * Initialize resources that are listed in the variable res.
+     * @param res: resources to be initialized
+     * @param sourceFile: file containing already preprocessed source sentences to be annotated
+	 * @param targetFile: file containing already preprocessed target sentences to be annotated
+	 * @param propertiesManager: initialized PropertiesManager object that contains all the parameters specified in the properties file
+	 * @param sourceLang: source language name
+	 * @param targetLang: target language name
+     * */
+    public void initialize_resources(ArrayList<ResourceProcessor> res, 
+						    		 String sourceFile, String targetFile,
+									 PropertiesManager propertiesManager,
+									 String sourceLang, String targetLang) {
+    	for (ResourceProcessor resource:res){ 
+        	resource.initialize(sourceFile, targetFile, propertiesManager, 
+        						sourceLang, targetLang);
+        	}
     }
     
     /**
      * Run only resourceprocessors whose resourcename is specified in the list
-     * This will work onl for ResourceProcessors that clearly define this.resourceName 
+     * This will work only for ResourceProcessors that clearly define this.resourceName 
      * as a class variable
      * @param sent
      * @param resourceNames

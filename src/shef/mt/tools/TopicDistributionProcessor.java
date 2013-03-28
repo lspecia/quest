@@ -5,6 +5,7 @@ package shef.mt.tools;
 
 import shef.mt.features.util.Sentence;
 import shef.mt.util.PropertiesManager;
+import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.pipelines.DefaultResourcePipeline;
 import java.io.*;
 
@@ -23,24 +24,21 @@ public class TopicDistributionProcessor extends ResourceProcessor {
     private static String topicDistributionFile; // String of the topic distribution file name
     private String resourceName; // String of the resource name to register in the ResourceManager
 
-
-
+    
     public void initialize(String sourceFile, String targetFile,
                 PropertiesManager propertiesManager,
                 String sourceLang, String targetLang) {
 
-	String sourceTopicDistributionFile = propertiesManager.getString(sourceLang + ".topic.distribution");
+    	String sourceTopicDistributionFile = propertiesManager.getString(sourceLang + ".topic.distribution");
         String targetTopicDistributionFile = propertiesManager.getString(targetLang + ".topic.distribution");
 
         TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
         TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
 
-	DefaultresourcePipeline drp = new DefaultResourcePipeline();
-        drp.addResourceProcessor(sourceTopicDistributionProcessor);
-        drp.addResourceProcessor(targetTopicDistributionProcessor);
+        ResourcePipeline rp = new ResourcePipeline();
+        rp.addResourceProcessor(sourceTopicDistributionProcessor);
+        rp.addResourceProcessor(targetTopicDistributionProcessor);
     }
-
-
 
     /**
     * @param	topicDistributionFile	a String giving the location of the topic distribution file

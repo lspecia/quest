@@ -1,20 +1,17 @@
 package shef.mt.tools;
 
-import java.util.Map;
-import java.util.Iterator;
-
 import shef.mt.features.util.Sentence;
 import shef.mt.tools.BParser;
 import shef.mt.util.PropertiesManager;
-import shef.mt.pipelines.DefaultResourcePipeline;
+import shef.mt.pipelines.ResourcePipeline;
 
 /**
  * A processor class for the BParser. It loads the 
  * Parser instances, runs those through the sentences 
  * and provides the features
  * 
- * @author Eleftherios Avramids
  *
+ * @author Eleftherios Avramids
  */
 public class BParserProcessor extends ResourceProcessor {
 	
@@ -27,14 +24,14 @@ public class BParserProcessor extends ResourceProcessor {
                         String sourceLang, String targetLang) {
 
 		BParserProcessor sourceParserProcessor = new BParserProcessor();
-                BParserProcessor targetParserProcessor = new BParserProcessor();
+        BParserProcessor targetParserProcessor = new BParserProcessor();
 
-	        sourceParserProcessor.create(sourceFile, propertiesManager, sourceLang);
-        	targetParserProcessor.create(targetFile, propertiesManager, targetLang);
+        sourceParserProcessor.create(sourceFile, propertiesManager, sourceLang);
+    	targetParserProcessor.create(targetFile, propertiesManager, targetLang);
 
-		DefaultResourcePipeline drp = new DefaultResourcePipeline();
-        	drp.addResourceProcessor(sourceParserProcessor);
-	        drp.addResourceProcessor(targetParserProcessor);
+		ResourcePipeline rp = new ResourcePipeline();
+    	rp.addResourceProcessor(sourceParserProcessor);
+        rp.addResourceProcessor(targetParserProcessor);
 	}
 	/***
 	 * This function initializes a parser object with the desired grammar
