@@ -28,12 +28,15 @@ public class TopicDistributionProcessor extends ResourceProcessor {
     public void initialize(String sourceFile, String targetFile,
                 PropertiesManager propertiesManager,
                 String sourceLang, String targetLang) {
+    	
+    	TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor();
+    	TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor();
 
     	String sourceTopicDistributionFile = propertiesManager.getString(sourceLang + ".topic.distribution");
         String targetTopicDistributionFile = propertiesManager.getString(targetLang + ".topic.distribution");
 
-        TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
-        TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+        sourceTopicDistributionProcessor.create(sourceTopicDistributionFile, "sourceTopicDistribution");
+        targetTopicDistributionProcessor.create(targetTopicDistributionFile, "targetTopicDistribution");
 
         ResourcePipeline rp = new ResourcePipeline();
         rp.addResourceProcessor(sourceTopicDistributionProcessor);
@@ -45,7 +48,7 @@ public class TopicDistributionProcessor extends ResourceProcessor {
     * @param	resourceName	a String giving the resource name to register in the ResourceManager
     *
     */
-    public TopicDistributionProcessor(String topicDistributionFile, String resourceName) {
+    public void create(String topicDistributionFile, String resourceName) {
         try {
             this.bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(topicDistributionFile), "utf-8"));
             this.topicDistributionFile = topicDistributionFile;
