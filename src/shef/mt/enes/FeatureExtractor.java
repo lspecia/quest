@@ -471,7 +471,7 @@ public class FeatureExtractor {
 
         runNGramPPL();
 
-	String[] resources = new String[0];
+        String[] resources = new String[0];
         resources = featureManager.getStrResources().toArray(new String[0]);
 
         PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath, resources);
@@ -509,8 +509,8 @@ public class FeatureExtractor {
                     .isRegistered("sourcePosTagger");
             boolean posTargetExists = ResourceManager
                     .isRegistered("targetPosTagger");
-            POSProcessor posSourceProc = null;
-            POSProcessor posTargetProc = null;
+            //POSProcessor posSourceProc = null;
+            //POSProcessor posTargetProc = null;
             
             //lefterav: Berkeley parser modifications start here
             //Check if user has defined the grammar files for source 
@@ -552,15 +552,16 @@ public class FeatureExtractor {
                 //System.out.println("Processing sentence "+sentCount);
                 //System.out.println("SORCE: " + sourceSent.getText());
                 //System.out.println("TARGET: " + targetSent.getText());
-                if (posSourceExists) {
-                    posSourceProc.processSentence(sourceSent);
-                }
-                if (posTargetExists) {
-                    posTargetProc.processSentence(targetSent);
-                }
+                //if (posSourceExists) {
+                //    posSourceProc.processSentence(sourceSent);
+                //}
+                //if (posTargetExists) {
+                //    posTargetProc.processSentence(targetSent);
+                //}
                 
            // modified by Kashif
-		System.out.println("2");                
+		System.out.println("2");
+                
                 ngramSize = Integer.parseInt(resourceManager.getString("ngramsize"));
                 
                 sourceSent.computeNGrams(ngramSize);
@@ -583,12 +584,12 @@ public class FeatureExtractor {
                 lineSource = brSource.readLine();
                 lineTarget = brTarget.readLine();
             }
-            if (posSource != null) {
-                posSource.close();
-            }
-            if (posTarget != null) {
-                posTarget.close();
-            }
+            //if (posSource != null) {
+            //    posSource.close();
+            //}
+            //if (posTarget != null) {
+            //    posTarget.close();
+            //}
 
             brSource.close();
             brTarget.close();

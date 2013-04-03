@@ -1,5 +1,7 @@
 *.class
-
+log.txt
+lang_resources
+output
 # Netbeans config files
 built-jar.properties
 project.properties
