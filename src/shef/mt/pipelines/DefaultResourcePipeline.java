@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import shef.mt.tools.BParserProcessor;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.TopicDistributionProcessor;
+import shef.mt.tools.MorphAnalysisProcessor;
 import shef.mt.util.PropertiesManager;
 
 
@@ -38,8 +39,10 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		res = new ArrayList<ResourceProcessor>();
 		ResourceProcessor bParser = new BParserProcessor();
 		ResourceProcessor topicDistribution = new TopicDistributionProcessor();
+		ResourceProcessor morphAnalysis = new MorphAnalysisProcessor();
 		res.add(bParser);
 		res.add(topicDistribution);
+		res.add(morphAnalysis);
 		initialize_resources(res, sourceFile, targetFile, propertiesManager, sourceLang, targetLang);
    		// store the parameters into private class variables so that they can be used by initialize_resources of the superclass
 	}
