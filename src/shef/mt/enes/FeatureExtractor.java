@@ -544,7 +544,7 @@ public class FeatureExtractor {
             //process each sentence
             //run the features on the sentences
             while ((lineSource != null) && (lineTarget != null)) {
-		System.out.println("1");
+
                 //lineSource = lineSource.trim().substring(lineSource.indexOf(" ")).replace("+", "");
                 sourceSent = new Sentence(lineSource, sentCount);
                 targetSent = new Sentence(lineTarget, sentCount);
@@ -560,7 +560,6 @@ public class FeatureExtractor {
                 //}
                 
            // modified by Kashif
-		System.out.println("2");
                 
                 ngramSize = Integer.parseInt(resourceManager.getString("ngramsize"));
                 
@@ -571,9 +570,10 @@ public class FeatureExtractor {
             	
                 Set<String> resourceNames = featureManager.getStrResources();
                 
-                
+                System.out.println("???");
                 defaultPipeline.processSentence(sourceSent, resourceNames);
                 defaultPipeline.processSentence(targetSent, resourceNames);
+		System.out.println("???Default pipeline successfully called.???");
 
                 
                 
