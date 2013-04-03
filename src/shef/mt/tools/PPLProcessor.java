@@ -4,6 +4,8 @@
 package shef.mt.tools;
 
 import shef.mt.features.util.Sentence;
+import shef.mt.util.PropertiesManager;
+
 import java.io.*;
 
 /**
@@ -19,6 +21,10 @@ public class PPLProcessor extends ResourceProcessor {
     String[] valNames;
     String pplFile;
 
+    public void initialize(String sourceFile, String targetFile,
+            PropertiesManager propertiesManager,
+            String sourceLang, String targetLang) {}    
+    
     public PPLProcessor(String pplFile, String[] valNames) {
 
         try {

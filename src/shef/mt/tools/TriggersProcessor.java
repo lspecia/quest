@@ -2,6 +2,8 @@
 package shef.mt.tools;
 
 import shef.mt.features.util.*;
+import shef.mt.util.PropertiesManager;
+
 import java.io.*;
 import java.util.*;
 
@@ -18,6 +20,10 @@ public class TriggersProcessor extends ResourceProcessorTwoSentences {
         ResourceManager.registerResource("IntraLingualTriggers");
     }
 
+    public void initialize(String sourceFile, String targetFile,
+            PropertiesManager propertiesManager,
+            String sourceLang, String targetLang) {}    
+    
     public void processNextSentence(Sentence s) {
         float som = 0;
         int nb = 0;

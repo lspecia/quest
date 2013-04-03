@@ -641,8 +641,8 @@ public class FeatureExtractorSimple{
           if (bp) {
             sourceParserProcessor = new BParserProcessor();
             targetParserProcessor = new BParserProcessor();
-            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
-            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
+            sourceParserProcessor.initialize(sourceFile, targetFile, resourceManager, sourceLang, targetLang);
+            targetParserProcessor.initialize(sourceFile, targetFile, resourceManager, sourceLang, targetLang);   
           }
    // } 
     

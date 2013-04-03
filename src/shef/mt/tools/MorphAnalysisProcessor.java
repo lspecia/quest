@@ -2,6 +2,8 @@ package shef.mt.tools;
 
 import shef.mt.features.util.Sentence;
 import shef.mt.features.util.PronMorph;
+import shef.mt.util.PropertiesManager;
+
 import java.io.*;
 import java.util.*;
 
@@ -20,6 +22,10 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     private static String WORD_START = ";;WORD";
     int count = 0;
 
+    public void initialize(String sourceFile, String targetFile,
+            PropertiesManager propertiesManager,
+            String sourceLang, String targetLang) {}    
+    
     public MorphAnalysisProcessor(String inputFile) {
         try {
             System.out.println("input to map: " + inputFile);
