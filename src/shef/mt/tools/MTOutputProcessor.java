@@ -109,7 +109,8 @@ public class MTOutputProcessor {
                 String pplFile = nbestPath + File.separator + i + "_" + input.getName().trim() + "_" + sent.getIndex() + ".ppl";
                 ngramExec.runNGramCount(ngramSentFile, sentLMFile, ngramSize);
                 ngramExec.runNGramPerplex(sentFile, pplFile, sentLMFile, i);
-                PPLProcessor pplProcSource = new PPLProcessor(pplFile, new String[]{i + "_nb_logprob", i + "_nb_ppl", i + "_nb_ppl1"});
+                PPLProcessor pplProcSource = new PPLProcessor();
+                pplProcSource.create(pplFile, new String[]{i + "_nb_logprob", i + "_nb_ppl", i + "_nb_ppl1"});
                 pplProcSource.processNextSentence(sent);
                 pplProcSource.close();
             }

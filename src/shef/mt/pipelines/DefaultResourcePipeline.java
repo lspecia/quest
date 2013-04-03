@@ -8,6 +8,8 @@ import shef.mt.tools.BParserProcessor;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.TopicDistributionProcessor;
 import shef.mt.tools.MorphAnalysisProcessor;
+import shef.mt.tools.PPLProcessor;
+import shef.mt.tools.TriggersProcessor;
 import shef.mt.util.PropertiesManager;
 
 
@@ -40,9 +42,13 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		ResourceProcessor bParser = new BParserProcessor();
 		ResourceProcessor topicDistribution = new TopicDistributionProcessor();
 		ResourceProcessor morphAnalysis = new MorphAnalysisProcessor();
+		ResourceProcessor ppl = new PPLProcessor();
+		ResourceProcessor triggers = new TriggersProcessor();
 		res.add(bParser);
 		res.add(topicDistribution);
 		res.add(morphAnalysis);
+		res.add(ppl);
+		res.add(triggers);
 		initialize_resources(res, sourceFile, targetFile, propertiesManager, sourceLang, targetLang);
    		// store the parameters into private class variables so that they can be used by initialize_resources of the superclass
 	}
