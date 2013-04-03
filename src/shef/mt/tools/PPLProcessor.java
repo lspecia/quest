@@ -4,6 +4,7 @@
 package shef.mt.tools;
 
 import shef.mt.features.util.Sentence;
+import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
 
 import java.io.*;
@@ -23,9 +24,17 @@ public class PPLProcessor extends ResourceProcessor {
 
     public void initialize(String sourceFile, String targetFile,
             PropertiesManager propertiesManager,
-            String sourceLang, String targetLang) {}    
+            String sourceLang, String targetLang) {
+    	
+    	PPLProcessor pplProcessor = new PPLProcessor();
+
+        pplProcessor.create(pplFile, valNames);
+
+		ResourcePipeline rp = new ResourcePipeline();
+    	rp.addResourceProcessor(pplProcessor);
+    }    
     
-    public PPLProcessor(String pplFile, String[] valNames) {
+    public void create(String pplFile, String[] valNames) {
 
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(pplFile), "utf-8"));

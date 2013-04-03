@@ -573,10 +573,10 @@ public class FeatureExtractorSimple{
                 + resourceManager.getString("tools.ngram.output.ext");
         runNGramPPL();
 
-        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
-                new String[]{"logprob", "ppl", "ppl1"});
-        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
-                new String[]{"logprob", "ppl", "ppl1"});
+//        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
+//                new String[]{"logprob", "ppl", "ppl1"});
+//        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
+//                new String[]{"logprob", "ppl", "ppl1"});
         
       
           FileModel fm = new FileModel(sourceFile,
@@ -590,8 +590,8 @@ public class FeatureExtractorSimple{
 
         String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
         System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
-        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
-                new String[]{"poslogprob", "posppl", "posppl1"});
+//        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
+//                new String[]{"poslogprob", "posppl", "posppl1"});
 
         loadGiza();
         processNGrams();
@@ -661,8 +661,8 @@ public class FeatureExtractorSimple{
           if (tm) {
             String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
             String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
-             sourceTopicDistributionProcessor.create(sourceTopicDistributionFile, "sourceTopicDistribution");
-             targetTopicDistributionProcessor.create(targetTopicDistributionFile, "targetTopicDistribution");
+             //sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
+             //targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
             
           }
             /* END: Added by Raphael Rubino for the Topic Model Features
@@ -711,14 +711,14 @@ public class FeatureExtractorSimple{
                             resourceManager.getString("target.intra.triggers.file"),
                             Integer.parseInt(resourceManager.getString("nb.max.triggers.target.intra")),
                             resourceManager.getString("phrase.separator"));
-             itl_target_p = new TriggersProcessor(itl_target);
+//             itl_target_p = new TriggersProcessor(itl_target);
 
              itl_source = 
                     new Triggers(
                             resourceManager.getString("source.intra.triggers.file"),
                             Integer.parseInt(resourceManager.getString("nb.max.triggers.source.intra")),
                             resourceManager.getString("phrase.separator"));
-             itl_source_p = new TriggersProcessor(itl_source);
+//             itl_source_p = new TriggersProcessor(itl_source);
 
 
              itl_source_target = 
@@ -726,8 +726,8 @@ public class FeatureExtractorSimple{
                             resourceManager.getString("source.target.inter.triggers.file"),
                             Integer.parseInt(resourceManager.getString("nb.max.triggers.source.target.inter")),
                             resourceManager.getString("phrase.separator"));
-             itl_source_target_p = 
-                    new TriggersProcessor(itl_source_target);
+//             itl_source_target_p = 
+//                    new TriggersProcessor(itl_source_target);
                     
             }
             /*
@@ -763,9 +763,9 @@ public class FeatureExtractorSimple{
                 }
                 sourceSent.computeNGrams(3);
                 targetSent.computeNGrams(3);
-                pplProcSource.processNextSentence(sourceSent);
-                pplProcTarget.processNextSentence(targetSent);
-                pplPosTarget.processNextSentence(targetSent);
+//                pplProcSource.processNextSentence(sourceSent);
+//                pplProcTarget.processNextSentence(targetSent);
+//                pplPosTarget.processNextSentence(targetSent);
              
                    //lefterav: Parse code here
         
@@ -981,10 +981,10 @@ public void run() {
                 + resourceManager.getString("tools.ngram.output.ext");
         runNGramPPL();
 
-        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
-                new String[]{"logprob", "ppl", "ppl1"});
-        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
-                new String[]{"logprob", "ppl", "ppl1"});
+//        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
+//                new String[]{"logprob", "ppl", "ppl1"});
+//        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
+//                new String[]{"logprob", "ppl", "ppl1"});
 
         FileModel fm = new FileModel(sourceFile,
                 resourceManager.getString(sourceLang + ".corpus"));
@@ -993,8 +993,8 @@ public void run() {
 
         String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
         System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
-        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
-                new String[]{"poslogprob", "posppl", "posppl1"});
+//        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
+//                new String[]{"poslogprob", "posppl", "posppl1"});
 
         loadGiza();
         processNGrams();
@@ -1058,11 +1058,11 @@ public void run() {
 				sourceSent.computeNGrams(3);
 				targetSent.computeNGrams(3);
 
-				pplProcSource.processNextSentence(sourceSent);
+//				pplProcSource.processNextSentence(sourceSent);
 
-				pplProcTarget.processNextSentence(targetSent);
+//				pplProcTarget.processNextSentence(targetSent);
 
-				pplPosTarget.processNextSentence(targetSent);
+//				pplPosTarget.processNextSentence(targetSent);
 
 //				coh.processNextSentence(targetSent);
 

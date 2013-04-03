@@ -474,8 +474,8 @@ public class FeatureExtractor {
         String[] resources = new String[0];
         resources = featureManager.getStrResources().toArray(new String[0]);
 
-        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath, resources);
-        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath, resources);
+        //PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath, resources);
+        //PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath, resources);
         
         FileModel fm = new FileModel(sourceFile,
                 resourceManager.getString(sourceLang + ".corpus"));
@@ -565,8 +565,8 @@ public class FeatureExtractor {
                 
                 sourceSent.computeNGrams(ngramSize);
                 targetSent.computeNGrams(ngramSize);
-                pplProcSource.processNextSentence(sourceSent);
-                pplProcTarget.processNextSentence(targetSent);
+                //pplProcSource.processNextSentence(sourceSent);
+                //pplProcTarget.processNextSentence(targetSent);
             	
                 Set<String> resourceNames = featureManager.getStrResources();
                 
