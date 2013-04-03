@@ -2,6 +2,7 @@ package shef.mt.tools;
 
 import shef.mt.features.util.Sentence;
 import shef.mt.features.util.PronMorph;
+import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
 
 import java.io.*;
@@ -24,9 +25,20 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
 
     public void initialize(String sourceFile, String targetFile,
             PropertiesManager propertiesManager,
-            String sourceLang, String targetLang) {}    
+            String sourceLang, String targetLang) {
+    	
+    	MorphAnalysisProcessor sourceMorphAnalysisProcessor = new MorphAnalysisProcessor();
+    	MorphAnalysisProcessor targetMorphAnalysisProcessor = new MorphAnalysisProcessor();
+    	
+    	sourceMorphAnalysisProcessor.create(sourceFile);
+    	targetMorphAnalysisProcessor.create(targetFile);
+    	
+    	ResourcePipeline rp = new ResourcePipeline();
+    	rp.addResourceProcessor(sourceMorphAnalysisProcessor);
+        rp.addResourceProcessor(targetMorphAnalysisProcessor);
+    }    
     
-    public MorphAnalysisProcessor(String inputFile) {
+    public void create(String inputFile) {
         try {
             System.out.println("input to map: " + inputFile);
             brInput = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile)));
@@ -143,13 +155,13 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
         return true;
     }
 
-    public static void main(String[] args) {
-        MorphAnalysisProcessor map = new MorphAnalysisProcessor(args[0]);
-        int i = 0;
-        while (i <= 812) {
-            Sentence s = new Sentence("text", i);
-            map.processNextSentence(s);
-            i++;
-        }
-    }
+    //public static void main(String[] args) {
+     //   MorphAnalysisProcessor map = new MorphAnalysisProcessor(args[0]);
+      //  int i = 0;
+       // while (i <= 812) {
+        //    Sentence s = new Sentence("text", i);
+         //   map.processNextSentence(s);
+         //   i++;
+        //}
+    //}
 }

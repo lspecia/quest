@@ -33,6 +33,7 @@ public class BParserProcessor extends ResourceProcessor {
     	rp.addResourceProcessor(sourceParserProcessor);
         rp.addResourceProcessor(targetParserProcessor);
 	}
+	
 	/***
 	 * This function initializes a parser object with the desired grammar
 	 * into memeory
