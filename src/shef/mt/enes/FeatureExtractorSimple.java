@@ -661,8 +661,8 @@ public class FeatureExtractorSimple{
           if (tm) {
             String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
             String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
-             sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
-             targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+             sourceTopicDistributionProcessor.create(sourceTopicDistributionFile, "sourceTopicDistribution");
+             targetTopicDistributionProcessor.create(targetTopicDistributionFile, "targetTopicDistribution");
             
           }
             /* END: Added by Raphael Rubino for the Topic Model Features
