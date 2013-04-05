@@ -144,10 +144,16 @@ public class MOSES_XMLWrapper implements XMLWrapper {
         float crtFloatValue;
 
         Scanner scan;
+        int loop;
         int scanCount = 1;
-        for (int i = 2; i < features.length; i++) {
+        if (features.length == 6) // alignment infos are provided as extra fields
+            loop = features.length - 2;
+                    else 
+            loop = features.length; // alignments are not provided
+       // System.out.println(" feature length is = " +features.length);
+        for (int i = 2; i < loop; i++) {
             crtSplitValue = features[i];
-//			System.out.println("crtSplitValue="+crtSplitValue);
+	//		System.out.println("crtSplitValue="+crtSplitValue);
             if (!crtSplitValue.equals("")) {
                 scan = new Scanner(crtSplitValue);
                 while (scan.hasNext()) {
