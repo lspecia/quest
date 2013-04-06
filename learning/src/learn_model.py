@@ -163,7 +163,7 @@ def optimize_model(estimator, X_train, y_train, params, scores, folds, verbose, 
         log.debug(params)
         log.debug(scores)
         
-        clf = GridSearchCV(estimator, params, score_func=score_func, 
+        clf = GridSearchCV(estimator, params, loss_func=score_func, 
                            cv=folds, verbose=verbose, n_jobs=n_jobs)
         
         clf.fit(X_train, y_train)
