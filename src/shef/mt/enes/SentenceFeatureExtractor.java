@@ -1,11 +1,16 @@
-package wlv.mt.enes;
+package shef.mt.enes;
 
 import org.apache.commons.cli.*;
-import java.io.*;
 
-import wlv.mt.util.*;
-import wlv.mt.features.util.*;
-import wlv.mt.tools.*;
+import shef.mt.features.util.ParallelSentence;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import shef.mt.util.*;
+import shef.mt.features.util.*;
+import shef.mt.tools.*;
 
 /**
  * FeatureExtractor extracts Glassbox and/or Blackbox features from a pair of
@@ -26,7 +31,7 @@ import wlv.mt.tools.*;
  *
  * @author Catalina Hallett, Mariano Felice<br>
  */
-public class FeatureExtractor {
+public class SentenceFeatureExtractor {
 
     private static int mtSys;
     private static String workDir;
@@ -65,7 +70,7 @@ public class FeatureExtractor {
      * @param args The list of arguments
      *
      */
-    public FeatureExtractor(String[] args) {
+    public SentenceFeatureExtractor(String[] args) {
         workDir = System.getProperty("user.dir");
         new Logger("log.txt");
         parseArguments(args);
@@ -151,7 +156,7 @@ public class FeatureExtractor {
                 //r/ print the value of block-size
                 String[] files = line.getOptionValues("input");
                 sourceFile = files[0];
-                /targetFile = files[1];
+                targetFile = files[1];
             }
 
             if (line.hasOption("lang")) {
@@ -384,7 +389,7 @@ public class FeatureExtractor {
          f = new File(input + File.separator + targetLang + File.separator + "temp");
          if (!f.exists()) {
          f.mkdir();
-         System.out.println("folder created " + f.getPath());
+         Systeshef.mt.features.util.Sentencem.out.println("folder created " + f.getPath());
          }
 
 
@@ -479,8 +484,8 @@ public class FeatureExtractor {
         
 
         try {
-            JcmlReader sentenceReader = new JcmlReader(xmlFile);
-            JcmlWriter output = new JcmlWriter(out);
+            XmlReader sentenceReader = new XmlReader(sourceFile);
+//            JcmlWriter output = new JcmlWriter(out);
             BufferedReader posSource = null;
             BufferedReader posTarget = null;
             boolean posSourceExists = ResourceManager
@@ -495,10 +500,10 @@ public class FeatureExtractor {
             //and target language
         
             
-            BParserProcessor sourceParserProcessor = new BParserProcessor();
-            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
-            BParserProcessor targetParserProcessor = new BParserProcessor();
-            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);           
+//            BParserProcessor sourceParserProcessor = new BParserProcessor();
+//            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
+//            BParserProcessor targetParserProcessor = new BParserProcessor();
+//            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);           
             
 //			if (posSourceExists) {
 //				posSourceProc = new POSProcessor(sourcePosOutput);
@@ -511,21 +516,18 @@ public class FeatureExtractor {
 //				 FileInputStream(targetPosOutput)));
 //			}
             ResourceManager.printResources();
-            Sentence sourceSent;
-            Sentence targetSent;
             int sentCount = 0;
 
             ParallelSentence parallelSentence;
-            String lineSource = parallelSentence.getSource();
-            List<String> lineTargets = parallelSentence.getTargets();
+            
 	    
 	    /**
             * BEGIN: Added by Raphael Rubino for the Topic Model Features
 	    */
-            String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
-            String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
-            TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
-            TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
+//            String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
+//            String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
+//            TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
+//            TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
             /**
             * END: Added by Raphael Rubino for the Topic Model Features
             */
@@ -537,9 +539,11 @@ public class FeatureExtractor {
             while (sentenceReader.hasNext()) {
 
                 parallelSentence = sentenceReader.next();
-                sourceSent = new Sentence(lineSource, sentCount);
-                for (String lineTarget:lineTargets){
-                    targetSent = new Sentence(lineTarget, sentCount);
+                Sentence sourceSentence = parallelSentence.getSource();
+                List<Sentence> targetSentences = parallelSentence.getTargetSentences();
+                
+                
+                for (Sentence targetSent:targetSentences){
                     
                     if (posTargetExists) {
                         posTargetProc.processSentence(targetSent);
@@ -550,19 +554,19 @@ public class FeatureExtractor {
                 }
 
                 if (posSourceExists) {
-                    posSourceProc.processSentence(sourceSent);
+                    posSourceProc.processSentence(sourceSentence);
                 }
                 
                 
                 ngramSize = Integer.parseInt(resourceManager.getString("ngramsize"));
                 
-                sourceSent.computeNGrams(ngramSize);
-                pplProcSource.processNextSentence(sourceSent);
+                sourceSentence.computeNGrams(ngramSize);
+                pplProcSource.processNextSentence(sourceSentence);
                 //sourceParserProcessor.processNextSentence(sourceSent);
                 
                 
                 ++sentCount;
-                output.write(featureManager.runFeatures(sourceSent, targetSent));
+                output.write(featureManager.runFeatures(sourceSentence, targetSent));
             }
             if (posSource != null) {
                 posSource.close();

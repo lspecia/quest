@@ -1,4 +1,4 @@
-package wlv.mt.features.util;
+package shef.mt.features.util;
 
 import java.util.*;
 import edu.stanford.nlp.trees.*;
@@ -14,27 +14,27 @@ public class ParallelSentence {
     private List<Sentence> targetSentences;   
     private HashMap<String, Object> attributes;
 
-    public ParallelSentence(Sentence sourceSentence, ArrayList<Sentence> targetSentence) {
+    public ParallelSentence(Sentence sourceSentence, List<Sentence> targetSentence) {
         this.sourceSentence = sourceSentence;
         this.targetSentences = targetSentences;
         this.attributes = new HashMap<String, Object>();
     }
 
-    public ParallelSentence(Sentence sourceSentence, ArrayList<Sentence> targetSentence, HashMap<String, Object> attributes){
+    public ParallelSentence(Sentence sourceSentence, List<Sentence> targetSentence, HashMap<String, Object> attributes){
         this.sourceSentence = sourceSentence;
         this.targetSentences = targetSentences;
-        this.attributes = attributes
+        this.attributes = attributes;
     }
 
     public Sentence getSource() {
         return this.sourceSentence;
     }
 
-    public Sentence getTarget() {
-        return this.targetSentence;
+    public List<Sentence> getTargetSentences() {
+        return this.targetSentences;
     }
 
-    public HashMap<String,Object>() {
+    public HashMap<String,Object> getAttributes() {
         return this.attributes;
     }
 

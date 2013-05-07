@@ -28,12 +28,32 @@ public class Sentence {
     private Translation center;
     private ArrayList<PronMorph> morphs;
 
+    
+    
     public Sentence(String s, int index) {
         sentence = s;
         this.index = index;
         center = null;
         values = new HashMap<String, Object>();
         tokens = sentence.trim().split(" ");
+    }
+    
+    public Sentence(String s){
+    	sentence = s;
+        this.index = -1;
+        center = null;
+        values = new HashMap<String, Object>();
+        tokens = sentence.trim().split(" ");
+  
+    }
+    
+    public Sentence(String s, HashMap<String, Object> values){
+    	sentence = s;
+        this.index = -1;
+        center = null;
+        this.values = values;
+        tokens = sentence.trim().split(" ");
+  
     }
 
     public String getText() {

@@ -14,6 +14,7 @@ import shef.mt.features.util.Sentence;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,17 +34,22 @@ public class XmlReader implements Iterator<ParallelSentence>{
 	private InputStream inputStream;
 	private XMLInputFactory factory;
 	private XMLEventReader reader;
+	private XMLEvent event;
 	
 	static final String PARALLELSENTENCE = "judgedsentence";
 	static final String SOURCESENTENCE = "src";
 	static final String TARGETSENTENCE = "tgt";
 	
+	/**
+	 * Initialize a class-level event reader from the given filename
+	 */
 	public XmlReader(String fileName) {
 		try {
 			inputStream = new FileInputStream(fileName);
 			factory = XMLInputFactory.newInstance();
 			reader = factory.createXMLEventReader(inputStream);
-			
+			//always look one event forward, so that you can predict the end of the file
+			event = reader.nextEvent();
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -53,20 +59,44 @@ public class XmlReader implements Iterator<ParallelSentence>{
 			e.printStackTrace();
 		}
 		
+		
+	}
+	
+	/**
+	 * Close all open inherent objects
+	 */	
+	public void close(){
+		try {
+			reader.close();
+		} catch (XMLStreamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			inputStream.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	@Override	
+	/**
+	 * Xmlfile has next, as long as the inherent event reader has next
+	 * The reader will not have a next event, if the pointer is at the closing element
+	 */
 	public boolean hasNext(){
-		
 		return reader.hasNext();
+		
 		
 	}
 	
+	/**
+	 * Utility function for returning a hashmap of attributes out
+	 * of a given StAX start element 
+	 */
 	private HashMap<String,Object> getAttributes(StartElement element){
-		/**
-		 * Utility function for returning a hashmap of attributes out of a given StAX start element 
-		 */
-		
 		HashMap<String,Object> attributes = new HashMap<String,Object>();
 		
 		Iterator<Attribute> attributesIter = element.getAttributes();
@@ -78,18 +108,20 @@ public class XmlReader implements Iterator<ParallelSentence>{
 	}
 
 	@Override
+	/**
+	 * Reads the next parallel sentence from the XML file and returns 
+	 * one populated parallel sentence object
+	 */
 	public ParallelSentence next() {
 		try {
-			boolean parallelSentenceComplete = false;
-			ParallelSentence parallelSentence;
-			Sentence sourceSentence;			
+			ParallelSentence parallelSentence = null;
+			Sentence sourceSentence = null;			
 			List<Sentence> targetSentences = new ArrayList<Sentence>();
-			HashMap<String,Object> generalAttributes;
-			HashMap<String,Object> sourceAttributes;
-			HashMap<String,Object> targetAttributes;
+			HashMap<String,Object> generalAttributes = new HashMap<String,Object>();
 			
-			while (!parallelSentenceComplete){
-				XMLEvent event = reader.nextEvent();
+			//iterate until one (more) parallel sentence has been created
+			while (parallelSentence == null){
+				
 				//if element starting, then get the attributes
 				if (event.isStartElement()) {
 					StartElement startElement = event.asStartElement();
@@ -97,24 +129,26 @@ public class XmlReader implements Iterator<ParallelSentence>{
 						case PARALLELSENTENCE:
 							generalAttributes = getAttributes(startElement);
 						case SOURCESENTENCE:
-							sourceAttributes = getAttributes(startElement);
+							HashMap<String,Object> sourceAttributes = getAttributes(startElement);
+							event = reader.nextEvent();
+							sourceSentence = new Sentence(event.asCharacters().getData(), sourceAttributes);
 						case TARGETSENTENCE:
-							targetAttributes = getAttributes(startElement);
+							HashMap<String,Object> targetAttributes = getAttributes(startElement);
+							event = reader.nextEvent();
+							Sentence targetSentence = new Sentence(event.asCharacters().getData(), targetAttributes);
+							targetSentences.add(targetSentence);
 					}
-				//if element closing, then create the objects and populate them
+				//if element closing, then create the object
 				} else if (event.isEndElement()) {
 					EndElement endElement = event.asEndElement();
 					switch (endElement.getName().getLocalPart()){
 						case PARALLELSENTENCE:
-							
 							parallelSentence = new ParallelSentence(sourceSentence, targetSentences, generalAttributes);
-						case SOURCESENTENCE:
-
-						case TARGETSENTENCE:
-
+							event = reader.nextEvent();
+							
 				
+					}
 				}
-				
 			}
 			
 		} catch (XMLStreamException e) {
@@ -128,7 +162,7 @@ public class XmlReader implements Iterator<ParallelSentence>{
 
 	@Override
 	public void remove() {
-		// TODO Auto-generated method stub
+		// This does not do anything since we cannot edit the reader items
 		
 	}
 	
