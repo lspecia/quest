@@ -103,6 +103,10 @@ public class Sentence {
         values.put(key, new Integer(value));
     }
 
+    public HashMap<String,Object> getAttributes(){
+    	return this.values;
+    }
+    
     public Object getValue(String key) {
         Object value = values.get(key);
         if (value == null) {

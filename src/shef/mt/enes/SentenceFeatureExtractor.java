@@ -484,7 +484,7 @@ public class SentenceFeatureExtractor {
         
 
         try {
-            XmlReader sentenceReader = new XmlReader(sourceFile);
+            XMLReader sentenceReader = new XMLReader(sourceFile);
 //            JcmlWriter output = new JcmlWriter(out);
             BufferedReader posSource = null;
             BufferedReader posTarget = null;

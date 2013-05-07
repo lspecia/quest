@@ -25,7 +25,7 @@ import java.util.List;
  * @author Eleftherios Avramidis
  *
  */
-public class XmlReader implements Iterator<ParallelSentence>{
+public class XMLReader implements Iterator<ParallelSentence>{
 
 	/**
 	 * 
@@ -43,7 +43,7 @@ public class XmlReader implements Iterator<ParallelSentence>{
 	/**
 	 * Initialize a class-level event reader from the given filename
 	 */
-	public XmlReader(String fileName) {
+	public XMLReader(String fileName) {
 		try {
 			inputStream = new FileInputStream(fileName);
 			factory = XMLInputFactory.newInstance();
@@ -93,7 +93,7 @@ public class XmlReader implements Iterator<ParallelSentence>{
 	}
 	
 	/**
-	 * Utility function for returning a hashmap of attributes out
+	 * Utility function for returning a hashmap quest_bparserof attributes out
 	 * of a given StAX start element 
 	 */
 	private HashMap<String,Object> getAttributes(StartElement element){
