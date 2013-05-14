@@ -39,6 +39,10 @@ public class XMLReader implements Iterator<ParallelSentence>{
 	static final String PARALLELSENTENCE = "judgedsentence";
 	static final String SOURCESENTENCE = "src";
 	static final String TARGETSENTENCE = "tgt";
+	static final String ROOTELEMENT = "jcml";
+
+	static final String ENDDOCUMENT = "ENDDOCUMENT";
+
 	
 	/**
 	 * Initialize a class-level event reader from the given filename
@@ -87,7 +91,10 @@ public class XMLReader implements Iterator<ParallelSentence>{
 	 * The reader will not have a next event, if the pointer is at the closing element
 	 */
 	public boolean hasNext(){
-		return reader.hasNext();
+		boolean isEnd = (event.isEndElement() && (event.asEndElement().getName().getLocalPart()==ROOTELEMENT));
+		return (reader.hasNext() 
+				&& !event.isEndDocument()
+				&& !isEnd);
 		
 		
 	}
@@ -113,14 +120,15 @@ public class XMLReader implements Iterator<ParallelSentence>{
 	 * one populated parallel sentence object
 	 */
 	public ParallelSentence next() {
+		ParallelSentence parallelSentence = null;
 		try {
-			ParallelSentence parallelSentence = null;
+			boolean endDocument = false;
 			Sentence sourceSentence = null;			
 			List<Sentence> targetSentences = new ArrayList<Sentence>();
 			HashMap<String,Object> generalAttributes = new HashMap<String,Object>();
 			
 			//iterate until one (more) parallel sentence has been created
-			while (parallelSentence == null){
+			while (parallelSentence == null && !endDocument){
 				
 				//if element starting, then get the attributes
 				if (event.isStartElement()) {
@@ -128,15 +136,18 @@ public class XMLReader implements Iterator<ParallelSentence>{
 					switch (startElement.getName().getLocalPart()){
 						case PARALLELSENTENCE:
 							generalAttributes = getAttributes(startElement);
+							break;
 						case SOURCESENTENCE:
 							HashMap<String,Object> sourceAttributes = getAttributes(startElement);
 							event = reader.nextEvent();
 							sourceSentence = new Sentence(event.asCharacters().getData(), sourceAttributes);
+							break;
 						case TARGETSENTENCE:
 							HashMap<String,Object> targetAttributes = getAttributes(startElement);
 							event = reader.nextEvent();
 							Sentence targetSentence = new Sentence(event.asCharacters().getData(), targetAttributes);
 							targetSentences.add(targetSentence);
+							break;
 					}
 				//if element closing, then create the object
 				} else if (event.isEndElement()) {
@@ -144,18 +155,26 @@ public class XMLReader implements Iterator<ParallelSentence>{
 					switch (endElement.getName().getLocalPart()){
 						case PARALLELSENTENCE:
 							parallelSentence = new ParallelSentence(sourceSentence, targetSentences, generalAttributes);
-							event = reader.nextEvent();
-							
+							break;
+						case ENDDOCUMENT:
+							endDocument = true;
 				
 					}
 				}
+				
+				if (reader.hasNext()){
+					event = reader.nextEvent();
+					while ((!event.isEndElement())&&(!event.isStartElement())&&(!event.isEndDocument())){						
+						System.out.println(event.toString());
+						event = reader.nextEvent();
+					}
+				}
 			}
-			
+		
 		} catch (XMLStreamException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return parallelSentence;
 		
 		
 	}

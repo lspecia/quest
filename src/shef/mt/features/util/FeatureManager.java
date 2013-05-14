@@ -168,6 +168,45 @@ public class FeatureManager {
         }
     }
 
+    public HashMap<String,Object> getFeaturesMap(Sentence source, Sentence target, int targetId){
+    	Set<String> fIndeces = features.keySet();
+    	HashMap<String,Object> results = new HashMap<String,Object>();
+
+        ArrayList<String> featureIndeces = new ArrayList<String>(fIndeces);
+
+        Collections.sort(featureIndeces);
+//		System.out.println(featureIndeces.size()+" feature indeces: "+ featureIndeces);
+        Feature f;
+    	
+    	for (String index:featureIndeces){
+    		f = features.get(index);
+    		
+    		f.reset();
+    		
+    		if (f.isComputable()) {
+
+    			f.run(source, target);
+    			Integer featsNumber = f.getFeaturesNumber();
+    			
+    			for (int i = 1; i <= featsNumber; i++) {
+    				results.put("tgt"+String.valueOf(targetId)+"_"+String.valueOf(index)+":"+String.valueOf(i), f.getValue(i));
+    			}
+
+    		} else {
+    			Logger.log("Feature " + f.getIndex() + " cannot run because some of its dependencies are missing.");
+    			System.out.println("Feature " + f.getIndex() + " cannot run because some of its dependencies are missing.");
+    			features.remove(index);
+//			System.out.println(features.size());
+    		}
+    	}
+    
+//	System.out.println("Result:");
+//	System.out.println(result.toString());
+//	System.out.println("");
+    	return results;
+    }
+    
+    
     //HACK
     public String runFeatures(Sentence source, Sentence target) {
         StringBuffer result = new StringBuffer();

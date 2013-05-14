@@ -6,6 +6,7 @@ import shef.mt.features.util.ParallelSentence;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import shef.mt.util.*;
@@ -445,7 +446,6 @@ public class SentenceFeatureExtractor {
         String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
         String pplSourcePath = resourceManager.getString("input")
-                + File.separator + sourceLang + File.separator + sourceFileName
                 + ngramOutputExt;
         String pplTargetPath = resourceManager.getString("input")
                 + File.separator + targetLang + File.separator + targetFileName
@@ -485,7 +485,7 @@ public class SentenceFeatureExtractor {
 
         try {
             XMLReader sentenceReader = new XMLReader(sourceFile);
-//            JcmlWriter output = new JcmlWriter(out);
+            XMLWriter output = new XMLWriter(out);
             BufferedReader posSource = null;
             BufferedReader posTarget = null;
             boolean posSourceExists = ResourceManager
@@ -537,36 +537,40 @@ public class SentenceFeatureExtractor {
             //process each sentence
             //run the features on the sentences
             while (sentenceReader.hasNext()) {
-
+            	HashMap<String,Object> thisFeatures = new HashMap<String,Object>();
+            	
                 parallelSentence = sentenceReader.next();
                 Sentence sourceSentence = parallelSentence.getSource();
                 List<Sentence> targetSentences = parallelSentence.getTargetSentences();
                 
-                
-                for (Sentence targetSent:targetSentences){
-                    
-                    if (posTargetExists) {
-                        posTargetProc.processSentence(targetSent);
-                    }
-                    targetSent.computeNGrams(ngramSize);
-                    pplProcTarget.processNextSentence(targetSent);
-            	    //targetParserProcessor.processNextSentence(targetSent);
-                }
-
                 if (posSourceExists) {
-                    posSourceProc.processSentence(sourceSentence);
-                }
-                
+                	posSourceProc.processSentence(sourceSentence);
+                }            
                 
                 ngramSize = Integer.parseInt(resourceManager.getString("ngramsize"));
                 
                 sourceSentence.computeNGrams(ngramSize);
                 pplProcSource.processNextSentence(sourceSentence);
                 //sourceParserProcessor.processNextSentence(sourceSent);
+                int targetId = 0;
+                
+                for (Sentence targetSent:targetSentences){
+                    targetId++;
+                	
+                    if (posTargetExists) {
+                        posTargetProc.processSentence(targetSent);
+                    }
+                    targetSent.computeNGrams(ngramSize);
+                    pplProcTarget.processNextSentence(targetSent);
+            	    //targetParserProcessor.processNextSentence(targetSent);
+                    
+                    thisFeatures.putAll(featureManager.getFeaturesMap(sourceSentence, targetSent, targetId));
+                }
                 
                 
+                parallelSentence = new ParallelSentence(sourceSentence, targetSentences, thisFeatures);
+                output.write(parallelSentence);
                 ++sentCount;
-                output.write(featureManager.runFeatures(sourceSentence, targetSent));
             }
             if (posSource != null) {
                 posSource.close();
