@@ -8,6 +8,7 @@ import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
 
 import java.io.*;
+import java.util.Properties;
 
 /**
  * Processes a file containing ngram probabilities and perplexities and sets the
@@ -22,10 +23,9 @@ public class PPLProcessor extends ResourceProcessor {
     String[] valNames;
     String pplFile;
 
-/**    
-    public void initialize(String sourceFile, String targetFile,
-            PropertiesManager propertiesManager,
-            String sourceLang, String targetLang) {
+    /**
+    public void initialize(PropertiesManager propertiesManager,
+            			   String sourceLang, String targetLang) {
     	
     	PPLProcessor pplProcessor = new PPLProcessor();
 

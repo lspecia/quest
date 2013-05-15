@@ -18,9 +18,8 @@ public abstract class ResourceProcessor {
 
     public abstract void processNextSentence(Sentence source);
     
-    public abstract void initialize(String sourceFile, String targetFile,
-			PropertiesManager propertiesManager,
-			String sourceLang, String targetLang);
+    public abstract void initialize(PropertiesManager propertiesManager,
+    								String sourceLang, String targetLang);
     
     public String getName(){
     	return this.resourceName;

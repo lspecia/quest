@@ -8,6 +8,9 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 import shef.mt.util.Logger;
+import shef.mt.util.PropertiesManager;
+import shef.mt.features.util.Sentence;
+
 
 /**
  * This class processes a file containing ngrams and produces a LanguageModel
@@ -15,18 +18,26 @@ import shef.mt.util.Logger;
  * @author Catalina Hallett
  *
  */
-public class NGramProcessor {
+public class NGramProcessor extends ResourceProcessor {
 
-    private String corpus;
-    private static int nSize = 3;
-    private int[] ngramNos;
-
+    public void initialize(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
+    	String corpus = propertiesManager.getString(sourceLang + ".ngram"); // get filename from propertiesManager
+    	int nSize = 3;
+    	LanguageModel lm = run(corpus, nSize); // the produced language model is available here! (TODO) 
+    }
+    
+    // to be implemented if necessary
+    public void processNextSentence(Sentence s) {
+    }
+    
+/**    
     public NGramProcessor(String corpus) {
         this.corpus = corpus;
         ngramNos = new int[nSize];
     }
-
-    public LanguageModel run() {
+*/
+    
+    public LanguageModel run(String corpus, int nSize) {
 
         System.out.println("Loading language model...");
         Logger.log("Loading language model...");
