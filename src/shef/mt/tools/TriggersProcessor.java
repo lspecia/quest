@@ -16,9 +16,7 @@ import java.util.*;
 public class TriggersProcessor extends ResourceProcessorTwoSentences {
     Triggers ilt;
 
-    public void initialize(String sourceFile, String targetFile,
-            PropertiesManager propertiesManager,
-            String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
     	
     	TriggersProcessor triggersProcessor = new TriggersProcessor();
 

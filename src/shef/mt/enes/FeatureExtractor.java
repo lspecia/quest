@@ -4,25 +4,25 @@ import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
 import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.pipelines.DefaultResourcePipeline;
-import shef.mt.tools.PPLProcessor;
 import shef.mt.tools.FileModel;
 import shef.mt.tools.NGramProcessor;
 import shef.mt.tools.NGramExec;
 import shef.mt.tools.ResourceManager;
-import shef.mt.tools.PPLProcessor;
-import shef.mt.tools.FileModel;
 import shef.mt.tools.LanguageModel;
-import shef.mt.tools.POSProcessor;
 import shef.mt.tools.Giza;
 import shef.mt.tools.Tokenizer;
+import shef.mt.tools.PosTagger;
+import shef.mt.tools.FileModel;
+import shef.mt.tools.PPLProcessor;
+import shef.mt.tools.POSProcessor;
 import shef.mt.tools.TopicDistributionProcessor;
 import shef.mt.tools.BParserProcessor;
-import shef.mt.tools.PosTagger;
 import shef.mt.features.util.Sentence;
 import shef.mt.features.util.FeatureManager;
 import org.apache.commons.cli.*;
 import java.io.*;
 import java.util.Set;
+import java.util.Properties;
 
 
 /**
@@ -360,14 +360,14 @@ public class FeatureExtractor {
         System.out.println(targetFile);
 
     }
-
+/*
     private static LanguageModel processNGrams() {
         // required by BB features 30-44
         NGramProcessor ngp = new NGramProcessor(
                 resourceManager.getString(sourceLang + ".ngram"));
         return ngp.run();
     }
-
+*/
     /**
      * constructs the folders required by the application. These are, typically:
      * <br> <ul><li>/input and subfolders <ul> <li>/input/<i>sourceLang</i>,
@@ -474,6 +474,21 @@ public class FeatureExtractor {
         String[] resources = new String[0];
         resources = featureManager.getStrResources().toArray(new String[0]);
 
+        Properties propFile = new Properties();
+        propFile.setProperty("pplSourcePath", pplSourcePath);
+        
+        // create String resourcesStr from String[] resources
+        StringBuilder builder = new StringBuilder();
+        for (String string : resources) {
+            if (builder.length() > 0) {
+                builder.append(";");
+            }
+            builder.append(string);
+        }
+        String resourcesStr = builder.toString();
+        System.out.println(resourcesStr);
+        propFile.setProperty("resources", resourcesStr);
+        
         //PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath, resources);
         //PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath, resources);
         
@@ -488,7 +503,7 @@ public class FeatureExtractor {
 //				new String[] { "poslogprob", "posppl", "posppl1" });
 
         loadGiza();
-        processNGrams();
+        /*processNGrams();*/
         
         try{
         	
@@ -538,7 +553,7 @@ public class FeatureExtractor {
 	    
 //topic removed
 
-            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(sourceFile, targetFile, resourceManager, sourceLang, targetLang);
+            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(resourceManager);
             //read in each line from the source and target files
             //create a sentence from each
             //process each sentence

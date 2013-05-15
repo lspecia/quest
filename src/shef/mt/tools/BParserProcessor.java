@@ -19,15 +19,13 @@ public class BParserProcessor extends ResourceProcessor {
 	boolean tokenizer;
 	public String resourceName;
 
-	public void initialize(String sourceFile, String targetFile,
-                        PropertiesManager propertiesManager,
-                        String sourceLang, String targetLang) {
+	public void initialize(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
 
 		BParserProcessor sourceParserProcessor = new BParserProcessor();
         BParserProcessor targetParserProcessor = new BParserProcessor();
 
-        sourceParserProcessor.create(sourceFile, propertiesManager, sourceLang);
-    	targetParserProcessor.create(targetFile, propertiesManager, targetLang);
+        sourceParserProcessor.create(propertiesManager, sourceLang);
+    	targetParserProcessor.create(propertiesManager, targetLang);
 
 		ResourcePipeline rp = new ResourcePipeline();
     	rp.addResourceProcessor(sourceParserProcessor);
@@ -42,7 +40,7 @@ public class BParserProcessor extends ResourceProcessor {
 	 * @param language the name of the language that this processor will be
 	 *    responsible for
 	 */
-	public void create(String inputFile, PropertiesManager rm, String language){
+	public void create(PropertiesManager rm, String language){
 		//get the grammar filename from the configuration file
 		String grammarFilename = rm.getString(language + ".bparser.grammar");
 		String kbest_entry = rm.getString(language + ".bparser.kbest");

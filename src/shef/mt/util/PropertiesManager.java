@@ -30,7 +30,7 @@ public class PropertiesManager extends java.util.Properties {
                 this.load(in);
                 in.close();
             } catch (Exception e) {
-                e.printStackTrace();;
+                e.printStackTrace();
             }
         } else {
             System.out.println("Can't find default config file");

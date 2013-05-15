@@ -41,12 +41,9 @@ public class ResourcePipeline {
 	 * @param targetLang: target language name
      * */
     public void initialize_resources(ArrayList<ResourceProcessor> res, 
-						    		 String sourceFile, String targetFile,
-									 PropertiesManager propertiesManager,
-									 String sourceLang, String targetLang) {
+						    		 PropertiesManager propertiesManager, String sourceLang, String targetLang) {
     	for (ResourceProcessor resource:res){ 
-        	resource.initialize(sourceFile, targetFile, propertiesManager, 
-        						sourceLang, targetLang);
+        	resource.initialize(propertiesManager, sourceLang, targetLang);
         	}
     }
     
