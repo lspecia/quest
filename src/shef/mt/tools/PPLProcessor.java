@@ -6,9 +6,9 @@ package shef.mt.tools;
 import shef.mt.features.util.Sentence;
 import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
+import shef.mt.features.util.FeatureManager;
 
 import java.io.*;
-import java.util.Properties;
 
 /**
  * Processes a file containing ngram probabilities and perplexities and sets the
@@ -22,14 +22,28 @@ public class PPLProcessor extends ResourceProcessor {
     BufferedReader br;
     String[] valNames;
     String pplFile;
-
+    private static String ngramOutputExt = ".ppl";
+    private static FeatureManager featureManager;
     
     public void initialize(PropertiesManager propertiesManager,
             			   String sourceLang, String targetLang) {
     	
+    	String sourceFile = "input/source." + sourceLang;
+    	String targetFile = "input/target." + targetLang;
+    	
+    	String pplSourcePath = propertiesManager.getString("input")
+                + File.separator + sourceLang + File.separator + sourceFile
+                + ngramOutputExt;
+        String pplTargetPath = propertiesManager.getString("input")
+                + File.separator + targetLang + File.separator + targetFile
+                + ngramOutputExt;
+        
+        String[] valNames = new String[0];
+        valNames = featureManager.getStrResources().toArray(new String[0]);
+    	
     	PPLProcessor pplProcessor = new PPLProcessor();
 
-        pplProcessor.create(pplFile, valNames);
+        pplProcessor.create(pplSourcePath, valNames);
 
 		ResourcePipeline rp = new ResourcePipeline();
     	rp.addResourceProcessor(pplProcessor);
