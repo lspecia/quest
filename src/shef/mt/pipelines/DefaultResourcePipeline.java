@@ -41,6 +41,7 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		res.add(morphAnalysis);
 		res.add(triggers);
 		res.add(ngramProcessor);
+		System.out.println(res.toString());
 		initialize_resources(res, propertiesManager, sourceLang, targetLang);
    		// store the parameters into private class variables so that they can be used by initialize_resources of the superclass
 	}
