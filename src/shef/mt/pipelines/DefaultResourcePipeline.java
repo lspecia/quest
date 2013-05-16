@@ -1,13 +1,10 @@
-/**
- * 
- */
+
 package shef.mt.pipelines;
 import java.util.ArrayList;
 
 import shef.mt.tools.BParserProcessor;
 import shef.mt.tools.MorphAnalysisProcessor;
 import shef.mt.tools.NGramProcessor;
-import shef.mt.tools.PPLProcessor;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.TopicDistributionProcessor;
 import shef.mt.tools.TriggersProcessor;
@@ -26,7 +23,9 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 	/**
 	 * Creates resource processor objects that should be initialized.
 	 * When a new ResourceProcessor is added, it should be initialized and added in the local list here
-	 *  
+	 * 
+	 * @param sourceLang: source language (e.g. 'english')
+	 * @param targetLang: target language (e.g. 'spanish')
 	 * @param propertiesManager: initialized PropertiesManager object that contains all the parameters specified in the properties file
 	 */
 	public DefaultResourcePipeline(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
@@ -35,13 +34,11 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		ResourceProcessor bParser = new BParserProcessor();
 		ResourceProcessor topicDistribution = new TopicDistributionProcessor();
 		ResourceProcessor morphAnalysis = new MorphAnalysisProcessor();
-		//ResourceProcessor ppl = new PPLProcessor();
 		ResourceProcessor triggers = new TriggersProcessor();
 		ResourceProcessor ngramProcessor = new NGramProcessor();
 		res.add(bParser);
 		res.add(topicDistribution);
 		res.add(morphAnalysis);
-		//res.add(ppl);
 		res.add(triggers);
 		res.add(ngramProcessor);
 		initialize_resources(res, propertiesManager, sourceLang, targetLang);

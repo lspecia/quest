@@ -42,6 +42,7 @@ public class ResourcePipeline {
      * */
     public void initialize_resources(ArrayList<ResourceProcessor> res, 
 						    		 PropertiesManager propertiesManager, String sourceLang, String targetLang) {
+    	System.out.println(res.toString());
     	for (ResourceProcessor resource:res){ 
         	resource.initialize(propertiesManager, sourceLang, targetLang);
         	}
