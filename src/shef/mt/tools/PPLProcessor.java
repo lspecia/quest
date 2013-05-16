@@ -23,7 +23,7 @@ public class PPLProcessor extends ResourceProcessor {
     String[] valNames;
     String pplFile;
 
-    /**
+    
     public void initialize(PropertiesManager propertiesManager,
             			   String sourceLang, String targetLang) {
     	
@@ -34,8 +34,8 @@ public class PPLProcessor extends ResourceProcessor {
 		ResourcePipeline rp = new ResourcePipeline();
     	rp.addResourceProcessor(pplProcessor);
     }    
-*/    
-    public PPLProcessor(String pplFile, String[] valNames) {
+    
+    public void create(String pplFile, String[] valNames) {
 
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(pplFile), "utf-8"));
@@ -49,11 +49,7 @@ public class PPLProcessor extends ResourceProcessor {
             ResourceManager.registerResource(valNames[i]);
         }
     }
-
-    public void initialize(String sourceFile, String targetFile,
-            PropertiesManager propertiesManager,
-            String sourceLang, String targetLang) {}
-    
+ 
     public void processNextSentence(Sentence s) {
         try {
             String line = br.readLine();
