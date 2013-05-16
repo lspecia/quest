@@ -553,7 +553,7 @@ public class FeatureExtractor {
 	    
 //topic removed
 
-            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(resourceManager);
+            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(resourceManager, sourceLang, targetLang);
             //read in each line from the source and target files
             //create a sentence from each
             //process each sentence
