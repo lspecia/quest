@@ -4,6 +4,7 @@ import shef.mt.features.util.Sentence;
 import shef.mt.features.util.PronMorph;
 import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
+import shef.mt.util.GetLangAbbreviation;
 
 import java.io.*;
 import java.util.*;
@@ -28,8 +29,14 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     	MorphAnalysisProcessor sourceMorphAnalysisProcessor = new MorphAnalysisProcessor();
     	MorphAnalysisProcessor targetMorphAnalysisProcessor = new MorphAnalysisProcessor();
     	
-    	String sourceFile = "input/source." + sourceLang;
-    	String targetFile = "input/target." + targetLang;
+    	
+    	GetLangAbbreviation glp = new GetLangAbbreviation();
+    	String sourceLangAbbreviation = new String();
+    	sourceLangAbbreviation = glp.GetAbbreviation(sourceLang);
+    	String sourceFile = "input/source." + sourceLangAbbreviation;
+    	String targetLangAbbreviation = new String();
+    	targetLangAbbreviation = glp.GetAbbreviation(targetLang);
+    	String targetFile = "input/target." + targetLangAbbreviation;
     	
     	sourceMorphAnalysisProcessor.create(sourceFile);
     	targetMorphAnalysisProcessor.create(targetFile);
