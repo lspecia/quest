@@ -37,14 +37,14 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		ResourceProcessor morphAnalysis = new MorphAnalysisProcessor();
 		ResourceProcessor triggers = new TriggersProcessor();
 		ResourceProcessor ngramProcessor = new NGramProcessor();
-		ResourceProcessor pplProcessor = new PPLProcessor();
+		//ResourceProcessor pplProcessor = new PPLProcessor();
 		
 		res.add(bParser);
 		res.add(topicDistribution);
 		res.add(morphAnalysis);
 		res.add(triggers);
 		res.add(ngramProcessor);
-		res.add(pplProcessor);
+		//res.add(pplProcessor);
 		initialize_resources(res, propertiesManager, sourceLang, targetLang);
    		// store the parameters into private class variables so that they can be used by initialize_resources of the superclass
 	}
