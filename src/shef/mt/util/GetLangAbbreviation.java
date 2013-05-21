@@ -10,7 +10,7 @@ public class GetLangAbbreviation {
 		else if (fullName.equals("german")) {abbreviation = "de";}
 		else if (fullName.equals("french")) {abbreviation = "fr";}
 		else if (fullName.equals("italian")) {abbreviation = "it";}
-		else if (fullName.equals("polish")) {abbreviation = "pl";}
+		else if (fullName.equals("polish")) {abbreviation = "pl";} 
 		else {System.out.println("Abbreviation of language name '"+fullName+"' not known!");}
 		
 		return abbreviation;
