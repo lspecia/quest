@@ -1,7 +1,7 @@
 package shef.mt.util;
 
 public class GetLangAbbreviation {
-	public String GetLangAbbreviation(String fullName) {
+	public String GetAbbreviation(String fullName) {
 		
 		String abbreviation = new String();
 		

@@ -32,10 +32,10 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     	
     	GetLangAbbreviation glp = new GetLangAbbreviation();
     	String sourceLangAbbreviation = new String();
-    	sourceLangAbbreviation = glp.GetLangAbbreviation(sourceLang);
+    	sourceLangAbbreviation = glp.GetAbbreviation(sourceLang);
     	String sourceFile = "input/source." + sourceLangAbbreviation;
     	String targetLangAbbreviation = new String();
-    	targetLangAbbreviation = glp.GetLangAbbreviation(targetLang);
+    	targetLangAbbreviation = glp.GetAbbreviation(targetLang);
     	String targetFile = "input/target." + targetLangAbbreviation;
     	
     	sourceMorphAnalysisProcessor.create(sourceFile);
