@@ -5,12 +5,12 @@ public class GetLangAbbreviation {
 		
 		String abbreviation = new String();
 		
-		if (fullName == "english") {abbreviation = "en";}
-		else if (fullName == "spanish") {abbreviation = "es";}
-		else if (fullName == "german") {abbreviation = "de";}
-		else if (fullName == "french") {abbreviation = "fr";}
-		else if (fullName == "italian") {abbreviation = "it";}
-		else if (fullName == "polish") {abbreviation = "pl";}
+		if (fullName.equals("english")) {abbreviation = "en";}
+		else if (fullName.equals("spanish")) {abbreviation = "es";}
+		else if (fullName.equals("german")) {abbreviation = "de";}
+		else if (fullName.equals("french")) {abbreviation = "fr";}
+		else if (fullName.equals("italian")) {abbreviation = "it";}
+		else if (fullName.equals("polish")) {abbreviation = "pl";} 
 		else {System.out.println("Abbreviation of language name '"+fullName+"' not known!");}
 		
 		return abbreviation;
