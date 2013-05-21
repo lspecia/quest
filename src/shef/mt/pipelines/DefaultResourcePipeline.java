@@ -24,9 +24,9 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 	 * Creates resource processor objects that should be initialized.
 	 * When a new ResourceProcessor is added, it should be initialized and added in the local list here
 	 * 
+	 * @param propertiesManager: initialized PropertiesManager object that contains all the parameters specified in the properties file
 	 * @param sourceLang: source language (e.g. 'english')
 	 * @param targetLang: target language (e.g. 'spanish')
-	 * @param propertiesManager: initialized PropertiesManager object that contains all the parameters specified in the properties file
 	 */
 	public DefaultResourcePipeline(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
 		
