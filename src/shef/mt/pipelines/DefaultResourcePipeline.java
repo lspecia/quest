@@ -31,6 +31,7 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 	 */
 	public DefaultResourcePipeline(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
 		
+		super();
 		res = new ArrayList<ResourceProcessor>();
 		ResourceProcessor bParser = new BParserProcessor();
 		ResourceProcessor topicDistribution = new TopicDistributionProcessor();
@@ -49,5 +50,7 @@ public class DefaultResourcePipeline extends ResourcePipeline {
    		// store the parameters into private class variables so that they can be used by initialize_resources of the superclass
 	}
 	
-	public DefaultResourcePipeline() {}
+	public DefaultResourcePipeline() {
+		super();
+	}
 }
