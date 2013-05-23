@@ -8,8 +8,8 @@
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../../opt/eclipse"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.7"/>
-    <property name="source" value="1.7"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
     <path id="quest_sentence.classpath">
         <pathelement location="build"/>
         <pathelement location="lib/BerkeleyParser-1.7.jar"/>
