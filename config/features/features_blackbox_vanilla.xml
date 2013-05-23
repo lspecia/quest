@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<features>
+    <feature class="shef.mt.features.impl.bb.Feature1001" description="Number of tokens in source" index="1001"/>
+    <feature class="shef.mt.features.impl.bb.Feature1002" description="Number of tokens in target" index="1002"/>
+    <feature class="shef.mt.features.impl.bb.Feature1003" description="ratio of number of tokens in source and target" index="1003"/>
+    <feature class="shef.mt.features.impl.bb.Feature1004" description="no tokens in the target / no tokens in the source" index="1004"/>
+    <feature class="shef.mt.features.impl.bb.Feature1005" description="absolute difference between no tokens and source and target normalised by source length" index="1005"/>
+    <feature class="shef.mt.features.impl.bb.Feature1006" description="average source token length" index="1006"/>
+    <feature class="shef.mt.features.impl.bb.Feature1009" description="source sentence log probability" index="1009"/>
+    <feature class="shef.mt.features.impl.bb.Feature1010" description="source sentence perplexity" index="1010"/>
+    <feature class="shef.mt.features.impl.bb.Feature1011" description="source sentence perplexity without end of sentence marker" index="1011"/>
+    <feature class="shef.mt.features.impl.bb.Feature1012" description="log probability of the target" index="1012"/>
+    <feature class="shef.mt.features.impl.bb.Feature1013" description="perplexity of the target" index="1013"/>
+    <feature class="shef.mt.features.impl.bb.Feature1014" description="perplexity of the target sentence without end of sentence marker" index="1014"/>
+    <feature class="shef.mt.features.impl.bb.Feature1015" description="number of occurrences of the target word within the target hypothesis (averaged for all words in the hypothesis - type/token ratio)" index="1015"/>
+    <feature class="shef.mt.features.impl.bb.Feature1016" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.01)" index="1016"/>
+    <feature class="shef.mt.features.impl.bb.Feature1018" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.05)" index="1018"/>
+    <feature class="shef.mt.features.impl.bb.Feature1020" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.1)" index="1020"/>
+    <feature class="shef.mt.features.impl.bb.Feature1022" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.2)" index="1022"/>
+    <feature class="shef.mt.features.impl.bb.Feature1024" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5)" index="1024"/>
+    <feature class="shef.mt.features.impl.bb.Feature1026" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.01) weighted by the frequency of each word in the source corpus" index="1026"/>
+    <feature class="shef.mt.features.impl.bb.Feature1028" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1028"/>
+    <feature class="shef.mt.features.impl.bb.Feature1030" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.1) weighted by the frequency of each word in the source corpus" index="1030"/>
+    <feature class="shef.mt.features.impl.bb.Feature1032" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.2) weighted by the frequency of each word in the source corpus" index="1032"/>
+    <feature class="shef.mt.features.impl.bb.Feature1034" description="average number of translations per source word in the sentence (threshold in giza1: prob &gt; 0.5) weighted by the frequency of each word in the source corpus" index="1034"/>
+    <feature class="shef.mt.features.impl.bb.Feature1036" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.01) weighted by the inverse frequency of each word in the source corpus" index="1036"/>
+    <feature class="shef.mt.features.impl.bb.Feature1038" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.05) weighted by the inverse frequency of each word in the source corpus" index="1038"/>
+    <feature class="shef.mt.features.impl.bb.Feature1040" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.1) weighted by the inverse frequency of each word in the source corpus" index="1040"/>
+    <feature class="shef.mt.features.impl.bb.Feature1042" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.2) weighted by the inverse frequency of each word in the source corpus" index="1042"/>
+    <feature class="shef.mt.features.impl.bb.Feature1044" description="average number of translations per source word in the sentence (threshold in giza: prob &gt; 0.5) weighted by the inverse frequency of each word in the source corpus" index="1044"/>
+    <feature class="shef.mt.features.impl.bb.Feature1049" description=" average unigram frequency in quartile 4 of frequency (lower frequency words) in the corpus of the source sentence" index="1049"/>
+    <feature class="shef.mt.features.impl.bb.Feature1050" description="average bigram frequency in quartile 1 of frequency (lower frequency words) in the corpus of the source sentence" index="1050"/>
+    <feature class="shef.mt.features.impl.bb.Feature1051" description="average bigram frequency in quartile 2 of frequency (lower frequency words) in the corpus of the source sentence" index="1051"/>
+    <feature class="shef.mt.features.impl.bb.Feature1052" description="average bigram frequency in quartile 3 of frequency (lower frequency words) in the corpus of the source sentence" index="1052"/>
+    <feature class="shef.mt.features.impl.bb.Feature1053" description=" average bigram frequency in quartile 4 of frequency (lower frequency words) in the corpus of the source sentence" index="1053"/>
+    <feature class="shef.mt.features.impl.bb.Feature1054" description="average trigram frequency in quartile 1 of frequency (lower frequency words) in the corpus of the source sentence" index="1054"/>
+    <feature class="shef.mt.features.impl.bb.Feature1055" description="average trigram frequency in quartile 2 of frequency (lower frequency words) in the corpus of the source sentence" index="1055"/>
+    <feature class="shef.mt.features.impl.bb.Feature1056" description="average trigram frequency in quartile 3 of frequency (lower frequency words) in the corpus of the source sentence" index="1056"/>
+    <feature class="shef.mt.features.impl.bb.Feature1057" description="average trigram frequency in quartile 4 of frequency (lower frequency words) in the corpus of the source sentence" index="1057"/>
+    <feature class="shef.mt.features.impl.bb.Feature1058" description="percentage of distinct unigrams seen in the corpus (in all quartiles)" index="1058"/>
+    <feature class="shef.mt.features.impl.bb.Feature1059" description=" percentage of distinct bigrams seen in the corpus (in all quartiles)" index="1059"/>
+    <feature class="shef.mt.features.impl.bb.Feature1060" description="percentage of distinct trigrams seen in the corpus (in all quartiles)" index="1060"/>
+    <feature class="shef.mt.features.impl.bb.Feature1061" description="average word frequency: on average, each type (unigram) in the source sentence appears x times in the corpus (in all quartiles)" index="1061"/>
+    <feature class="shef.mt.features.impl.bb.Feature1062" description="absolute difference between number of periods in source and target" index="1062"/>
+    <feature class="shef.mt.features.impl.bb.Feature1063" description="absolute difference between number of periods in source and target normalised by target length" index="1063"/>
+    <feature class="shef.mt.features.impl.bb.Feature1064" description="absolute difference between number of commas in source and target" index="1064"/>
+    <feature class="shef.mt.features.impl.bb.Feature1077" description="percentage of numbers in the source" index="1077"/>
+    <feature class="shef.mt.features.impl.bb.Feature1078" description="percentage of numbers in the target sentence" index="1078"/>
+    <feature class="shef.mt.features.impl.bb.Feature1079" description="absolute difference between number of numbers in the source and target sentence normalised by source sentence length" index="1079"/>
+    <feature class="shef.mt.features.impl.bb.Feature1080" description="number source tokens that do not contain only a-z" index="1080"/>
+    <feature class="shef.mt.features.impl.bb.Feature1081" description="percentage of tokens in the target which do not contain only a-z" index="1081"/>
+    <feature class="shef.mt.features.impl.bb.Feature1082" description="ratio of percentage of tokens a-z in the source and tokens a-z in the target" index="1082"/>
+  </features>
