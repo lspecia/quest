@@ -2,25 +2,17 @@ package shef.mt.enes;
 
 
 
-import shef.mt.xmlwrap.MOSES_XMLWrapper;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
+import shef.mt.tools.NGramProcessor;
 import shef.mt.tools.NGramExec;
 import shef.mt.tools.ResourceManager;
-import shef.mt.tools.FileModel;
-import shef.mt.tools.LanguageModel;
-import shef.mt.tools.POSProcessor;
-import shef.mt.tools.MTOutputProcessor;
-import shef.mt.tools.Tokenizer;
 import shef.mt.tools.Giza;
-import shef.mt.tools.TopicDistributionProcessor;
-import shef.mt.tools.BParserProcessor;
-import shef.mt.tools.NGramProcessor;
+import shef.mt.tools.LanguageModel;
+import shef.mt.tools.FileModel;
 import shef.mt.tools.PPLProcessor;
-import shef.mt.tools.PosTagger;
-import shef.mt.tools.GlobalLexicon;
-import shef.mt.tools.Triggers;
-import shef.mt.tools.TriggersProcessor;
+//import shef.mt.tools.PosTagger;
+import shef.mt.tools.Tokenizer;
 import shef.mt.features.util.Sentence;
 import shef.mt.features.util.FeatureManager;
 import org.apache.commons.cli.*;
@@ -46,11 +38,13 @@ import shef.mt.features.impl.Feature;
  *
  *
  * @author Catalina Hallett & Mariano Felice<br>
+ * Modified by Kashif Shah
+ * University of Sheffield
  */
 public class FeatureExtractorSimple{
 
     private static int mtSys;
-    private static String workDir;
+     private static String workDir;
     private static String wordLattices;
 	
     private static String gizaAlignFile;
@@ -76,11 +70,11 @@ public class FeatureExtractorSimple{
 	private static String onebestLog;
 
     private static boolean forceRun = false;
-    private static PropertiesManager resourceManager;
+ private static PropertiesManager resourceManager;
     private static FeatureManager featureManager;
     private static int ngramSize = 3;
 	private static int IBM = 0;
-	private static int MOSES = 1;
+	private static int CMU = 1;
     private static String configPath;
 	private static String gbXML;
 
@@ -89,8 +83,8 @@ public class FeatureExtractorSimple{
 	 * set to 0 if the parameter sent to the -gb option is an xml file, 0 otherwise
 	 */
 	private int gbMode;
-    
-        /**
+
+	/**
      * Initialises the FeatureExtractor from a set of parameters, for example
      * sent as command-line arguments
      *
@@ -207,7 +201,7 @@ public class FeatureExtractorSimple{
 				for (String s : gbOpt)
 					System.out.println(s);
 				if (gbOpt.length > 1) {
-					mtSys = MOSES;
+					mtSys = CMU;
 					nbestInput = gbOpt[0];
 					onebestPhrases = gbOpt[1];
 					onebestLog = gbOpt[2];
@@ -258,49 +252,9 @@ public class FeatureExtractorSimple{
         }
     }
 
-    public void runPOSTagger() {
-        // required by BB features 65-69, 75-80
-        String sourceOutput = runPOS(sourceFile, sourceLang, "source");
-        String targetOutput = runPOS(targetFile, targetLang, "target");
-
-    }
-
+   
 	
-    /**
-     * runs the part of speech tagger
-     * @param file input file
-     * @param lang language
-     * @param type source or target
-     * @return path to the output file of the POS tagger
-     */
-    public String runPOS(String file, String lang, String type) {
-        String posName = resourceManager.getString(lang + ".postagger");
-        String langResPath = input + File.separator + lang;
-        File f = new File(file);
-        String absoluteSourceFilePath = f.getAbsolutePath();
-        String fileName = f.getName();
-        String relativeFilePath = langResPath + File.separator + fileName
-                + ".pos";
-        String absoluteOutputFilePath = (new File(relativeFilePath))
-                .getAbsolutePath();
-        String posSourceTaggerPath = resourceManager.getString(lang
-                    + ".postagger.exePath");
-        String outPath = "";
-        try {
-            Class c = Class.forName(posName);
-            PosTagger tagger = (PosTagger) c.newInstance();
-            tagger.setParameters(type, posName, posSourceTaggerPath,
-                    absoluteSourceFilePath, absoluteOutputFilePath);
-            PosTagger.ForceRun(forceRun);
-            outPath = tagger.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // returns the path of the output file; this is for convenience only so
-        // we do't have to calculate it again
-        return outPath;
-
-    }
+ 
 
     private static void loadGiza() {
 
@@ -308,15 +262,6 @@ public class FeatureExtractorSimple{
                 + targetLang + ".giza.path");
         System.out.println(gizaPath);
         Giza giza = new Giza(gizaPath);
-    }
-    
-    private static void loadGlobalLexicon() {
-        final String glmodelpath = resourceManager.getString("pair." + sourceLang
-                + targetLang + ".glmodel.path");
-        final Double minweight = Double.valueOf(
-                resourceManager.getString("pair." + sourceLang
-                    + targetLang + ".glmodel.minweight"));
-        GlobalLexicon globalLexicon = new GlobalLexicon(glmodelpath, minweight);
     }
 
     /*
@@ -400,35 +345,9 @@ public class FeatureExtractorSimple{
         //run tokenizer for source (English)
         System.out.println("running tokenizer");
        
-       String src_abbr = ""; 
-        if (sourceLang.equals ("english"))
-                src_abbr = "en";
-            else if (sourceLang.equals ("spanish"))
-                src_abbr = "es";
-            else if (sourceLang.equals ("french"))
-                src_abbr = "fr";
-            else if (sourceLang.equals ("german"))
-                src_abbr = "de"; 
-            else 
-                System.out.println("Don't recognise the source language");
-        
-        
-        String tgt_abbr = ""; 
-        if (targetLang.equals ("english"))
-                tgt_abbr = "en";
-            else if (targetLang.equals ("spanish"))
-                tgt_abbr = "es";
-            else if (targetLang.equals ("french"))
-                tgt_abbr = "fr";
-            else if (targetLang.equals ("german"))
-                tgt_abbr = "de"; 
-            else 
-                System.out.println("Don't recognise the target language");
-        
-                
-                String truecasePath = "";
-        truecasePath = resourceManager.getString(sourceLang + ".truecase") + "|" + resourceManager.getString(sourceLang + ".truecase.model");
-        Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", truecasePath, resourceManager.getString(sourceLang + ".tokenizer"), src_abbr, forceRun);
+        String truecasePath = "";
+        truecasePath = resourceManager.getString("english.truecase") + "|" + resourceManager.getString("english.truecase.model");
+        Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", truecasePath, resourceManager.getString("english.tokenizer"), "en", forceRun);
         
         
         // Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", resourceManager.getString("english.lowercase"), resourceManager.getString("english.tokenizer"), "en", forceRun);
@@ -440,8 +359,8 @@ public class FeatureExtractorSimple{
         System.out.println("running tokenizer");
 //        Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(), inputTargetFile.getPath() + ".tok", resourceManager.getString("spanish.lowercase"), resourceManager.getString("spanish.tokenizer"), "es", forceRun);
        
-         truecasePath = resourceManager.getString(targetLang + ".truecase") + "|" + resourceManager.getString(targetLang + ".truecase.model");
-         Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(),inputTargetFile.getPath() + ".tok", truecasePath, resourceManager.getString(targetLang + ".tokenizer"), tgt_abbr, forceRun);
+         truecasePath = resourceManager.getString("spanish.truecase") + "|" + resourceManager.getString("spanish.truecase.model");
+         Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(),inputTargetFile.getPath()+".tok", truecasePath,resourceManager.getString("spanish.tokenizer"), "es", forceRun);
         
         esTok.run();
         targetFile = esTok.getTok();
@@ -488,13 +407,13 @@ public class FeatureExtractorSimple{
             f.mkdir();
             System.out.println("folder created " + f.getPath());
         }
-        f = new File(input + File.separator + targetLang + File.separator
+ /*       f = new File(input + File.separator + targetLang + File.separator
                 + "temp");
         if (!f.exists()) {
             f.mkdir();
             System.out.println("folder created " + f.getPath());
         }
-/*
+
         f = new File(input + File.separator + "systems");
         if (!f.exists()) {
             f.mkdir();
@@ -509,7 +428,7 @@ public class FeatureExtractorSimple{
         }
 
         f = new File(input + File.separator + "systems" + File.separator
-                + "MOSES");
+                + "CMU");
         if (!f.exists()) {
             f.mkdir();
             System.out.println("folder created " + f.getPath());
@@ -528,24 +447,8 @@ public class FeatureExtractorSimple{
      * <li>runs the pre-processing tools <li>runs the BB features, GB features
      * or both according to the command line parameters </ul>
      */
-	public  String initialiseGBResources() {
-		// transform the m output to xml
-		String xmlOut = resourceManager.getString("input") + File.separator
-				+ "systems" + File.separator;
-		File f = new File(sourceFile);
-		if (mtSys == MOSES) {
-			xmlOut += "moses_" + f.getName() + ".xml";
-			System.out.println(xmlOut);
-			MOSES_XMLWrapper cmuwrap = new MOSES_XMLWrapper(nbestInput, xmlOut,
-					onebestPhrases, onebestLog);
-			cmuwrap.run();
-   
-			// now send the xml output from cmuwrap to be processed
-		} 
-                
-		return xmlOut;
-	}
 
+    
 	
     /**
      * runs the BB features
@@ -568,43 +471,22 @@ public class FeatureExtractorSimple{
                 + resourceManager.getString("tools.ngram.output.ext");
 
 
-        String pplPOSTargetPath = resourceManager.getString("input")
-                + File.separator + targetLang + File.separator + targetFileName + PosTagger.getXPOS()
-                + resourceManager.getString("tools.ngram.output.ext");
+      
+      
         runNGramPPL();
 
         PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
                 new String[]{"logprob", "ppl", "ppl1"});
         PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
                 new String[]{"logprob", "ppl", "ppl1"});
-        
-      
-          FileModel fm = new FileModel(sourceFile,
-                resourceManager.getString(sourceLang + ".corpus"));
-        
-         // FileModel fm = new FileModel(sourceFile,
-           //     resourceManager.getString("source" + ".corpus"));
-        
-        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
-        String targetPosOutput = runPOS(targetFile, targetLang, "target");
 
-        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
-        System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
-        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
-                new String[]{"poslogprob", "posppl", "posppl1"});
+        FileModel fm = new FileModel(sourceFile,
+                resourceManager.getString(sourceLang + ".corpus"));
+  
 
         loadGiza();
         processNGrams();
-       boolean gl = false; 
-            String temp0 = resourceManager.getString("GL");
-            if (temp0.equals("1")) {
-                gl = true ;
-            }
-        
-        if (gl) {
-         loadGlobalLexicon();
-        }
-        
+
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
                     sourceFile));
@@ -613,69 +495,7 @@ public class FeatureExtractorSimple{
             BufferedWriter output = new BufferedWriter(new FileWriter(out));
             BufferedReader posSource = null;
             BufferedReader posTarget = null;
-            boolean posSourceExists = ResourceManager
-                    .isRegistered("sourcePosTagger");
-            boolean posTargetExists = ResourceManager
-                    .isRegistered("targetPosTagger");
-            POSProcessor posSourceProc = null;
-            POSProcessor posTargetProc = null;
-            
-            
-            
-             
-          
-            //lefterav: Berkeley parser modifications start here
-            //Check if user has defined the grammar files for source 
-            //and target language
-
-           //   if ( ResourceManager.isRegistered("BParser")){   
-            boolean bp = false; 
-            String temp = resourceManager.getString("BP");
-            if (temp.equals("1")) {
-                bp = true ;
-            }
-
-            BParserProcessor sourceParserProcessor = null;
-             BParserProcessor targetParserProcessor = null;
-             
-          if (bp) {
-            sourceParserProcessor = new BParserProcessor();
-            targetParserProcessor = new BParserProcessor();
-            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
-            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
-          }
-   // } 
-    
-    
-     /**
-            * BEGIN: Added by Raphael Rubino for the Topic Model Features
-	    */
-          
-          boolean tm = false; 
-            String temp1 = resourceManager.getString("TM");
-            if (temp1.equals("1")) {
-                tm = true ;
-            }
-          TopicDistributionProcessor sourceTopicDistributionProcessor = null;
-          TopicDistributionProcessor targetTopicDistributionProcessor = null;
-          if (tm) {
-            String sourceTopicDistributionFile = resourceManager.getString(sourceLang + ".topic.distribution");
-            String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
-             sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
-             targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
-            
-          }
-            /* END: Added by Raphael Rubino for the Topic Model Features
-            */ 
-    
-            if (posSourceExists) {
-                posSourceProc = new POSProcessor(sourcePosOutput);
-                posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
-            }
-            if (posTargetExists) {
-                posTargetProc = new POSProcessor(targetPosOutput);
-                posTarget = new BufferedReader(new InputStreamReader(new FileInputStream(targetPosOutput)));
-            }
+   
             ResourceManager.printResources();
             Sentence sourceSent;
             Sentence targetSent;
@@ -684,55 +504,7 @@ public class FeatureExtractorSimple{
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
             
-             /**
-             * Triggers (by David Langlois)
-             */
             
-            boolean tr = false; 
-            String temp2 = resourceManager.getString("TR");
-            if (temp2.equals("1")) {
-                tr = true ;
-            }
-          
-            
-            Triggers itl_target = null;
-            TriggersProcessor itl_target_p = null;
-            Triggers itl_source = null;
-            TriggersProcessor itl_source_p = null;
-            //TriggersProcessor itl_source_p = null;
-            Triggers itl_source_target = null;
-            TriggersProcessor itl_source_target_p = null; 
-            
-            if (tr){
-            
-              
-             itl_target = 
-                    new Triggers(
-                            resourceManager.getString("target.intra.triggers.file"),
-                            Integer.parseInt(resourceManager.getString("nb.max.triggers.target.intra")),
-                            resourceManager.getString("phrase.separator"));
-             itl_target_p = new TriggersProcessor(itl_target);
-
-             itl_source = 
-                    new Triggers(
-                            resourceManager.getString("source.intra.triggers.file"),
-                            Integer.parseInt(resourceManager.getString("nb.max.triggers.source.intra")),
-                            resourceManager.getString("phrase.separator"));
-             itl_source_p = new TriggersProcessor(itl_source);
-
-
-             itl_source_target = 
-                    new Triggers(
-                            resourceManager.getString("source.target.inter.triggers.file"),
-                            Integer.parseInt(resourceManager.getString("nb.max.triggers.source.target.inter")),
-                            resourceManager.getString("phrase.separator"));
-             itl_source_target_p = 
-                    new TriggersProcessor(itl_source_target);
-                    
-            }
-            /*
-             * End modification for Triggers
-             */
             
              
 	   
@@ -748,46 +520,12 @@ public class FeatureExtractorSimple{
                 sourceSent = new Sentence(lineSource, sentCount);
                 targetSent = new Sentence(lineTarget, sentCount);
 
-         //       System.out.println("Processing sentence "+sentCount);
-           //     System.out.println("SORCE: " + sourceSent.getText());
-             //   System.out.println("TARGET: " + targetSent.getText());
-               
-                
-                
-                
-                if (posSourceExists) {
-                    posSourceProc.processSentence(sourceSent);
-                }
-                if (posTargetExists) {
-                    posTargetProc.processSentence(targetSent);
-                }
+          
                 sourceSent.computeNGrams(3);
                 targetSent.computeNGrams(3);
                 pplProcSource.processNextSentence(sourceSent);
                 pplProcTarget.processNextSentence(targetSent);
-                pplPosTarget.processNextSentence(targetSent);
-             
-                   //lefterav: Parse code here
-        
-                if(bp){
-                sourceParserProcessor.processNextSentence(sourceSent);
-            	targetParserProcessor.processNextSentence(targetSent);
-                }
-                
-                if(tm){
-                
-                sourceTopicDistributionProcessor.processNextSentence(sourceSent);
-                 targetTopicDistributionProcessor.processNextSentence(targetSent);
-                }
-                
-                
-                  // modified by David
-                if(tr){
-                itl_source_p.processNextSentence(sourceSent);
-                itl_target_p.processNextSentence(targetSent);
-                itl_source_target_p.processNextParallelSentences(sourceSent, targetSent);
-                }
-                // end modification by David
+            
                 
                 ++sentCount;
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
@@ -795,12 +533,7 @@ public class FeatureExtractorSimple{
                 lineSource = brSource.readLine();
                 lineTarget = brTarget.readLine();
             }
-            if (posSource != null) {
-                posSource.close();
-            }
-            if (posTarget != null) {
-                posTarget.close();
-            }
+    
 
             brSource.close();
             brTarget.close();
@@ -809,10 +542,13 @@ public class FeatureExtractorSimple{
         } catch (Exception e) {
             e.printStackTrace();
         }
+		//pplProcSource.close();
+		//pplProcTarget.close();
+	//	pplPosTarget.close();
     }
 
     
-    private static void copyFile(File sourceFile, File destFile)
+  private static void copyFile(File sourceFile, File destFile)
             throws IOException {
         if (sourceFile.equals(destFile)) {
             System.out.println("source=dest");
@@ -860,256 +596,15 @@ public class FeatureExtractorSimple{
 	/**
 	 * runs the GB features
 	 */
-	public  void runGB() {
-		MTOutputProcessor mtop = null;
+	
 
-		if (gbMode == 1)
-			gbXML = initialiseGBResources();
-
-		String nbestSentPath = resourceManager.getString("input")
-				+ File.separator + targetLang + File.separator + "temp";
-		String ngramExecPath = resourceManager.getString("tools.ngram.path");
-
-		mtop = new MTOutputProcessor(gbXML, nbestSentPath, ngramExecPath,
-				ngramSize);
-//		MorphAnalysisProcessor map = new MorphAnalysisProcessor(madaFile);
-
-		File f = new File(sourceFile);
-		String sourceFileName = f.getName();
-		f = new File(targetFile);
-		String targetFileName = f.getName();
-
-		String outputFileName = sourceFileName + "_to_" + targetFileName
-				+ ".out";
-
-		String out = resourceManager.getString("output") + File.separator + getMod()
-				+ outputFileName;
-		System.out.println("Output will be: " + out);
-
-		String lineTarget;
-
-		try {
-			BufferedReader brSource = new BufferedReader(new FileReader(
-					sourceFile));
-			BufferedReader brTarget = new BufferedReader(new FileReader(
-					targetFile));
-			BufferedWriter output = new BufferedWriter(new FileWriter(out));
-
-			ResourceManager.printResources();
-
-			Sentence targetSent;
-			Sentence sourceSent;
-			int sentCount = 0;
-
-			String lineSource;
-
-			while (((lineSource = brSource.readLine()) != null)
-					&& ((lineTarget = brTarget.readLine()) != null)) {
-
-				lineSource = lineSource.trim().substring(lineSource.indexOf(" "));
-				sourceSent = new Sentence(lineSource,
-						sentCount);
-				targetSent = new Sentence(lineTarget, sentCount);
-
-                //map.processNextSentence(sourceSent);
-				mtop.processNextSentence(sourceSent);
-
-				++sentCount;
-				output.write(featureManager.runFeatures(sourceSent, targetSent));
-				output.write("\r\n");
-
-}
-			brSource.close();
-			brTarget.close();
-			output.close();
-			featureManager.printFeatureIndeces();
-			Logger.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-        }
-/*
 public void run() {
         constructFolders();
         preprocessing();
         runBB();
-    }*/
-        
-        
- 
-
- 
- 	public void runAll() {
-		File f = new File(sourceFile);
-                String sourceFileName = f.getName();
-                f = new File(targetFile);
-                String targetFileName = f.getName();
-                String outputFileName = sourceFileName + "_to_" + targetFileName
-                + ".out";
-                String out = resourceManager.getString("output") + File.separator + outputFileName;
-                System.out.println("Output will be: " + out);
-
-		
-		MTOutputProcessor mtop = null;
-
-		if (gbMode == 1)
-			gbXML = initialiseGBResources();
-
-		String nbestSentPath = resourceManager.getString("input")
-				+ File.separator + targetLang + File.separator + "temp";
-		String ngramExecPath = resourceManager.getString("tools.ngram.path");
-
-		mtop = new MTOutputProcessor(gbXML, nbestSentPath, ngramExecPath,
-				ngramSize);
-		
-
-		
-		
-		//wlv.mt.features.coherence.Coherence coh = new wlv.mt.features.coherence.Coherence(
-		//		getTargetFile());
-
-		String pplSourcePath = resourceManager.getString("input")
-                + File.separator + sourceLang + File.separator + sourceFileName
-                + resourceManager.getString("tools.ngram.output.ext");
-        String pplTargetPath = resourceManager.getString("input")
-                + File.separator + targetLang + File.separator + targetFileName
-                + resourceManager.getString("tools.ngram.output.ext");
-
-
-        String pplPOSTargetPath = resourceManager.getString("input")
-                + File.separator + targetLang + File.separator + targetFileName + PosTagger.getXPOS()
-                + resourceManager.getString("tools.ngram.output.ext");
-        runNGramPPL();
-
-        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
-                new String[]{"logprob", "ppl", "ppl1"});
-        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
-                new String[]{"logprob", "ppl", "ppl1"});
-
-        FileModel fm = new FileModel(sourceFile,
-                resourceManager.getString(sourceLang + ".corpus"));
-        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
-        String targetPosOutput = runPOS(targetFile, targetLang, "target");
-
-        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
-        System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
-        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
-                new String[]{"poslogprob", "posppl", "posppl1"});
-
-        loadGiza();
-        processNGrams();
-
-		try {
-			BufferedReader brSource = new BufferedReader(new FileReader(
-					sourceFileName));
-			BufferedReader brTarget = new BufferedReader(new FileReader(
-					targetFileName));
-			BufferedWriter output = new BufferedWriter(new FileWriter(out));
-			BufferedReader posSource = null;
-			BufferedReader posTarget = null;
-			boolean posSourceExists = ResourceManager
-					.isRegistered("sourcePosTagger");
-			boolean posTargetExists = ResourceManager
-					.isRegistered("targetPosTagger");
-			POSProcessor posSourceProc = null;
-			POSProcessor posTargetProc = null;
-			if (posSourceExists) {
-				posSourceProc = new POSProcessor(sourcePosOutput);
-				 posSource = new BufferedReader(new InputStreamReader(new
-				 FileInputStream(sourcePosOutput), "utf-8"));
-			}
-			if (posTargetExists) {
-				posTargetProc = new POSProcessor(targetPosOutput);
-				 posTarget = new BufferedReader(new InputStreamReader(new
-				 FileInputStream(targetPosOutput)));
-			}
-			ResourceManager.printResources();
-
-                        Sentence targetSent;
-			// HACK
-			Sentence sourceSent;
-			int sentCount = 0;
-			// HACK
-			String lineSource = brSource.readLine();
-			String lineTarget = brTarget.readLine();
-			// HACK
-			int result;
-			
-			while ((lineSource != null)	&& (lineTarget != null)) {
-
-	//the MADA-tokenised files contain start each sentence with the setence ID. We put it there (why?) - no we've got to remove it
-                           
-                                lineSource = lineSource.trim().substring(lineSource.indexOf(" ")).replace("+", "");
-				sourceSent = new Sentence(lineSource,
-						sentCount);
-				targetSent = new Sentence(lineTarget, sentCount);
-				System.out.println("Processing sentence "+sentCount);
-				if (posSourceExists) {
-
-					posSourceProc.processSentence(sourceSent);
-
-				}
-				if (posTargetExists) {
-
-					posTargetProc.processSentence(targetSent);
-				}
-
-				
-				sourceSent.computeNGrams(3);
-				targetSent.computeNGrams(3);
-
-				pplProcSource.processNextSentence(sourceSent);
-
-				pplProcTarget.processNextSentence(targetSent);
-
-				pplPosTarget.processNextSentence(targetSent);
-
-//				coh.processNextSentence(targetSent);
-
-				
-				
-                                
-				mtop.processNextSentence(sourceSent);
-
-				++sentCount;
-				output.write(featureManager.runFeatures(sourceSent, targetSent));
-				output.write("\r\n");
-				
-				 lineSource = brSource.readLine();
-				lineTarget = brTarget.readLine();
-			
-			}
-	//		featureManager.printFeatureIndeces();
-			if (posSource != null) {
-				posSource.close();
-			}
-			if (posTarget != null) {
-				posTarget.close();
-			}
-
-			brSource.close();
-			brTarget.close();
-			output.close();
-			
-			Logger.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
- public void run() {
-        constructFolders();
-        preprocessing();
-        if (getMod().equals("bb")) {
-            runBB();
-        } else if (getMod().equals("gb")) {
-            runGB();
-        } else {
-            runAll();
-        }
     }
-
-}
+        
+        
+ }
 
 	
