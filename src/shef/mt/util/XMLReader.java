@@ -133,32 +133,27 @@ public class XMLReader implements Iterator<ParallelSentence>{
 				//if element starting, then get the attributes
 				if (event.isStartElement()) {
 					StartElement startElement = event.asStartElement();
-					switch (startElement.getName().getLocalPart()){
-						case PARALLELSENTENCE:
-							generalAttributes = getAttributes(startElement);
-							break;
-						case SOURCESENTENCE:
-							HashMap<String,Object> sourceAttributes = getAttributes(startElement);
-							event = reader.nextEvent();
-							sourceSentence = new Sentence(event.asCharacters().getData(), sourceAttributes);
-							break;
-						case TARGETSENTENCE:
-							HashMap<String,Object> targetAttributes = getAttributes(startElement);
-							event = reader.nextEvent();
-							Sentence targetSentence = new Sentence(event.asCharacters().getData(), targetAttributes);
-							targetSentences.add(targetSentence);
-							break;
+					String localPart = startElement.getName().getLocalPart();
+					if (localPart.equals(PARALLELSENTENCE)){
+						generalAttributes = getAttributes(startElement);
+					} else if (localPart.equals(SOURCESENTENCE)) {
+						HashMap<String,Object> sourceAttributes = getAttributes(startElement);
+						event = reader.nextEvent();
+						sourceSentence = new Sentence(event.asCharacters().getData(), sourceAttributes);
+					} else if (localPart.equals(TARGETSENTENCE)) {
+						HashMap<String,Object> targetAttributes = getAttributes(startElement);
+						event = reader.nextEvent();
+						Sentence targetSentence = new Sentence(event.asCharacters().getData(), targetAttributes);
+						targetSentences.add(targetSentence);
 					}
 				//if element closing, then create the object
 				} else if (event.isEndElement()) {
 					EndElement endElement = event.asEndElement();
-					switch (endElement.getName().getLocalPart()){
-						case PARALLELSENTENCE:
-							parallelSentence = new ParallelSentence(sourceSentence, targetSentences, generalAttributes);
-							break;
-						case ENDDOCUMENT:
-							endDocument = true;
-				
+					String localPart =  endElement.getName().getLocalPart();
+					if (localPart.equals(PARALLELSENTENCE)){
+						parallelSentence = new ParallelSentence(sourceSentence, targetSentences, generalAttributes);
+					} else if (localPart.equals(ENDDOCUMENT)){
+						endDocument = true;
 					}
 				}
 				
