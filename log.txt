@@ -1,25 +1,15 @@
-2013/05/23 17:44:46
-Transforming the input to true case...
-Executing: java.lang.UNIXProcess@57bcc0bc
-Tokenizing the input...
-Executing: java.lang.UNIXProcess@69f78ef1
-Finished tokenising in 0.057 sec
-Transforming the input to true case...
-Executing: java.lang.UNIXProcess@584fce71
-Tokenizing the input...
-Executing: java.lang.UNIXProcess@732b3d53
-Finished tokenising in 0.033 sec
-Running ngram for computing perplexities on input file:/share/taraxu/software/quest/input/van_test/english/source.en.tok with lm file: ./lang_resources/english/lm.nc.en
-Executing: /share/taraxu/software/moses-pack-2011/srilm-1.6.0/bin/i686-m64/ngram -lm ./lang_resources/english/lm.nc.en -order 3 -debug 1 -ppl /share/taraxu/software/quest/input/van_test/english/source.en.tok > /share/taraxu/software/quest/input/van_test/english/source.en.tok.ppl
-Finished computing perplexities in 0.023 sec
-Running ngram for computing perplexities on input file:/share/taraxu/software/quest/input/van_test/spanish/target.es.tok with lm file: ./lang_resources/spanish/lm.nc.es
-Executing: /share/taraxu/software/moses-pack-2011/srilm-1.6.0/bin/i686-m64/ngram -lm ./lang_resources/spanish/lm.nc.es -order 3 -debug 1 -ppl /share/taraxu/software/quest/input/van_test/spanish/target.es.tok > /share/taraxu/software/quest/input/van_test/spanish/target.es.tok.ppl
-Finished computing perplexities in 0.021 sec
+2013/05/24 05:37:01
+Running ngram for computing perplexities on input file:input/input.jcmlenglish with lm file: ./lang_resources/english/lm.europarl-nc.en
+Executing: /share/taraxu/software/moses-pack-2011/srilm-1.6.0/bin/i686-m64/ngram -lm ./lang_resources/english/lm.europarl-nc.en -order 3 -debug 1 -ppl input/input.jcmlenglish > /share/taraxu/software/quest/input/van_test/english/input.jcmlenglish.ppl
+Finished computing perplexities in 7.531 sec
+Running ngram for computing perplexities on input file:input/input.jcmlspanish with lm file: ./lang_resources/spanish/lm.europarl-interpolated-nc.es
+Executing: /share/taraxu/software/moses-pack-2011/srilm-1.6.0/bin/i686-m64/ngram -lm ./lang_resources/spanish/lm.europarl-interpolated-nc.es -order 3 -debug 1 -ppl input/input.jcmlspanish > /share/taraxu/software/quest/input/van_test/spanish/input.jcmlspanish.ppl
+Finished computing perplexities in 28.13 sec
 Building the word model for the input file
-0 words identified. Computing frequencies... 
+13338 words identified. Computing frequencies... 
 initiating Giza from file: ./lang_resources/giza/lex.e2s
 Loading Giza...
-Giza loaded in 3.834 sec
+Giza loaded in 5.395 sec
 Loading language model...
 Cut-off frequencies:
 0-grams:
@@ -37,4 +27,4 @@ quartile 1: 2
 quartile 2: 3
 quartile 3: 6
 quartile 4: 75416
-Language model loaded in 17.938 sec
+Language model loaded in 18.529 sec

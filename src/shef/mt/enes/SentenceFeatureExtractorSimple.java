@@ -111,7 +111,7 @@ public class SentenceFeatureExtractorSimple{
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        FeatureExtractorSimple fe = new FeatureExtractorSimple(args);
+        SentenceFeatureExtractorSimple fe = new SentenceFeatureExtractorSimple(args);
 
         fe.run();
         long end = System.currentTimeMillis();
@@ -453,7 +453,7 @@ public class SentenceFeatureExtractorSimple{
 
     /**
      * Runs the Feature Extractor<br> <ul> <li>constructs the required folders
-     * <li>runs the pre-processing tools <li>runs the BB features, GB features
+     * <li>runs the pre-processing tools <li>uuns the BB features, GB features
      * or both according to the command line parameters </ul>
      */
 
@@ -469,7 +469,9 @@ public class SentenceFeatureExtractorSimple{
 	    	File tf = new File(targetFile);
 	    	tf.createNewFile();
 	    	FileWriter tfw = new FileWriter(tf.getAbsoluteFile());
-	    	BufferedWriter targetWriter = new BufferedWriter(sfw);
+	    	BufferedWriter targetWriter = new BufferedWriter(tfw);
+
+                int i = 0;
     	
 	    	while (sentenceReader.hasNext()) {
 	    		ParallelSentence parallelSentence = sentenceReader.next();
@@ -480,13 +482,14 @@ public class SentenceFeatureExtractorSimple{
 	    		for (Sentence targetSentence:parallelSentence.getTargetSentences()){
 	    			targetWriter.write(targetSentence.getText());
 	    			targetWriter.newLine();
-	    		}   				
+	    		} 
+                        System.out.println(String.valueOf(i++));  				
 	    	}
     	
 	    	targetWriter.close();
-	    	tfw.close();
+	    	//tfw.close();
 	    	sourceWriter.close();
-	    	sfw.close();
+	    	//sfw.close();
     	
     	} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -651,7 +654,7 @@ public class SentenceFeatureExtractorSimple{
 
 public void run() {
         constructFolders();
-        preprocessing();
+        //preprocessing();
         runBB();
     }
         

@@ -160,7 +160,7 @@ public class XMLReader implements Iterator<ParallelSentence>{
 				if (reader.hasNext()){
 					event = reader.nextEvent();
 					while ((!event.isEndElement())&&(!event.isStartElement())&&(!event.isEndDocument())){						
-						System.out.println(event.toString());
+						//System.out.println(event.toString());
 						event = reader.nextEvent();
 					}
 				}

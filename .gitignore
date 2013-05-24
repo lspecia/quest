@@ -1,5 +1,7 @@
 *.class
 
+build/*
+
 # Netbeans config files
 built-jar.properties
 project.properties
