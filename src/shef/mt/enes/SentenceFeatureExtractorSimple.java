@@ -189,7 +189,7 @@ public class SentenceFeatureExtractorSimple{
                 // print the value of block-size
                 String[] files = line.getOptionValues("input");
                 sourceFile = files[0];
-                targetFile = files[1];
+                targetFile = files[0];
             }
 
             if (line.hasOption("lang")) {
@@ -464,7 +464,7 @@ public class SentenceFeatureExtractorSimple{
         f = new File(targetFile);
         String targetFileName = f.getName();
         String outputFileName = sourceFileName + "_to_" + targetFileName
-                + ".out";
+               + ".out";
         String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
         
