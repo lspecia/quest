@@ -65,6 +65,7 @@ public class SentenceFeatureExtractorSimple{
      * path to the output folder
      */
     private static String output;
+    private static String xmlFile;
     private static String sourceFile;
     private static String targetFile;
     private static String sourceLang;
@@ -185,12 +186,6 @@ public class SentenceFeatureExtractorSimple{
                 resourceManager = new PropertiesManager();
             }
 
-            if (line.hasOption("input")) {
-                // print the value of block-size
-                String[] files = line.getOptionValues("input");
-                sourceFile = files[0];
-                targetFile = files[0];
-            }
 
             if (line.hasOption("lang")) {
                 String[] langs = line.getOptionValues("lang");
@@ -201,6 +196,15 @@ public class SentenceFeatureExtractorSimple{
                 targetLang = resourceManager.getString("targetLang.default");
             }
 
+
+            if (line.hasOption("input")) {
+                // print the value of block-size
+                String[] files = line.getOptionValues("input");
+                xmlFile = files[0];
+                sourceFile = xmlFile + sourceLang;
+                targetFile = xmlFile + targetLang;
+            }            
+            
 			if (line.hasOption("gb")) {
 				String[] gbOpt = line.getOptionValues("gb");
 				for (String s : gbOpt)
@@ -453,12 +457,50 @@ public class SentenceFeatureExtractorSimple{
      * or both according to the command line parameters </ul>
      */
 
+    private static void extractXmlSentences(){
+    	XMLReader sentenceReader = new XMLReader(xmlFile);
+    	try {
+    		
+	    	File sf = new File(sourceFile);
+	    	sf.createNewFile();
+	    	FileWriter sfw = new FileWriter(sf.getAbsoluteFile());
+	    	BufferedWriter sourceWriter = new BufferedWriter(sfw);
+	    	
+	    	File tf = new File(targetFile);
+	    	tf.createNewFile();
+	    	FileWriter tfw = new FileWriter(tf.getAbsoluteFile());
+	    	BufferedWriter targetWriter = new BufferedWriter(sfw);
+    	
+	    	while (sentenceReader.hasNext()) {
+	    		ParallelSentence parallelSentence = sentenceReader.next();
+	    		String sourceText = parallelSentence.getSource().getText();
+	    		sourceWriter.write(sourceText);
+	    		sourceWriter.newLine();
+	    		
+	    		for (Sentence targetSentence:parallelSentence.getTargetSentences()){
+	    			targetWriter.write(targetSentence.getText());
+	    			targetWriter.newLine();
+	    		}   				
+	    	}
+    	
+	    	targetWriter.close();
+	    	tfw.close();
+	    	sourceWriter.close();
+	    	sfw.close();
+    	
+    	} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	    	
+    }
     
 	
     /**
      * runs the BB features
      */
     public void runBB() {
+    	extractXmlSentences();
         File f = new File(sourceFile);
         String sourceFileName = f.getName();
         f = new File(targetFile);
@@ -493,7 +535,7 @@ public class SentenceFeatureExtractorSimple{
         processNGrams();
 
         try {
-            XMLReader sentenceReader = new XMLReader(sourceFile);
+            XMLReader sentenceReader = new XMLReader(xmlFile);
             XMLWriter output = new XMLWriter(out);
             BufferedReader posSource = null;
             BufferedReader posTarget = null;
