@@ -554,7 +554,6 @@ public class SentenceFeatureExtractorSimple{
             while (sentenceReader.hasNext()) {            	
                 parallelSentence = sentenceReader.next();
                 Sentence sourceSentence = parallelSentence.getSource();
-                HashMap<String,Object> origSourceFeatures = sourceSentence.getAttributes();
                 
                 List<Sentence> targetSentences = parallelSentence.getTargetSentences();
 
@@ -569,7 +568,6 @@ public class SentenceFeatureExtractorSimple{
                 
                 for (Sentence targetSentence:targetSentences){
                     targetId++;
-                    HashMap<String,Object> origTargetFeatures = targetSentence.getAttributes();
                     
                     targetSentence.computeNGrams(ngramSize);
                     pplProcTarget.processNextSentence(targetSentence);
@@ -577,16 +575,13 @@ public class SentenceFeatureExtractorSimple{
                     
                     //append the new attributes to the existing ones
                     
-                    Sentence origTargetSentence = new Sentence(targetSentence.getText(), origTargetFeatures);
-                    origTargetSentence.addValues(featureManager.getFeaturesMap(sourceSentence, targetSentence, targetId));
-                    annotatedTargetSentences.add(origTargetSentence);
+                    targetSentence.addAttributes(featureManager.getFeaturesMap(sourceSentence, targetSentence, targetId));
+                    annotatedTargetSentences.add(targetSentence);
                 }
-                
-                Sentence origSourceSentence = new Sentence(sourceSentence.getText(), origSourceFeatures);
-                
+                                
                 
                 //create a new copy of the parallel sentence by adding the hashmap with the features   
-                ParallelSentence annotatedParallelSentence = new ParallelSentence(origSourceSentence, annotatedTargetSentences, parallelSentence.getAttributes());
+                ParallelSentence annotatedParallelSentence = new ParallelSentence(sourceSentence, annotatedTargetSentences, parallelSentence.getAttributes());
                 output.write(annotatedParallelSentence);
                 ++sentCount;
             }
