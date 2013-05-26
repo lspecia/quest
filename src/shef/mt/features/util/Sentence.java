@@ -7,7 +7,7 @@ import edu.stanford.nlp.process.*;
 
 /**
  * Models a sentence as a span of text containing multiple information added by
- * pre-processing tools <br> It provides direct access to well used features of
+ * pre-processing tools <br> It provides direct access to well used attributes of
  * a sentence, such as its text, tokens, ngrams, phrases, but also allows any
  * tool to add information related to the sentence via the setValue() method.
  *
@@ -18,7 +18,8 @@ public class Sentence {
     private int noWords = -1;
     private String sentence;
     private ArrayList<Pair> tdl;
-    private HashMap<String, Object> values;
+    private HashMap<String, Object> values; //values calculated by processors to be  used for feature calculation
+    private HashMap<String, Object> attributes; //calculated features and other attributes read/to be written on XML
     private ArrayList<String>[] ngrams;
     private String[] tokens;
     private int index;
@@ -47,11 +48,11 @@ public class Sentence {
   
     }
     
-    public Sentence(String s, HashMap<String, Object> values){
+    public Sentence(String s, HashMap<String, Object> attributes){
     	sentence = s;
         this.index = -1;
         center = null;
-        this.values = values;
+        this.attributes = attributes;
         tokens = sentence.trim().split(" ");
   
     }
@@ -68,9 +69,20 @@ public class Sentence {
         values.put(key, value);
     }
     
-    public void addValues(HashMap<String,Object> addValues){
-    	values.putAll(addValues);
+    
+    public void setAttribute(String key, Object feature) {
+    	this.attributes.put(key, feature);
     }
+    
+    public void addAttributes(HashMap<String,Object> attributes){
+    	this.attributes.putAll(attributes);
+    }
+    
+    public HashMap<String,Object> getAttributes(){
+    	return this.attributes;
+    }
+    
+     
 
     /**
      *
@@ -107,10 +119,7 @@ public class Sentence {
         values.put(key, new Integer(value));
     }
 
-    public HashMap<String,Object> getAttributes(){
-    	return this.values;
-    }
-    
+
     public Object getValue(String key) {
         Object value = values.get(key);
         if (value == null) {
