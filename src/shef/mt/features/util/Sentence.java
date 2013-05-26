@@ -36,6 +36,7 @@ public class Sentence {
         this.index = index;
         center = null;
         values = new HashMap<String, Object>();
+        attributes = new HashMap<String, Object>();
         tokens = sentence.trim().split(" ");
     }
     
@@ -44,6 +45,7 @@ public class Sentence {
         this.index = -1;
         center = null;
         values = new HashMap<String, Object>();
+        attributes = new HashMap<String, Object>();
         tokens = sentence.trim().split(" ");
   
     }
@@ -52,6 +54,7 @@ public class Sentence {
     	sentence = s;
         this.index = -1;
         center = null;
+        values = new HashMap<String, Object>();
         this.attributes = attributes;
         tokens = sentence.trim().split(" ");
   
@@ -70,8 +73,8 @@ public class Sentence {
     }
     
     
-    public void setAttribute(String key, Object feature) {
-    	this.attributes.put(key, feature);
+    public void setAttribute(String key, Object attribute) {
+    	this.attributes.put(key, attribute);
     }
     
     public void addAttributes(HashMap<String,Object> attributes){
