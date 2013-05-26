@@ -67,6 +67,10 @@ public class Sentence {
     public void setValue(String key, Object value) {
         values.put(key, value);
     }
+    
+    public void addValues(HashMap<String,Object> addValues){
+    	values.putAll(addValues);
+    }
 
     /**
      *
