@@ -20,6 +20,7 @@ import shef.mt.features.util.Sentence;
 import shef.mt.features.util.FeatureManager;
 import org.apache.commons.cli.*;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -459,6 +460,7 @@ public class SentenceFeatureExtractorSimple{
 
     private static void extractXmlSentences(){
     	XMLReader sentenceReader = new XMLReader(xmlFile);
+    	System.err.print("Writing plain sentences to "+ sourceFile +" and "+targetFile+"\n");
     	try {
     		
 	    	File sf = new File(sourceFile);
@@ -506,7 +508,7 @@ public class SentenceFeatureExtractorSimple{
         f = new File(targetFile);
         String targetFileName = f.getName();
         String outputFileName = sourceFileName + "_to_" + targetFileName
-               + ".out";
+               + ".out.jcml";
         String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
         
@@ -549,21 +551,19 @@ public class SentenceFeatureExtractorSimple{
             //create a sentence from each
             //process each sentence
             //run the features on the sentences
-            while (sentenceReader.hasNext()) {
-            	HashMap<String,Object> thisFeatures = new HashMap<String,Object>();
-            	
+            while (sentenceReader.hasNext()) {            	
                 parallelSentence = sentenceReader.next();
                 Sentence sourceSentence = parallelSentence.getSource();
                 List<Sentence> targetSentences = parallelSentence.getTargetSentences();
-                
-       
-                
+
                 ngramSize = Integer.parseInt(resourceManager.getString("ngramsize"));
                 
                 sourceSentence.computeNGrams(ngramSize);
                 pplProcSource.processNextSentence(sourceSentence);
                 //sourceParserProcessor.processNextSentence(sourceSent);
                 int targetId = 0;
+                
+                List<Sentence> annotatedTargetSentences = new ArrayList<Sentence>(); 
                 
                 for (Sentence targetSent:targetSentences){
                     targetId++;
@@ -572,12 +572,14 @@ public class SentenceFeatureExtractorSimple{
                     pplProcTarget.processNextSentence(targetSent);
             	    //targetParserProcessor.processNextSentence(targetSent);
                     
-                    thisFeatures.putAll(featureManager.getFeaturesMap(sourceSentence, targetSent, targetId));
+                    //append the new attributes to the existing ones
+                    targetSent.addValues(featureManager.getFeaturesMap(sourceSentence, targetSent, targetId));
+                    annotatedTargetSentences.add(targetSent);
                 }
                 
-                
-                parallelSentence = new ParallelSentence(sourceSentence, targetSentences, thisFeatures);
-                output.write(parallelSentence);
+                //create a new copy of the parallel sentence by adding the hashmap with the features   
+                ParallelSentence annotatedParallelSentence = new ParallelSentence(sourceSentence, annotatedTargetSentences, parallelSentence.getAttributes());
+                output.write(annotatedParallelSentence);
                 ++sentCount;
             }
             if (posSource != null) {
