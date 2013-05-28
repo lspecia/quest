@@ -67,6 +67,7 @@ public class SentenceFeatureExtractorSimple{
      */
     private static String output;
     private static String xmlFile;
+    private static String xmloutputFile;
     private static String sourceFile;
     private static String targetFile;
     private static String sourceLang;
@@ -139,6 +140,9 @@ public class SentenceFeatureExtractorSimple{
 
         Option input = OptionBuilder.withArgName("input").hasArgs(3)
                 .isRequired(true).create("input");
+        
+        Option output = OptionBuilder.withArgName("output").hasArgs(3)
+                .isRequired(true).create("output");
 
         Option lang = OptionBuilder.withArgName("lang").hasArgs(2)
                 .isRequired(false).create("lang");
@@ -170,6 +174,7 @@ public class SentenceFeatureExtractorSimple{
 
         options.addOption(help);
         options.addOption(input);
+        options.addOption(output);
         options.addOption(mode);
         options.addOption(lang);
         options.addOption(feat);
@@ -204,7 +209,14 @@ public class SentenceFeatureExtractorSimple{
                 xmlFile = files[0];
                 sourceFile = xmlFile + sourceLang;
                 targetFile = xmlFile + targetLang;
-            }            
+            }
+            
+            if (line.hasOption("output")) {
+                // print the value of block-size
+                String[] files = line.getOptionValues("output");
+                xmloutputFile = files[0];
+                
+            }
             
 			if (line.hasOption("gb")) {
 				String[] gbOpt = line.getOptionValues("gb");
@@ -510,8 +522,8 @@ public class SentenceFeatureExtractorSimple{
         String sourceFileName = f.getName();
         f = new File(targetFile);
         String targetFileName = f.getName();
-        String outputFileName = sourceFileName + "_to_" + targetFileName
-               + ".out.jcml";
+        String outputFileName = xmloutputFile;
+        //String outputFileName = sourceFileName + "_to_" + targetFileName + ".out.jcml";
         String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
         
