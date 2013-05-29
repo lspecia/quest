@@ -522,9 +522,9 @@ public class SentenceFeatureExtractorSimple{
         String sourceFileName = f.getName();
         f = new File(targetFile);
         String targetFileName = f.getName();
-        String outputFileName = xmloutputFile;
+        String out = xmloutputFile;
         //String outputFileName = sourceFileName + "_to_" + targetFileName + ".out.jcml";
-        String out = resourceManager.getString("output") + File.separator + outputFileName;
+        //String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
         
         String pplSourcePath = resourceManager.getString("input")
