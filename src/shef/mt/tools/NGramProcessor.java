@@ -28,7 +28,7 @@ public class NGramProcessor {
 
     public LanguageModel run() {
 
-        System.out.println("Loading language model...");
+        System.out.println("Loading language model... "+corpus);
         Logger.log("Loading language model...");
         long start = System.currentTimeMillis();
         LanguageModel lm = new LanguageModel(nSize);

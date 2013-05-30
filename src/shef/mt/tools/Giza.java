@@ -62,6 +62,7 @@ public class Giza extends Resource {
             long elapsed = System.currentTimeMillis() - start;
             System.out.println("Giza loaded in " + elapsed / 1000F + " sec");
             Logger.log("Giza loaded in " + elapsed / 1000F + " sec");
+            br.close();
         } catch (java.io.IOException e) {
             e.printStackTrace();
             return -1;

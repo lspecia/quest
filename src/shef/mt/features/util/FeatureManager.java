@@ -189,7 +189,7 @@ public class FeatureManager {
     			Integer featsNumber = f.getFeaturesNumber();
     			
     			for (int i = 1; i <= featsNumber; i++) {
-    				results.put(String.valueOf(index)+":"+String.valueOf(i), f.getValue(i));
+    				results.put("q_"+String.valueOf(index)+"_"+String.valueOf(i), f.getValue(i));
     			}
 
     		} else {
