@@ -585,10 +585,10 @@ public class FeatureExtractor {
             	
                 Set<String> resourceNames = featureManager.getStrResources();
                 
-                System.out.println("???");
+                
                 defaultPipeline.processSentence(sourceSent, resourceNames);
                 defaultPipeline.processSentence(targetSent, resourceNames);
-		System.out.println("???Default pipeline successfully called.???");
+		
 
                 
                 
