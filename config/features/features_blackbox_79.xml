@@ -67,11 +67,11 @@
     <feature class="shef.mt.features.impl.bb.Feature1080" description="number source tokens that do not contain only a-z" index="1080"/>
     <feature class="shef.mt.features.impl.bb.Feature1081" description="percentage of tokens in the target which do not contain only a-z" index="1081"/>
     <feature class="shef.mt.features.impl.bb.Feature1082" description="ratio of percentage of tokens a-z in the source and tokens a-z in the target" index="1082"/>
-    <feature class="shef.mt.features.impl.bb.Feature1083" description="percentage of content words in the source" index="1083"/>
+   <!--<feature class="shef.mt.features.impl.bb.Feature1083" description="percentage of content words in the source" index="1083"/>
     <feature class="shef.mt.features.impl.bb.Feature1084" description="percentage of content words in the target" index="1084"/>
     <feature class="shef.mt.features.impl.bb.Feature1085" description="ratio of percentage of content words in the source and target" index="1085"/>
     <feature class="shef.mt.features.impl.bb.Feature1086" description="LM log probability of POS of the target" index="1086"/>
-    <feature class="shef.mt.features.impl.bb.Feature1087" description="LM log perplexity of POS of the target" index="1087"/>
+    <feature class="shef.mt.features.impl.bb.Feature1087" description="LM log perplexity of POS of the target" index="1087"/>-->
     <!--<feature class="shef.mt.features.impl.bb.Feature1088" description="percentage of nouns in the source" index="1088"/>
     <feature class="shef.mt.features.impl.bb.Feature1089" description="percentage of verbs in the source" index="1089"/>
     <feature class="shef.mt.features.impl.bb.Feature1090" description="percentage of nouns in the target" index="1090"/>
