@@ -101,6 +101,8 @@ public class FeatureExtractor {
         fe.run();
         long end = System.currentTimeMillis();
         Logger.log("processing completed in " + (end - start) / 1000 + " sec");
+        Logger.log("endLogger");
+        System.out.println("endSysOutPl");
         Logger.close();
         System.out.println("processing completed in " + (end - start) / 1000
                 + " sec");
