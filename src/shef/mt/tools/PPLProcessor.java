@@ -30,8 +30,8 @@ public class PPLProcessor extends ResourceProcessor {
     public void initialize(PropertiesManager propertiesManager,
             			   String sourceLang, String targetLang) {
     	
-    	String sourceFile = "source." + sourceLang; 
-    	String targetFile = "target." + targetLang; 
+    	String sourceFile = "source." + sourceLang;
+    	String targetFile = "target." + targetLang;
     	
     	String pplSourcePath = propertiesManager.getString("input")
                 + File.separator + sourceLang + File.separator + sourceFile
