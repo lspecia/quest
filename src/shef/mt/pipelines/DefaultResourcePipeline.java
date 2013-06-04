@@ -51,7 +51,7 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		res.add(triggers);
 		res.add(ngramProcessor);
 		res.add(pplProcessor);
-		res.add(mtOutputProcessor);
+		//res.add(mtOutputProcessor);
 		//res.add(nerProcessor);
 		//res.add(posProcessor);
 		initialize_resources(res, propertiesManager, sourceLang, targetLang);
