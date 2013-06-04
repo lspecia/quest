@@ -93,6 +93,9 @@ public class FeatureExtractor {
         System.out.println("input=" + input + "  output=" + output);
 
     }
+    
+    public FeatureExtractor() {
+    }
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
@@ -184,7 +187,6 @@ public class FeatureExtractor {
             if (line.hasOption("mode")) {
                 String[] modeOpt = line.getOptionValues("mode");
                 setMod(modeOpt[0].trim());
-                System.out.println("----------------------------------------------");
                 System.out.println(getMod());
                 configPath = resourceManager.getString("featureConfig." + getMod());
                 System.out.println("feature config:" + configPath);
