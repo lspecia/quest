@@ -559,8 +559,9 @@ public class FeatureExtractor {
             //create a sentence from each
             //process each sentence
             //run the features on the sentences
+            System.out.println(lineSource+lineTarget);
             while ((lineSource != null) && (lineTarget != null)) {
-
+            	System.out.println(lineSource+lineTarget);
                 //lineSource = lineSource.trim().substring(lineSource.indexOf(" ")).replace("+", "");
                 sourceSent = new Sentence(lineSource, sentCount);
                 targetSent = new Sentence(lineTarget, sentCount);
