@@ -72,13 +72,13 @@
     <feature class="shef.mt.features.impl.bb.Feature1085" description="ratio of percentage of content words in the source and target" index="1085"/>
     <feature class="shef.mt.features.impl.bb.Feature1086" description="LM log probability of POS of the target" index="1086"/>
     <feature class="shef.mt.features.impl.bb.Feature1087" description="LM log perplexity of POS of the target" index="1087"/>
-    <feature class="shef.mt.features.impl.bb.Feature1088" description="percentage of nouns in the source" index="1088"/>
+    <!--<feature class="shef.mt.features.impl.bb.Feature1088" description="percentage of nouns in the source" index="1088"/>
     <feature class="shef.mt.features.impl.bb.Feature1089" description="percentage of verbs in the source" index="1089"/>
     <feature class="shef.mt.features.impl.bb.Feature1090" description="percentage of nouns in the target" index="1090"/>
     <feature class="shef.mt.features.impl.bb.Feature1091" description="percentage of verbs in the target" index="1091"/>
     <feature class="shef.mt.features.impl.bb.Feature1092" description="ratio of percentage of nouns in the source and target" index="1092"/>
     <feature class="shef.mt.features.impl.bb.Feature1093" description="ratio of percentage of verbs in the source and target" index="1093"/>
-    <feature class="shef.mt.features.impl.bb.Feature1094" description="ratio of percentage of pronouns in the source and target" index="1094"/>
+    <feature class="shef.mt.features.impl.bb.Feature1094" description="ratio of percentage of pronouns in the source and target" index="1094"/>-->
     <!--feature class="shef.mt.features.impl.bb.Feature1097" description="coherence of target" index="1097"/>
     <feature class="shef.mt.features.impl.bb.Feature1098" description="number of dependencies with aligned constituents normalized by the total number of dependencies (max between source and target)" index="1098"/>
     <feature class="shef.mt.features.impl.bb.Feature1099" description="number of dependencies with aligned constituents normalized by the total number of dependencies (max between source and target), with the order of the constituents ignored" index="1099"/>
