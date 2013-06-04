@@ -591,6 +591,7 @@ public class FeatureExtractor {
                 
                 defaultPipeline.processSentence(sourceSent, resourceNames);
                 defaultPipeline.processSentence(targetSent, resourceNames);
+		
 
                 
                 
