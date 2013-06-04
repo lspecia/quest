@@ -104,6 +104,7 @@ public class FeatureExtractor {
         Logger.close();
         System.out.println("processing completed in " + (end - start) / 1000
                 + " sec");
+        System.out.println("end");
 
     }
 
