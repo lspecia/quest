@@ -7,7 +7,6 @@ import shef.mt.features.util.Sentence;
 import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
 import shef.mt.features.util.FeatureManager;
-import shef.mt.enes.FeatureExtractor;
 
 
 import java.io.*;
@@ -54,7 +53,7 @@ public class PPLProcessor extends ResourceProcessor {
     }    
     
     public void create(String pplFile, String[] valNames) {
-    	System.out.println("-------------------------------------------"+pplFile);
+
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(pplFile), "utf-8"));
             //                  System.out.println(br);

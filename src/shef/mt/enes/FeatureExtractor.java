@@ -559,7 +559,6 @@ public class FeatureExtractor {
             //create a sentence from each
             //process each sentence
             //run the features on the sentences
-            System.out.println(lineSource+lineTarget);
             while ((lineSource != null) && (lineTarget != null)) {
             	System.out.println(lineSource+lineTarget);
                 //lineSource = lineSource.trim().substring(lineSource.indexOf(" ")).replace("+", "");
@@ -567,7 +566,7 @@ public class FeatureExtractor {
                 targetSent = new Sentence(lineTarget, sentCount);
 
                 //System.out.println("Processing sentence "+sentCount);
-                //System.out.println("SORCE: " + sourceSent.getText());
+                //System.out.println("SOURCE: " + sourceSent.getText());
                 //System.out.println("TARGET: " + targetSent.getText());
                 //if (posSourceExists) {
                 //    posSourceProc.processSentence(sourceSent);
