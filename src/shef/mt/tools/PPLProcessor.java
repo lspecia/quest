@@ -41,7 +41,8 @@ public class PPLProcessor extends ResourceProcessor {
                 + ngramOutputExt;
         
         String[] valNames = new String[0];
-        //FeatureExtractor.getMod();
+        FeatureExtractor fe = new FeatureExtractor();
+        System.out.println(fe.getMod());
         valNames = featureManager.getStrResources().toArray(new String[0]);
     	
     	PPLProcessor pplSourceProcessor = new PPLProcessor();
