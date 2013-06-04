@@ -7,6 +7,8 @@ import shef.mt.features.util.Sentence;
 import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
 import shef.mt.features.util.FeatureManager;
+import shef.mt.enes.FeatureExtractor;
+
 
 import java.io.*;
 
@@ -39,6 +41,7 @@ public class PPLProcessor extends ResourceProcessor {
                 + ngramOutputExt;
         
         String[] valNames = new String[0];
+        FeatureExtractor.getMod();
         valNames = featureManager.getStrResources().toArray(new String[0]);
     	
     	PPLProcessor pplSourceProcessor = new PPLProcessor();
