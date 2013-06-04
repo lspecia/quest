@@ -41,12 +41,15 @@ public class PPLProcessor extends ResourceProcessor {
         String[] valNames = new String[0];
         valNames = featureManager.getStrResources().toArray(new String[0]);
     	
-    	PPLProcessor pplProcessor = new PPLProcessor();
+    	PPLProcessor pplSourceProcessor = new PPLProcessor();
+    	PPLProcessor pplTargetProcessor = new PPLProcessor();
 
-        pplProcessor.create(pplSourcePath, valNames);
+        pplSourceProcessor.create(pplSourcePath, valNames);
+        pplSourceProcessor.create(pplTargetPath, valNames);
 
 		ResourcePipeline rp = new ResourcePipeline();
-    	rp.addResourceProcessor(pplProcessor);
+    	rp.addResourceProcessor(pplSourceProcessor);
+    	rp.addResourceProcessor(pplTargetProcessor);
     }    
     
     public void create(String pplFile, String[] valNames) {
