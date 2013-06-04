@@ -3,8 +3,11 @@ package shef.mt.pipelines;
 import java.util.ArrayList;
 
 import shef.mt.tools.BParserProcessor;
+import shef.mt.tools.MTOutputProcessor;
 import shef.mt.tools.MorphAnalysisProcessor;
+import shef.mt.tools.NERProcessor;
 import shef.mt.tools.NGramProcessor;
+import shef.mt.tools.POSProcessor;
 import shef.mt.tools.PPLProcessor;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.TopicDistributionProcessor;
@@ -38,6 +41,9 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		ResourceProcessor triggers = new TriggersProcessor();
 		ResourceProcessor ngramProcessor = new NGramProcessor();
 		ResourceProcessor pplProcessor = new PPLProcessor();
+		//ResourceProcessor mtOutputProcessor = new MTOutputProcessor();
+		//ResourceProcessor nerProcessor = new NERProcessor();
+		//ResourceProcessor posProcessor = new POSProcessor();
 		
 		res.add(bParser);
 		res.add(topicDistribution);
@@ -45,6 +51,9 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		res.add(triggers);
 		res.add(ngramProcessor);
 		res.add(pplProcessor);
+		res.add(mtOutputProcessor);
+		//res.add(nerProcessor);
+		//res.add(posProcessor);
 		initialize_resources(res, propertiesManager, sourceLang, targetLang);
    		// store the parameters into private class variables so that they can be used by initialize_resources of the superclass
 	}
