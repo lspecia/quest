@@ -8,11 +8,12 @@ import shef.mt.util.ExtensionFilter;
 import shef.mt.features.util.Sentence;
 import shef.mt.features.util.Translation;
 import shef.mt.features.util.Phrase;
+import shef.mt.features.util.FeatureManager;
+
 import java.io.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.*;
-
 import java.util.*;
 
 /**

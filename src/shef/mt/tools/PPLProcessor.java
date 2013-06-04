@@ -25,9 +25,9 @@ public class PPLProcessor extends ResourceProcessor {
     String[] valNames;
     String pplFile;
     private static String ngramOutputExt = ".ppl";
-    private static FeatureManager featureManager;
     
     public void initialize(PropertiesManager propertiesManager,
+    					   FeatureManager featureManager,
             			   String sourceLang, String targetLang) {
     	
     	String sourceFile = "source." + sourceLang;
@@ -39,12 +39,8 @@ public class PPLProcessor extends ResourceProcessor {
         String pplTargetPath = propertiesManager.getString("input")
                 + File.separator + targetLang + File.separator + targetFile
                 + ngramOutputExt;
-        
-        String[] valNames = new String[0];
-        String configPath = propertiesManager.getString("featureConfig." + "bb");
-        System.out.println("feature config:" + configPath);
-        featureManager = new FeatureManager(configPath);
-        valNames = featureManager.getStrResources().toArray(new String[0]);
+
+        String[] valNames = featureManager.getStrResources().toArray(new String[0]);
     	
     	PPLProcessor pplSourceProcessor = new PPLProcessor();
     	PPLProcessor pplTargetProcessor = new PPLProcessor();
@@ -58,7 +54,7 @@ public class PPLProcessor extends ResourceProcessor {
     }    
     
     public void create(String pplFile, String[] valNames) {
-
+    	System.out.println("-------------------------------------------"+pplFile);
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(pplFile), "utf-8"));
             //                  System.out.println(br);

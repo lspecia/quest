@@ -4,6 +4,7 @@ package shef.mt.tools;
 import shef.mt.features.util.*;
 import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
+import shef.mt.features.util.FeatureManager;
 
 import java.io.*;
 import java.util.*;
@@ -16,7 +17,9 @@ import java.util.*;
 public class TriggersProcessor extends ResourceProcessorTwoSentences {
     Triggers ilt;
 
-    public void initialize(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager,
+    					   FeatureManager featureManager,
+    					   String sourceLang, String targetLang) {
     	
     	TriggersProcessor triggersProcessor = new TriggersProcessor();
 

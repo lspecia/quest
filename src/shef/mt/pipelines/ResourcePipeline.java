@@ -6,6 +6,7 @@ package shef.mt.pipelines;
 import shef.mt.features.util.Sentence;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.util.PropertiesManager;
+import shef.mt.features.util.FeatureManager;
 
 import java.util.*;
 
@@ -41,9 +42,9 @@ public class ResourcePipeline {
 	 * @param targetLang: target language name
      * */
     public void initialize_resources(ArrayList<ResourceProcessor> res, 
-						    		 PropertiesManager propertiesManager, String sourceLang, String targetLang) {
+						    		 PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
     	for (ResourceProcessor resource:res){ 
-        	resource.initialize(propertiesManager, sourceLang, targetLang);
+        	resource.initialize(propertiesManager, featureManager, sourceLang, targetLang);
         	}
     }
     

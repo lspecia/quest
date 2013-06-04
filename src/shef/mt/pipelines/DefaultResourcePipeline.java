@@ -13,6 +13,7 @@ import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.TopicDistributionProcessor;
 import shef.mt.tools.TriggersProcessor;
 import shef.mt.util.PropertiesManager;
+import shef.mt.features.util.FeatureManager;
 
 /**
  * This objects defines a default pipeline, with all available resource processors
@@ -32,7 +33,7 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 	 * @param sourceLang: source language (e.g. 'english')
 	 * @param targetLang: target language (e.g. 'spanish')
 	 */
-	public DefaultResourcePipeline(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
+	public DefaultResourcePipeline(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
 		
 		res = new ArrayList<ResourceProcessor>();
 		ResourceProcessor bParser = new BParserProcessor();
@@ -54,7 +55,7 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		//res.add(mtOutputProcessor);
 		//res.add(nerProcessor);
 		//res.add(posProcessor);
-		initialize_resources(res, propertiesManager, sourceLang, targetLang);
+		initialize_resources(res, propertiesManager, featureManager, sourceLang, targetLang);
    		// store the parameters into private class variables so that they can be used by initialize_resources of the superclass
 	}
 }

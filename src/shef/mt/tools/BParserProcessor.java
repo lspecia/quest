@@ -4,6 +4,7 @@ import shef.mt.features.util.Sentence;
 import shef.mt.tools.BParser;
 import shef.mt.util.PropertiesManager;
 import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.features.util.FeatureManager;
 
 /**
  * A processor class for the BParser. It loads the 
@@ -19,7 +20,7 @@ public class BParserProcessor extends ResourceProcessor {
 	boolean tokenizer;
 	public String resourceName;
 
-	public void initialize(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
+	public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
 
 		BParserProcessor sourceParserProcessor = new BParserProcessor();
         BParserProcessor targetParserProcessor = new BParserProcessor();

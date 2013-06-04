@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 
 import shef.mt.util.Logger;
 import shef.mt.util.PropertiesManager;
+import shef.mt.features.util.FeatureManager;
 import shef.mt.features.util.Sentence;
 
 
@@ -20,7 +21,7 @@ import shef.mt.features.util.Sentence;
  */
 public class NGramProcessor extends ResourceProcessor {
 
-    public void initialize(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
     	String corpus = propertiesManager.getString(sourceLang + ".ngram"); // get filename from propertiesManager
     	int nSize = 3;
     	LanguageModel lm = run(corpus, nSize); // the produced language model is available here! (TODO) 

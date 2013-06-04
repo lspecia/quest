@@ -93,9 +93,7 @@ public class FeatureExtractor {
         System.out.println("input=" + input + "  output=" + output);
 
     }
-    
-    public FeatureExtractor() {
-    }
+
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
@@ -556,7 +554,7 @@ public class FeatureExtractor {
 	    
 //topic removed
 
-            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(resourceManager, sourceLang, targetLang);
+            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(resourceManager, featureManager, sourceLang, targetLang);
             //read in each line from the source and target files
             //create a sentence from each
             //process each sentence

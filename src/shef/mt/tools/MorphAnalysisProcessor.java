@@ -5,6 +5,7 @@ import shef.mt.features.util.PronMorph;
 import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.GetLangAbbreviation;
+import shef.mt.features.util.FeatureManager;
 
 import java.io.*;
 import java.util.*;
@@ -24,7 +25,7 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     private static String WORD_START = ";;WORD";
     int count = 0;
 
-    public void initialize(PropertiesManager propertiesManager, String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
     	
     	MorphAnalysisProcessor sourceMorphAnalysisProcessor = new MorphAnalysisProcessor();
     	MorphAnalysisProcessor targetMorphAnalysisProcessor = new MorphAnalysisProcessor();
