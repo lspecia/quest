@@ -1,0 +1,6 @@
+2013/06/12 22:19:34
+Output file CCGworkdir/0.tgt.superppl already exists. Ngram will not run
+Output file CCGworkdir/1.tgt.superppl already exists. Ngram will not run
+Output file CCGworkdir/2.tgt.superppl already exists. Ngram will not run
+Output file CCGworkdir/3.tgt.superppl already exists. Ngram will not run
+Output file CCGworkdir/4.tgt.superppl already exists. Ngram will not run
