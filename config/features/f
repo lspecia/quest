@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<features>
+    <feature class="shef.mt.features.impl.bb.FeatureCCG_PhraseNum" description="Minimum number of phrases in the target" index="4385"/>
+  
+    
+    <feature class="shef.mt.features.impl.bb.FeatureCCG_ConstituentNum" description="Minimum number of CCG constituents in the target" index="4386"/>
+        <feature class="shef.mt.features.impl.bb.FeatureCCG_SupertagMismatches" description="Number of mismatches in consecutive supertags in the target" index="4387"/>
+        <feature class="shef.mt.features.impl.bb.FeatureCCG_ConstituentMismatches" description="Number of mismatches in consecutive constituent in the target" index="4388"/>
+    
+<feature class="shef.mt.features.impl.bb.FeatureCCG_SuperLMProb" description="LM log probability of the target supertags" index="4389"/>
+          <feature class="shef.mt.features.impl.bb.FeatureCCG_SuperLMPerplexity" description="LM log perplexity of the target supertags" index="4390"/>
+
+        
+    
+</features>
