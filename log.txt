@@ -1,4 +1,4 @@
-2013/07/15 18:37:07
+2013/07/16 14:28:26
 Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/english/source.eng.tok already exists. Tokenizer will not run
 Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/spanish/target_system.spa.tok already exists. Tokenizer will not run
 Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/english/source.eng.tok.ppl already exists. Ngram will not run
@@ -20,7 +20,7 @@ Running TreeTagger...
 Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/spanish/.XPOS.ppl already exists. Ngram will not run
 initiating Giza from file: ./lang_resources/giza/lex.e2s
 Loading Giza...
-Giza loaded in 4.342 sec
+Giza loaded in 1.862 sec
 Loading language model...
 Cut-off frequencies:
 0-grams:
@@ -38,6 +38,6 @@ quartile 1: 2
 quartile 2: 3
 quartile 3: 6
 quartile 4: 75416
-Language model loaded in 8.662 sec
+Language model loaded in 3.616 sec
 Initiating Lucene index in: /home/ebicici/SMT/Tools/QuEst/quest/lang_resources/english/luceneIndex
 Initiating Lucene index in: /home/ebicici/SMT/Tools/QuEst/quest/lang_resources/spanish/luceneIndex
