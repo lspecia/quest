@@ -1,26 +1,26 @@
-2013/07/16 14:28:26
-Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/english/source.eng.tok already exists. Tokenizer will not run
-Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/spanish/target_system.spa.tok already exists. Tokenizer will not run
-Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/english/source.eng.tok.ppl already exists. Ngram will not run
-Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/spanish/target_system.spa.tok.ppl already exists. Ngram will not run
+2013/07/16 19:23:19
+Output file /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/english/source.eng.tok already exists. Tokenizer will not run
+Output file /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/spanish/target_system.spa.tok already exists. Tokenizer will not run
+Output file /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/english/source.eng.tok.ppl already exists. Ngram will not run
+Output file /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/spanish/target_system.spa.tok.ppl already exists. Ngram will not run
 Building the word model for the input file
-10380 words identified. Computing frequencies... 
+2792 words identified. Computing frequencies... 
 ***********Initiating PosTagger***************
 PosTagger parameters: type=source name:shef.mt.tools.PosTreeTagger
 Executable: /Users/kashif/tools/tree-tagger/cmd/tree-tagger-english
-Input: /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/english/source.eng.tok
-Output: /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/english/source.eng.tok.pos
+Input: /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/english/source.eng.tok
+Output: /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/english/source.eng.tok.pos
 Running TreeTagger...
 ***********Initiating PosTagger***************
 PosTagger parameters: type=target name:shef.mt.tools.PosTreeTagger
 Executable: /Users/kashif/tools/tree-tagger/cmd/tree-tagger-spanish-utf8
-Input: /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/spanish/target_system.spa.tok
-Output: /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/spanish/target_system.spa.tok.pos
+Input: /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/spanish/target_system.spa.tok
+Output: /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/spanish/target_system.spa.tok.pos
 Running TreeTagger...
-Output file /home/ebicici/SMT/Tools/QuEst/quest/input/trainWMT13_Task1.1/spanish/.XPOS.ppl already exists. Ngram will not run
+Output file /home/ebicici/SMT/Tools/QuEst/quest/input/testWMT13_Task1.1/spanish/.XPOS.ppl already exists. Ngram will not run
 initiating Giza from file: ./lang_resources/giza/lex.e2s
 Loading Giza...
-Giza loaded in 1.862 sec
+Giza loaded in 1.785 sec
 Loading language model...
 Cut-off frequencies:
 0-grams:
@@ -38,6 +38,6 @@ quartile 1: 2
 quartile 2: 3
 quartile 3: 6
 quartile 4: 75416
-Language model loaded in 3.616 sec
+Language model loaded in 3.624 sec
 Initiating Lucene index in: /home/ebicici/SMT/Tools/QuEst/quest/lang_resources/english/luceneIndex
 Initiating Lucene index in: /home/ebicici/SMT/Tools/QuEst/quest/lang_resources/spanish/luceneIndex

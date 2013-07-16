@@ -31,32 +31,32 @@ public class Feature1700 extends Feature {
     		if (source.isSet(key))
     			setValue((Float) source.getValue(key));
     		else
-    			break;
+    			setValue(0);
     		key = "BLEUscoreSource" + String.valueOf(i);
     		if (source.isSet(key))
     			setValue((Float) source.getValue(key));
     		else
-    			break;
+    			setValue(0);
     		key = "F1scoreSource" + String.valueOf(i);
     		if (source.isSet(key))
     			setValue((Float) source.getValue(key));
     		else
-    			break;
+    			setValue(0);
     		key = "IRscoreTarget" + String.valueOf(i);
     		if (target.isSet(key))
     			setValue((Float) target.getValue(key));
     		else
-    			break;
+    			setValue(0);
     		key = "BLEUscoreTarget" + String.valueOf(i);
     		if (target.isSet(key))
     			setValue((Float) target.getValue(key));
     		else
-    			break;
+    			setValue(0);
     		key = "F1scoreTarget" + String.valueOf(i);
     		if (target.isSet(key))
     			setValue((Float) target.getValue(key));
     		else
-    			break;
+    			setValue(0);
     	}
     }
 }
