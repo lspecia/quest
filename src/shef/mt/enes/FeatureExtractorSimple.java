@@ -672,7 +672,7 @@ public class FeatureExtractorSimple{
 			String source_lucene_corpus = source_lucene_path + File.separator + sourceLang + ".corpus";
 //			System.out.println("SOURCE: " + source_lucene_path + " ||| " + source_lucene_corpus);
 			try {
-				sourceLuc = new Lucene(source_lucene_path, source_lucene_corpus, true, "Source");
+				sourceLuc = new Lucene(source_lucene_path, source_lucene_corpus, true, true, "Source");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -681,7 +681,7 @@ public class FeatureExtractorSimple{
 			String target_lucene_corpus = target_lucene_path + File.separator + targetLang + ".corpus";
 //			System.out.println("TARGET: " + target_lucene_path + " ||| " + target_lucene_corpus);
 			try {
-				targetLuc = new Lucene(target_lucene_path, target_lucene_corpus, true, "Target");
+				targetLuc = new Lucene(target_lucene_path, target_lucene_corpus, true, true, "Target");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

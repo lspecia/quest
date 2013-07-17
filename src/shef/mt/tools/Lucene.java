@@ -14,6 +14,7 @@ import java.io.IOException;
 
 
 
+
 // IndexWriter
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -46,6 +47,7 @@ public class Lucene extends Resource {
 	private String suffix;
 	private String selectedpart;
 	private boolean docPerLine;
+	private boolean returnDistinct;
 	private BleuMeasurer bm;
 	private F1Measurer f1m;
 	
@@ -61,13 +63,14 @@ public class Lucene extends Resource {
 	 * @param part: Either Source or Target
 	 * @throws Exception
 	 */
-	public Lucene(String luceneIndexDirectory, String dataPath, boolean mydocPerLine, String part) throws Exception {
+	public Lucene(String luceneIndexDirectory, String dataPath, boolean mydocPerLine, boolean myreturnDistinct, String part) throws Exception {
 		super(null);
 		indexDirectory = luceneIndexDirectory;
 		Logger.log("Initiating Lucene index in: " + indexDirectory);
 		Directory directory = FSDirectory.open(new File(indexDirectory));
 		suffix = "";
 		docPerLine = mydocPerLine;
+		returnDistinct = myreturnDistinct;
 		selectedpart = part;
 		bm = new BleuMeasurer();
 		f1m = new F1Measurer();
@@ -141,16 +144,53 @@ public class Lucene extends Resource {
 		}
 	}
 	
-	public List<Map.Entry<Float,String>> search(String queryStr, int maxHits) throws Exception {
+	public List<Map.Entry<Float,String>> search(String queryStr, int maxHits, boolean distinct) throws Exception {
 		Directory directory = FSDirectory.open(new File(indexDirectory));
 		IndexReader ireader = IndexReader.open(directory);
 		IndexSearcher isearcher = new IndexSearcher(ireader);
 		// Score is calculated according to: http://lucene.apache.org/core/3_6_1/api/core/org/apache/lucene/search/Similarity.html
 		QueryParser parser = new QueryParser(Version.LUCENE_36, "contents", new StandardAnalyzer(Version.LUCENE_36));
 		Query query = parser.parse(QueryParser.escape(queryStr));
-		
-		TopDocs topDocs = isearcher.search(query, maxHits);
+		TopDocs topDocs = isearcher.search(query, maxHits*10); // We search for more to allow distinct entries
 		ScoreDoc[] hits = topDocs.scoreDocs;
+		if (distinct) {
+			ArrayList<ScoreDoc> distincthits = new ArrayList<ScoreDoc>();
+			HashMap<String, Integer> found = new HashMap<String, Integer>();
+			HashMap<ScoreDoc, Integer> foundDocs = new HashMap<ScoreDoc, Integer>();
+			String content = "";
+			boolean enoughFound = false;
+			for (ScoreDoc hit: hits) {
+				content = isearcher.doc(hit.doc).get("contents");
+				if (found.containsKey(content))
+					continue;
+				else {
+					found.put(content, 1);
+					distincthits.add(hit);
+					foundDocs.put(hit, 1);
+				}
+				if (distincthits.size() >= maxHits) {
+					enoughFound = true;
+					break;
+				}
+			}
+			if (!enoughFound) {
+				int index = 0;
+				for (ScoreDoc hit: hits) {
+					if (! foundDocs.containsKey(hit)) {
+						distincthits.add(index, hit);
+						index += 1;
+					}
+					if (distincthits.size() >= maxHits)
+						break;
+				}
+			}
+			assert (distincthits.size() == hits.length);
+			ScoreDoc[] newhits = new ScoreDoc[Math.min(maxHits, hits.length)];
+			for (int i=0; i<distincthits.size(); i++) {
+				newhits[i] = distincthits.get(i);
+			}
+			hits = newhits;
+		}
 		// Iterate through the results
 		List<java.util.Map.Entry<Float,String>> pairList= new java.util.ArrayList<>();
 //		<float,String>[] results = new <float,String>[hits.length];
@@ -181,7 +221,7 @@ public class Lucene extends Resource {
 	
     public void processNextSentence(Sentence sent) throws Exception {
     	// We evaluate the top 5 entries returned:
-		List<Map.Entry<Float,String>> results = search(sent.getText(), 5);
+		List<Map.Entry<Float,String>> results = search(sent.getText(), 5, returnDistinct);
 		for (int i=0; i < results.size(); i++) {
 			sent.setValue("IRscore"+selectedpart+String.valueOf(i), results.get(i).getKey());
 			if (docPerLine) {
