@@ -37,9 +37,13 @@ public class DynamicPipeline extends ResourcePipeline {
 		for (Class<? extends ResourceProcessor> subType : subTypes) {
 			try {
 				resourceProcessors.add(subType.newInstance());
+				System.out.println("right_one:");
+				System.out.println(subType.getName());
 			}
 			catch (Exception e) {
 	            e.printStackTrace();
+	            System.out.println("bad_one:");
+	            System.out.println(subType.getName());
 	        }
 		}
 
