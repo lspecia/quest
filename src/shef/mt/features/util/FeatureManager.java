@@ -214,8 +214,9 @@ public class FeatureManager {
     	Set<String> featureKeys = features.keySet();
     	int a = 0;
     	for (String featureKey:featureKeys) {
-    		Feature feature = features.get(featureKey);
     		System.out.println(a);
+    		System.out.println(featureKey.toString());
+    		Feature feature = features.get(featureKey);
     		System.out.println(feature.toString());
     		a++;
     		if (feature.toString().endsWith("{}")) {
