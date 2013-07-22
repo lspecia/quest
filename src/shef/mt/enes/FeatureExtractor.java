@@ -473,6 +473,7 @@ public class FeatureExtractor {
 
         String[] resources = new String[0];
         resources = featureManager.getStrResources().toArray(new String[0]);
+        
 
         Properties propFile = new Properties();
         propFile.setProperty("pplSourcePath", pplSourcePath);

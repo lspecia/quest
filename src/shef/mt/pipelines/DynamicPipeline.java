@@ -29,7 +29,7 @@ public class DynamicPipeline extends ResourcePipeline {
 		ArrayList<ResourceProcessor> resourceProcessors = new ArrayList<ResourceProcessor>();
 
 		
-		Reflections reflections = new Reflections("shef.mt.tools");
+		/**Reflections reflections = new Reflections("shef.mt.tools");
 		Set<Class<? extends ResourceProcessor>> subTypes = reflections.getSubTypesOf(ResourceProcessor.class);
 		
 		for (Class<? extends ResourceProcessor> subType:subTypes) {
@@ -37,7 +37,8 @@ public class DynamicPipeline extends ResourcePipeline {
 			System.out.println(subType.getSimpleName());
 			//resourceProcessors.add();
 		}
-		/**
+		*/
+		
 		ResourceProcessor bParser = new BParserProcessor();
 		ResourceProcessor topicDistribution = new TopicDistributionProcessor();
 		ResourceProcessor morphAnalysis = new MorphAnalysisProcessor();
@@ -55,7 +56,7 @@ public class DynamicPipeline extends ResourcePipeline {
 		resourceProcessors.add(posProcessor);
 		//resourceProcessors.add(mtOutputProcessor);
 		//resourceProcessors.add(nerProcessor);
-		*/
+		
 		
 		for (ResourceProcessor resourceProcessor:resourceProcessors) {
 			String resourceName = resourceProcessor.getName();

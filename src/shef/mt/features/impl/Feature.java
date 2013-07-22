@@ -26,9 +26,9 @@ public abstract class Feature {
     private Integer featureCounter = 0;
     private Map<Integer, String> values;
     private boolean computable;
-    private String index;
+    private String index; 
     private String description;
-    private HashSet<String> resources;
+    private HashSet<String> resources = new HashSet<String>();
 
     public Feature() {
         this.values = new HashMap<Integer, String>();
