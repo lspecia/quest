@@ -212,17 +212,19 @@ public class FeatureManager {
     public HashSet<String> getFeatureResources() {
     	HashSet<String> resources = new HashSet<String>();
     	Set<String> featureKeys = features.keySet();
+    	Feature f;
     	int a = 0;
     	for (String featureKey:featureKeys) {
     		System.out.println(a);
     		System.out.println(featureKey.toString());
-    		Feature feature = features.get(featureKey);
-    		System.out.println(feature.toString());
+    		f = features.get(featureKey);
+    		System.out.println(f.toString());
     		a++;
-    		if (feature.toString().endsWith("{}")) {
+    		
+    		if (f.toString().endsWith("{}")) {
     			continue;    		
     		} else {    			
-    			resources.addAll(feature.getResources());
+    			resources.addAll(f.getResources());
     		}
     	}
     	return resources;
