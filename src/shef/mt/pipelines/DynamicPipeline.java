@@ -36,7 +36,7 @@ public class DynamicPipeline extends ResourcePipeline {
 			//subType.getClassLoader();
 			System.out.println(subType.getSimpleName());
 			//resourceProcessors.add();
-		//}
+		}
 		/**
 		ResourceProcessor bParser = new BParserProcessor();
 		ResourceProcessor topicDistribution = new TopicDistributionProcessor();
