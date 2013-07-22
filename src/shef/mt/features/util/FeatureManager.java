@@ -186,7 +186,6 @@ public class FeatureManager {
 
             String index = it.next();
             f = features.get(index);
-            System.out.println(f.toString());
 
             HashSet<String> r = f.getResources();
             if (r != null) {
@@ -213,19 +212,9 @@ public class FeatureManager {
     public HashSet<String> getFeatureResources() {
     	HashSet<String> resources = new HashSet<String>();
     	Set<String> featureKeys = features.keySet();
-    	//int a = 0;
     	for (String featureKey:featureKeys) {
-    		//System.out.println(a);
-    		//System.out.println(featureKey.toString());
     		Feature f = features.get(featureKey);
-    		//System.out.println(f.toString());
-    		//a++;
-    		
-    		//if (f.toString().endsWith("{}")) {
-    		//	continue;
-    		//} else {
     		resources.addAll(f.getResources());
-    		//}
     	}
     	return resources;
     }
