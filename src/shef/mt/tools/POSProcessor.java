@@ -25,7 +25,9 @@ public class POSProcessor extends ResourceProcessor {
 			   String sourceLang, String targetLang) {
     	
     	String sourceFile = propertiesManager.getString("source");
+    	System.out.println(sourceFile);
     	String targetFile = propertiesManager.getString("target");
+    	System.out.println(targetFile);
     	boolean forceRun = (propertiesManager.get("forceRun")=="true");
     	
     	String sourcePosOutput = runPOS(propertiesManager, forceRun, sourceFile, sourceLang, "source");
