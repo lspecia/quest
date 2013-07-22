@@ -186,6 +186,7 @@ public class FeatureManager {
 
             String index = it.next();
             f = features.get(index);
+            System.out.println(f.toString());
 
             HashSet<String> r = f.getResources();
             if (r != null) {
