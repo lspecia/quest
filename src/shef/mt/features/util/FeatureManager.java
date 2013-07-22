@@ -222,8 +222,8 @@ public class FeatureManager {
     		a++;
     		
     		if (f.toString().endsWith("{}")) {
-    			continue;    		
-    		} else {    			
+    			continue;
+    		} else {
     			resources.addAll(f.getResources());
     		}
     	}
