@@ -71,8 +71,10 @@ public class DynamicPipeline extends ResourcePipeline {
 			String resourceName = resourceProcessor.getName();
 			if (requiredResourceNames.contains(resourceName)) {
 				resources.add(resourceProcessor);
+				System.out.println(resourceProcessor.getName());
 			}
 		}
+		System.out.println("initialize_resources:");
 		initialize_resources(resources, propertiesManager, featureManager,
 				sourceLang, targetLang);
 	}
