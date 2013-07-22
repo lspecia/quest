@@ -218,7 +218,7 @@ public class FeatureManager {
     		System.out.println(a);
     		System.out.println(feature.toString());
     		a++;
-    		if (feature.toString().isEmpty()) {
+    		if (feature.toString().endsWith("{}")) {
     			continue;    		
     		} else {    			
     			resources.addAll(feature.getResources());
