@@ -25,7 +25,7 @@ public class DynamicPipeline extends ResourcePipeline {
 
 	public DynamicPipeline(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
 		
-		Set<String> requiredResourceNames = featureManager.getStrResources();
+		Set<String> requiredResourceNames = featureManager.getFeatureResources();
 		ArrayList<ResourceProcessor> resourceProcessors = new ArrayList<ResourceProcessor>();
 
 		
