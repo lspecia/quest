@@ -35,19 +35,13 @@ public class ResourcePipeline {
     /**
      * Initialize resources that are listed in the variable res.
      * @param res: resources to be initialized
-     * @param sourceFile: file containing already preprocessed source sentences to be annotated
-	 * @param targetFile: file containing already preprocessed target sentences to be annotated
 	 * @param propertiesManager: initialized PropertiesManager object that contains all the parameters specified in the properties file
-	 * @param sourceLang: source language name
-	 * @param targetLang: target language name
-	 * @param sourceFile: 
-	 * @param targetFile: 
-	 * @param forceRun: 
+	 * @param featureManager
      * */
     public void initialize_resources(ArrayList<ResourceProcessor> res, 
-						    		 PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
+						    		 PropertiesManager propertiesManager, FeatureManager featureManager) {
     	for (ResourceProcessor resource:res){ 
-        	resource.initialize(propertiesManager, featureManager, sourceLang, targetLang);
+        	resource.initialize(propertiesManager, featureManager);
         	}
     }
     

@@ -6,7 +6,6 @@ package shef.mt.tools;
 import shef.mt.features.util.Sentence;
 import shef.mt.util.PropertiesManager;
 import shef.mt.pipelines.ResourcePipeline;
-import shef.mt.pipelines.DefaultResourcePipeline;
 import shef.mt.features.util.FeatureManager;
 import java.io.*;
 
@@ -26,11 +25,14 @@ public class TopicDistributionProcessor extends ResourceProcessor {
     private String resourceName; // String of the resource name to register in the ResourceManager
 
     
-    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager) {
     	
     	TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor();
     	TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor();
 
+    	String sourceLang = propertiesManager.getString("sourceLang");
+    	String targetLang = propertiesManager.getString("targetLang");
+    	
     	String sourceTopicDistributionFile = propertiesManager.getString(sourceLang + ".topic.distribution");
         String targetTopicDistributionFile = propertiesManager.getString(targetLang + ".topic.distribution");
 

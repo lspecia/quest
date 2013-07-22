@@ -25,11 +25,13 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     private static String WORD_START = ";;WORD";
     int count = 0;
 
-    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager) {
     	
     	MorphAnalysisProcessor sourceMorphAnalysisProcessor = new MorphAnalysisProcessor();
     	MorphAnalysisProcessor targetMorphAnalysisProcessor = new MorphAnalysisProcessor();
     	
+    	String sourceLang = propertiesManager.getString("sourceLang");
+    	String targetLang = propertiesManager.getString("targetLang");
     	
     	GetLangAbbreviation glp = new GetLangAbbreviation();
     	String sourceLangAbbreviation = new String();

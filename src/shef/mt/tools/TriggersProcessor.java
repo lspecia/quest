@@ -18,8 +18,7 @@ public class TriggersProcessor extends ResourceProcessorTwoSentences {
     Triggers ilt;
 
     public void initialize(PropertiesManager propertiesManager,
-    					   FeatureManager featureManager,
-    					   String sourceLang, String targetLang) {
+    					   FeatureManager featureManager) {
     	
     	TriggersProcessor triggersProcessor = new TriggersProcessor();
 

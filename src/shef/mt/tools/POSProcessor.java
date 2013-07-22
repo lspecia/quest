@@ -21,13 +21,13 @@ public class POSProcessor extends ResourceProcessor {
 //    BufferedWriter bwXPos;
 
     public void initialize(PropertiesManager propertiesManager,
-			   FeatureManager featureManager,
-			   String sourceLang, String targetLang) {
+			   FeatureManager featureManager) {
     	
-    	String sourceFile = propertiesManager.getString("source");
-    	System.out.println(sourceFile);
-    	String targetFile = propertiesManager.getString("target");
-    	System.out.println(targetFile);
+    	
+    	String sourceLang = propertiesManager.getString("sourceLang");
+    	String targetLang = propertiesManager.getString("targetLang");
+    	String sourceFile = propertiesManager.getString("sourceFile");
+    	String targetFile = propertiesManager.getString("targetFile");
     	boolean forceRun = (propertiesManager.get("forceRun")=="true");
     	
     	String sourcePosOutput = runPOS(propertiesManager, forceRun, sourceFile, sourceLang, "source");

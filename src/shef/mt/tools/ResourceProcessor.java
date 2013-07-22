@@ -20,8 +20,7 @@ public abstract class ResourceProcessor {
     public abstract void processNextSentence(Sentence source);
     
     public abstract void initialize(PropertiesManager propertiesManager,
-    								FeatureManager featureManager,
-    								String sourceLang, String targetLang);
+    								FeatureManager featureManager);
     
     public String getName(){
     	return this.resourceName;

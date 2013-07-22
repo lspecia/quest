@@ -171,15 +171,21 @@ public class FeatureExtractor {
                 String[] files = line.getOptionValues("input");
                 sourceFile = files[0];
                 targetFile = files[1];
+                resourceManager.setProperty("sourceFile", sourceFile);
+                resourceManager.setProperty("targetFile", targetFile);
             }
 
             if (line.hasOption("lang")) {
                 String[] langs = line.getOptionValues("lang");
                 sourceLang = langs[0];
                 targetLang = langs[1];
+                resourceManager.setProperty("sourceLang", sourceLang);
+                resourceManager.setProperty("targetLang", targetLang);
             } else {
                 sourceLang = resourceManager.getString("sourceLang.default");
                 targetLang = resourceManager.getString("targetLang.default");
+                resourceManager.setProperty("sourceLang", sourceLang);
+                resourceManager.setProperty("targetLang", targetLang);
             }
 
             if (line.hasOption("mode")) {
@@ -200,6 +206,8 @@ public class FeatureExtractor {
             if (line.hasOption("rebuild")) {
             	resourceManager.setProperty("forceRun", "true");
                 forceRun = true;
+            } else {
+            	resourceManager.setProperty("forceRun", "false");
             }
 
 
@@ -547,7 +555,7 @@ public class FeatureExtractor {
 	    
 //topic removed
 
-            ResourcePipeline defaultPipeline = new DynamicPipeline(resourceManager, featureManager, sourceLang, targetLang);
+            ResourcePipeline defaultPipeline = new DynamicPipeline(resourceManager, featureManager);
             //read in each line from the source and target files
             //create a sentence from each
             //process each sentence

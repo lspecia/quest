@@ -21,7 +21,9 @@ import shef.mt.features.util.Sentence;
  */
 public class NGramProcessor extends ResourceProcessor {
 
-    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager) {
+    	
+    	String sourceLang = propertiesManager.getString("sourceLang");
     	
     	String corpus = propertiesManager.getString(sourceLang + ".ngram"); // get filename from propertiesManager
     	int nSize = 3;
