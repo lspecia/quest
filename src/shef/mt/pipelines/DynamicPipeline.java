@@ -1,7 +1,6 @@
 package shef.mt.pipelines;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 import org.reflections.Reflections;
@@ -27,8 +26,10 @@ public class DynamicPipeline extends ResourcePipeline {
 
 		Set<String> requiredResourceNames = featureManager.getFeatureResources();
 		System.out.println(requiredResourceNames.toString());
-		ArrayList<ResourceProcessor> resourceProcessors = new ArrayList<ResourceProcessor>();
 
+		
+		//running existing processors automatically
+		ArrayList<ResourceProcessor> resourceProcessors = new ArrayList<ResourceProcessor>();
 		Reflections reflections = new Reflections("shef.mt.tools");
 		Set<Class<? extends ResourceProcessor>> subTypes = reflections
 				.getSubTypesOf(ResourceProcessor.class);
@@ -36,15 +37,20 @@ public class DynamicPipeline extends ResourcePipeline {
 		for (Class<? extends ResourceProcessor> subType : subTypes) {
 			try {
 				resourceProcessors.add(subType.newInstance());
-				System.out.println("right_one:");
-				System.out.println(subType.getName());
 			}
 			catch (Exception e) {
 	            e.printStackTrace();
-	            System.out.println("bad_one:");
-	            System.out.println(subType.getName());
 	        }
 		}
+
+		for (ResourceProcessor resourceProcessor : resourceProcessors) {
+			//String resourceName = resourceProcessor.getName();
+			//System.out.println(resourceProcessor.getName());
+			//if (requiredResourceNames.contains(resourceName)) {
+			resources.add(resourceProcessor);
+			//}
+		}
+		initialize_resources(resources, propertiesManager, featureManager);
 
 		/**
 		 * ResourceProcessor bParser = new BParserProcessor(); ResourceProcessor
@@ -66,14 +72,5 @@ public class DynamicPipeline extends ResourcePipeline {
 		 * //resourceProcessors.add(nerProcessor);
 		 */
 
-		for (ResourceProcessor resourceProcessor : resourceProcessors) {
-			//String resourceName = resourceProcessor.getName();
-			//System.out.println(resourceProcessor.getName());
-			//if (requiredResourceNames.contains(resourceName)) {
-			resources.add(resourceProcessor);
-			//}
-		}
-		System.out.println("initialize_resources:");
-		initialize_resources(resources, propertiesManager, featureManager);
 	}
 }
