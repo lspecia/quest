@@ -200,6 +200,25 @@ public class FeatureManager {
         }
         return setResources;
     }
+    
+    public HashMap<String, Feature> getFeatures() {
+    	return features;
+    }
+    
+    /**
+     * Return the resources that the declared features require
+     * @return a set of resource string identifiers
+     */
+    public HashSet<String> getFeatureResources() {
+    	HashSet<String> resources = new HashSet<String>();
+    	Set<String>featureKeys = features.keySet();
+    	for (String featureKey:featureKeys) {
+    		Feature feature = features.get(featureKey);
+    		resources.addAll(feature.getResources());
+    	}
+    	return resources;
+    }
+    
 
     //HACK
     public String runFeatures(Sentence source, Sentence target) {

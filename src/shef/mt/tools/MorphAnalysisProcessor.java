@@ -25,8 +25,7 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     private static String WORD_START = ";;WORD";
     int count = 0;
 
-    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang,
-			   String sourceFile, String targetFile, boolean forceRun) {
+    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
     	
     	MorphAnalysisProcessor sourceMorphAnalysisProcessor = new MorphAnalysisProcessor();
     	MorphAnalysisProcessor targetMorphAnalysisProcessor = new MorphAnalysisProcessor();

@@ -18,10 +18,9 @@ public class BParserProcessor extends ResourceProcessor {
 	
 	BParser parser;
 	boolean tokenizer;
-	public String resourceName;
+	public String resourceName = "BParser";
 
-	public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang,
-			   String sourceFile, String targetFile, boolean forceRun) {
+	public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
 
 		BParserProcessor sourceParserProcessor = new BParserProcessor();
         BParserProcessor targetParserProcessor = new BParserProcessor();

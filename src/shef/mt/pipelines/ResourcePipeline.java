@@ -45,10 +45,9 @@ public class ResourcePipeline {
 	 * @param forceRun: 
      * */
     public void initialize_resources(ArrayList<ResourceProcessor> res, 
-						    		 PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang,
-									 String sourceFile, String targetFile, boolean forceRun) {
+						    		 PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
     	for (ResourceProcessor resource:res){ 
-        	resource.initialize(propertiesManager, featureManager, sourceLang, targetLang, sourceFile, targetFile, forceRun);
+        	resource.initialize(propertiesManager, featureManager, sourceLang, targetLang);
         	}
     }
     

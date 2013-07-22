@@ -27,9 +27,7 @@ public class PPLProcessor extends ResourceProcessor {
     
     public void initialize(PropertiesManager propertiesManager,
     					   FeatureManager featureManager,
-            			   String sourceLang, String targetLang,
-            			   String sourceFile, String targetFile,
-            			   boolean forceRun) {
+            			   String sourceLang, String targetLang) {
     	
     	String srcFile = "source." + sourceLang;
     	String tgtFile = "target." + targetLang;

@@ -198,6 +198,7 @@ public class FeatureExtractor {
             }
 
             if (line.hasOption("rebuild")) {
+            	resourceManager.setProperty("forceRun", "true");
                 forceRun = true;
             }
 
@@ -545,7 +546,7 @@ public class FeatureExtractor {
 	    
 //topic removed
 
-            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(resourceManager, featureManager, sourceLang, targetLang,
+            ResourcePipeline defaultPipeline = new DynamicPipeline(resourceManager, featureManager, sourceLang, targetLang,
             															   sourceFile, targetFile, forceRun);
             //read in each line from the source and target files
             //create a sentence from each

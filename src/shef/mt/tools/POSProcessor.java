@@ -22,9 +22,12 @@ public class POSProcessor extends ResourceProcessor {
 
     public void initialize(PropertiesManager propertiesManager,
 			   FeatureManager featureManager,
-			   String sourceLang, String targetLang,
-			   String sourceFile, String targetFile,
-			   boolean forceRun) {
+			   String sourceLang, String targetLang) {
+    	
+    	String sourceFile = propertiesManager.getString("source");
+    	String targetFile = propertiesManager.getString("target");
+    	boolean forceRun = (propertiesManager.get("forceRun")=="true");
+    	
     	String sourcePosOutput = runPOS(propertiesManager, forceRun, sourceFile, sourceLang, "source");
     	String targetPosOutput = runPOS(propertiesManager, forceRun, targetFile, targetLang, "target");
     	create(sourcePosOutput);
@@ -103,49 +106,49 @@ public class POSProcessor extends ResourceProcessor {
      */
     public void processNextSentence(Sentence sent) {
     	try {
-        int tokCount = sent.getNoTokens();
-        String line = br.readLine();
-        int contentWords = 0;
-        int nounWords = 0;
-        int verbWords = 0;
-        int pronWords = 0;
-        int otherContentWords = 0;
-        int count = 0;
-
-        while (line != null && (count < tokCount)) {
-            if (!line.trim().isEmpty()) {
-                String[] split = line.split("\t");
-                String tag = split[1];
-                if (tag.contains("SENT")) {
-                    tag = tag.split(" ")[0];
-                } else if (PosTagger.isNoun(tag)) {
-                    nounWords++;
-//					System.out.println("is noun");
-                } else if (PosTagger.isPronoun(tag)) {
-                    pronWords++;
-                } else if (PosTagger.isVerb(tag)) {
-                    verbWords++;
-                    //					System.out.println("is verb");
-                } else if (PosTagger.isAdditional(tag)) {
-                    otherContentWords++;
-                }
-                //    	  	bwXPos.write(tag);
-                count++;
-            }
-            line = br.readLine();
-        }
-        //   bwXPos.newLine();
-        contentWords = nounWords + verbWords + otherContentWords;
-        sent.setValue("contentWords", contentWords);
-        sent.setValue("nouns", nounWords);
-        sent.setValue("verbs", verbWords);
-        sent.setValue("prons", pronWords);
-//        line = br.readLine();
-//        if (line==null) {
-//           	System.out.println("SENTENCE IS NULL: "+sent.getIndex()+"\t"+sent.getText());
-//        	br.close();
-        // 	bwXPos.close();
-//        }
+	        int tokCount = sent.getNoTokens();
+	        String line = br.readLine();
+	        int contentWords = 0;
+	        int nounWords = 0;
+	        int verbWords = 0;
+	        int pronWords = 0;
+	        int otherContentWords = 0;
+	        int count = 0;
+	
+	        while (line != null && (count < tokCount)) {
+	            if (!line.trim().isEmpty()) {
+	                String[] split = line.split("\t");
+	                String tag = split[1];
+	                if (tag.contains("SENT")) {
+	                    tag = tag.split(" ")[0];
+	                } else if (PosTagger.isNoun(tag)) {
+	                    nounWords++;
+	//					System.out.println("is noun");
+	                } else if (PosTagger.isPronoun(tag)) {
+	                    pronWords++;
+	                } else if (PosTagger.isVerb(tag)) {
+	                    verbWords++;
+	                    //					System.out.println("is verb");
+	                } else if (PosTagger.isAdditional(tag)) {
+	                    otherContentWords++;
+	                }
+	                //    	  	bwXPos.write(tag);
+	                count++;
+	            }
+	            line = br.readLine();
+	        }
+	        //   bwXPos.newLine();
+	        contentWords = nounWords + verbWords + otherContentWords;
+	        sent.setValue("contentWords", contentWords);
+	        sent.setValue("nouns", nounWords);
+	        sent.setValue("verbs", verbWords);
+	        sent.setValue("prons", pronWords);
+	//        line = br.readLine();
+	//        if (line==null) {
+	//           	System.out.println("SENTENCE IS NULL: "+sent.getIndex()+"\t"+sent.getText());
+	//        	br.close();
+	        // 	bwXPos.close();
+	//        }
     	} catch (Exception e) {
             //               System.out.println(pplFile+" "+s.getText());
             e.printStackTrace();
