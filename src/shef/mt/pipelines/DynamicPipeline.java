@@ -69,9 +69,9 @@ public class DynamicPipeline extends ResourcePipeline {
 
 		for (ResourceProcessor resourceProcessor : resourceProcessors) {
 			String resourceName = resourceProcessor.getName();
+			System.out.println(resourceProcessor.getName());
 			if (requiredResourceNames.contains(resourceName)) {
 				resources.add(resourceProcessor);
-				System.out.println(resourceProcessor.getName());
 			}
 		}
 		System.out.println("initialize_resources:");
