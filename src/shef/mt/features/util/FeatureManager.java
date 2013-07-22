@@ -212,12 +212,11 @@ public class FeatureManager {
     public HashSet<String> getFeatureResources() {
     	HashSet<String> resources = new HashSet<String>();
     	Set<String> featureKeys = features.keySet();
-    	Feature f;
     	int a = 0;
     	for (String featureKey:featureKeys) {
     		System.out.println(a);
     		System.out.println(featureKey.toString());
-    		f = features.get(featureKey);
+    		Feature f = features.get(featureKey);
     		System.out.println(f.toString());
     		a++;
     		
