@@ -3,7 +3,7 @@ package shef.mt.enes;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
 import shef.mt.pipelines.ResourcePipeline;
-import shef.mt.pipelines.DefaultResourcePipeline;
+import shef.mt.pipelines.DynamicPipeline;
 import shef.mt.tools.FileModel;
 import shef.mt.tools.NGramProcessor;
 import shef.mt.tools.NGramExec;
@@ -546,8 +546,7 @@ public class FeatureExtractor {
 	    
 //topic removed
 
-            ResourcePipeline defaultPipeline = new DynamicPipeline(resourceManager, featureManager, sourceLang, targetLang,
-            															   sourceFile, targetFile, forceRun);
+            ResourcePipeline defaultPipeline = new DynamicPipeline(resourceManager, featureManager, sourceLang, targetLang);
             //read in each line from the source and target files
             //create a sentence from each
             //process each sentence
