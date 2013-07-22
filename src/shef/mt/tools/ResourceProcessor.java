@@ -21,7 +21,9 @@ public abstract class ResourceProcessor {
     
     public abstract void initialize(PropertiesManager propertiesManager,
     								FeatureManager featureManager,
-    								String sourceLang, String targetLang);
+    								String sourceLang, String targetLang,
+								    String sourceFile, String targetFile,
+								    boolean forceRun);
     
     public String getName(){
     	return this.resourceName;

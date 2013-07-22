@@ -26,7 +26,8 @@ public class TopicDistributionProcessor extends ResourceProcessor {
     private String resourceName; // String of the resource name to register in the ResourceManager
 
     
-    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang,
+			   String sourceFile, String targetFile, boolean forceRun) {
     	
     	TopicDistributionProcessor sourceTopicDistributionProcessor = new TopicDistributionProcessor();
     	TopicDistributionProcessor targetTopicDistributionProcessor = new TopicDistributionProcessor();

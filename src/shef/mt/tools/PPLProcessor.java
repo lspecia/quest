@@ -27,16 +27,18 @@ public class PPLProcessor extends ResourceProcessor {
     
     public void initialize(PropertiesManager propertiesManager,
     					   FeatureManager featureManager,
-            			   String sourceLang, String targetLang) {
+            			   String sourceLang, String targetLang,
+            			   String sourceFile, String targetFile,
+            			   boolean forceRun) {
     	
-    	String sourceFile = "source." + sourceLang;
-    	String targetFile = "target." + targetLang;
+    	String srcFile = "source." + sourceLang;
+    	String tgtFile = "target." + targetLang;
     	
     	String pplSourcePath = propertiesManager.getString("input")
-                + File.separator + sourceLang + File.separator + sourceFile
+                + File.separator + sourceLang + File.separator + srcFile
                 + ngramOutputExt;
         String pplTargetPath = propertiesManager.getString("input")
-                + File.separator + targetLang + File.separator + targetFile
+                + File.separator + targetLang + File.separator + tgtFile
                 + ngramOutputExt;
 
         String[] valNames = featureManager.getStrResources().toArray(new String[0]);

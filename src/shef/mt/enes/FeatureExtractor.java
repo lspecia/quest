@@ -185,9 +185,7 @@ public class FeatureExtractor {
             if (line.hasOption("mode")) {
                 String[] modeOpt = line.getOptionValues("mode");
                 setMod(modeOpt[0].trim());
-                System.out.println(getMod());
                 configPath = resourceManager.getString("featureConfig." + getMod());
-                System.out.println("feature config:" + configPath);
                 featureManager = new FeatureManager(configPath);
             }
 
@@ -505,13 +503,6 @@ public class FeatureExtractor {
 
         loadGiza();
         /*processNGrams();*/
-        
-        try{
-        	
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
 
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
@@ -554,7 +545,8 @@ public class FeatureExtractor {
 	    
 //topic removed
 
-            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(resourceManager, featureManager, sourceLang, targetLang);
+            ResourcePipeline defaultPipeline = new DefaultResourcePipeline(resourceManager, featureManager, sourceLang, targetLang,
+            															   sourceFile, targetFile, forceRun);
             //read in each line from the source and target files
             //create a sentence from each
             //process each sentence

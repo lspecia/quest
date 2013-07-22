@@ -25,7 +25,8 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     private static String WORD_START = ";;WORD";
     int count = 0;
 
-    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
+    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang,
+			   String sourceFile, String targetFile, boolean forceRun) {
     	
     	MorphAnalysisProcessor sourceMorphAnalysisProcessor = new MorphAnalysisProcessor();
     	MorphAnalysisProcessor targetMorphAnalysisProcessor = new MorphAnalysisProcessor();
@@ -34,13 +35,13 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     	GetLangAbbreviation glp = new GetLangAbbreviation();
     	String sourceLangAbbreviation = new String();
     	sourceLangAbbreviation = glp.GetAbbreviation(sourceLang);
-    	String sourceFile = "input/source." + sourceLangAbbreviation;
+    	String srcFile = "input/source." + sourceLangAbbreviation;
     	String targetLangAbbreviation = new String();
     	targetLangAbbreviation = glp.GetAbbreviation(targetLang);
-    	String targetFile = "input/target." + targetLangAbbreviation;
+    	String tgtFile = "input/target." + targetLangAbbreviation;
     	
-    	sourceMorphAnalysisProcessor.create(sourceFile);
-    	targetMorphAnalysisProcessor.create(targetFile);
+    	sourceMorphAnalysisProcessor.create(srcFile);
+    	targetMorphAnalysisProcessor.create(tgtFile);
     	
     	ResourcePipeline rp = new ResourcePipeline();
     	rp.addResourceProcessor(sourceMorphAnalysisProcessor);

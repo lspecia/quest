@@ -1,6 +1,9 @@
 package shef.mt.tools;
 
+import shef.mt.features.util.FeatureManager;
 import shef.mt.features.util.Sentence;
+import shef.mt.util.PropertiesManager;
+
 import java.io.*;
 
 
@@ -10,13 +13,62 @@ import java.io.*;
  * of nouns, verbs, pronouns and content words
  *
  */
-public class POSProcessor {
+public class POSProcessor extends ResourceProcessor {
 
     BufferedReader br;
     int sentCount;
 //    static String XPOS=".XPOS";
 //    BufferedWriter bwXPos;
 
+    public void initialize(PropertiesManager propertiesManager,
+			   FeatureManager featureManager,
+			   String sourceLang, String targetLang,
+			   String sourceFile, String targetFile,
+			   boolean forceRun) {
+    	String sourcePosOutput = runPOS(propertiesManager, forceRun, sourceFile, sourceLang, "source");
+    	String targetPosOutput = runPOS(propertiesManager, forceRun, targetFile, targetLang, "target");
+    	create(sourcePosOutput);
+    	create(targetPosOutput);
+    }
+    
+    /**
+     * runs the part of speech tagger
+     *
+     * @param file input file
+     * @param lang language
+     * @param type source or target
+     * @return path to the output file of the POS tagger
+     */
+    public String runPOS(PropertiesManager propertiesManager, boolean forceRun, String file, String lang, String type) {
+        String posName = propertiesManager.getString(lang + ".postagger");
+        String workDir = System.getProperty("user.dir");
+        String input = workDir + File.separator + propertiesManager.getString("input");
+        String langResPath = input + File.separator + lang;
+        File f = new File(file);
+        String absoluteSourceFilePath = f.getAbsolutePath();
+        String fileName = f.getName();
+        String relativeFilePath = langResPath + File.separator + fileName
+                + ".pos";
+        String absoluteOutputFilePath = (new File(relativeFilePath))
+                .getAbsolutePath();
+        String posSourceTaggerPath = propertiesManager.getString(lang
+                + ".postagger.exePath");
+        String outPath = "";
+        try {
+            Class c = Class.forName(posName);
+            PosTagger tagger = (PosTagger) c.newInstance();
+            tagger.setParameters(type, posName, posSourceTaggerPath,
+                    absoluteSourceFilePath, absoluteOutputFilePath);
+            PosTagger.ForceRun(forceRun);
+            outPath = tagger.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // returns the path of the output file; this is for convenience only so
+        // we do't have to calculate it again
+        return outPath;
+    }
+    
     /**
      * initialise a POSProcessor from an input file The POSProcessor expect an
      * input file in a fixed format, where each line is of the type:<br> <i>word
@@ -26,7 +78,7 @@ public class POSProcessor {
      * @param input the input file
      *
      */
-    public POSProcessor(String input) {
+    public void create(String input) {
         try {
             System.out.println("INPUT TO POSPROCESSOR:" + input);
             br = new BufferedReader(new FileReader(input));
@@ -37,6 +89,10 @@ public class POSProcessor {
         sentCount = 0;
     }
 
+    //public void processNextSentence(Sentence s) {
+    //	processSentence(s);
+    //}
+    
     /**
      * Reads the pos tags associated to a sentence and counts the number of
      * content words The count for each type of content word is addedd as a
@@ -45,7 +101,8 @@ public class POSProcessor {
      * @see Sentence.setValue()
      * @param sent the sentence to be analysed
      */
-    public void processSentence(Sentence sent) throws Exception {
+    public void processNextSentence(Sentence sent) {
+    	try {
         int tokCount = sent.getNoTokens();
         String line = br.readLine();
         int contentWords = 0;
@@ -89,6 +146,10 @@ public class POSProcessor {
 //        	br.close();
         // 	bwXPos.close();
 //        }
+    	} catch (Exception e) {
+            //               System.out.println(pplFile+" "+s.getText());
+            e.printStackTrace();
+        }
     }
     /*      public static String getXPOS(){
      return XPOS;

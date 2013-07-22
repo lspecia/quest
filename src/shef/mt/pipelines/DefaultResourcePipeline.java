@@ -33,7 +33,8 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 	 * @param sourceLang: source language (e.g. 'english')
 	 * @param targetLang: target language (e.g. 'spanish')
 	 */
-	public DefaultResourcePipeline(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang) {
+	public DefaultResourcePipeline(PropertiesManager propertiesManager, FeatureManager featureManager, String sourceLang, String targetLang,
+								   String sourceFile, String targetFile, boolean forceRun) {
 		
 		res = new ArrayList<ResourceProcessor>();
 		ResourceProcessor bParser = new BParserProcessor();
@@ -42,9 +43,9 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		ResourceProcessor triggers = new TriggersProcessor();
 		ResourceProcessor ngramProcessor = new NGramProcessor();
 		ResourceProcessor pplProcessor = new PPLProcessor();
+		ResourceProcessor posProcessor = new POSProcessor();
 		//ResourceProcessor mtOutputProcessor = new MTOutputProcessor();
 		//ResourceProcessor nerProcessor = new NERProcessor();
-		//ResourceProcessor posProcessor = new POSProcessor();
 		
 		res.add(bParser);
 		res.add(topicDistribution);
@@ -52,10 +53,10 @@ public class DefaultResourcePipeline extends ResourcePipeline {
 		res.add(triggers);
 		res.add(ngramProcessor);
 		res.add(pplProcessor);
+		res.add(posProcessor);
 		//res.add(mtOutputProcessor);
 		//res.add(nerProcessor);
-		//res.add(posProcessor);
-		initialize_resources(res, propertiesManager, featureManager, sourceLang, targetLang);
+		initialize_resources(res, propertiesManager, featureManager, sourceLang, targetLang, sourceFile, targetFile, forceRun);
    		// store the parameters into private class variables so that they can be used by initialize_resources of the superclass
 	}
 }
