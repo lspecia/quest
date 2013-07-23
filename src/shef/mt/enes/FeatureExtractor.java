@@ -344,6 +344,10 @@ public class FeatureExtractor {
         System.out.println("target input:" + targetFile);
         File origTargetFile = new File(targetFile);
         File inputTargetFile = new File(targetInputFolder + File.separator + origTargetFile.getName());
+        System.out.println("----------------bbb--------------------------");
+        System.out.println(targetFile);
+        System.out.println(targetInputFolder + File.separator + origTargetFile.getName());
+        
         try {
             System.out.println("copying input to " + inputSourceFile.getPath());
             copyFile(origSourceFile, inputSourceFile);
