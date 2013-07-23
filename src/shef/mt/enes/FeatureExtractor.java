@@ -89,8 +89,6 @@ public class FeatureExtractor {
         parseArguments(args);
 
         input = workDir + File.separator + resourceManager.getString("input");
-        System.out.println("-------------------------aaa-----------------------------");
-        System.out.println(input);
         output = workDir + File.separator + resourceManager.getString("output");
         System.out.println("input=" + input + "  output=" + output);
 
@@ -338,6 +336,9 @@ public class FeatureExtractor {
         String targetInputFolder = input + File.separator + targetLang;
         File origSourceFile = new File(sourceFile);
         File inputSourceFile = new File(sourceInputFolder + File.separator + origSourceFile.getName());
+        System.out.println("----------------aaa--------------------------");
+        System.out.println(sourceFile);
+        System.out.println(sourceInputFolder + File.separator + origSourceFile.getName());
 
         System.out.println("source input:" + sourceFile);
         System.out.println("target input:" + targetFile);
