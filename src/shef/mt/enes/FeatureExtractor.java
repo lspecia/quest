@@ -89,6 +89,8 @@ public class FeatureExtractor {
         parseArguments(args);
 
         input = workDir + File.separator + resourceManager.getString("input");
+        System.out.println("-------------------------aaa-----------------------------");
+        System.out.println(input);
         output = workDir + File.separator + resourceManager.getString("output");
         System.out.println("input=" + input + "  output=" + output);
 
@@ -216,13 +218,15 @@ public class FeatureExtractor {
         }
     }
 
+    
+/**    
     public void runPOSTagger() {
         // required by BB features 65-69, 75-80
         String sourceOutput = runPOS(sourceFile, sourceLang, "source");
         String targetOutput = runPOS(targetFile, targetLang, "target");
 
     }
-
+*/
     /**
      * runs the part of speech tagger
      *
@@ -231,6 +235,7 @@ public class FeatureExtractor {
      * @param type source or target
      * @return path to the output file of the POS tagger
      */
+/**
     public String runPOS(String file, String lang, String type) {
         String posName = resourceManager.getString(lang + ".postagger");
         String langResPath = input + File.separator + lang;
@@ -259,6 +264,7 @@ public class FeatureExtractor {
         return outPath;
 
     }
+*/
 
     private static void loadGiza() {
 
@@ -268,7 +274,7 @@ public class FeatureExtractor {
         Giza giza = new Giza(gizaPath);
     }
 
-    /*
+    /**
      * Computes the perplexity and log probability for the source file Required
      * by features 8-13
      */
@@ -368,7 +374,7 @@ public class FeatureExtractor {
         System.out.println(targetFile);
 
     }
-/*
+/**
     private static LanguageModel processNGrams() {
         // required by BB features 30-44
         NGramProcessor ngp = new NGramProcessor(
@@ -376,6 +382,7 @@ public class FeatureExtractor {
         return ngp.run();
     }
 */
+
     /**
      * constructs the folders required by the application. These are, typically:
      * <br> <ul><li>/input and subfolders <ul> <li>/input/<i>sourceLang</i>,
@@ -406,7 +413,7 @@ public class FeatureExtractor {
             System.out.println("folder created " + f.getPath());
         }
 
-        /*
+/**
          f = new File(input + File.separator + targetLang + File.separator + "temp");
          if (!f.exists()) {
          f.mkdir();
@@ -433,7 +440,8 @@ public class FeatureExtractor {
          f.mkdir();
          System.out.println("folder created " + f.getPath());
          }
-         */
+*/
+        
         String output = resourceManager.getString("output");
         f = new File(output);
         if (!f.exists()) {
@@ -472,11 +480,12 @@ public class FeatureExtractor {
                 + File.separator + targetLang + File.separator + targetFileName
                 + ngramOutputExt;
 
-
-//		String pplPOSTargetPath = resourceManager.getString("input")
-//		+ File.separator + targetLang + File.separator + targetFileName+PosTagger.getXPOS()
-//		+ ngramOutputExt;
-
+/**
+		String pplPOSTargetPath = resourceManager.getString("input")
+		+ File.separator + targetLang + File.separator + targetFileName+PosTagger.getXPOS()
+		+ ngramOutputExt;
+*/
+        
         runNGramPPL();
 
         String[] resources = new String[0];
@@ -497,23 +506,25 @@ public class FeatureExtractor {
         String resourcesStr = builder.toString();
         System.out.println(resourcesStr);
         propFile.setProperty("resources", resourcesStr);
-        
-        //PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath, resources);
-        //PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath, resources);
+
+        /**        
+        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath, resources);
+        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath, resources);
         
         FileModel fm = new FileModel(sourceFile,
                 resourceManager.getString(sourceLang + ".corpus"));
-//              String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
-//		String targetPosOutput = runPOS(targetFile, targetLang, "target");
+              String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
+		String targetPosOutput = runPOS(targetFile, targetLang, "target");
 
-//		String targetPPLPos = runNGramPPLPos(targetPosOutput+PosTagger.getXPOS());
-//		System.out.println("---------TARGET PPLPOS: "+targetPPLPos);
-//		PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
-//				new String[] { "poslogprob", "posppl", "posppl1" });
+		String targetPPLPos = runNGramPPLPos(targetPosOutput+PosTagger.getXPOS());
+		System.out.println("---------TARGET PPLPOS: "+targetPPLPos);
+		PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
+				new String[] { "poslogprob", "posppl", "posppl1" });
 
         loadGiza();
-        /*processNGrams();*/
-
+        processNGrams();
+*/
+        
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
                     sourceFile));
