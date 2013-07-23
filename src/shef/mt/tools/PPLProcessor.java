@@ -36,10 +36,7 @@ public class PPLProcessor extends ResourceProcessor {
     	String pplSourcePath = propertiesManager.getString("input")
                 + File.separator + sourceLang + File.separator + sourceFile
                 + ngramOutputExt;
-    	System.out.println(propertiesManager.getString("input"));
-    	System.out.println(File.separator);
-    	System.out.println(sourceLang);
-		System.out.println(sourceFile);
+    	
         String pplTargetPath = propertiesManager.getString("input")
                 + File.separator + targetLang + File.separator + targetFile
                 + ngramOutputExt;
