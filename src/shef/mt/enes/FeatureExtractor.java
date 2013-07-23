@@ -334,20 +334,15 @@ public class FeatureExtractor {
     private static void preprocessing() {
         String sourceInputFolder = input + File.separator + sourceLang;
         String targetInputFolder = input + File.separator + targetLang;
+
         File origSourceFile = new File(sourceFile);
         File inputSourceFile = new File(sourceInputFolder + File.separator + origSourceFile.getName());
-        System.out.println("----------------aaa--------------------------");
-        System.out.println(sourceFile);
-        System.out.println(sourceInputFolder + File.separator + origSourceFile.getName());
-
-        System.out.println("source input:" + sourceFile);
-        System.out.println("target input:" + targetFile);
+        
         File origTargetFile = new File(targetFile);
         File inputTargetFile = new File(targetInputFolder + File.separator + origTargetFile.getName());
-        System.out.println("----------------bbb--------------------------");
-        System.out.println(targetFile);
-        System.out.println(targetInputFolder + File.separator + origTargetFile.getName());
         
+        System.out.println("source input:" + sourceFile);
+        System.out.println("target input:" + targetFile);
         try {
             System.out.println("copying input to " + inputSourceFile.getPath());
             copyFile(origSourceFile, inputSourceFile);
@@ -645,6 +640,9 @@ public class FeatureExtractor {
 
         java.nio.channels.FileChannel source = null;
         java.nio.channels.FileChannel destination = null;
+        System.out.println("-------------aaa------------aaa-------");
+        System.out.println(sourceFile);
+        System.out.println(destFile);
         try {
             source = new FileInputStream(sourceFile).getChannel();
             destination = new FileOutputStream(destFile).getChannel();
