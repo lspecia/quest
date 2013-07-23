@@ -640,11 +640,8 @@ public class FeatureExtractor {
 
         java.nio.channels.FileChannel source = null;
         java.nio.channels.FileChannel destination = null;
-        System.out.println("-------------aaa------------aaa-------");
-        System.out.println(sourceFile);
-        System.out.println(destFile);
         try {
-            source = new FileInputStream(sourceFile).getChannel();
+            source = new FileInputStream("input"+File.separator+sourceFile).getChannel();
             destination = new FileOutputStream(destFile).getChannel();
             destination.transferFrom(source, 0, source.size());
         } finally {
