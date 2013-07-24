@@ -26,10 +26,13 @@ public class PPLProcessor extends ResourceProcessor {
     private static String ngramOutputExt = ".ppl";
     public String resourceName;
     
+    public PPLProcessor() {
+    	resourceName = "ppl";
+    }
+    
     public void initialize(PropertiesManager propertiesManager,
     					   FeatureManager featureManager) {
     	
-    	resourceName = "ppl";
     	String sourceLang = propertiesManager.getString("sourceLang");
     	String targetLang = propertiesManager.getString("targetLang");
     	String sourceFile = propertiesManager.getString("sourceFile");
