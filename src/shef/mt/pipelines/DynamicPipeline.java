@@ -26,8 +26,7 @@ public class DynamicPipeline extends ResourcePipeline {
 	public DynamicPipeline(PropertiesManager propertiesManager, FeatureManager featureManager) {
 
 		Set<String> requiredResourceNames = featureManager.getFeatureResources();
-		System.out.println(requiredResourceNames.toString());
-
+		System.out.println("required resource name: "+requiredResourceNames.toString());
 		
 		//running existing processors automatically
 		ArrayList<ResourceProcessor> resourceProcessors = new ArrayList<ResourceProcessor>();
@@ -39,7 +38,6 @@ public class DynamicPipeline extends ResourcePipeline {
 			if (!Modifier.isAbstract(subType.getModifiers())) {				
 				try {
 					resourceProcessors.add(subType.newInstance());
-					
 				}
 				catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +47,7 @@ public class DynamicPipeline extends ResourcePipeline {
 
 		for (ResourceProcessor resourceProcessor : resourceProcessors) {
 			String resourceName = resourceProcessor.getName();
-			System.out.println(resourceProcessor.getName());
+			System.out.println("resourceProcessorName: "+resourceProcessor.getName());
 			if (requiredResourceNames.contains(resourceName)) {
 				resources.add(resourceProcessor);
 			}
@@ -75,6 +73,5 @@ public class DynamicPipeline extends ResourcePipeline {
 		 * //resourceProcessors.add(mtOutputProcessor);
 		 * //resourceProcessors.add(nerProcessor);
 		 */
-
 	}
 }
