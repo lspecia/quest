@@ -16,6 +16,7 @@ import java.util.*;
  */
 public class TriggersProcessor extends ResourceProcessorTwoSentences {
     Triggers ilt;
+    public String resourceName = "IntraLingualTriggers";
 
     public void initialize(PropertiesManager propertiesManager,
     					   FeatureManager featureManager) {

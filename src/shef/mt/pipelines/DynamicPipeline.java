@@ -1,5 +1,6 @@
 package shef.mt.pipelines;
 
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -35,20 +36,23 @@ public class DynamicPipeline extends ResourcePipeline {
 				.getSubTypesOf(ResourceProcessor.class);
 
 		for (Class<? extends ResourceProcessor> subType : subTypes) {
-			try {
-				resourceProcessors.add(subType.newInstance());
+			if (!Modifier.isAbstract(subType.getModifiers())) {				
+				try {
+					resourceProcessors.add(subType.newInstance());
+					
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-			catch (Exception e) {
-	            e.printStackTrace();
-	        }
 		}
 
 		for (ResourceProcessor resourceProcessor : resourceProcessors) {
-			//String resourceName = resourceProcessor.getName();
-			//System.out.println(resourceProcessor.getName());
-			//if (requiredResourceNames.contains(resourceName)) {
-			resources.add(resourceProcessor);
-			//}
+			String resourceName = resourceProcessor.getName();
+			System.out.println(resourceProcessor.getName());
+			if (requiredResourceNames.contains(resourceName)) {
+				resources.add(resourceProcessor);
+			}
 		}
 		initialize_resources(resources, propertiesManager, featureManager);
 

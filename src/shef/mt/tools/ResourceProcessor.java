@@ -15,7 +15,7 @@ import shef.mt.features.util.FeatureManager;
  *
  */
 public abstract class ResourceProcessor {
-	private static String resourceName;
+	private static String resourceName = new String();
 
     public abstract void processNextSentence(Sentence source);
     
