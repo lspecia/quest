@@ -108,4 +108,8 @@ public class TriggersProcessor extends ResourceProcessorTwoSentences {
         else
             t.setValue("InterLingualSourceTargetScore",som/nb);
     }
+    
+    public String getName() {
+    	return this.resourceName;
+    }
 }
