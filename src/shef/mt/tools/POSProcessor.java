@@ -19,7 +19,8 @@ public class POSProcessor extends ResourceProcessor {
     int sentCount;
 //    static String XPOS=".XPOS";
 //    BufferedWriter bwXPos;
-
+    public String resourceName;
+    
     public void initialize(PropertiesManager propertiesManager,
 			   FeatureManager featureManager) {
     	
@@ -156,6 +157,11 @@ public class POSProcessor extends ResourceProcessor {
             e.printStackTrace();
         }
     }
+    
+    public String getName() {
+    	return resourceName;
+    }
+    
     /*      public static String getXPOS(){
      return XPOS;
      }*/

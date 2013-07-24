@@ -101,4 +101,8 @@ public class TopicDistributionProcessor extends ResourceProcessor {
             e.printStackTrace();
         }
     }
+    
+    public String getName() {
+    	return resourceName;
+    }
 }

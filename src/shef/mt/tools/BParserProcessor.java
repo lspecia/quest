@@ -19,7 +19,7 @@ public class BParserProcessor extends ResourceProcessor {
 	BParser parser;
 	boolean tokenizer;
 	public String resourceName = "BParser";
-
+    
 	public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager) {
 
 		BParserProcessor sourceParserProcessor = new BParserProcessor();
@@ -83,5 +83,7 @@ public class BParserProcessor extends ResourceProcessor {
 		s.setValue("bparser.n", parser.getParseTreesN());
 	}
 	
-	
+	public String getName() {
+    	return resourceName;
+    }
 }

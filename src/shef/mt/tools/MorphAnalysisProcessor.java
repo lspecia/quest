@@ -24,6 +24,7 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     private static String SENT_END = "SENTENCE";
     private static String WORD_START = ";;WORD";
     int count = 0;
+    public String  resourceName;
 
     public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager) {
     	
@@ -166,6 +167,9 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
         return true;
     }
 
+    public String getName() {
+    	return resourceName;
+    }
     //public static void main(String[] args) {
      //   MorphAnalysisProcessor map = new MorphAnalysisProcessor(args[0]);
       //  int i = 0;

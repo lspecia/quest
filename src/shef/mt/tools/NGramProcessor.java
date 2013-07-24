@@ -21,7 +21,9 @@ import shef.mt.features.util.Sentence;
  */
 public class NGramProcessor extends ResourceProcessor {
 
-    public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager) {
+	public String resourceName = "ngramcount";
+    
+	public void initialize(PropertiesManager propertiesManager, FeatureManager featureManager) {
     	
     	String sourceLang = propertiesManager.getString("sourceLang");
     	
@@ -88,5 +90,9 @@ public class NGramProcessor extends ResourceProcessor {
         Logger.log("Language model loaded in " + elapsed / 1000F + " sec");
         System.out.println("Language model loaded in " + elapsed / 1000F + " sec");
         return lm;
+    }
+    
+    public String getName() {
+    	return resourceName;
     }
 }

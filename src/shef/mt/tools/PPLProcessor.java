@@ -26,9 +26,6 @@ public class PPLProcessor extends ResourceProcessor {
     private static String ngramOutputExt = ".ppl";
     public String resourceName = "ppl";
     
-    public String getName() {
-    	return resourceName;
-    }
     
     public void initialize(PropertiesManager propertiesManager,
     					   FeatureManager featureManager) {
@@ -120,5 +117,9 @@ public class PPLProcessor extends ResourceProcessor {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String getName() {
+    	return resourceName;
     }
 }
