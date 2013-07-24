@@ -24,6 +24,7 @@ public class PPLProcessor extends ResourceProcessor {
     String[] valNames;
     String pplFile;
     private static String ngramOutputExt = ".ppl";
+    public String resourceName = "ppl";
     
     public void initialize(PropertiesManager propertiesManager,
     					   FeatureManager featureManager) {

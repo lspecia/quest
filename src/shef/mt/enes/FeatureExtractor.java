@@ -557,6 +557,8 @@ public class FeatureExtractor {
 //				 FileInputStream(targetPosOutput)));
 //			}
             ResourceManager.printResources();
+            ResourceManager.printResources();
+            ResourceManager.printResources();
             Sentence sourceSent;
             Sentence targetSent;
             int sentCount = 0;
