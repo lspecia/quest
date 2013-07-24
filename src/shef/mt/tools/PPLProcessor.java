@@ -24,11 +24,10 @@ public class PPLProcessor extends ResourceProcessor {
     String[] valNames;
     String pplFile;
     private static String ngramOutputExt = ".ppl";
-    public String resourceName;
+    public String resourceName = "ppl";
     
-    public PPLProcessor() {
-    	resourceName = "ppl";
-    	System.out.println("aaa");
+    public String getName() {
+    	return this.resourceName;
     }
     
     public void initialize(PropertiesManager propertiesManager,
