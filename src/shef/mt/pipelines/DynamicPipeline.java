@@ -38,6 +38,9 @@ public class DynamicPipeline extends ResourcePipeline {
 			if (!Modifier.isAbstract(subType.getModifiers())) {				
 				try {
 					resourceProcessors.add(subType.newInstance());
+					System.out.println(subType.newInstance().getName());
+					ResourceProcessor pplProcessor = new PPLProcessor();
+					System.out.println(pplProcessor.getName());
 				}
 				catch (Exception e) {
 					e.printStackTrace();
