@@ -28,11 +28,13 @@ public class PPLProcessor extends ResourceProcessor {
     
     public PPLProcessor() {
     	resourceName = "ppl";
+    	System.out.println("aaa");
     }
     
     public void initialize(PropertiesManager propertiesManager,
     					   FeatureManager featureManager) {
     	
+    	System.out.println("bbb");
     	String sourceLang = propertiesManager.getString("sourceLang");
     	String targetLang = propertiesManager.getString("targetLang");
     	String sourceFile = propertiesManager.getString("sourceFile");
