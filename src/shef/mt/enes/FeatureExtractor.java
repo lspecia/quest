@@ -520,10 +520,10 @@ public class FeatureExtractor {
 		System.out.println("---------TARGET PPLPOS: "+targetPPLPos);
 		PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
 				new String[] { "poslogprob", "posppl", "posppl1" });
-
-        loadGiza();
-        processNGrams();
 */
+        loadGiza();
+        //processNGrams();
+
         
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
