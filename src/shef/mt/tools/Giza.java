@@ -137,6 +137,7 @@ public class Giza extends Resource {
     }
 
     public static int getWordProbabilityCount(String word, float prob) {
+    	System.out.println(transProbCount+" --aaa-- "+word);
         if (!transProbCount.containsKey(word)) {
             return 0;
         }
