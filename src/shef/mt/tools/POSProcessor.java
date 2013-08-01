@@ -1,11 +1,6 @@
-/**
- *
- */
 package shef.mt.tools;
 
-import shef.mt.features.util.Sentence;
 import shef.mt.util.PropertiesManager;
-import shef.mt.features.util.FeatureManager;
 
 /**
  * Abstract class that is the base class for:

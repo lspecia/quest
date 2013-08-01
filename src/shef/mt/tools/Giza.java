@@ -44,6 +44,7 @@ public class Giza extends Resource {
         transProbCount = new HashMap<String, int[]>();
         translations = new HashMap<Pair, Float>();
         if (loadGiza(gizaFilePath) != -1) {
+        	System.out.println("--------Giza not initialized--------");
             ResourceManager.registerResource("Giza");
         }
     }

@@ -9,7 +9,7 @@ import shef.mt.tools.NGramExec;
 import shef.mt.tools.ResourceManager;
 import shef.mt.tools.FileModel;
 import shef.mt.tools.LanguageModel;
-import shef.mt.tools.POSProcessor;
+import shef.mt.tools.POSProcessorSource;
 import shef.mt.tools.MTOutputProcessor;
 import shef.mt.tools.Tokenizer;
 import shef.mt.tools.Giza;
@@ -617,8 +617,8 @@ public class FeatureExtractorSimple{
                     .isRegistered("sourcePosTagger");
             boolean posTargetExists = ResourceManager
                     .isRegistered("targetPosTagger");
-            POSProcessor posSourceProc = null;
-            POSProcessor posTargetProc = null;
+            POSProcessorSource posSourceProc = null;
+            POSProcessorSource posTargetProc = null;
             
             
             
@@ -669,11 +669,11 @@ public class FeatureExtractorSimple{
             */ 
     
             if (posSourceExists) {
-                posSourceProc = new POSProcessor(sourcePosOutput);
+                posSourceProc = new POSProcessorSource(sourcePosOutput);
                 posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
             }
             if (posTargetExists) {
-                posTargetProc = new POSProcessor(targetPosOutput);
+                posTargetProc = new POSProcessorSource(targetPosOutput);
                 posTarget = new BufferedReader(new InputStreamReader(new FileInputStream(targetPosOutput)));
             }
             ResourceManager.printResources();
@@ -1011,15 +1011,15 @@ public void run() {
 					.isRegistered("sourcePosTagger");
 			boolean posTargetExists = ResourceManager
 					.isRegistered("targetPosTagger");
-			POSProcessor posSourceProc = null;
-			POSProcessor posTargetProc = null;
+			POSProcessorSource posSourceProc = null;
+			POSProcessorSource posTargetProc = null;
 			if (posSourceExists) {
-				posSourceProc = new POSProcessor(sourcePosOutput);
+				posSourceProc = new POSProcessorSource(sourcePosOutput);
 				 posSource = new BufferedReader(new InputStreamReader(new
 				 FileInputStream(sourcePosOutput), "utf-8"));
 			}
 			if (posTargetExists) {
-				posTargetProc = new POSProcessor(targetPosOutput);
+				posTargetProc = new POSProcessorSource(targetPosOutput);
 				 posTarget = new BufferedReader(new InputStreamReader(new
 				 FileInputStream(targetPosOutput)));
 			}

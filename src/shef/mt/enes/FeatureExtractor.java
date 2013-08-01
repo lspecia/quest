@@ -268,7 +268,6 @@ public class FeatureExtractor {
 
         String gizaPath = resourceManager.getString("pair." + sourceLang
                 + targetLang + ".giza.path");
-        System.out.println(gizaPath);
         Giza giza = new Giza(gizaPath);
     }
 
