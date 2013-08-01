@@ -46,10 +46,10 @@ public class DynamicPipeline extends ResourcePipeline {
 				}
 			}
 		}
-		//System.out.println("Resources got from features:");
+		System.out.println("Resources got from features:");
 		for (ResourceProcessor resourceProcessor : resourceProcessors) {
 			String resourceName = resourceProcessor.getName();
-			//System.out.println("resourceProcessorName: "+resourceProcessor.getName());
+			System.out.println("resourceProcessorName: "+resourceProcessor.getName());
 			if (requiredResourceNames.contains(resourceName)) {
 				resources.add(resourceProcessor);
 			}
