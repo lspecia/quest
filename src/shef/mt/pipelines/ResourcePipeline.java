@@ -53,7 +53,8 @@ public class ResourcePipeline {
      * @param resourceNames
      */
     public void processSentence(Sentence sent, Set<String> resourceNames) {
-        for (ResourceProcessor resource:resources){ 
+        for (ResourceProcessor resource:resources){
+        	System.out.println("aaa\naaa");
         	System.out.println(resourceNames.toString());
         	System.out.println(resources.toString());
         	if (resourceNames.contains(resource.getName())){
