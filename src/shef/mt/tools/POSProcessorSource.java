@@ -26,15 +26,11 @@ public class POSProcessorSource extends POSProcessor {
     	
     	
     	String sourceLang = propertiesManager.getString("sourceLang");
-    	//String targetLang = propertiesManager.getString("targetLang");
     	String sourceFile = propertiesManager.getString("sourceFile");
-    	//String targetFile = propertiesManager.getString("targetFile");
     	boolean forceRun = (propertiesManager.get("forceRun")=="true");
     	
     	String sourcePosOutput = runPOS(propertiesManager, forceRun, sourceFile, sourceLang, "source");
-    	//String targetPosOutput = runPOS(propertiesManager, forceRun, targetFile, targetLang, "target");
     	create(sourcePosOutput);
-    	//create(targetPosOutput);
     }
     
     /**
@@ -50,7 +46,7 @@ public class POSProcessorSource extends POSProcessor {
         String workDir = System.getProperty("user.dir");
         String input = workDir + File.separator + propertiesManager.getString("input");
         String langResPath = input + File.separator + lang;
-        File f = new File(file);
+        File f = new File(input + File.separator + file);
         String absoluteSourceFilePath = f.getAbsolutePath();
         String fileName = f.getName();
         String relativeFilePath = langResPath + File.separator + fileName

@@ -26,7 +26,6 @@ public class DynamicPipeline extends ResourcePipeline {
 	public DynamicPipeline(PropertiesManager propertiesManager, FeatureManager featureManager) {
 
 		Set<String> requiredResourceNames = featureManager.getFeatureResources();
-		System.out.println(requiredResourceNames.toString());
 		
 		// initialization of all existing processors automatically
 		ArrayList<ResourceProcessor> resourceProcessors = new ArrayList<ResourceProcessor>();
