@@ -139,6 +139,7 @@ public class POSProcessorSource extends POSProcessor {
 	        //   bwXPos.newLine();
 	        contentWords = nounWords + verbWords + otherContentWords;
 	        sent.setValue("contentWords", contentWords);
+	        System.out.println(contentWords);
 	        sent.setValue("nouns", nounWords);
 	        sent.setValue("verbs", verbWords);
 	        sent.setValue("prons", pronWords);
