@@ -46,15 +46,18 @@ public class DynamicPipeline extends ResourcePipeline {
 				}
 			}
 		}
-		System.out.println("Resources got from features:");
+		System.out.println("RequiredResourceNames: "+requiredResourceNames.toString());
+		System.out.println("Resources that have been initialized:");
 		for (ResourceProcessor resourceProcessor : resourceProcessors) {
 			String resourceName = resourceProcessor.getName();
 			System.out.println("resourceProcessorName: "+resourceProcessor.getName());
 			if (requiredResourceNames.contains(resourceName)) {
 				resources.add(resourceProcessor);
+				System.out.println(resourceProcessor.getName());
 			}
 		}
 		initialize_resources(resources, propertiesManager, featureManager);
+		System.out.println("--------Resources should be initialized now--------");
 
 		/**
 		 * ResourceProcessor bParser = new BParserProcessor(); ResourceProcessor
