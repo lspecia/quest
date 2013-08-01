@@ -46,7 +46,7 @@ public class POSProcessorSource extends POSProcessor {
         String workDir = System.getProperty("user.dir");
         String input = workDir + File.separator + propertiesManager.getString("input");
         String langResPath = input + File.separator + lang;
-        File f = new File(input + File.separator + file);
+        File f = new File("input" + File.separator + file);
         String absoluteSourceFilePath = f.getAbsolutePath();
         String fileName = f.getName();
         String relativeFilePath = langResPath + File.separator + fileName
