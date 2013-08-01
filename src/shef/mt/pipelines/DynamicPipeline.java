@@ -26,16 +26,20 @@ public class DynamicPipeline extends ResourcePipeline {
 	public DynamicPipeline(PropertiesManager propertiesManager, FeatureManager featureManager) {
 
 		Set<String> requiredResourceNames = featureManager.getFeatureResources();
+		System.out.println(requiredResourceNames.toString());
 		
-		//running existing processors automatically
+		// initialization of all existing processors automatically
 		ArrayList<ResourceProcessor> resourceProcessors = new ArrayList<ResourceProcessor>();
 		Reflections reflections = new Reflections("shef.mt.tools");
 		Set<Class<? extends ResourceProcessor>> subTypes = reflections
 				.getSubTypesOf(ResourceProcessor.class);
 
+		// for loop iterates through all classes that are extended by ResourceProcessor
 		for (Class<? extends ResourceProcessor> subType : subTypes) {
+			// if condition excludes abstract classes
 			if (!Modifier.isAbstract(subType.getModifiers())) {				
 				try {
+					// initialize the class and add into ArrayList
 					resourceProcessors.add(subType.newInstance());
 				}
 				catch (Exception e) {

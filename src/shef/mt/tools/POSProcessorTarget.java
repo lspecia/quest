@@ -19,7 +19,7 @@ public class POSProcessorTarget extends POSProcessor {
     int sentCount;
 //    static String XPOS=".XPOS";
 //    BufferedWriter bwXPos;
-    public String resourceName;
+    public String resourceName = "targetPosTagger";
     
     public void initialize(PropertiesManager propertiesManager,
                FeatureManager featureManager) {
