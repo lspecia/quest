@@ -597,6 +597,7 @@ public class FeatureExtractor {
             	
                 Set<String> resourceNames = featureManager.getStrResources();
                 
+                System.out.print(resourceNames.toString());
                 defaultPipeline.processSentence(sourceSent, resourceNames);
                 defaultPipeline.processSentence(targetSent, resourceNames);
 		

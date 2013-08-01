@@ -2,6 +2,7 @@ package shef.mt.tools;
 
 import shef.mt.features.util.FeatureManager;
 import shef.mt.features.util.Sentence;
+import shef.mt.pipelines.ResourcePipeline;
 import shef.mt.util.PropertiesManager;
 
 import java.io.*;
@@ -24,13 +25,17 @@ public class POSProcessorSource extends POSProcessor {
     public void initialize(PropertiesManager propertiesManager,
 			   FeatureManager featureManager) {
     	
+    	POSProcessorSource posProcessorSource = new POSProcessorSource();
     	
     	String sourceLang = propertiesManager.getString("sourceLang");
     	String sourceFile = propertiesManager.getString("sourceFile");
     	boolean forceRun = (propertiesManager.get("forceRun")=="true");
     	
     	String sourcePosOutput = runPOS(propertiesManager, forceRun, sourceFile, sourceLang, "source");
-    	create(sourcePosOutput);
+    	posProcessorSource.create(sourcePosOutput);
+    	
+    	ResourcePipeline rp = new ResourcePipeline();
+    	rp.addResourceProcessor(posProcessorSource);
     }
     
     /**
