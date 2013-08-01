@@ -84,6 +84,7 @@ public class FileModel {
     }
 
     public static boolean containsWord(String word) {
+    	System.out.println(words.isEmpty());
         return words.containsKey(word);
     }
 

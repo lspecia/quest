@@ -509,9 +509,7 @@ public class FeatureExtractor {
         /**        
         PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath, resources);
         PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath, resources);
-        
-        FileModel fm = new FileModel(sourceFile,
-                resourceManager.getString(sourceLang + ".corpus"));
+
               String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
 		String targetPosOutput = runPOS(targetFile, targetLang, "target");
 
@@ -519,7 +517,9 @@ public class FeatureExtractor {
 		System.out.println("---------TARGET PPLPOS: "+targetPPLPos);
 		PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
 				new String[] { "poslogprob", "posppl", "posppl1" });
-*/
+		*/
+        
+		FileModel fm = new FileModel(sourceFile, resourceManager.getString(sourceLang + ".corpus"));
         loadGiza();
         //processNGrams();
 
