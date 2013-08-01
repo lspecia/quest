@@ -16,11 +16,11 @@ import java.util.*;
  */
 public class ResourcePipeline {
 
-    private ArrayList<ResourceProcessor> resources;
+    public ArrayList<ResourceProcessor> resources = new ArrayList<ResourceProcessor>();
 
-    public ResourcePipeline() {
+    /*public ResourcePipeline() {
         resources = new ArrayList<ResourceProcessor>();
-    }
+    }*/
 
     public void addResourceProcessor(ResourceProcessor proc) {
         resources.add(proc);
