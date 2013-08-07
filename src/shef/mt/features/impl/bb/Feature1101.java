@@ -28,8 +28,8 @@ public class Feature1101 extends Feature {
     }
 
     public void run(Sentence source, Sentence target) {
-        int dptSource = (Integer) source.getValue("depth");
-        int dptTarget = (Integer) target.getValue("depth");
+        float dptSource = (Float) source.getValue("depth");
+        float dptTarget = (Float) target.getValue("depth");
         setValue(Math.abs(dptSource - dptTarget));
     }
 }
