@@ -21,7 +21,7 @@ import shef.mt.util.PropertiesManager;
 
 public class DynamicPipeline extends ResourcePipeline {
 
-	//ArrayList<ResourceProcessor> resources = new ArrayList<ResourceProcessor>();
+	ArrayList<ResourceProcessor> matchedResources = new ArrayList<ResourceProcessor>();
 
 	public DynamicPipeline(PropertiesManager propertiesManager, FeatureManager featureManager) {
 
@@ -52,12 +52,12 @@ public class DynamicPipeline extends ResourcePipeline {
 			String resourceName = resourceProcessor.getName();
 			System.out.println("resourceProcessorName: "+resourceProcessor.getName());
 			if (requiredResourceNames.contains(resourceName)) {
-				resources.add(resourceProcessor);
+				matchedResources.add(resourceProcessor);
 				System.out.println(resourceProcessor.getName());
 			}
 		}
-		System.out.println(resources.size());
-		initialize_resources(resources, propertiesManager, featureManager);
+		System.out.println(matchedResources.size());
+		initialize_resources(matchedResources, propertiesManager, featureManager);
 		System.out.println("--------Resources should be initialized now--------");
 
 		/**
