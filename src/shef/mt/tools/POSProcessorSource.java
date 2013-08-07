@@ -24,7 +24,7 @@ public class POSProcessorSource extends POSProcessor {
     
     public void initialize(PropertiesManager propertiesManager,
 			   FeatureManager featureManager) {
-    	
+    	System.out.println("POSSource is running!!!");
     	POSProcessorSource posProcessorSource = new POSProcessorSource();
     	
     	String sourceLang = propertiesManager.getString("sourceLang");
@@ -36,6 +36,7 @@ public class POSProcessorSource extends POSProcessor {
     	
     	ResourcePipeline rp = new ResourcePipeline();
     	rp.addResourceProcessor(posProcessorSource);
+    	System.out.println("POSSource addedinto rp!!!");
     }
     
     /**
