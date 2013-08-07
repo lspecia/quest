@@ -597,12 +597,10 @@ public class FeatureExtractor {
             	
                 Set<String> resourceNames = featureManager.getStrResources();                
                 
-                System.out.println("xxx");
-                System.out.print(resourceNames.toString());
+                System.out.println("---before---");
                 defaultPipeline.processSentence(sourceSent, resourceNames);
                 defaultPipeline.processSentence(targetSent, resourceNames);
-		
-                System.out.println("bbb");
+                System.out.println("---after---");
                 
                 
 //                                pplPosTarget.processNextSentence(targetSent);
