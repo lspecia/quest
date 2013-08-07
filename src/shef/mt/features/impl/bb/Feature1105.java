@@ -32,10 +32,10 @@ public class Feature1105 extends Feature {
      */
     @Override
     public void run(Sentence source, Sentence target) {
-        float sourcePP = (Integer) source.getValue("PP");
-        float phrasesSource = (Integer) source.getValue("phrase_tags");
-        float targetPP = (Integer) target.getValue("PP");
-        float phrasesTarget = (Integer) source.getValue("phrase_tags");
+        float sourcePP = (Float) source.getValue("PP");
+        float phrasesSource = (Float) source.getValue("phrase_tags");
+        float targetPP = (Float) target.getValue("PP");
+        float phrasesTarget = (Float) source.getValue("phrase_tags");
 
         float sourceNorm = phrasesSource == 0 ? 0 : sourcePP / phrasesSource;
         float targetNorm = phrasesTarget == 0 ? 0 : targetPP / phrasesTarget;

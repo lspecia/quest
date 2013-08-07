@@ -31,8 +31,8 @@ public class Feature1104 extends Feature {
      */
     @Override
     public void run(Sentence source, Sentence target) {
-        float sourcePP = (Integer) source.getValue("PP");
-        float targetPP = (Integer) target.getValue("PP");
+        float sourcePP = (Float) source.getValue("PP");
+        float targetPP = (Float) target.getValue("PP");
         setValue(Math.abs(sourcePP - targetPP));
 
     }

@@ -31,7 +31,7 @@ public class Feature1103 extends Feature {
      */
     @Override
     public void run(Sentence source, Sentence target) {
-        setValue((Integer) target.getValue("PP"));
+        setValue((Float) target.getValue("PP"));
 
 
     }
