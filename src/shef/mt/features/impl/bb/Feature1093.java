@@ -33,7 +33,7 @@ public class Feature1093 extends Feature {
         // TODO Auto-generated method stub
 
         float noWords = source.getNoTokens();
-        float noContent = (Integer) source.getValue("verbs");
+        float noContent = (Float) source.getValue("verbs");
 
         float perc1 = (float) noContent / noWords;
         noWords = target.getNoTokens();

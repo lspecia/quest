@@ -31,7 +31,7 @@ public class Feature1089 extends Feature {
     public void run(Sentence source, Sentence target) {
         // TODO Auto-generated method stub
         float noWords = source.getNoTokens();
-        float noVerbs = (Integer) source.getValue("verbs");
+        float noVerbs = (Float) source.getValue("verbs");
         setValue(noVerbs / noWords);
 
     }
