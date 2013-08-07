@@ -56,6 +56,7 @@ public class DynamicPipeline extends ResourcePipeline {
 				System.out.println(resourceProcessor.getName());
 			}
 		}
+		System.out.println(resources.size());
 		initialize_resources(resources, propertiesManager, featureManager);
 		System.out.println("--------Resources should be initialized now--------");
 

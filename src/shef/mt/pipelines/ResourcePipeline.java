@@ -40,7 +40,8 @@ public class ResourcePipeline {
      * */
     public void initialize_resources(ArrayList<ResourceProcessor> res, 
 						    		 PropertiesManager propertiesManager, FeatureManager featureManager) {
-    	for (ResourceProcessor resource:res){ 
+    	for (ResourceProcessor resource:res){
+    		System.out.println("RP:"+res.toString());
         	resource.initialize(propertiesManager, featureManager);
         	}
     }
