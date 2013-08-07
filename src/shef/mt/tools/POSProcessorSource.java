@@ -37,7 +37,7 @@ public class POSProcessorSource extends POSProcessor {
     	ResourcePipeline rp = new ResourcePipeline();
     	rp.addResourceProcessor(posProcessorSource);
     	System.out.println("POSSource addedinto rp!!!");
-    	ResourcePipeline.addResourceProcessor(posProcessorSource);
+    	//ResourcePipeline.addResourceProcessor(posProcessorSource);
     }
     
     /**
