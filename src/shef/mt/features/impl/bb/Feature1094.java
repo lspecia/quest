@@ -36,7 +36,7 @@ public class Feature1094 extends Feature {
         float noContent = (Float) source.getValue("prons");
         float perc1 = (float) noContent / noWords;
         noWords = target.getNoTokens();
-        noContent = (Integer) target.getValue("prons");
+        noContent = (Float) target.getValue("prons");
         float perc2 = (float) noContent / noWords;
         if (perc2 == 0) {
             setValue(0);
