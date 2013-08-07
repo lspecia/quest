@@ -28,8 +28,8 @@ public class Feature1116 extends Feature {
     }
 
     public void run(Sentence source, Sentence target) {
-        float nerSource = (Integer) source.getValue("ner");
-        float nerTarget = (Integer) target.getValue("ner");
+        float nerSource = (Float) source.getValue("ner");
+        float nerTarget = (Float) target.getValue("ner");
         int persSource = ((ArrayList<String>) source.getValue("person")).size();
         int persTarget = ((ArrayList<String>) target.getValue("person")).size();
         if (nerSource == 0 && nerTarget == 0) {
