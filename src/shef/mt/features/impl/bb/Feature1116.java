@@ -30,6 +30,10 @@ public class Feature1116 extends Feature {
     public void run(Sentence source, Sentence target) {
         float nerSource = (Float) source.getValue("ner");
         float nerTarget = (Float) target.getValue("ner");
+
+        System.out.println(source.getClass().getName());
+        System.out.println(source.getValue("person").getClass().getName());
+
         int persSource = ((ArrayList<String>) source.getValue("person")).size();
         int persTarget = ((ArrayList<String>) target.getValue("person")).size();
         if (nerSource == 0 && nerTarget == 0) {
