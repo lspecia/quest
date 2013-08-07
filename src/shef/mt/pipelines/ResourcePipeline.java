@@ -41,7 +41,6 @@ public class ResourcePipeline {
     public void initialize_resources(ArrayList<ResourceProcessor> res, 
 						    		 PropertiesManager propertiesManager, FeatureManager featureManager) {
     	for (ResourceProcessor resource:res){
-    		System.out.println("RP:"+res.toString());
         	resource.initialize(propertiesManager, featureManager);
         	}
     }
@@ -54,9 +53,8 @@ public class ResourcePipeline {
      * @param resourceNames
      */
     public void processSentence(Sentence sent, Set<String> resourceNames) {
-    	System.out.println("aaa\naaa");
     	System.out.println(resources.toString());
-        for (ResourceProcessor resource:resources){
+    	for (ResourceProcessor resource:resources){
         	System.out.println("ccc\nccc");
         	System.out.println(resourceNames.toString());
         	System.out.println(resources.toString());

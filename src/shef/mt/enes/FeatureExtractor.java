@@ -595,7 +595,7 @@ public class FeatureExtractor {
                 //pplProcSource.processNextSentence(sourceSent);
                 //pplProcTarget.processNextSentence(targetSent);
             	
-                Set<String> resourceNames = featureManager.getStrResources();
+                Set<String> resourceNames = featureManager.getStrResources();                
                 
                 System.out.println("xxx");
                 System.out.print(resourceNames.toString());
