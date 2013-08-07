@@ -21,7 +21,7 @@ import shef.mt.util.PropertiesManager;
 
 public class DynamicPipeline extends ResourcePipeline {
 
-	ArrayList<ResourceProcessor> resources = new ArrayList<ResourceProcessor>();
+	//ArrayList<ResourceProcessor> resources = new ArrayList<ResourceProcessor>();
 
 	public DynamicPipeline(PropertiesManager propertiesManager, FeatureManager featureManager) {
 
