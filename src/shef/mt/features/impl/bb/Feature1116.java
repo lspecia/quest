@@ -33,8 +33,8 @@ public class Feature1116 extends Feature {
 
         System.out.println(source.getClass().getName());
         System.out.println(source.getValue("person").getClass().getName());
-        System.out.println(((ArrayList<String>) source.getValue("person")).size());
         System.out.println(source.getValue("person"));
+        System.out.println(((ArrayList<String>) source.getValue("person")).size());
 
         int persSource = ((ArrayList<String>) source.getValue("person")).size();
         int persTarget = ((ArrayList<String>) target.getValue("person")).size();
