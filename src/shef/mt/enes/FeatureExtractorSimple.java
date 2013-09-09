@@ -5,18 +5,18 @@ package shef.mt.enes;
 import shef.mt.xmlwrap.MOSES_XMLWrapper;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
-import shef.mt.tools.NGramExec;
+//import shef.mt.tools.NGramExec;
 import shef.mt.tools.ResourceManager;
 import shef.mt.tools.FileModel;
-import shef.mt.tools.LanguageModel;
+//import shef.mt.tools.LanguageModel;
 import shef.mt.tools.POSProcessor;
 import shef.mt.tools.MTOutputProcessor;
 import shef.mt.tools.Tokenizer;
 import shef.mt.tools.Giza;
 import shef.mt.tools.TopicDistributionProcessor;
-import shef.mt.tools.BParserProcessor;
-import shef.mt.tools.NGramProcessor;
-import shef.mt.tools.PPLProcessor;
+//import shef.mt.tools.BParserProcessor;
+//import shef.mt.tools.NGramProcessor;
+//import shef.mt.tools.PPLProcessor;
 import shef.mt.tools.PosTagger;
 import shef.mt.tools.GlobalLexicon;
 import shef.mt.tools.Triggers;
@@ -325,8 +325,9 @@ public class FeatureExtractorSimple{
      */
     private static void runNGramPPL() {
         // required by BB features 8-13
-        NGramExec nge = new NGramExec(
-                resourceManager.getString("tools.ngram.path"));
+//COMMENTED OUT FOR MTM    	
+//        NGramExec nge = new NGramExec(
+//                resourceManager.getString("tools.ngram.path"));
         System.out.println("runNgramPPL");
         File f = new File(sourceFile);
         String sourceOutput = input
@@ -336,11 +337,12 @@ public class FeatureExtractorSimple{
         String targetOutput = input
                 + File.separator + targetLang + File.separator + f.getName()
                 + ".ppl";
-        nge.runNGramPerplex(sourceFile, sourceOutput,
-                resourceManager.getString(sourceLang + ".lm"));
-        System.out.println(resourceManager.getString(targetLang + ".lm"));
-        nge.runNGramPerplex(targetFile, targetOutput,
-                resourceManager.getString(targetLang + ".lm"));
+//COMMENTED OUT FOR MTM        
+//        nge.runNGramPerplex(sourceFile, sourceOutput,
+//                resourceManager.getString(sourceLang + ".lm"));
+//        System.out.println(resourceManager.getString(targetLang + ".lm"));
+//        nge.runNGramPerplex(targetFile, targetOutput,
+//                resourceManager.getString(targetLang + ".lm"));
     }
 
     /**
@@ -352,18 +354,19 @@ public class FeatureExtractorSimple{
      *
      * @param posFile file tagged with parts-of-speech
      */
-    private String runNGramPPLPos(String posFile) {
-        NGramExec nge = new NGramExec(
-                resourceManager.getString("tools.ngram.path"), forceRun);
-
-        File f = new File(posFile);
-        String posTargetOutput = input
-                + File.separator + targetLang + File.separator + f.getName()
-                + resourceManager.getString("tools.ngram.output.ext");
-        nge.runNGramPerplex(posFile, posTargetOutput,
-                resourceManager.getString(targetLang + ".poslm"));
-        return posTargetOutput;
-    }
+//COMMENTED OUT FOR MTM    
+//    private String runNGramPPLPos(String posFile) {
+//        NGramExec nge = new NGramExec(
+//                resourceManager.getString("tools.ngram.path"), forceRun);
+//
+//        File f = new File(posFile);
+//        String posTargetOutput = input
+//                + File.separator + targetLang + File.separator + f.getName()
+//                + resourceManager.getString("tools.ngram.output.ext");
+//        nge.runNGramPerplex(posFile, posTargetOutput,
+//                resourceManager.getString(targetLang + ".poslm"));
+//        return posTargetOutput;
+//    }
 
     /**
      * Performs some basic processing of the input source and target files For
@@ -452,13 +455,14 @@ public class FeatureExtractorSimple{
 
     }
 
-    private static LanguageModel processNGrams() {
+//COMMENTED OUT FOR MTM
+/**    private static LanguageModel processNGrams() {
         // required by BB features 30-44
         NGramProcessor ngp = new NGramProcessor(
                 resourceManager.getString(sourceLang + ".ngram"));
         return ngp.run();
     }
-
+*/
     /**
      * constructs the folders required by the application. These are, typically:
      * <br> <ul><li>/input and subfolders <ul> <li>/input/<i>sourceLang</i>,
@@ -573,28 +577,32 @@ public class FeatureExtractorSimple{
                 + resourceManager.getString("tools.ngram.output.ext");
         runNGramPPL();
 
-        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
-                new String[]{"logprob", "ppl", "ppl1"});
-        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
-                new String[]{"logprob", "ppl", "ppl1"});
-        
+//COMMENTED OUT FOR MTM        
+//        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
+//                new String[]{"logprob", "ppl", "ppl1"});
+//        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
+//                new String[]{"logprob", "ppl", "ppl1"});
+//        
       
           FileModel fm = new FileModel(sourceFile,
                 resourceManager.getString(sourceLang + ".corpus"));
         
          // FileModel fm = new FileModel(sourceFile,
            //     resourceManager.getString("source" + ".corpus"));
-        
-        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
-        String targetPosOutput = runPOS(targetFile, targetLang, "target");
 
-        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
-        System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
-        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
-                new String[]{"poslogprob", "posppl", "posppl1"});
+//COMMENTED OUT FOR MTM          
+//        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
+//        String targetPosOutput = runPOS(targetFile, targetLang, "target");
+
+//COMMENTED OUT FOR MTM
+//        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
+//        System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
+//        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
+//                new String[]{"poslogprob", "posppl", "posppl1"});
 
         loadGiza();
-        processNGrams();
+//COMMENTED OUT FOR MTM      
+//        processNGrams();
        boolean gl = false; 
             String temp0 = resourceManager.getString("GL");
             if (temp0.equals("1")) {
@@ -635,15 +643,17 @@ public class FeatureExtractorSimple{
                 bp = true ;
             }
 
-            BParserProcessor sourceParserProcessor = null;
-             BParserProcessor targetParserProcessor = null;
-             
-          if (bp) {
-            sourceParserProcessor = new BParserProcessor();
-            targetParserProcessor = new BParserProcessor();
-            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
-            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
-          }
+//COMMENTED OUT FOR MTM        	  
+//            BParserProcessor sourceParserProcessor = null;
+//             BParserProcessor targetParserProcessor = null;
+//             
+//          if (bp) {
+//COMMENTED OUT FOR MTM        	  
+//            sourceParserProcessor = new BParserProcessor();
+//            targetParserProcessor = new BParserProcessor();
+//            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
+//            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
+//          }
    // } 
     
     
@@ -667,15 +677,15 @@ public class FeatureExtractorSimple{
           }
             /* END: Added by Raphael Rubino for the Topic Model Features
             */ 
-    
-            if (posSourceExists) {
-                posSourceProc = new POSProcessor(sourcePosOutput);
-                posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
-            }
-            if (posTargetExists) {
-                posTargetProc = new POSProcessor(targetPosOutput);
-                posTarget = new BufferedReader(new InputStreamReader(new FileInputStream(targetPosOutput)));
-            }
+//COMMENTED OUT FOR MTM    
+//            if (posSourceExists) {
+//                posSourceProc = new POSProcessor(sourcePosOutput);
+//                posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
+//            }
+//            if (posTargetExists) {
+//                posTargetProc = new POSProcessor(targetPosOutput);
+//                posTarget = new BufferedReader(new InputStreamReader(new FileInputStream(targetPosOutput)));
+//            }
             ResourceManager.printResources();
             Sentence sourceSent;
             Sentence targetSent;
@@ -761,18 +771,20 @@ public class FeatureExtractorSimple{
                 if (posTargetExists) {
                     posTargetProc.processSentence(targetSent);
                 }
-                sourceSent.computeNGrams(3);
-                targetSent.computeNGrams(3);
-                pplProcSource.processNextSentence(sourceSent);
-                pplProcTarget.processNextSentence(targetSent);
-                pplPosTarget.processNextSentence(targetSent);
+//COMMENTED OUT FOR MTM                
+//                sourceSent.computeNGrams(3);
+//                targetSent.computeNGrams(3);
+//                pplProcSource.processNextSentence(sourceSent);
+//                pplProcTarget.processNextSentence(targetSent);
+//COMMENTED OUT FOR MTM                
+//                pplPosTarget.processNextSentence(targetSent);
              
                    //lefterav: Parse code here
-        
-                if(bp){
-                sourceParserProcessor.processNextSentence(sourceSent);
-            	targetParserProcessor.processNextSentence(targetSent);
-                }
+//COMMENTED OUT FOR MTM        
+//                if(bp){
+//                sourceParserProcessor.processNextSentence(sourceSent);
+//            	targetParserProcessor.processNextSentence(targetSent);
+//                }
                 
                 if(tm){
                 
@@ -968,36 +980,39 @@ public void run() {
 		//wlv.mt.features.coherence.Coherence coh = new wlv.mt.features.coherence.Coherence(
 		//		getTargetFile());
 
-		String pplSourcePath = resourceManager.getString("input")
-                + File.separator + sourceLang + File.separator + sourceFileName
-                + resourceManager.getString("tools.ngram.output.ext");
-        String pplTargetPath = resourceManager.getString("input")
-                + File.separator + targetLang + File.separator + targetFileName
-                + resourceManager.getString("tools.ngram.output.ext");
+//COMMENTED OUT FOR MTM		
+//		String pplSourcePath = resourceManager.getString("input")
+//                + File.separator + sourceLang + File.separator + sourceFileName
+//                + resourceManager.getString("tools.ngram.output.ext");
+//        String pplTargetPath = resourceManager.getString("input")
+//                + File.separator + targetLang + File.separator + targetFileName
+//                + resourceManager.getString("tools.ngram.output.ext");
+//
+//
+//        String pplPOSTargetPath = resourceManager.getString("input")
+//                + File.separator + targetLang + File.separator + targetFileName + PosTagger.getXPOS()
+//                + resourceManager.getString("tools.ngram.output.ext");
+//        runNGramPPL();
 
-
-        String pplPOSTargetPath = resourceManager.getString("input")
-                + File.separator + targetLang + File.separator + targetFileName + PosTagger.getXPOS()
-                + resourceManager.getString("tools.ngram.output.ext");
-        runNGramPPL();
-
-        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
-                new String[]{"logprob", "ppl", "ppl1"});
-        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
-                new String[]{"logprob", "ppl", "ppl1"});
+//        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
+//                new String[]{"logprob", "ppl", "ppl1"});
+//        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
+//                new String[]{"logprob", "ppl", "ppl1"});
 
         FileModel fm = new FileModel(sourceFile,
                 resourceManager.getString(sourceLang + ".corpus"));
         String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
         String targetPosOutput = runPOS(targetFile, targetLang, "target");
 
-        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
-        System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
-        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
-                new String[]{"poslogprob", "posppl", "posppl1"});
+//COMMENTED OUT FOR MTM        
+//        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
+//        System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
+//        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
+//                new String[]{"poslogprob", "posppl", "posppl1"});
 
         loadGiza();
-        processNGrams();
+//COMMENTED OUT FOR MTM        
+//        processNGrams();
 
 		try {
 			BufferedReader brSource = new BufferedReader(new FileReader(
@@ -1055,14 +1070,16 @@ public void run() {
 				}
 
 				
-				sourceSent.computeNGrams(3);
-				targetSent.computeNGrams(3);
+//COMMENTED OUT FOR MTM				
+//				sourceSent.computeNGrams(3);
+//				targetSent.computeNGrams(3);
 
-				pplProcSource.processNextSentence(sourceSent);
+//				pplProcSource.processNextSentence(sourceSent);
+//
+//				pplProcTarget.processNextSentence(targetSent);
 
-				pplProcTarget.processNextSentence(targetSent);
-
-				pplPosTarget.processNextSentence(targetSent);
+//COMMENTED OUT FOR MTM				
+//				pplPosTarget.processNextSentence(targetSent);
 
 //				coh.processNextSentence(targetSent);
 
