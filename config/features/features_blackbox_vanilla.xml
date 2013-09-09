@@ -38,7 +38,7 @@
     <feature class="shef.mt.features.impl.bb.Feature1056" description="average trigram frequency in quartile 3 of frequency (lower frequency words) in the corpus of the source sentence" index="1056"/>
     <feature class="shef.mt.features.impl.bb.Feature1057" description="average trigram frequency in quartile 4 of frequency (lower frequency words) in the corpus of the source sentence" index="1057"/>
     <feature class="shef.mt.features.impl.bb.Feature1058" description="percentage of distinct unigrams seen in the corpus (in all quartiles)" index="1058"/>
-    <feature class="shef.mt.features.impl.bb.Feature1059" description=" percentage of distinct bigrams seen in the corpus (in all quartiles)" index="1059"/>
+    <feature class="shef.mt.features.impl.bb.Feature1059" description="percentage of distinct bigrams seen in the corpus (in all quartiles)" index="1059"/>
     <feature class="shef.mt.features.impl.bb.Feature1060" description="percentage of distinct trigrams seen in the corpus (in all quartiles)" index="1060"/>
     <feature class="shef.mt.features.impl.bb.Feature1061" description="average word frequency: on average, each type (unigram) in the source sentence appears x times in the corpus (in all quartiles)" index="1061"/>
     <feature class="shef.mt.features.impl.bb.Feature1062" description="absolute difference between number of periods in source and target" index="1062"/>
