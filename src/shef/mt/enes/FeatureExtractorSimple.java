@@ -27,6 +27,7 @@ import org.apache.commons.cli.*;
 import java.io.*;
 
 import shef.mt.features.impl.Feature;
+import shef.mt.tools.TerminologyProcessor;
 
 /**
  * FeatureExtractor extracts Glassbox and/or Blackbox features from a pair of
@@ -576,6 +577,10 @@ public class FeatureExtractorSimple{
                 + File.separator + targetLang + File.separator + targetFileName + PosTagger.getXPOS()
                 + resourceManager.getString("tools.ngram.output.ext");
         runNGramPPL();
+        
+        TerminologyProcessor termProc = new TerminologyProcessor();
+        termProc.initialize(resourceManager, featureManager);
+        
 
 //COMMENTED OUT FOR MTM        
 //        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
@@ -764,7 +769,7 @@ public class FeatureExtractorSimple{
                
                 
                 
-                
+                termProc.processNextSentence(targetSent);
                 if (posSourceExists) {
                     posSourceProc.processSentence(sourceSent);
                 }

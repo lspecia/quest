@@ -1,0 +1,9 @@
+2013/09/10 15:18:58
+Output file /home/carol/quest/input/test/english/source.en.tok already exists. Tokenizer will not run
+Output file /home/carol/quest/input/test/spanish/target.es.tok already exists. Tokenizer will not run
+Building the word model for the input file
+122 words identified. Computing frequencies... 
+initiating Giza from file: ./lang_resources/giza/lex.e2s
+Loading Giza...
+Giza loaded in 2.2 sec
+processing completed in 7 sec

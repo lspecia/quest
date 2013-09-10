@@ -14,3 +14,8 @@ project.properties
 
 # Python bytecode
 *.pyc
+
+lang_resources/
+output/
+build/
+terms.txt

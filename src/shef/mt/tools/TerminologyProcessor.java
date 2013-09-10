@@ -26,13 +26,14 @@ public class TerminologyProcessor extends ResourceProcessor {
 		// TODO Auto-generated method stub
 		int value = 0;
 		String[] sentence_text = sentence.getTokens();
-		
+            
 		for (String token:sentence_text){
 			if (termLexicon.contains(token)){
 				value++;
 			}
-			sentence.setValue("terminology", value);
+			
 		}
+                sentence.setValue("terminology", value);
 		
 	}
 
