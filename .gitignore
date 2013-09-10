@@ -15,7 +15,26 @@ project.properties
 # Python bytecode
 *.pyc
 
+<<<<<<< HEAD
+#idea project files
+*.iml
+.idea/
+out/
+quest.properties
+quest.xml
+
+#other stuff
+jie_*
+.eric4project/
+.ropeproject/
+__init__.py
+*.e4p
+log.txt
+
+#do not store local path
+config/config_en-es.properties
+
 lang_resources/
-output/
 build/
+output/
 terms.txt
