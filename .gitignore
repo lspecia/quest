@@ -26,3 +26,9 @@ quest.xml
 jie_*
 output/
 lang_resources/
+
+#eric files
+*.e4p
+__init__.py
+.ropeproject/
+.eric4project/
