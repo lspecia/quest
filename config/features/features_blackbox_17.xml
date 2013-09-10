@@ -17,4 +17,5 @@
     <disabledfeature class="shef.mt.features.impl.bb.Feature1058" description="percentage of unigrams in the source sentence seen in a corpus (SMT training corpus)" index="1058"/>
     <feature class="shef.mt.features.impl.bb.Feature1074" description="number of punctuation marks in the source sentence" index="1074"/>
     <feature class="shef.mt.features.impl.bb.Feature1075" description="number of punctuation marks in the target sentence" index="1075"/>
+    <feature class="shef.mt.features.impl.bb.Feature9987" description="number of punctuation marks in the target sentence" index="9987"/>
 </features>

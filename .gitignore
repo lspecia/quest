@@ -15,6 +15,7 @@ project.properties
 # Python bytecode
 *.pyc
 
+<<<<<<< HEAD
 #idea project files
 *.iml
 .idea/
@@ -24,8 +25,6 @@ quest.xml
 
 #other stuff
 jie_*
-output/
-lang_resources/
 .eric4project/
 .ropeproject/
 __init__.py
@@ -35,3 +34,6 @@ log.txt
 #do not store local path
 config/config_en-es.properties
 
+lang_resources/
+build/
+output/

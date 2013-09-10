@@ -13,7 +13,8 @@ public class Feature9987 extends Feature {
 
 	@Override
 	public void run(Sentence source, Sentence target) {
-		setValue(new Float((Integer) source.getValue("terminology")));
+                Integer qualityValue = (Integer) source.getValue("terminology");
+		setValue(new Float(qualityValue));
 
 	}
 
