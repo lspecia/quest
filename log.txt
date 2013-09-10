@@ -1,0 +1,59 @@
+2013/09/10 15:17:32
+Transforming the input to true case...
+Executing: java.lang.UNIXProcess@54088e9b
+Tokenizing the input...
+Executing: java.lang.UNIXProcess@70f00513
+Finished tokenising in 0.796 sec
+Transforming the input to true case...
+Executing: java.lang.UNIXProcess@6fa053d5
+Tokenizing the input...
+Executing: java.lang.UNIXProcess@78d59861
+Finished tokenising in 1.298 sec
+Running ngram for computing perplexities on input file:/home/jie/work/quest/input/test/english/source.en.tok with lm file: ./lang_resources/english/lm.nc.en
+Executing: /home/jie/tools/srilm/bin/i686-m64/ngram -lm ./lang_resources/english/lm.nc.en -order 3 -debug 1 -ppl /home/jie/work/quest/input/test/english/source.en.tok > /home/jie/work/quest/input/test/english/source.en.tok.ppl
+Finished computing perplexities in 1.231 sec
+Running ngram for computing perplexities on input file:/home/jie/work/quest/input/test/spanish/target.es.tok with lm file: ./lang_resources/spanish/lm.nc.es
+Executing: /home/jie/tools/srilm/bin/i686-m64/ngram -lm ./lang_resources/spanish/lm.nc.es -order 3 -debug 1 -ppl /home/jie/work/quest/input/test/spanish/target.es.tok > /home/jie/work/quest/input/test/spanish/target.es.tok.ppl
+Finished computing perplexities in 1.151 sec
+Building the word model for the input file
+122 words identified. Computing frequencies... 
+***********Initiating PosTagger***************
+PosTagger parameters: type=source name:shef.mt.tools.PosTreeTagger
+Executable: /home/jie/tools/tree-tagger/cmd/tree-tagger-english
+Input: /home/jie/work/quest/input/test/english/source.en.tok
+Output: /home/jie/work/quest/input/test/english/source.en.tok.pos
+Running TreeTagger...
+TreeTagger exited with exit value 0
+TreeTagger completed in 0.379 sec
+***********Initiating PosTagger***************
+PosTagger parameters: type=target name:shef.mt.tools.PosTreeTagger
+Executable: /home/jie/tools/tree-tagger/cmd/tree-tagger-spanish-utf8
+Input: /home/jie/work/quest/input/test/spanish/target.es.tok
+Output: /home/jie/work/quest/input/test/spanish/target.es.tok.pos
+Running TreeTagger...
+TreeTagger exited with exit value 0
+TreeTagger completed in 0.168 sec
+Running ngram for computing perplexities on input file:/home/jie/work/quest/input/test/spanish/target.es.tok.pos.XPOS with lm file: ./lang_resources/spanish/pos_lm.es
+Executing: /home/jie/tools/srilm/bin/i686-m64/ngram -lm ./lang_resources/spanish/pos_lm.es -order 3 -debug 1 -ppl /home/jie/work/quest/input/test/spanish/target.es.tok.pos.XPOS > /home/jie/work/quest/input/test/spanish/target.es.tok.pos.XPOS.ppl
+Finished computing perplexities in 0.026 sec
+initiating Giza from file: ./lang_resources/giza/lex.e2s
+Loading Giza...
+Giza loaded in 3.373 sec
+Loading language model...
+Cut-off frequencies:
+0-grams:
+quartile 1: 3
+quartile 2: 10
+quartile 3: 51
+quartile 4: 3099839
+1-grams:
+quartile 1: 2
+quartile 2: 4
+quartile 3: 10
+quartile 4: 1605986
+2-grams:
+quartile 1: 2
+quartile 2: 3
+quartile 3: 6
+quartile 4: 75416
+Language model loaded in 13.177 sec

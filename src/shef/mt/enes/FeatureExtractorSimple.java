@@ -326,7 +326,7 @@ public class FeatureExtractorSimple{
     private static void runNGramPPL() {
         // required by BB features 8-13
         NGramExec nge = new NGramExec(
-                resourceManager.getString("tools.ngram.path"));
+                resourceManager.getString("tools.ngram.path"), forceRun);
         System.out.println("runNgramPPL");
         File f = new File(sourceFile);
         String sourceOutput = input
