@@ -26,3 +26,12 @@ quest.xml
 jie_*
 output/
 lang_resources/
+.eric4project/
+.ropeproject/
+__init__.py
+*.e4p
+log.txt
+
+#do not store local path
+config/config_en-es.properties
+
