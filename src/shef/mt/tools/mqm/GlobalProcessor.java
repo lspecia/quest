@@ -6,5 +6,5 @@ package shef.mt.tools.mqm;
  * @date 9/11/13
  */
 public interface GlobalProcessor {
-    public void globalProcessing(MQMManager mqmManager);
+    public void globalProcessing(String context);
 }

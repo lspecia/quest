@@ -1,26 +1,16 @@
-<<<<<<< HEAD
-2013/09/10 15:55:06
+2013/09/11 17:44:04
 Transforming the input to true case...
-Executing: java.lang.UNIXProcess@2370b383
+Executing: java.lang.UNIXProcess@29f01381
 Tokenizing the input...
-Executing: java.lang.UNIXProcess@62a16977
-Finished tokenising in 0.754 sec
+Executing: java.lang.UNIXProcess@124c7f7d
+Finished tokenising in 0.651 sec
 Transforming the input to true case...
-Executing: java.lang.UNIXProcess@52fad2a1
+Executing: java.lang.UNIXProcess@1f58ff73
 Tokenizing the input...
-Executing: java.lang.UNIXProcess@beae719
-Finished tokenising in 1.391 sec
-=======
-2013/09/10 16:09:46
-Output file /home/carol/quest/input/test/english/source.en.tok already exists. Tokenizer will not run
-Output file /home/carol/quest/input/test/spanish/target.es.tok already exists. Tokenizer will not run
->>>>>>> 2bb5587e3ab129911fffe40a5356e6b1048defbd
+Executing: java.lang.UNIXProcess@30f687a3
+Finished tokenising in 1.2 sec
 Building the word model for the input file
 122 words identified. Computing frequencies... 
 initiating Giza from file: ./lang_resources/giza/lex.e2s
 Loading Giza...
-<<<<<<< HEAD
-Giza loaded in 3.339 sec
-=======
-Giza loaded in 2.295 sec
->>>>>>> 2bb5587e3ab129911fffe40a5356e6b1048defbd
+Giza loaded in 2.929 sec

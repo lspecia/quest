@@ -27,7 +27,6 @@ public class MQMManager {
 
     private boolean isInitialized = false;
     private PropertiesManager propertiesManager = null;
-    private ResourceManager resourceManager = null;
     private List<GlobalProcessor> globalProcessors = new ArrayList<GlobalProcessor>();
     private List<ResourceProcessor> srcResourceProcessors = new ArrayList<ResourceProcessor>();
     private List<ResourceProcessor> trgResourceProcessors = new ArrayList<ResourceProcessor>();
@@ -44,14 +43,11 @@ public class MQMManager {
     /**
      * Initialize resources and processors that has been config, and register them in Resource Manager
      * @param propertiesManager
-     * @param resourceManager
      * @return
      */
-    public boolean initialize(PropertiesManager propertiesManager, ResourceManager resourceManager) {
+    public boolean initialize(PropertiesManager propertiesManager) {
         assert propertiesManager != null;
-        assert resourceManager != null;
         this.propertiesManager = propertiesManager;
-        this.resourceManager = resourceManager;
         //this.configurables = new ArrayList<Configurable>();
         //read the config and initialize those resources and processors that has been config
         //TODO; only initialize the resources and processors by reflection from the feature sets, has to change the framework to start
@@ -61,12 +57,11 @@ public class MQMManager {
 
             //slang dict only for the target
             SlangDictionary trgSlangDict = new SlangDictionary(trgLang);
-            if (trgSlangDict.isConfigured(this)) {
-                trgSlangDict.load(this);
-                trgSlangDict.register(this);
+            if (trgSlangDict.isConfigured(propertiesManager)) {
+                trgSlangDict.load(propertiesManager);
+                trgSlangDict.register();
                 VariantsSlangProcessor p1 = new VariantsSlangProcessor(trgSlangDict);
                 this.trgResourceProcessors.add(p1);
-                this.globalProcessors.add(p1);
             }
 
             //other features
@@ -81,8 +76,8 @@ public class MQMManager {
 
     public void globalProcessing() {
         for (GlobalProcessor processor : globalProcessors) {
-            processor.globalProcessing(this);
-        }
+            processor.globalProcessing("dummy");
+    }
     }
 
     public boolean isInitialized() {
@@ -99,5 +94,9 @@ public class MQMManager {
         for (ResourceProcessorTwoSentences processor : srcTrgResourceProcessors) {
             processor.processNextParallelSentences(source, target);
         }
+    }
+
+    public String getConfig(String key) {
+        return propertiesManager.getProperty(key);
     }
 }
