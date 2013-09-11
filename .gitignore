@@ -37,3 +37,4 @@ config/config_en-es.properties
 lang_resources/
 build/
 output/
+terms.txt

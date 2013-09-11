@@ -3,7 +3,7 @@
     <feature class="shef.mt.features.impl.bb.Feature1001" description="number of tokens in the source sentence" index="1001"/>
     <feature class="shef.mt.features.impl.bb.Feature1002" description="number of tokens in the target sentence" index="1002"/>
     <feature class="shef.mt.features.impl.bb.Feature1006" description="average source token length" index="1006"/>
-    <feature class="shef.mt.features.impl.bb.Feature1009" description="LM probability of source sentence" index="1009"/>
+    <disabledfeature class="shef.mt.features.impl.bb.Feature1009" description="LM probability of source sentence" index="1009"/>
     <disabledfeature class="shef.mt.features.impl.bb.Feature1012" description="LM probability of target sentence" index="1012"/>
     <feature class="shef.mt.features.impl.bb.Feature1015" description="number of occurrences of the target word within the target hypothesis (averaged for all words in the hypothesis - type/token ratio)" index="1015"/>
     <feature class="shef.mt.features.impl.bb.Feature1022" description="average number of translations per source word in the sentence (as given by IBM 1 table thresholded so that prob(t|s) > 0.2)" index="1022"/>
