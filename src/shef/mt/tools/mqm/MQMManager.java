@@ -74,10 +74,11 @@ public class MQMManager {
         return true;
     }
 
-    public void globalProcessing() {
+    public void globalProcessing(Context context) {
+        context.checkContext();
         for (GlobalProcessor processor : globalProcessors) {
-            processor.globalProcessing("dummy");
-    }
+            processor.globalProcessing(context);
+        }
     }
 
     public boolean isInitialized() {
@@ -94,9 +95,5 @@ public class MQMManager {
         for (ResourceProcessorTwoSentences processor : srcTrgResourceProcessors) {
             processor.processNextParallelSentences(source, target);
         }
-    }
-
-    public String getConfig(String key) {
-        return propertiesManager.getProperty(key);
     }
 }

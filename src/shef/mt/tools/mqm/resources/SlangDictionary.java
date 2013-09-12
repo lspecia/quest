@@ -12,6 +12,9 @@ import java.util.Set;
 
 /**
  * monolingual slang dict
+ * The current english resource was downloaded from http://www.noslang.com/dictionary/
+ * More resources for different languages should follow.
+ *
  * @author <a href="mailto:mail.jie.jiang@gmail.com">Jie Jiang</a>
  * @date 9/11/13
  */

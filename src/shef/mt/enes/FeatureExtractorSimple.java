@@ -2,6 +2,7 @@ package shef.mt.enes;
 
 
 
+import shef.mt.tools.mqm.Context;
 import shef.mt.tools.mqm.MQMManager;
 import shef.mt.xmlwrap.MOSES_XMLWrapper;
 import shef.mt.util.PropertiesManager;
@@ -621,7 +622,10 @@ public class FeatureExtractorSimple{
 
         //MQM kicks in
         MQMManager.getInstance().initialize(resourceManager);
-        MQMManager.getInstance().globalProcessing();
+        Context context = new Context();
+        context.setSourceFilePath(sourceFile);
+        context.setTargetFilePath(targetFile);
+        MQMManager.getInstance().globalProcessing(context);
 
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
