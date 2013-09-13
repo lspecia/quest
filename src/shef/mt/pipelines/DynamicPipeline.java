@@ -46,12 +46,17 @@ public class DynamicPipeline extends ResourcePipeline {
 				}
 			}
 		}
+		
+		System.err.println("Available processors: " + resourceProcessors);
 		for (ResourceProcessor resourceProcessor : resourceProcessors) {
 			String resourceName = resourceProcessor.getName();
 			if (requiredResourceNames.contains(resourceName)) {
 				matchedResources.add(resourceProcessor);
+			} else {
+				System.err.println("Resource "+resourceName+" is not going to be run because it is not needed");
 			}
 		}
+		System.err.println("Resources that will run: "+ matchedResources);
 		initialize_resources(matchedResources, propertiesManager, featureManager);
 
 		/**

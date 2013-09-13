@@ -38,9 +38,10 @@ public class ResourcePipeline {
 	 * @param propertiesManager: initialized PropertiesManager object that contains all the parameters specified in the properties file
 	 * @param featureManager
      * */
-    public void initialize_resources(ArrayList<ResourceProcessor> res, 
+    public void initialize_resources(ArrayList<ResourceProcessor> resourceProcessors, 
 						    		 PropertiesManager propertiesManager, FeatureManager featureManager) {
-    	for (ResourceProcessor resource:res){
+    	for (ResourceProcessor resource:resourceProcessors){
+    		System.err.println("Initializing processor "+resource);
         	resource.initialize(propertiesManager, featureManager);
         	}
     }
