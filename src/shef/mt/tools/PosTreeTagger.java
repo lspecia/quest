@@ -48,11 +48,13 @@ public class PosTreeTagger extends PosTagger {
             //BufferedReader brIn = new BufferedReader(new InputStreamReader(new FileInputStream(input), "UTF8"));
             BufferedWriter bw = new BufferedWriter(new FileWriter(output));
             BufferedWriter bwXPos = new BufferedWriter(new FileWriter(output + getXPOS()));
+            BufferedWriter bwPosLemm = new BufferedWriter(new FileWriter(output + getXPOS()+".lemm"));
             BufferedReader brOut = new BufferedReader(new InputStreamReader(stdout));
             String[] split;
             String inputLine;
             String line = "";
             int tokCount = 0;
+            
             //int lineCount = 0;
 
             String completeLine;
@@ -77,11 +79,13 @@ public class PosTreeTagger extends PosTagger {
                     //System.in.read();
 
                     bwXPos.write(split[1] + " ");
+                    bwPosLemm.write(split[0] + "_" + split[1] + "_" + split[2] + " ");
                     bw.write(line);
                     bw.newLine();
                 }
 
                 bwXPos.newLine();
+                bwPosLemm.newLine();
                //if (line != null){ 
                 bw.write(line);
                 
@@ -92,6 +96,7 @@ public class PosTreeTagger extends PosTagger {
            // bw.flush();
             bw.close();
             bwXPos.close();
+            bwPosLemm.close();
 
             BufferedReader brCleanUp = new BufferedReader(new InputStreamReader(stderr));
             while ((line = brCleanUp.readLine()) != null) {
