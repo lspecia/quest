@@ -585,11 +585,11 @@ public class FeatureExtractorSimple{
         termProc.initialize(resourceManager, featureManager);
         
         //discourse features
-        DiscourseRepetition discRepTarget = new DiscourseRepetition();
-        discRepTarget.initialize(resourceManager, featureManager, "target");
+        //DiscourseRepetition discRepTarget = new DiscourseRepetition();
+        //discRepTarget.initialize(resourceManager, featureManager, "target");
         
-        DiscourseRepetition discRepSource = new DiscourseRepetition();
-        discRepSource.initialize(resourceManager, featureManager, "source");
+        //DiscourseRepetition discRepSource = new DiscourseRepetition();
+        //discRepSource.initialize(resourceManager, featureManager, "source");
 
 //COMMENTED OUT FOR MTM
 //        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
@@ -794,10 +794,10 @@ public class FeatureExtractorSimple{
 
 
 
-                termProc.processNextSentence(targetSent);
+                termProc.processNextSentence(sourceSent, targetSent);
                 
-                discRepTarget.processNextSentence(targetSent);
-                discRepSource.processNextSentence(sourceSent);
+                //discRepTarget.processNextSentence(targetSent);
+                //discRepSource.processNextSentence(sourceSent);
                 
                 if (posSourceExists) {
                     posSourceProc.processSentence(sourceSent);
