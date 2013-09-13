@@ -29,6 +29,7 @@ import org.apache.commons.cli.*;
 import java.io.*;
 
 import shef.mt.features.impl.Feature;
+import shef.mt.tools.DiscourseRepetition;
 import shef.mt.tools.TerminologyProcessor;
 
 /**
@@ -582,7 +583,13 @@ public class FeatureExtractorSimple{
 
         TerminologyProcessor termProc = new TerminologyProcessor();
         termProc.initialize(resourceManager, featureManager);
-
+        
+        //discourse features
+        DiscourseRepetition discRepTarget = new DiscourseRepetition();
+        discRepTarget.initialize(resourceManager, featureManager, "target");
+        
+        DiscourseRepetition discRepSource = new DiscourseRepetition();
+        discRepSource.initialize(resourceManager, featureManager, "source");
 
 //COMMENTED OUT FOR MTM
 //        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
@@ -788,6 +795,10 @@ public class FeatureExtractorSimple{
 
 
                 termProc.processNextSentence(targetSent);
+                
+                discRepTarget.processNextSentence(targetSent);
+                discRepSource.processNextSentence(sourceSent);
+                
                 if (posSourceExists) {
                     posSourceProc.processSentence(sourceSent);
                 }
