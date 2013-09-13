@@ -13,6 +13,9 @@ package shef.mt.enes;
 import javax.swing.*;
 import java.util.*;
 import javax.swing.table.*;
+
+import shef.mt.extractor.FeatureExtractor;
+
 import java.io.*;
 
 /**

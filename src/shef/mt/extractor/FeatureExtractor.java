@@ -1,4 +1,4 @@
-package shef.mt.enes;
+package shef.mt.extractor;
 
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
@@ -411,35 +411,6 @@ public class FeatureExtractor {
             f.mkdir();
             System.out.println("folder created " + f.getPath());
         }
-
-/**
-         f = new File(input + File.separator + targetLang + File.separator + "temp");
-         if (!f.exists()) {
-         f.mkdir();
-         System.out.println("folder created " + f.getPath());
-         }
-
-
-         f = new File(input + File.separator + "systems");
-         if (!f.exists()) {
-         f.mkdir();
-         System.out.println("folder created " + f.getPath());
-         }
-
-         f = new File(input + File.separator + "systems" + File.separator
-         + "IBM");
-         if (!f.exists()) {
-         f.mkdir();
-         System.out.println("folder created " + f.getPath());
-         }
-
-         f = new File(input + File.separator + "systems" + File.separator
-         + "MOSES");
-         if (!f.exists()) {
-         f.mkdir();
-         System.out.println("folder created " + f.getPath());
-         }
-*/
         
         String output = resourceManager.getString("output");
         f = new File(output);
@@ -530,31 +501,7 @@ public class FeatureExtractor {
             BufferedReader brTarget = new BufferedReader(new FileReader(
                     targetFile));
             BufferedWriter output = new BufferedWriter(new FileWriter(out));
-            BufferedReader posSource = null;
-            BufferedReader posTarget = null;
-            boolean posSourceExists = ResourceManager
-                    .isRegistered("sourcePosTagger");
-            boolean posTargetExists = ResourceManager
-                    .isRegistered("targetPosTagger");
-            //POSProcessor posSourceProc = null;
-            //POSProcessor posTargetProc = null;
-            
-            //lefterav: Berkeley parser modifications start here
-            //Check if user has defined the grammar files for source 
-            //and target language
-        
-//bparser removed 
-            
-//			if (posSourceExists) {
-//				posSourceProc = new POSProcessor(sourcePosOutput);
-//				 posSource = new BufferedReader(new InputStreamReader(new
-//				 FileInputStream(sourcePosOutput), "utf-8"));
-//			}
-//			if (posTargetExists) {
-//				posTargetProc = new POSProcessor(targetPosOutput);
-//				 posTarget = new BufferedReader(new InputStreamReader(new
-//				 FileInputStream(targetPosOutput)));
-//			}
+
             ResourceManager.printResources();
             Sentence sourceSent;
             Sentence targetSent;
@@ -563,60 +510,40 @@ public class FeatureExtractor {
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
 	    
-//topic removed
 
             ResourcePipeline defaultPipeline = new DynamicPipeline(resourceManager, featureManager);
-            //read in each line from the source and target files
-            //create a sentence from each
-            //process each sentence
-            //run the features on the sentences
+            
             while ((lineSource != null) && (lineTarget != null)) {
             	System.out.println(lineSource+lineTarget);
-                //lineSource = lineSource.trim().substring(lineSource.indexOf(" ")).replace("+", "");
-                sourceSent = new Sentence(lineSource, sentCount);
+            
+            	//create sentence object for source and target sentences
+            	sourceSent = new Sentence(lineSource, sentCount);
                 targetSent = new Sentence(lineTarget, sentCount);
-
-                //System.out.println("Processing sentence "+sentCount);
-                //System.out.println("SOURCE: " + sourceSent.getText());
-                //System.out.println("TARGET: " + targetSent.getText());
-                //if (posSourceExists) {
-                //    posSourceProc.processSentence(sourceSent);
-                //}
-                //if (posTargetExists) {
-                //    posTargetProc.processSentence(targetSent);
-                //}
-                
-           // modified by Kashif
-                
+        
+                //TODO: this should be moved into a resourceprocessor at some place
                 ngramSize = Integer.parseInt(resourceManager.getString("ngramsize"));
-                
                 sourceSent.computeNGrams(ngramSize);
                 targetSent.computeNGrams(ngramSize);
-                //pplProcSource.processNextSentence(sourceSent);
-                //pplProcTarget.processNextSentence(targetSent);
             	
+                //ask the features what resources they need
                 Set<String> resourceNames = featureManager.getStrResources();                
                 
-                System.out.println("---before---");
+                //dynamic pipeline will run process sentences only with the required processors
                 defaultPipeline.processSentence(sourceSent, resourceNames);
                 defaultPipeline.processSentence(targetSent, resourceNames);
-                System.out.println("---after---");
                 
-                
-//                                pplPosTarget.processNextSentence(targetSent);
                 ++sentCount;
+                
+                //run features and print the result
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
                 output.newLine();
+                
+                //go to the next line
                 lineSource = brSource.readLine();
                 lineTarget = brTarget.readLine();
             }
-            //if (posSource != null) {
-            //    posSource.close();
-            //}
-            //if (posTarget != null) {
-            //    posTarget.close();
-            //}
-
+            
+            //close filess
             brSource.close();
             brTarget.close();
             output.close();
