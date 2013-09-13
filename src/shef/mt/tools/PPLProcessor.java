@@ -23,7 +23,7 @@ public class PPLProcessor extends ResourceProcessor {
     BufferedReader br;
     String[] valNames;
     String pplFile;
-    private static String ngramOutputExt = ".ppl";
+    private static String ngramOutputExt = ".tok.ppl";
     public String resourceName = "ppl";
     
     
