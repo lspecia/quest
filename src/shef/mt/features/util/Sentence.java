@@ -172,6 +172,10 @@ public class Sentence {
         return tokens;
     }
 
+    public String[] getTags() {
+        return tags;
+    }
+    
     public int getNoTokens() {
         return tokens.length;
     }
