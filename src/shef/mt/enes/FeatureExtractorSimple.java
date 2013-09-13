@@ -16,7 +16,7 @@ import shef.mt.tools.MTOutputProcessor;
 import shef.mt.tools.Tokenizer;
 import shef.mt.tools.Giza;
 import shef.mt.tools.TopicDistributionProcessor;
-//import shef.mt.tools.BParserProcessor;
+import shef.mt.tools.BParserProcessor;
 //import shef.mt.tools.NGramProcessor;
 //import shef.mt.tools.PPLProcessor;
 import shef.mt.tools.PosTagger;
@@ -598,8 +598,8 @@ public class FeatureExtractorSimple{
            //     resourceManager.getString("source" + ".corpus"));
 
 //COMMENTED OUT FOR MTM
-//        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
-//        String targetPosOutput = runPOS(targetFile, targetLang, "target");
+        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
+        String targetPosOutput = runPOS(targetFile, targetLang, "target");
 
 //COMMENTED OUT FOR MTM
 //        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
@@ -632,6 +632,11 @@ public class FeatureExtractorSimple{
                     sourceFile));
             BufferedReader brTarget = new BufferedReader(new FileReader(
                     targetFile));
+            BufferedReader brPosSource = new BufferedReader(new FileReader(
+                    sourcePosOutput+".XPOS.lemm"));
+            BufferedReader brPosTarget = new BufferedReader(new FileReader(
+                    targetPosOutput+".XPOS.lemm"));
+
             BufferedWriter output = new BufferedWriter(new FileWriter(out));
             BufferedReader posSource = null;
             BufferedReader posTarget = null;
@@ -691,15 +696,15 @@ public class FeatureExtractorSimple{
           }
             /* END: Added by Raphael Rubino for the Topic Model Features
             */
-//COMMENTED OUT FOR MTM
-//            if (posSourceExists) {
-//                posSourceProc = new POSProcessor(sourcePosOutput);
-//                posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
-//            }
-//            if (posTargetExists) {
-//                posTargetProc = new POSProcessor(targetPosOutput);
-//                posTarget = new BufferedReader(new InputStreamReader(new FileInputStream(targetPosOutput)));
-//            }
+            
+            if (posSourceExists) {
+                posSourceProc = new POSProcessor(sourcePosOutput);
+                posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
+            }
+            if (posTargetExists) {
+                posTargetProc = new POSProcessor(targetPosOutput);
+                posTarget = new BufferedReader(new InputStreamReader(new FileInputStream(targetPosOutput)));
+            }
             ResourceManager.printResources();
             Sentence sourceSent;
             Sentence targetSent;
@@ -707,6 +712,10 @@ public class FeatureExtractorSimple{
 
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
+				
+            String linePosSource = brPosSource.readLine();
+            String linePosTarget = brPosTarget.readLine();
+
 
              /**
              * Triggers (by David Langlois)
@@ -769,8 +778,8 @@ public class FeatureExtractorSimple{
             while ((lineSource != null) && (lineTarget != null)) {
 
                 //lineSource = lineSource.trim().substring(lineSource.indexOf(" ")).replace("+", "");
-                sourceSent = new Sentence(lineSource, sentCount);
-                targetSent = new Sentence(lineTarget, sentCount);
+                sourceSent = new Sentence(lineSource, linePosSource, sentCount);
+                targetSent = new Sentence(lineTarget, linePosTarget, sentCount);
 
          //       System.out.println("Processing sentence "+sentCount);
            //     System.out.println("SORCE: " + sourceSent.getText());
@@ -823,6 +832,9 @@ public class FeatureExtractorSimple{
                 output.newLine();
                 lineSource = brSource.readLine();
                 lineTarget = brTarget.readLine();
+                
+                linePosSource = brPosSource.readLine();
+                linePosTarget = brPosTarget.readLine();
             }
             if (posSource != null) {
                 posSource.close();
