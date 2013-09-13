@@ -60,12 +60,17 @@ public class PosTreeTagger extends PosTagger {
                 //lineCount++;
                 tokCount = inputLine.split("\\s+").length;
                 //System.out.println("LINE Nº: " + lineCount + " TOKENS: "+tokCount+" \nLINE: "+inputLine);
-                inputLine = inputLine.replaceAll("\\s+", "");
+                //tree-tagger removes the icelandic "þ", so this is a fix for words with it:
+                inputLine = inputLine.replaceAll("\\s+", "").replaceAll("þ", "");
                 completeLine = "";
-                while (completeLine.length() != inputLine.length() && (line = brOut.readLine()) != null) {
+                while (completeLine.length() < inputLine.length() && (line = brOut.readLine()) != null) {
                    // System.out.println("PROCESSED LINE: " + line);
                     split = line.split("\t");
                     completeLine = completeLine + split[0].replaceAll(" ", "");
+                    if (!inputLine.startsWith(completeLine) || completeLine.length() > inputLine.length()) {
+                        //throw new Exception("Failed to synchronize with tree-tagger's output on input line " + lineCount);
+                        throw new Exception("Failed to synchronize with tree-tagger's output");
+                    }
                  //   System.out.println("COMPLETE LINE: *" + completeLine + "*" + completeLine.length());
                    // System.out.println("FULL LINE    : *" + inputLine + "*" + inputLine.length());
                     //System.out.println("Press <Enter> to continue =)))");
