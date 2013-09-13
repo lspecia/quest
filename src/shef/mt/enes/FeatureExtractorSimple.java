@@ -2,6 +2,8 @@ package shef.mt.enes;
 
 
 
+import shef.mt.tools.mqm.Context;
+import shef.mt.tools.mqm.MQMManager;
 import shef.mt.xmlwrap.MOSES_XMLWrapper;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
@@ -564,7 +566,7 @@ public class FeatureExtractorSimple{
                 + ".out";
         String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
-        
+
         String pplSourcePath = resourceManager.getString("input")
                 + File.separator + sourceLang + File.separator + sourceFileName
                 + resourceManager.getString("tools.ngram.output.ext");
@@ -577,25 +579,25 @@ public class FeatureExtractorSimple{
                 + File.separator + targetLang + File.separator + targetFileName + PosTagger.getXPOS()
                 + resourceManager.getString("tools.ngram.output.ext");
         runNGramPPL();
-        
+
         TerminologyProcessor termProc = new TerminologyProcessor();
         termProc.initialize(resourceManager, featureManager);
-        
 
-//COMMENTED OUT FOR MTM        
+
+//COMMENTED OUT FOR MTM
 //        PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
 //                new String[]{"logprob", "ppl", "ppl1"});
 //        PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
 //                new String[]{"logprob", "ppl", "ppl1"});
-//        
-      
+//
+
           FileModel fm = new FileModel(sourceFile,
                 resourceManager.getString(sourceLang + ".corpus"));
-        
+
          // FileModel fm = new FileModel(sourceFile,
            //     resourceManager.getString("source" + ".corpus"));
 
-//COMMENTED OUT FOR MTM          
+//COMMENTED OUT FOR MTM
 //        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
 //        String targetPosOutput = runPOS(targetFile, targetLang, "target");
 
@@ -606,18 +608,25 @@ public class FeatureExtractorSimple{
 //                new String[]{"poslogprob", "posppl", "posppl1"});
 
         loadGiza();
-//COMMENTED OUT FOR MTM      
+//COMMENTED OUT FOR MTM
 //        processNGrams();
-       boolean gl = false; 
+       boolean gl = false;
             String temp0 = resourceManager.getString("GL");
             if (temp0.equals("1")) {
                 gl = true ;
             }
-        
+
         if (gl) {
          loadGlobalLexicon();
         }
-        
+
+        //MQM kicks in
+        MQMManager.getInstance().initialize(resourceManager);
+        Context context = new Context();
+        context.setSourceFilePath(sourceFile);
+        context.setTargetFilePath(targetFile);
+        MQMManager.getInstance().globalProcessing(context);
+
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
                     sourceFile));
@@ -632,41 +641,41 @@ public class FeatureExtractorSimple{
                     .isRegistered("targetPosTagger");
             POSProcessor posSourceProc = null;
             POSProcessor posTargetProc = null;
-            
-            
-            
-             
-          
+
+
+
+
+
             //lefterav: Berkeley parser modifications start here
-            //Check if user has defined the grammar files for source 
+            //Check if user has defined the grammar files for source
             //and target language
 
-           //   if ( ResourceManager.isRegistered("BParser")){   
-            boolean bp = false; 
+           //   if ( ResourceManager.isRegistered("BParser")){
+            boolean bp = false;
             String temp = resourceManager.getString("BP");
             if (temp.equals("1")) {
                 bp = true ;
             }
 
-//COMMENTED OUT FOR MTM        	  
+//COMMENTED OUT FOR MTM
 //            BParserProcessor sourceParserProcessor = null;
 //             BParserProcessor targetParserProcessor = null;
-//             
+//
 //          if (bp) {
-//COMMENTED OUT FOR MTM        	  
+//COMMENTED OUT FOR MTM
 //            sourceParserProcessor = new BParserProcessor();
 //            targetParserProcessor = new BParserProcessor();
 //            sourceParserProcessor.initialize(sourceFile, resourceManager, sourceLang);
-//            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);   
+//            targetParserProcessor.initialize(targetFile, resourceManager, targetLang);
 //          }
-   // } 
-    
-    
+   // }
+
+
      /**
             * BEGIN: Added by Raphael Rubino for the Topic Model Features
 	    */
-          
-          boolean tm = false; 
+
+          boolean tm = false;
             String temp1 = resourceManager.getString("TM");
             if (temp1.equals("1")) {
                 tm = true ;
@@ -678,11 +687,11 @@ public class FeatureExtractorSimple{
             String targetTopicDistributionFile = resourceManager.getString(targetLang + ".topic.distribution");
              sourceTopicDistributionProcessor = new TopicDistributionProcessor(sourceTopicDistributionFile, "sourceTopicDistribution");
              targetTopicDistributionProcessor = new TopicDistributionProcessor(targetTopicDistributionFile, "targetTopicDistribution");
-            
+
           }
             /* END: Added by Raphael Rubino for the Topic Model Features
-            */ 
-//COMMENTED OUT FOR MTM    
+            */
+//COMMENTED OUT FOR MTM
 //            if (posSourceExists) {
 //                posSourceProc = new POSProcessor(sourcePosOutput);
 //                posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
@@ -698,37 +707,37 @@ public class FeatureExtractorSimple{
 
             String lineSource = brSource.readLine();
             String lineTarget = brTarget.readLine();
-            
+
              /**
              * Triggers (by David Langlois)
              */
-            
-            boolean tr = false; 
+
+            boolean tr = false;
             String temp2 = resourceManager.getString("TR");
             if (temp2.equals("1")) {
                 tr = true ;
             }
-          
-            
+
+
             Triggers itl_target = null;
             TriggersProcessor itl_target_p = null;
             Triggers itl_source = null;
             TriggersProcessor itl_source_p = null;
             //TriggersProcessor itl_source_p = null;
             Triggers itl_source_target = null;
-            TriggersProcessor itl_source_target_p = null; 
-            
+            TriggersProcessor itl_source_target_p = null;
+
             if (tr){
-            
-              
-             itl_target = 
+
+
+             itl_target =
                     new Triggers(
                             resourceManager.getString("target.intra.triggers.file"),
                             Integer.parseInt(resourceManager.getString("nb.max.triggers.target.intra")),
                             resourceManager.getString("phrase.separator"));
              itl_target_p = new TriggersProcessor(itl_target);
 
-             itl_source = 
+             itl_source =
                     new Triggers(
                             resourceManager.getString("source.intra.triggers.file"),
                             Integer.parseInt(resourceManager.getString("nb.max.triggers.source.intra")),
@@ -736,22 +745,22 @@ public class FeatureExtractorSimple{
              itl_source_p = new TriggersProcessor(itl_source);
 
 
-             itl_source_target = 
+             itl_source_target =
                     new Triggers(
                             resourceManager.getString("source.target.inter.triggers.file"),
                             Integer.parseInt(resourceManager.getString("nb.max.triggers.source.target.inter")),
                             resourceManager.getString("phrase.separator"));
-             itl_source_target_p = 
+             itl_source_target_p =
                     new TriggersProcessor(itl_source_target);
-                    
+
             }
             /*
              * End modification for Triggers
              */
-            
-             
-	   
-	    
+
+
+
+
 
             //read in each line from the source and target files
             //create a sentence from each
@@ -766,9 +775,9 @@ public class FeatureExtractorSimple{
          //       System.out.println("Processing sentence "+sentCount);
            //     System.out.println("SORCE: " + sourceSent.getText());
              //   System.out.println("TARGET: " + targetSent.getText());
-               
-                
-                
+
+
+
                 termProc.processNextSentence(targetSent);
                 if (posSourceExists) {
                     posSourceProc.processSentence(sourceSent);
@@ -776,28 +785,28 @@ public class FeatureExtractorSimple{
                 if (posTargetExists) {
                     posTargetProc.processSentence(targetSent);
                 }
-//COMMENTED OUT FOR MTM                
+//COMMENTED OUT FOR MTM
 //                sourceSent.computeNGrams(3);
 //                targetSent.computeNGrams(3);
 //                pplProcSource.processNextSentence(sourceSent);
 //                pplProcTarget.processNextSentence(targetSent);
-//COMMENTED OUT FOR MTM                
+//COMMENTED OUT FOR MTM
 //                pplPosTarget.processNextSentence(targetSent);
-             
+
                    //lefterav: Parse code here
-//COMMENTED OUT FOR MTM        
+//COMMENTED OUT FOR MTM
 //                if(bp){
 //                sourceParserProcessor.processNextSentence(sourceSent);
 //            	targetParserProcessor.processNextSentence(targetSent);
 //                }
-                
+
                 if(tm){
-                
+
                 sourceTopicDistributionProcessor.processNextSentence(sourceSent);
                  targetTopicDistributionProcessor.processNextSentence(targetSent);
                 }
-                
-                
+
+
                   // modified by David
                 if(tr){
                 itl_source_p.processNextSentence(sourceSent);
@@ -805,7 +814,10 @@ public class FeatureExtractorSimple{
                 itl_source_target_p.processNextParallelSentences(sourceSent, targetSent);
                 }
                 // end modification by David
-                
+
+                //MQM kicks in
+                MQMManager.getInstance().processNextParallelSentences(sourceSent, targetSent);
+
                 ++sentCount;
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
                 output.newLine();
