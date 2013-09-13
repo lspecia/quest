@@ -4,7 +4,9 @@ import shef.mt.features.util.Sentence;
 import shef.mt.tools.ResourceManager;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.ResourceProcessorTwoSentences;
+import shef.mt.tools.mqm.core.fluency.inconsistency.AbbreviationsProcessor;
 import shef.mt.tools.mqm.core.fluency.register.VariantsSlangProcessor;
+import shef.mt.tools.mqm.resources.AbbreviationDictionary;
 import shef.mt.tools.mqm.resources.SlangDictionary;
 import shef.mt.util.PropertiesManager;
 
@@ -62,6 +64,15 @@ public class MQMManager {
                 trgSlangDict.register();
                 VariantsSlangProcessor p1 = new VariantsSlangProcessor(trgSlangDict);
                 this.trgResourceProcessors.add(p1);
+            }
+
+            //abbreviation
+            AbbreviationDictionary abbrevDict = new AbbreviationDictionary(trgLang);
+            if (abbrevDict.isConfigured(propertiesManager)) {
+                abbrevDict.load(propertiesManager);
+                abbrevDict.register();
+                AbbreviationsProcessor p2 = new AbbreviationsProcessor(abbrevDict);
+                this.trgResourceProcessors.add(p2);
             }
 
             //other features

@@ -13,7 +13,7 @@ intensa	ADJ	intenso
 y	CC	y
 bighearted	NC	<unknown>
 nuevo	ADJ	nuevo
-libro	VLfin	librar
+libro	NC	libro
 ,	CM	,
 "	QT	"
 la	ART	el
@@ -107,7 +107,7 @@ un	ART	un
 trabajo	NC	trabajo
 de	PREP	de
 anti-	NC	<unknown>
-historia	NC	historia
+historia	VLfin	historiar
 "	QT	"
 .	FS	.
 .	FS	.
@@ -122,7 +122,7 @@ ocurrido	VLadj	ocurrir
 ,	CM	,
 explica	VLfin	explicar
 ,	CM	,
-como	CSUBX	como
+como	ADV	como
 "	QT	"
 un	ART	un
 libro	NC	libro
@@ -169,7 +169,7 @@ de	PREP	de
 más	ADV	más
 o	CC	o
 menos	ADV	menos
-brille	NP	<unknown>
+brille	VLfin	brillar
 hombres	NC	hombre
 y	CC	y
 mujeres	NC	mujer
@@ -212,7 +212,7 @@ héroes	NC	héroe
 .	FS	.
 .	FS	.
 señor	NC	señor
-englund	ADJ	<unknown>
+englund	VLadj	<unknown>
 del	PDEL	del
 libro	NC	libro
 es	VSfin	ser
@@ -245,7 +245,7 @@ la	ART	el
 terrible	ADJ	terrible
 guerra	NC	guerra
 de	PREP	de
-trincheras	NC	<unknown>
+trincheras	NC	trinchera
 en	PREP	en
 el	ART	el
 frente	NC	frente

@@ -19,4 +19,6 @@
     <feature class="shef.mt.features.impl.bb.Feature1075" description="number of punctuation marks in the target sentence" index="1075"/>
     <feature class="shef.mt.features.impl.bb.Feature3001" description="number of slang words in target sentence" index="3001"/>
     <feature class="shef.mt.features.impl.bb.Feature3002" description="number of slang words in target sentence divided by num of words" index="3002"/>
+    <feature class="shef.mt.features.impl.bb.Feature3003" description="number of abbreviation conflicts" index="3003"/>
+    <feature class="shef.mt.features.impl.bb.Feature3004" description="number of abbreviation conflicts divided by total number of abbrev in the doc" index="3004"/>
 </features>

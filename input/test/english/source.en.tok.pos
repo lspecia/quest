@@ -154,8 +154,8 @@ beauty	NN	beauty
 and	CC	and
 the	DT	the
 sorrow	NN	sorrow
-"	''	"
-threads	NNS	thread
+"	``	"
+threads	VBZ	thread
 together	RB	together
 the	DT	the
 wartime	NN	wartime
@@ -225,7 +225,7 @@ too	RB	too
 to	TO	to
 the	DT	the
 notion	NN	notion
-that		IN	that
+that	IN	that
 world	NN	world
 war	NN	war
 i	NP	i

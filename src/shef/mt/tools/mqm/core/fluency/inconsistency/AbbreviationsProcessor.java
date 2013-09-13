@@ -32,28 +32,34 @@ public class AbbreviationsProcessor extends ResourceProcessor implements GlobalP
         int abbrevConflicts = 0;
         Set<String> abbrevs = abbreviationDictionary.getAbbrevSet();
         for (String abbrev : abbrevs) {
-            int curIndex = 0;
-            int newIndex = -1;
-            while ((newIndex = strLine.indexOf(abbrev, curIndex)) != -1) {
-                String position = sentence.getIndex() + "-" + newIndex;
-                for (Map.Entry<String, String> entry : position2abbrev.entrySet()) {
-                    String aPos = entry.getKey();
-                    String aAbbrev = entry.getValue();
-                    if (aAbbrev != abbrev) {  //not the same one
-                        //find how close they are by meaning
-                        Set<String> meaningSetA = new HashSet<String>(abbreviationDictionary.getMeaningSetOfAbbreviation(aAbbrev));
-                        Set<String> meaningSetB = abbreviationDictionary.getMeaningSetOfAbbreviation(abbrev);
-                        meaningSetA.retainAll(meaningSetB);
-                        if (meaningSetA.size() > 0) {
-                            abbrevConflicts ++;
-                        }
-                    }
-                }
-                curIndex = newIndex;
+            int pos = 0;
+            for (String word : sentence.getTokens()) {
+                 if (word.equals(abbrev)) {
+                     String position = sentence.getIndex() + "-" + pos;
+                     for (Map.Entry<String, String> entry : position2abbrev.entrySet()) {
+                         String aPos = entry.getKey();
+                         String aAbbrev = entry.getValue();
+                         if (aAbbrev != abbrev) {  //not the same one
+                             //find how close they are by meaning
+                             Set<String> meaningSetA = new HashSet<String>(abbreviationDictionary.getMeaningSetOfAbbreviation(aAbbrev));
+                             Set<String> meaningSetB = abbreviationDictionary.getMeaningSetOfAbbreviation(abbrev);
+                             meaningSetA.retainAll(meaningSetB);
+                             if (meaningSetA.size() > 0) {
+                                 abbrevConflicts ++;
+                             }
+                         }
+                     }
+                 }
             }
         }
         sentence.setValue("abbrev_conflicts", abbrevConflicts); //number of conflicts
-        sentence.setValue("abbrev_conflicts_divided_by_count", abbrevConflicts * 1.0 / position2abbrev.size());
+        if (position2abbrev.size() > 0) {
+            sentence.setValue("abbrev_conflicts_divided_by_count", abbrevConflicts * 1.0 / position2abbrev.size());
+        } else {
+            sentence.setValue("abbrev_conflicts_divided_by_count", 0.0);
+        }
+
+
     }
 
     @Override
@@ -68,12 +74,13 @@ public class AbbreviationsProcessor extends ResourceProcessor implements GlobalP
             while ((strLine = br.readLine()) != null) {
                 strLine = strLine.trim();
                 for (String abbrev : abbrevs) {
-                    int curIndex = 0;
-                    int newIndex = -1;
-                    while ((newIndex = strLine.indexOf(abbrev, curIndex)) != -1) {
-                        String position = lineCount + "-" + newIndex;
-                        position2abbrev.put(position, abbrev);
-                        curIndex = newIndex;
+                    int pos = 0;
+                    for (String word : strLine.split("\\s+")) {
+                        if (word.equals(abbrev)) {
+                            String position = lineCount + "-" + pos;
+                            position2abbrev.put(position, abbrev);
+                        }
+                        pos ++;
                     }
                 }
                 lineCount ++;
