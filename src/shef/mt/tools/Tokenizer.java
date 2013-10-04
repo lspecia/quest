@@ -118,7 +118,7 @@ public class Tokenizer extends Resource {
             System.out.println("tokenizing...");
             System.out.println("perl " + tokPath + " -a -l " + lang + " " + tempOut);
             Logger.log("Tokenizing the input...");
-            args = new String[]{"perl", tokPath, "-a -l", lang};
+            args = new String[]{"perl", tokPath, "-a", "-l", lang};
             pb = new ProcessBuilder(args);
             process = pb.start();
             Logger.log("Executing: " + process.toString());
