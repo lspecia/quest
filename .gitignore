@@ -16,11 +16,8 @@ project.properties
 *.pyc
 
 #idea project files
-*.iml
 .idea/
 out/
-quest.properties
-quest.xml
 
 #other stuff
 jie_*
@@ -28,8 +25,6 @@ output/
 lang_resources/
 
 #eric files
-*.e4p
 __init__.py
 .ropeproject/
-.eric4project/
 
