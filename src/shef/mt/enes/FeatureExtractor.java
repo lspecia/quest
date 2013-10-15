@@ -264,12 +264,6 @@ public class FeatureExtractor {
     }
 */
 
-    private static void loadGiza() {
-
-        String gizaPath = resourceManager.getString("pair." + sourceLang
-                + targetLang + ".giza.path");
-        Giza giza = new Giza(gizaPath);
-    }
 
     /**
      * Computes the perplexity and log probability for the source file Required

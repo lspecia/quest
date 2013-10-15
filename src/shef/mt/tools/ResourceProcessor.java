@@ -19,8 +19,8 @@ public abstract class ResourceProcessor {
 
     public abstract void processNextSentence(Sentence source);
     
-    public abstract void initialize(PropertiesManager propertiesManager,
-    								FeatureManager featureManager);
+    public abstract void initialize(PropertiesManager propertiesManager
+    								);
     
     public String getName(){
     	return this.resourceName;

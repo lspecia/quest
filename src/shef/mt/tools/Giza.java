@@ -1,7 +1,11 @@
 package shef.mt.tools;
 
+import shef.mt.features.util.FeatureManager;
+import shef.mt.features.util.Sentence;
 import shef.mt.util.Logger;
 import shef.mt.util.Pair;
+import shef.mt.util.PropertiesManager;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -16,6 +20,7 @@ import java.util.*;
  */
 public class Giza extends Resource {
 
+	public String resourceName = "Giza";
     public static final Float[] PROBS_VALUES = new Float[]{0.05f, 0.01f, 0.10f, 0.20f, 0.50f};
     public static final HashSet<Float> PROBS_SET = new HashSet<Float>(Arrays.asList(PROBS_VALUES));
     /**
@@ -28,21 +33,31 @@ public class Giza extends Resource {
     private static float minProb = 0.01f;
     private static float transMinProb = 0.1f;
 
+
     // in order to minimise the amount of giza information we store in memory, we will only hold in the translations for those words found in the source text
     public Giza() {
-        super(null);
+        transProbCount = new HashMap<String, int[]>();
+        translations = new HashMap<Pair, Float>();
     }
 
     /**
-     * intialises Giza from a file
+     * Initializes Giza from a file
      *
      * @param gizaFilePath
      */
-    public Giza(String gizaFilePath) {
-        super(null);
-        Logger.log("initiating Giza from file: " + gizaFilePath);
-        transProbCount = new HashMap<String, int[]>();
-        translations = new HashMap<Pair, Float>();
+    
+	@Override
+	public void initialize(PropertiesManager propertiesManager,
+			FeatureManager featureManager) {
+		
+		String sourceLang = propertiesManager.sourceLang();
+		String targetLang = propertiesManager.targetLang();
+		
+	    String gizaFilePath = propertiesManager.getString("pair." + sourceLang
+                + targetLang + ".giza.path");        
+	    
+	    Logger.log("initiating Giza from file: " + gizaFilePath);
+                
         if (loadGiza(gizaFilePath) != -1) {
             ResourceManager.registerResource("Giza");
         }
@@ -52,6 +67,7 @@ public class Giza extends Resource {
         long start = System.currentTimeMillis();
         Logger.log("Loading Giza...");
         System.out.println("Loading Giza...");
+        
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "utf-8"));
             String line = br.readLine();
@@ -62,6 +78,8 @@ public class Giza extends Resource {
             long elapsed = System.currentTimeMillis() - start;
             System.out.println("Giza loaded in " + elapsed / 1000F + " sec");
             Logger.log("Giza loaded in " + elapsed / 1000F + " sec");
+            br.close();
+            
         } catch (java.io.IOException e) {
             e.printStackTrace();
             return -1;
@@ -131,10 +149,7 @@ public class Giza extends Resource {
         }
     }
 
-    public static void main(String[] args) {
-        Giza giza = new Giza(args[0]);
 
-    }
 
     public static int getWordProbabilityCount(String word, float prob) {
         if (!transProbCount.containsKey(word)) {
@@ -194,4 +209,12 @@ public class Giza extends Resource {
 
         return result;
     }
+
+	@Override
+	public void processNextSentence(Sentence source) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

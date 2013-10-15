@@ -172,4 +172,13 @@ public class PropertiesManager extends java.util.Properties {
 //        f = new File(System.getProperty("java.class.path")
         return null;
     }
+    
+    public String sourceLang(){
+    	return (String) this.get("sourceLang");
+    }
+    
+    public String targetLang(){
+    	return (String) this.get("targetLang");
+    }
+    
 }

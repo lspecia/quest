@@ -26,6 +26,7 @@ public class DynamicPipeline extends ResourcePipeline {
 	public DynamicPipeline(PropertiesManager propertiesManager, FeatureManager featureManager) {
 
 		Set<String> requiredResourceNames = featureManager.getFeatureResources();
+		System.err.println("Features require resources: " + requiredResourceNames);
 		
 		// initialization of all existing processors automatically
 		ArrayList<ResourceProcessor> resourceProcessors = new ArrayList<ResourceProcessor>();
@@ -59,24 +60,5 @@ public class DynamicPipeline extends ResourcePipeline {
 		System.err.println("Resources that will run: "+ matchedResources);
 		initialize_resources(matchedResources, propertiesManager, featureManager);
 
-		/**
-		 * ResourceProcessor bParser = new BParserProcessor(); ResourceProcessor
-		 * topicDistribution = new TopicDistributionProcessor();
-		 * ResourceProcessor morphAnalysis = new MorphAnalysisProcessor();
-		 * ResourceProcessor triggers = new TriggersProcessor();
-		 * ResourceProcessor ngramProcessor = new NGramProcessor();
-		 * ResourceProcessor pplProcessor = new PPLProcessor();
-		 * ResourceProcessor posProcessor = new POSProcessor();
-		 * 
-		 * resourceProcessors.add(bParser);
-		 * resourceProcessors.add(topicDistribution);
-		 * resourceProcessors.add(morphAnalysis);
-		 * resourceProcessors.add(triggers);
-		 * resourceProcessors.add(ngramProcessor);
-		 * resourceProcessors.add(pplProcessor);
-		 * resourceProcessors.add(posProcessor);
-		 * //resourceProcessors.add(mtOutputProcessor);
-		 * //resourceProcessors.add(nerProcessor);
-		 */
 	}
 }
