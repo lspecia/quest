@@ -7,7 +7,8 @@ import shef.mt.util.Pair;
 import shef.mt.features.util.Sentence;
 import shef.mt.features.impl.Feature;
 import java.util.*;
-import shef.mt.tools.WordAlign;
+
+import shef.mt.tools.giza.WordAlign;
 /**
  * @author Catalina Hallett
  *

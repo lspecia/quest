@@ -3,7 +3,8 @@
  */
 package shef.mt.features.impl.bb;
 
-import shef.mt.tools.Giza2;
+import shef.mt.tools.giza.Giza2;
+
 import java.util.HashSet;
 import java.util.StringTokenizer;
 

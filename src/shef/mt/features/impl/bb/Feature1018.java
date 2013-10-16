@@ -3,7 +3,7 @@
  */
 package shef.mt.features.impl.bb;
 
-import shef.mt.tools.Giza;
+import shef.mt.tools.giza.Giza;
 import shef.mt.features.util.Sentence;
 import shef.mt.features.impl.Feature;
 

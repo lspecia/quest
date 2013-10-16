@@ -6,7 +6,8 @@ package shef.mt.features.impl.bb;
 import shef.mt.features.util.Sentence;
 import shef.mt.features.impl.Feature;
 import java.util.*;
-import shef.mt.tools.WordAlign;
+
+import shef.mt.tools.giza.WordAlign;
 
 /**
  * number of PERSON entities in source that are aligned to PERSON entities in

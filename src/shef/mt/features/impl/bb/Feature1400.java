@@ -3,7 +3,7 @@ package shef.mt.features.impl.bb;
 import java.util.HashSet;
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;
-import shef.mt.tools.GlobalLexicon;
+import shef.mt.tools.global.GlobalLexicon;
 
 /**
  * geometric average of target word probabilities under Global Lexicon Model

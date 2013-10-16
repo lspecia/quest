@@ -3,14 +3,14 @@
  */
 package shef.mt.features.impl.bb;
 
-import shef.mt.tools.Giza2;
 import java.util.HashSet;
 
 import java.util.StringTokenizer;
 
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;
-import shef.mt.tools.Giza;
+import shef.mt.tools.giza.Giza;
+import shef.mt.tools.giza.Giza2;
 
 /**
  * average number of translations per source word in the sentence (threshold in

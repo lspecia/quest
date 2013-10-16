@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.StringTokenizer;
 
 import shef.mt.features.impl.Feature;
-import shef.mt.tools.Giza;
-import shef.mt.tools.PosTreeTagger;
 import shef.mt.tools.Resource;
+import shef.mt.tools.giza.Giza;
+import shef.mt.tools.pos.PosTreeTagger;
 
 /**
  * no tokens in target

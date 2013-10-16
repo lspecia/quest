@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
 
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;
-import shef.mt.tools.Giza;
-import shef.mt.tools.Giza2;
+import shef.mt.tools.giza.Giza;
+import shef.mt.tools.giza.Giza2;
 import shef.mt.features.wce.StopWord;
 import java.io.*;
 

@@ -9,8 +9,8 @@ import java.lang.Math;
 
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;
-import shef.mt.tools.FileModel;
-import shef.mt.tools.TopicDistributionProcessor;
+import shef.mt.tools.freq.FileModel;
+import shef.mt.tools.topic.TopicDistributionProcessor;
 
 
 /**

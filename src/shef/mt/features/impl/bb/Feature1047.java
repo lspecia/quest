@@ -9,7 +9,7 @@ import java.util.Iterator;
 
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;
-import shef.mt.tools.LanguageModel;
+import shef.mt.tools.ngram.LanguageModel;
 
 /**
  * average unigram frequency in quartile_2 of frequency (lower frequency words)

@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;
-import shef.mt.tools.Giza;
+import shef.mt.tools.giza.Giza;
 
 /**
  * average number of translations per source word in the sentence (threshold in

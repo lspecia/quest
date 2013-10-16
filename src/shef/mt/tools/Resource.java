@@ -9,7 +9,7 @@ import java.util.*;
  */
 public abstract class Resource {
 
-    boolean available;
+    public boolean available;
     HashSet<String> req;
     ResourceProcessor resProc;
 

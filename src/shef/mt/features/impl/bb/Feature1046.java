@@ -3,8 +3,8 @@
  */
 package shef.mt.features.impl.bb;
 
-import shef.mt.tools.LanguageModel;
-import java.util.HashSet;
+import shef.mt.tools.ngram.LanguageModel;
+
 import java.util.*;
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;

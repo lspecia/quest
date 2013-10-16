@@ -3,6 +3,8 @@
  */
 package shef.mt.tools;
 
+import shef.mt.tools.ngram.NGramExec;
+import shef.mt.tools.ngram.PPLProcessor;
 import shef.mt.util.Logger;
 import shef.mt.util.ExtensionFilter;
 import shef.mt.features.util.Sentence;

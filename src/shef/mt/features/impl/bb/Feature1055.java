@@ -9,7 +9,7 @@ import java.util.Iterator;
 
 import shef.mt.features.impl.Feature;
 import shef.mt.features.util.Sentence;
-import shef.mt.tools.LanguageModel;
+import shef.mt.tools.ngram.LanguageModel;
 
 /**
  * average trigram frequency in quartile 2 of frequency (lower frequency words)
