@@ -36,12 +36,12 @@ public class NGramProcessor extends ResourceProcessor {
     public void processNextSentence(Sentence s) {
     }
     
-/**    
-    public NGramProcessor(String corpus) {
-        this.corpus = corpus;
-        ngramNos = new int[nSize];
-    }
-*/
+    
+//    public NGramProcessor(String corpus) {
+//        this.corpus = corpus;
+//        ngramNos = new int[nSize];
+//    }
+
     
     public LanguageModel run(String corpus, int nSize) {
 

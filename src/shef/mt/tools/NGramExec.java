@@ -147,6 +147,7 @@ public class NGramExec {
         } catch (Exception e) {
             e.printStackTrace();
             Logger.log(e.getStackTrace().toString());
+            System.exit(0);
         }
 
         long end = System.currentTimeMillis() - start;

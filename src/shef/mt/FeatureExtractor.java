@@ -1,4 +1,4 @@
-package shef.mt.enes;
+package shef.mt;
 
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
