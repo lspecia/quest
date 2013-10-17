@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <features>
-    <feature class="shef.mt.features.impl.bb.Feature1001" description="number of tokens in the source sentence" index="1001"/>
-    <feature class="shef.mt.features.impl.bb.Feature1002" description="number of tokens in the target sentence" index="1002"/>
+    <feature class="shef.mt.tools.tok.Feature1001" description="number of tokens in the source sentence" index="1001"/>
+    <feature class="shef.mt.tools.tok.Feature1002" description="number of tokens in the target sentence" index="1002"/>
     <feature class="shef.mt.features.impl.bb.Feature1006" description="average source token length" index="1006"/>
     <feature class="shef.mt.features.impl.bb.Feature1009" description="LM probability of source sentence" index="1009"/>
     <feature class="shef.mt.features.impl.bb.Feature1012" description="LM probability of target sentence" index="1012"/>

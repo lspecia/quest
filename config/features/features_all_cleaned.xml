@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <features>
-    <feature class="shef.mt.features.impl.bb.Feature1001" description="Number of tokens in source" index="1001"/>
-    <feature class="shef.mt.features.impl.bb.Feature1002" description="Number of tokens in target" index="1002"/>
+    <feature class="shef.mt.tools.tok.Feature1001" description="Number of tokens in source" index="1001"/>
+    <feature class="shef.mt.tools.tok.Feature1002" description="Number of tokens in target" index="1002"/>
     <feature class="shef.mt.features.impl.bb.Feature1003" description="ratio of number of tokens in source and target" index="1003"/>
     <feature class="shef.mt.features.impl.bb.Feature1004" description="no tokens in the target / no tokens in the source" index="1004"/>
     <feature class="shef.mt.features.impl.bb.Feature1005" description="absolute difference between no tokens and source and target normalised by source length" index="1005"/>
