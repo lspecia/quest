@@ -5,14 +5,14 @@ import java.util.HashMap;
 import shef.mt.features.util.FeatureManager;
 import shef.mt.features.util.Sentence;
 import shef.mt.tools.ResourceProcessor;
-import shef.mt.tools.SingleFeatureGenerator;
+import shef.mt.tools.SingleProcessor;
 import shef.mt.util.PropertiesManager;
 
-public class PunctFeatureGenerator extends SingleFeatureGenerator {
+public class PunctFeatureGenerator extends SingleProcessor {
 
 
 	@Override
-	protected HashMap<Integer, String> initFeatureDescriptions() {
+	protected HashMap<Integer, String> defineFeatureDescriptions() {
 		HashMap<Integer,String> featureDescriptions = new HashMap<Integer,String>();		
 		featureDescriptions.put(1001, "number of tokens in the source sentence");
 		return featureDescriptions;

@@ -5,15 +5,15 @@ import java.util.HashMap;
 import shef.mt.features.util.FeatureManager;
 import shef.mt.features.util.Sentence;
 import shef.mt.tools.ResourceProcessor;
-import shef.mt.tools.SingleFeatureGenerator;
+import shef.mt.tools.SingleProcessor;
 import shef.mt.util.PropertiesManager;
 
-public class TokenFeatureGenerator extends SingleFeatureGenerator {
+public class TokenFeatureGenerator extends SingleProcessor {
 
 	private HashMap<Integer,String> featureDescriptions;
 	
 	@Override
-	protected HashMap<Integer, String> initFeatureDescriptions() {
+	protected HashMap<Integer, String> defineFeatureDescriptions() {
 		featureDescriptions = new HashMap<Integer,String>();
 		featureDescriptions.put(1001, "number of tokens in the source sentence");
 		featureDescriptions.put(1002, "number of tokens in the target sentence");

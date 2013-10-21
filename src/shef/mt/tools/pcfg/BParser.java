@@ -1,8 +1,11 @@
 package shef.mt.tools.pcfg;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
+import shef.mt.pipelines.ResourceRequirement;
 import shef.mt.tools.Resource;
 
 import edu.berkeley.nlp.PCFGLA.CoarseToFineMaxRuleParser;
@@ -64,7 +67,12 @@ public class BParser extends Resource{
 	
 	
 
-	public BParser(String grammarFilename, boolean chinese, int kbest){
+	public void initialize(HashMap<String, Object> params){
+		
+		String grammarFilename = (String) params.get("grammarFilename"); 
+		boolean chinese = (Boolean) params.get("chinese");
+		int kbest = (Integer) params.get("kbest");
+		
 
 		System.err.println("Loading grammar from file " + grammarFilename);
 		ParserData pData = ParserData.Load(grammarFilename);		
@@ -147,6 +155,12 @@ public class BParser extends Resource{
 	
 	public Double getLogLikelihood(){
 		return parser.getLogLikelihood();
+	}
+
+	@Override
+	protected ArrayList<ResourceRequirement> initRequiredResources() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
