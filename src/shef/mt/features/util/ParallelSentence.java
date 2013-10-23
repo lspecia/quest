@@ -13,8 +13,12 @@ public class ParallelSentence {
     private Sentence sourceSentence;
     private List<Sentence> targetSentences;   
     private HashMap<String, Object> attributes;
+    
+    public ParallelSentence(){
+    	this.targetSentences = new ArrayList<Sentence>();
+    }
 
-    public ParallelSentence(Sentence sourceSentence, List<Sentence> targetSentence) {
+    public ParallelSentence(Sentence sourceSentence, List<Sentence> targetSentences) {
         this.sourceSentence = sourceSentence;
         this.targetSentences = targetSentences;
         this.attributes = new HashMap<String, Object>();
@@ -26,6 +30,15 @@ public class ParallelSentence {
         this.attributes = attributes;
     }
 
+    public void setSource(Sentence sourceSentence) {
+    	this.sourceSentence = sourceSentence;
+    }
+    
+    public void addTarget(Sentence targetSentence) {
+    	this.targetSentences.add(targetSentence);
+    }
+
+    
     public Sentence getSource() {
         return this.sourceSentence;
     }

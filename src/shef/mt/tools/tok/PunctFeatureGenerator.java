@@ -12,7 +12,7 @@ public class PunctFeatureGenerator extends SingleProcessor {
 
 
 	@Override
-	protected HashMap<Integer, String> defineFeatureDescriptions() {
+	protected HashMap<Integer, String> getFeatureDescriptions() {
 		HashMap<Integer,String> featureDescriptions = new HashMap<Integer,String>();		
 		featureDescriptions.put(1001, "number of tokens in the source sentence");
 		return featureDescriptions;

@@ -2,7 +2,7 @@ package shef.mt.tools.pos;
 
 import shef.mt.features.util.FeatureManager;
 import shef.mt.features.util.Sentence;
-import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.ProcessorPipeline;
 import shef.mt.util.PropertiesManager;
 
 import java.io.*;
@@ -33,8 +33,8 @@ public class POSProcessorSource extends POSProcessor {
     	String sourcePosOutput = runPOS(propertiesManager, forceRun, sourceFile, sourceLang, "source");
     	posProcessorSource.create(sourcePosOutput);
     	
-    	ResourcePipeline rp = new ResourcePipeline();
-    	rp.addResourceProcessor(posProcessorSource);
+    	ProcessorPipeline rp = new ProcessorPipeline();
+    	rp.addProcessor(posProcessorSource);
     	System.out.println("---POSSource addedinto rp!!!---");
     	//ResourcePipeline.addResourceProcessor(posProcessorSource);
     }

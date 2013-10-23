@@ -36,6 +36,14 @@ public class Sentence {
         tokens = sentence.trim().split(" ");
     }
 
+    public Sentence(String s){
+    	sentence = s;
+        center = null;
+        values = new HashMap<String, Object>();
+        tokens = sentence.trim().split(" ");
+    }
+    
+    
     public String getText() {
         return sentence;
     }
@@ -46,6 +54,14 @@ public class Sentence {
 
     public void setValue(String key, Object value) {
         values.put(key, value);
+    }
+    
+    public void setValues(HashMap<String, Object> values){
+    	values.putAll(values);
+    }
+    
+    public HashMap<String, Object> getValues(){
+    	return values;
     }
 
     /**

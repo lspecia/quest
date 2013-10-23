@@ -30,9 +30,10 @@ public abstract class SingleProcessor extends Processor {
 	 * settings and the language name that this processor will be linked with.
 	 * @param propertiesManager
 	 * @param lang
+	 * @return 
 	 */
-	public SingleProcessor(PropertiesManager propertiesManager, String lang){
-		super(propertiesManager);
+	public void prepare(PropertiesManager propertiesManager, String lang){
+		super.prepare(propertiesManager);
 		
 		language = lang;
 	}

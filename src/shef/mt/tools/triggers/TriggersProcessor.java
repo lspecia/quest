@@ -2,7 +2,7 @@
 package shef.mt.tools.triggers;
 
 import shef.mt.features.util.*;
-import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.ProcessorPipeline;
 import shef.mt.tools.ResourceManager;
 import shef.mt.tools.ResourceProcessorTwoSentences;
 import shef.mt.util.PropertiesManager;
@@ -27,8 +27,8 @@ public class TriggersProcessor extends ResourceProcessorTwoSentences {
 
     	triggersProcessor.create(ilt);
 
-		ResourcePipeline rp = new ResourcePipeline();
-    	rp.addResourceProcessor(triggersProcessor);
+		ProcessorPipeline rp = new ProcessorPipeline();
+    	rp.addProcessor(triggersProcessor);
     }
     
     public void create(Triggers ilt) {

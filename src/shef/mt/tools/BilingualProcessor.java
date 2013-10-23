@@ -32,8 +32,8 @@ public abstract class BilingualProcessor extends Processor {
 	 * @param sourceLang source language name 
 	 * @param targetLang target language name
 	 */
-	public BilingualProcessor(PropertiesManager propertiesManager, String sourceLang, String targetLang){
-		super(propertiesManager);
+	public void prepare(PropertiesManager propertiesManager, String sourceLang, String targetLang){
+		super.prepare(propertiesManager);
 
 		sourceLanguage = sourceLang;
 		targetLanguage = targetLang;
@@ -111,6 +111,6 @@ public abstract class BilingualProcessor extends Processor {
 	 * @return a hashmap of features produced out of the analysis. HashMap keys
 	 * should map the definition given in defineFeatureDescriptions
 	 */
-	public abstract HashMap<String,Object> getParallelFeatures(Sentence sourceSentence, Sentence targetSentence);
+	public abstract HashMap<String,Object> getParallelFeatures(Sentence sourceSentence, Sentence targetSentence, ParallelSentence parallelsentence);
 	
 }

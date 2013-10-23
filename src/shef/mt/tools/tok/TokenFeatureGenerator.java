@@ -1,72 +1,82 @@
 package shef.mt.tools.tok;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import shef.mt.features.util.FeatureManager;
+import shef.mt.features.util.ParallelSentence;
 import shef.mt.features.util.Sentence;
+import shef.mt.tools.BilingualProcessor;
+import shef.mt.tools.Resource;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.SingleProcessor;
 import shef.mt.util.PropertiesManager;
 
-public class TokenFeatureGenerator extends SingleProcessor {
+public class TokenFeatureGenerator extends BilingualProcessor {
 
-	private HashMap<Integer,String> featureDescriptions;
 	
 	@Override
-	protected HashMap<Integer, String> defineFeatureDescriptions() {
-		featureDescriptions = new HashMap<Integer,String>();
-		featureDescriptions.put(1001, "number of tokens in the source sentence");
-		featureDescriptions.put(1002, "number of tokens in the target sentence");
-		featureDescriptions.put(1003, "ratio of number of tokens in source and target");
-		featureDescriptions.put(1004, "no tokens in the target / no tokens in the source");
-		featureDescriptions.put(1005, "absolute difference between no tokens and source and target normalised by source length");
-		featureDescriptions.put(1006, "average source token length");
+	protected HashMap<String, String> defineFeatureDescriptions() {
+		HashMap<String,String> featureDescriptions = new HashMap<String,String>();
+		featureDescriptions.put("1001", "number of tokens in the source sentence");
+		featureDescriptions.put("1002", "number of tokens in the target sentence");
+		featureDescriptions.put("1003", "ratio of number of tokens in source and target");
+		featureDescriptions.put("1004", "no tokens in the target / no tokens in the source");
+		featureDescriptions.put("1005", "absolute difference between no tokens and source and target normalised by source length");
+		featureDescriptions.put("1006", "average source token length");
 		return featureDescriptions;
 	}	
 	
 	
 	@Override
-	public HashMap<Integer,Object> getSourceFeatures(Sentence source){
-		HashMap<Integer,Object> features = new HashMap<Integer,Object>();
+	public void initialize(HashMap<String, Resource> initializedResources) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	@Override
+	public HashMap<String,Object> getSourceFeatures(Sentence source){
+		HashMap<String,Object> features = new HashMap<String,Object>();
         
         //number of tokens in the source sentence
         int sourceTok = source.getNoTokens();
-		features.put(1001, sourceTok);
+		features.put("1001", sourceTok);
 		
         //average source token length
-        features.put(1006, avgTokenLength(source));		
+        features.put("1006", avgTokenLength(source));		
         
 		return features;	
 	}
 	
 
 	@Override
-	public HashMap<Integer, Object> getTargetFeatures(Sentence target) {
-		HashMap<Integer,Object> features = new HashMap<Integer,Object>();
+	public HashMap<String, Object> getTargetFeatures(Sentence target) {
+		HashMap<String,Object> features = new HashMap<String,Object>();
 		
 		//number of tokens in the target sentence
 		int targetTok = target.getNoTokens();
-		features.put(1002, targetTok);
+		features.put("1002", targetTok);
 		return features;	
 	}
 	
 
 	@Override
-	public HashMap<Integer, Object> getCombinedFeatures(Sentence source,
-			Sentence target) {
+	public HashMap<String, Object> getParallelFeatures(Sentence source,
+			Sentence target, ParallelSentence parallelsentence) {
 		
-		HashMap<Integer,Object> features = new HashMap<Integer,Object>();
+		HashMap<String,Object> features = new HashMap<String,Object>();
         int sourceTok = source.getNoTokens();
 		int targetTok = target.getNoTokens();
 
 		//ratio of number of tokens in source and target
-		features.put(1003, ratio(sourceTok, targetTok));
+		features.put("1003", ratio(sourceTok, targetTok));
 		
 		//no tokens in the target / no tokens in the source
-		features.put(1004, ratio(targetTok, sourceTok)); 
+		features.put("1004", ratio(targetTok, sourceTok)); 
 
 		//absolute difference between no tokens and source and target normalised by source length
-        features.put(1005, ratio(Math.abs(targetTok - sourceTok), sourceTok));
+        features.put("1005", ratio(Math.abs(targetTok - sourceTok), sourceTok));
 		
 		return null;
 	}
@@ -90,6 +100,17 @@ public class TokenFeatureGenerator extends SingleProcessor {
             noChars += token.length();
         }
         return (float) noChars / noTokens;
+	}
+
+
+
+
+
+	@Override
+	protected ArrayList<String> defineRequiredProcessors() {
+		ArrayList<String> requiredProcessors = new ArrayList<String>();
+		requiredProcessors.add("Tokenizer");
+		return requiredProcessors;
 	}
 
 }

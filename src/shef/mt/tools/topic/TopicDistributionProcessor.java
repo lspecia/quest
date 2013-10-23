@@ -7,7 +7,7 @@ import shef.mt.features.util.Sentence;
 import shef.mt.tools.ResourceManager;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.util.PropertiesManager;
-import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.ProcessorPipeline;
 import shef.mt.features.util.FeatureManager;
 import java.io.*;
 
@@ -41,9 +41,9 @@ public class TopicDistributionProcessor extends ResourceProcessor {
         sourceTopicDistributionProcessor.create(sourceTopicDistributionFile, "sourceTopicDistribution");
         targetTopicDistributionProcessor.create(targetTopicDistributionFile, "targetTopicDistribution");
 
-        ResourcePipeline rp = new ResourcePipeline();
-        rp.addResourceProcessor(sourceTopicDistributionProcessor);
-        rp.addResourceProcessor(targetTopicDistributionProcessor);
+        ProcessorPipeline rp = new ProcessorPipeline();
+        rp.addProcessor(sourceTopicDistributionProcessor);
+        rp.addProcessor(targetTopicDistributionProcessor);
     }
 
     /**

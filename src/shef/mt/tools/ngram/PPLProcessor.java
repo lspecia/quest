@@ -4,7 +4,7 @@
 package shef.mt.tools.ngram;
 
 import shef.mt.features.util.Sentence;
-import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.ProcessorPipeline;
 import shef.mt.tools.ResourceManager;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.util.PropertiesManager;
@@ -53,9 +53,9 @@ public class PPLProcessor extends ResourceProcessor {
         pplSourceProcessor.create(pplSourcePath, valNames);
         pplSourceProcessor.create(pplTargetPath, valNames);
 
-		ResourcePipeline rp = new ResourcePipeline();
-    	rp.addResourceProcessor(pplSourceProcessor);
-    	rp.addResourceProcessor(pplTargetProcessor);
+		ProcessorPipeline rp = new ProcessorPipeline();
+    	rp.addProcessor(pplSourceProcessor);
+    	rp.addProcessor(pplTargetProcessor);
     }    
     
     public void create(String pplFile, String[] valNames) {

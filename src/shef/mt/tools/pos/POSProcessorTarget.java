@@ -2,7 +2,7 @@ package shef.mt.tools.pos;
 
 import shef.mt.features.util.FeatureManager;
 import shef.mt.features.util.Sentence;
-import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.ProcessorPipeline;
 import shef.mt.util.PropertiesManager;
 
 import java.io.*;
@@ -34,8 +34,8 @@ public class POSProcessorTarget extends POSProcessor {
         String targetPosOutput = runPOS(propertiesManager, forceRun, targetFile, targetLang, "target");
         posProcessorTarget.create(targetPosOutput);
         
-        ResourcePipeline rp = new ResourcePipeline();
-        rp.addResourceProcessor(posProcessorTarget);
+        ProcessorPipeline rp = new ProcessorPipeline();
+        rp.addProcessor(posProcessorTarget);
     }
     
     /**

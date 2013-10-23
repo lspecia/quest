@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <features>
-    <feature class="shef.mt.features.impl.bb.Feature9300"  index="9300"/>
+    <feature class="shef.mt.features.impl.bb.Feature9300"  index="pcfg.parse"/>
     <feature class="shef.mt.features.impl.bb.Feature9301"  index="9301"/>
     <feature class="shef.mt.features.impl.bb.Feature9302"  index="9302"/>
     <feature class="shef.mt.features.impl.bb.Feature9303"  index="9303"/>

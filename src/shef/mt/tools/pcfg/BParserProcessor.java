@@ -10,7 +10,7 @@ import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.SingleProcessor;
 import shef.mt.tools.pcfg.BParser;
 import shef.mt.util.PropertiesManager;
-import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.ProcessorPipeline;
 import shef.mt.pipelines.ResourceRequirement;
 import shef.mt.features.util.FeatureManager;
 
@@ -28,9 +28,8 @@ public class BParserProcessor extends SingleProcessor {
 	boolean tokenizer;
 	public String resourceName = "BParser";
 	
-	public BParserProcessor(PropertiesManager propertiesManager, String lang) {
-		super(propertiesManager, lang);
-		// TODO Auto-generated constructor stub
+	public void prepare(PropertiesManager propertiesManager, String lang) {
+		super.prepare(propertiesManager, lang);
 	}
 
 	@Override

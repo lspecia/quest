@@ -2,7 +2,7 @@ package shef.mt;
 
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
-import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.ProcessorPipeline;
 import shef.mt.pipelines.DynamicPipeline;
 import shef.mt.tools.ResourceManager;
 import shef.mt.tools.freq.FileModel;
@@ -93,7 +93,7 @@ public class FeatureExtractor {
 
     }
 
-
+    
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         FeatureExtractor fe = new FeatureExtractor(args);
@@ -564,7 +564,7 @@ public class FeatureExtractor {
 	    
 //topic removed
 
-            ResourcePipeline defaultPipeline = new DynamicPipeline(resourceManager, featureManager);
+            ProcessorPipeline defaultPipeline = new DynamicPipeline(resourceManager, featureManager);
             //read in each line from the source and target files
             //create a sentence from each
             //process each sentence

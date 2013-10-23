@@ -25,7 +25,7 @@ public abstract class Processor {
 	 * a list of the required processors that need to have run beforehand
 	 * @param propertiesManager an object that contains all the configuration settings by the user   
 	 */
-	public Processor(PropertiesManager propertiesMan){
+	public void prepare(PropertiesManager propertiesMan){
 		propertiesManager = propertiesMan;
 		featureDescriptions = defineFeatureDescriptions();
 		if (featureDescriptions == null){
@@ -104,4 +104,12 @@ public abstract class Processor {
 	 */
 	protected abstract ArrayList<String> defineRequiredProcessors();
 
+	
+	public Object clone(){  
+	    try{  
+	        return super.clone();  
+	    }catch(Exception e){ 
+	        return null; 
+	    }
+	}
 }

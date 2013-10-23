@@ -2,7 +2,7 @@ package shef.mt.tools.morph;
 
 import shef.mt.features.util.Sentence;
 import shef.mt.features.util.PronMorph;
-import shef.mt.pipelines.ResourcePipeline;
+import shef.mt.pipelines.ProcessorPipeline;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.GetLangAbbreviation;
@@ -46,9 +46,9 @@ public class MorphAnalysisProcessor extends ResourceProcessor {
     	sourceMorphAnalysisProcessor.create(srcFile);
     	targetMorphAnalysisProcessor.create(tgtFile);
     	
-    	ResourcePipeline rp = new ResourcePipeline();
-    	rp.addResourceProcessor(sourceMorphAnalysisProcessor);
-        rp.addResourceProcessor(targetMorphAnalysisProcessor);
+    	ProcessorPipeline rp = new ProcessorPipeline();
+    	rp.addProcessor(sourceMorphAnalysisProcessor);
+        rp.addProcessor(targetMorphAnalysisProcessor);
     }    
     
     public void create(String inputFile) {
