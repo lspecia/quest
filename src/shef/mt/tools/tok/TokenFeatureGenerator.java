@@ -12,7 +12,7 @@ import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.SingleProcessor;
 import shef.mt.util.PropertiesManager;
 
-public class TokenFeatureGenerator extends BilingualProcessor {
+public class TokenFeatureGenerator extends BilingualProcessor implements Cloneable {
 
 	
 	@Override

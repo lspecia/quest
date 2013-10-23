@@ -49,6 +49,9 @@ public class ProcessorPipeline implements Cloneable {
 		}
 	}
 
+    public void initialize_resources(){
+    	
+    }
    
 
     public void addProcessor(Processor proc) {
@@ -60,29 +63,29 @@ public class ProcessorPipeline implements Cloneable {
     }
 
     
-    public void prepare(PropertiesManager propertiesMan, String sourceLang, String targetLang){
-    	
-    	ArrayList<Processor> modifiedProcessors = new ArrayList<Processor>();
-    	for (Processor processor:processors){
-    		if (processor instanceof SingleProcessor){
-    			//if it is a monolingual processor, create one instance for the source and one for the target
-    			SingleProcessor sourceProcessor = (SingleProcessor) processor;
-    			sourceProcessor.prepare(propertiesMan, sourceLang);
-    			modifiedProcessors.add(sourceProcessor);
-    			
-    			SingleProcessor targetProcessor = (SingleProcessor) processor;
-    			targetProcessor.prepare(propertiesMan, targetLang);
-    			modifiedProcessors.add(targetProcessor);
-    		} else if (processor instanceof BilingualProcessor){
-    			BilingualProcessor biProcessor = (BilingualProcessor) processor;
-    			biProcessor.prepare(propertiesMan, sourceLang, targetLang);
-    			modifiedProcessors.add(biProcessor);
-    		}
-    		
-    	}
-    	processors = modifiedProcessors;
-    	
-    }
+//    public void prepare(PropertiesManager propertiesMan, String sourceLang, String targetLang){
+//    	
+//    	ArrayList<Processor> modifiedProcessors = new ArrayList<Processor>();
+//    	for (Processor processor:processors){
+//    		if (processor instanceof SingleProcessor){
+//    			//if it is a monolingual processor, create one instance for the source and one for the target
+//    			SingleProcessor sourceProcessor = (SingleProcessor) processor;
+//    			sourceProcessor.prepare(propertiesMan, sourceLang);
+//    			modifiedProcessors.add(sourceProcessor);
+//    			
+//    			SingleProcessor targetProcessor = (SingleProcessor) processor.clone();
+//    			targetProcessor.prepare(propertiesMan, targetLang);
+//    			modifiedProcessors.add(targetProcessor);
+//    		} else if (processor instanceof BilingualProcessor){
+//    			BilingualProcessor biProcessor = (BilingualProcessor) processor;
+//    			biProcessor.prepare(propertiesMan, sourceLang, targetLang);
+//    			modifiedProcessors.add(biProcessor);
+//    		}
+//    		
+//    	}
+//    	processors = modifiedProcessors;
+//    	
+//    }
     
     
     
@@ -96,7 +99,7 @@ public class ProcessorPipeline implements Cloneable {
     
     
     public ParallelSentence processSentence(ParallelSentence parallelsentence, String sourceLang, String targetLang) {
-    	ParallelSentence processedParallelSentence = new ParallelSentence();
+    	ParallelSentence processedParallelSentence = parallelsentence;
     	
     	for (Processor processor:processors){
     		
@@ -107,29 +110,37 @@ public class ProcessorPipeline implements Cloneable {
 				if (singleprocessor.getLanguage() == sourceLang){
 					sourceSentence = singleprocessor.processSentence(sourceSentence);
 					sourceSentence.setValues(singleprocessor.getFeatures(sourceSentence));
-					processedParallelSentence.setSource(sourceSentence);
+					//create a copy of the existing parallelsentence by modifying the source
+					processedParallelSentence = new ParallelSentence(sourceSentence, parallelsentence.getTargetSentences(), parallelsentence.getAttributes());
+					
 				} else if (singleprocessor.getLanguage() == targetLang){
+					ArrayList<Sentence> processedTargetSentences = new ArrayList<Sentence>();
 					for (Sentence targetSentence:parallelsentence.getTargetSentences()){
 						targetSentence = singleprocessor.processSentence(targetSentence);
 						targetSentence.setValues(singleprocessor.getFeatures(targetSentence));
-						processedParallelSentence.addTarget(targetSentence);
+						processedTargetSentences.add(targetSentence);
 					}
+					//create a copy of the existing parallelsentence by modifying the targets
+					processedParallelSentence = new ParallelSentence(parallelsentence.getSource(), processedTargetSentences, parallelsentence.getAttributes());
+
 				}
 				
 			} else if (processor instanceof BilingualProcessor){
 				BilingualProcessor biProcessor = (BilingualProcessor) processor;
 				sourceSentence = biProcessor.processSourceSentence(sourceSentence, parallelsentence);
 				sourceSentence.setValues(biProcessor.getSourceFeatures(sourceSentence));
-				processedParallelSentence.setSource(sourceSentence);
+				ArrayList<Sentence> processedTargetSentences = new ArrayList<Sentence>();
+
 				for (Sentence targetSentence:parallelsentence.getTargetSentences()){
 					targetSentence = biProcessor.processTargetSentence(targetSentence, parallelsentence);
 					targetSentence.setValues(biProcessor.getTargetFeatures(targetSentence));
 					targetSentence.setValues(biProcessor.getParallelFeatures(sourceSentence, targetSentence, parallelsentence));
-					processedParallelSentence.addTarget(targetSentence);
+					processedTargetSentences.add(targetSentence);
 				}
-				
-				
+				processedParallelSentence = new ParallelSentence(sourceSentence, processedTargetSentences, parallelsentence.getAttributes());
 			}
+				
+	
     	}
 		return processedParallelSentence;
     }

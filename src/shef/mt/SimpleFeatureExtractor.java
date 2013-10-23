@@ -7,12 +7,10 @@ package shef.mt;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -39,8 +37,8 @@ import shef.mt.features.util.ParallelSentence;
 import shef.mt.features.util.Sentence;
 import shef.mt.features.util.io.TabWriter;
 import shef.mt.features.util.io.FeatureWriter;
+import shef.mt.pipelines.BasicPipeline;
 import shef.mt.pipelines.ProcessorPipeline;
-import shef.mt.tools.BasicPipeline;
 import shef.mt.tools.Resource;
 import shef.mt.util.Logger;
 import shef.mt.util.PropertiesManager;
@@ -72,9 +70,8 @@ public class SimpleFeatureExtractor {
 		Set<String> requestedFeatures = f.getFeatures();		
 		
 		//initialize a pipeline and restrict it to run only the requested features
-		ProcessorPipeline pipeline = new BasicPipeline();
 		//pass language and configuration
-		pipeline.prepare(resourceManager, sourceLang, targetLang);
+		ProcessorPipeline pipeline = new BasicPipeline(resourceManager, sourceLang, targetLang);
 		pipeline.restrictToFeatures(requestedFeatures);
 		
 		
@@ -83,14 +80,14 @@ public class SimpleFeatureExtractor {
 		pipeline.initialize(initializedResources);
 			
 		Scanner sourceFile;
-		sourceFile = new Scanner(Paths.get(sourceFileName));
+		sourceFile = new Scanner(new FileInputStream(sourceFileName));
 		// TODO Auto-generated catch block
 		
 		ArrayList<Scanner> targetFiles = new ArrayList<Scanner>();
 		
 		//open multiple target files (e.g. one for each system), sentence-aligned with the source
 		for (String targetFilename:targetFileNames){
-			targetFiles.add(new Scanner(Paths.get(targetFilename)));
+			targetFiles.add(new Scanner(new FileInputStream(targetFilename)));
 			// TODO Auto-generated catch block
 		}
 		
@@ -143,6 +140,7 @@ public class SimpleFeatureExtractor {
 
     
     public static void main(String[] args) {
+    	new Logger("log.txt");
         long start = System.currentTimeMillis();
 //        FeatureExtractor fe = new FeatureExtractor(args);
 
@@ -222,7 +220,7 @@ public class SimpleFeatureExtractor {
             	
                 resourceManager = new PropertiesManager(line.getOptionValue("config"));
             } else {
-                resourceManager = new PropertiesManager();
+            	resourceManager = new PropertiesManager();
             }
 
 

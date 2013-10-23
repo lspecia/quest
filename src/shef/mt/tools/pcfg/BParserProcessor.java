@@ -22,7 +22,7 @@ import shef.mt.features.util.FeatureManager;
  *
  * @author Eleftherios Avramids
  */
-public class BParserProcessor extends SingleProcessor {
+public class BParserProcessor extends SingleProcessor implements Cloneable {
 	
 	BParser parser;
 	boolean tokenizer;
@@ -36,19 +36,19 @@ public class BParserProcessor extends SingleProcessor {
 	protected ArrayList<ResourceRequirement> defineRequiredResources() {
 		ArrayList<ResourceRequirement> requiredResources = new ArrayList<ResourceRequirement>();
 		
-		//There is only one required resource, the berkley parser connector
-		//which we here implement so that it can be shared with other processors
-		ResourceRequirement bParser = new ResourceRequirement("shef.mt.tools.pcfg.BParser");
-		String grammarFilename = propertiesManager.getString(this.language + ".bparser.grammar" );
-		bParser.addParameter("grammarFilename", grammarFilename);
-		
-		String kbest_entry = propertiesManager.getString(language + ".bparser.kbest");
-		bParser.addParameter("kbest", kbest_entry);
-		
-		bParser.addParameter("chinese", false);		
-		
-		requiredResources.add(bParser);
-		
+//		//There is only one required resource, the berkley parser connector
+//		//which we here implement so that it can be shared with other processors
+//		ResourceRequirement bParser = new ResourceRequirement("shef.mt.tools.pcfg.BParser");
+//		String grammarFilename = propertiesManager.getString(this.language + ".bparser.grammar" );
+//		bParser.addParameter("grammarFilename", grammarFilename);
+//		
+//		String kbest_entry = propertiesManager.getString(language + ".bparser.kbest");
+//		bParser.addParameter("kbest", kbest_entry);
+//		
+//		bParser.addParameter("chinese", false);		
+//		
+//		requiredResources.add(bParser);
+//		
 		return requiredResources;
 	}
 	
@@ -96,7 +96,13 @@ public class BParserProcessor extends SingleProcessor {
 		
 		//initialize the BParser class, which is a wrapper around the native parser
 		//a special parameter exists for chinese='true', otherwise this is 'false'
-		parser = (BParser) initializedResources.get("shef.mt.tools.pcfg.BParser");
+//		parser = (BParser) initializedResources.get("shef.mt.tools.pcfg.BParser");
+		parser = new BParser();
+		
+		String grammarFilename = propertiesManager.getString(this.language + ".bparser.grammar" );		
+		int kbest_entry = Integer.valueOf(propertiesManager.getString(this.language + ".bparser.kbest"));
+
+		parser.initialize(grammarFilename, kbest_entry, false);
 		
 		//it has been seen that the English and the Spanish grammar behave better with Moses tokenizer.perl
 		//than with the internal berkeley tokenizer 

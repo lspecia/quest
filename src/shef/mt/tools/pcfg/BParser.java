@@ -66,14 +66,16 @@ public class BParser extends Resource{
 	}
 	
 	
-
 	public void initialize(HashMap<String, Object> params){
 		
 		String grammarFilename = (String) params.get("grammarFilename"); 
-		boolean chinese = (Boolean) params.get("chinese");
 		int kbest = (Integer) params.get("kbest");
+		boolean chinese = (Boolean) params.get("chinese");
+		this.initialize(grammarFilename, kbest, chinese);
+	}
+	
+	public void initialize(String grammarFilename, int kbest, boolean chinese){
 		
-
 		System.err.println("Loading grammar from file " + grammarFilename);
 		ParserData pData = ParserData.Load(grammarFilename);		
 		

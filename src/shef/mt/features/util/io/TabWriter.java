@@ -1,23 +1,25 @@
 package shef.mt.features.util.io;
 
-import java.io.BufferedWriter;
+import java.io.*;
+import java.util.Scanner;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.Set;
 
 import shef.mt.features.util.ParallelSentence;
+import shef.mt.features.util.Sentence;
 
 public class TabWriter implements FeatureWriter {
 	
-	BufferedWriter writer;
+	Writer writer;
 	
 	public TabWriter(String filename) {
 
 		try {
-			writer = Files.newBufferedWriter(Paths.get(filename), StandardCharsets.UTF_8);
+			writer = new OutputStreamWriter(new FileOutputStream(filename), "utf-8");
+//			only works on JRE 1.7
+//			writer = Files.newBufferedWriter(Paths.get(filename), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -32,11 +34,18 @@ public class TabWriter implements FeatureWriter {
 			if (sourceFeatures.containsKey(requiredFeature)){
 				line += sourceFeatures.get(requiredFeature) + "\t";
 			}
+			for (Sentence targetSentence:parallelSentence.getTargetSentences()){
+				HashMap<String,Object> targetFeatures = targetSentence.getValues();
+				if (targetFeatures.containsKey(requiredFeature)){
+					line += targetFeatures.get(requiredFeature) + "\t";
+				}
+				
+			}
 		}
 		
 		try {
 			writer.write(line);
-			writer.newLine();
+			writer.write("\n");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -48,6 +48,7 @@ public class FeatureConfigReader {
             }
 
         } catch (Exception e) {
+        	System.err.println("Error opening features' configuration file "+filename);
             e.printStackTrace();
         }
 		return nodes;

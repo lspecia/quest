@@ -24,7 +24,7 @@ public class ParallelSentence {
         this.attributes = new HashMap<String, Object>();
     }
 
-    public ParallelSentence(Sentence sourceSentence, List<Sentence> targetSentence, HashMap<String, Object> attributes){
+    public ParallelSentence(Sentence sourceSentence, List<Sentence> targetSentences, HashMap<String, Object> attributes){
         this.sourceSentence = sourceSentence;
         this.targetSentences = targetSentences;
         this.attributes = attributes;

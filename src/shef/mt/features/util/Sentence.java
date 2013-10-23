@@ -56,8 +56,8 @@ public class Sentence {
         values.put(key, value);
     }
     
-    public void setValues(HashMap<String, Object> values){
-    	values.putAll(values);
+    public void setValues(HashMap<String, Object> newValues){
+    	values.putAll(newValues);
     }
     
     public HashMap<String, Object> getValues(){
