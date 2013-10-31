@@ -43,7 +43,7 @@ import java.util.Properties;
  *
  * @author Catalina Hallett, Mariano Felice<br>
  */
-public class FeatureExtractor {
+public class OldFeatureExtractor {
 
     private static int mtSys;
     private static String workDir;
@@ -82,7 +82,7 @@ public class FeatureExtractor {
      * @param args The list of arguments
      *
      */
-    public FeatureExtractor(String[] args) {
+    public OldFeatureExtractor(String[] args) {
         workDir = System.getProperty("user.dir");
         new Logger("log.txt");
         parseArguments(args);
@@ -96,7 +96,7 @@ public class FeatureExtractor {
     
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        FeatureExtractor fe = new FeatureExtractor(args);
+        OldFeatureExtractor fe = new OldFeatureExtractor(args);
 
         fe.run();
         long end = System.currentTimeMillis();

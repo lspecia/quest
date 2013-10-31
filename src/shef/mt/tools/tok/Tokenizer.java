@@ -4,11 +4,14 @@
  */
 package shef.mt.tools.tok;
 
+import shef.mt.pipelines.ResourceRequirement;
 import shef.mt.tools.Resource;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
 import shef.mt.util.StreamGobbler;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -27,7 +30,7 @@ public class Tokenizer extends Resource {
     private static PropertiesManager resourceManager;
 
     public Tokenizer(String input, String output, String lowercasePath, String tokPath, String lang, boolean run) {
-        super(null);
+        //super(null);
         this.input = input;
         this.output = output;
         this.lowercasePath = lowercasePath;
@@ -183,4 +186,16 @@ public class Tokenizer extends Resource {
         Tokenizer et = new Tokenizer(args[0], args[1], args[2], args[3], args[4], true);
         et.run();
     }
+
+	@Override
+	public void initialize(HashMap<String, Object> params) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected ArrayList<ResourceRequirement> initRequiredResources() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

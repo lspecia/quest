@@ -1,27 +1,31 @@
 package shef.mt.tools.tok;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import shef.mt.features.util.FeatureManager;
+import shef.mt.features.util.ParallelSentence;
 import shef.mt.features.util.Sentence;
+import shef.mt.tools.BilingualProcessor;
+import shef.mt.tools.Resource;
 import shef.mt.tools.ResourceProcessor;
 import shef.mt.tools.SingleProcessor;
 import shef.mt.util.PropertiesManager;
 
-public class PunctFeatureGenerator extends SingleProcessor {
+public class PunctFeatureGenerator extends BilingualProcessor {
 
 
 	@Override
-	protected HashMap<Integer, String> getFeatureDescriptions() {
-		HashMap<Integer,String> featureDescriptions = new HashMap<Integer,String>();		
-		featureDescriptions.put(1001, "number of tokens in the source sentence");
+	public HashMap<String, String> getFeatureDescriptions() {
+		HashMap<String,String> featureDescriptions = new HashMap<String,String>();		
+		featureDescriptions.put("1001", "number of tokens in the source sentence");
 		return featureDescriptions;
 	}
 
 	
 
 	@Override
-	public HashMap<Integer, Object> getSourceFeatures(Sentence source) {
+	public HashMap<String, Object> getSourceFeatures(Sentence source) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -29,23 +33,13 @@ public class PunctFeatureGenerator extends SingleProcessor {
 
 
 	@Override
-	public HashMap<Integer, Object> getTargetFeatures(Sentence target) {
+	public HashMap<String, Object> getTargetFeatures(Sentence target) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 
-	@Override
-	public HashMap<Integer, Object> getCombinedFeatures(Sentence source,
-			Sentence target) {
-		
-		HashMap<Integer,Object> features = new HashMap<Integer,Object>();
-        features.put(1007, mismatchedTokens(source, target));
-        features.put(1008, mismatchedQuotes(source, target));
-        return null;
-	}
-		
 
 	private int mismatchedTokens(Sentence source, Sentence target) {
         int sqPlus = 0;
@@ -100,6 +94,41 @@ public class PunctFeatureGenerator extends SingleProcessor {
 	    else
 	        ratio = (float) tok1 / tok2;
 		return ratio;
+	}
+
+
+
+	@Override
+	public HashMap<String, Object> getParallelFeatures(Sentence sourceSentence,
+			Sentence targetSentence, ParallelSentence parallelsentence) {
+		HashMap<String,Object> features = new HashMap<String,Object>();
+        features.put("1007", mismatchedTokens(sourceSentence, targetSentence));
+        features.put("1008", mismatchedQuotes(sourceSentence, targetSentence));
+        return features;
+	}
+
+
+
+	@Override
+	public void initialize(HashMap<String, Resource> initializedResources) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	protected HashMap<String, String> defineFeatureDescriptions() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	protected ArrayList<String> defineRequiredProcessors() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

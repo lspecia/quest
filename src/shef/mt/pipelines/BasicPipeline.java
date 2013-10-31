@@ -4,7 +4,7 @@ import shef.mt.tools.BilingualProcessor;
 import shef.mt.tools.Processor;
 import shef.mt.tools.SingleProcessor;
 import shef.mt.tools.pcfg.BParserProcessor;
-import shef.mt.tools.tok.TokenFeatureGenerator;
+import shef.mt.tools.tok.TokenProcessor;
 import shef.mt.util.PropertiesManager;
 
 public class BasicPipeline extends ProcessorPipeline {
@@ -22,7 +22,7 @@ public class BasicPipeline extends ProcessorPipeline {
 	
 	public BasicPipeline(PropertiesManager propertiesMan, String sourceLang, String targetLang) {
 		super();
-		addProcessor(new TokenFeatureGenerator(), propertiesMan, sourceLang, targetLang);
+		addProcessor(new TokenProcessor(), propertiesMan, sourceLang, targetLang);
 		addProcessor(new BParserProcessor(), propertiesMan, sourceLang);
 		addProcessor(new BParserProcessor(), propertiesMan, targetLang);
 	}

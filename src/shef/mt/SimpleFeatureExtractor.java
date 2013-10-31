@@ -55,7 +55,7 @@ public class SimpleFeatureExtractor {
     private static String targetLang;
     private static String configPath;
     private static boolean forceRun;
-
+    private static ProcessorPipeline pipeline;
     	
 	
     
@@ -71,7 +71,7 @@ public class SimpleFeatureExtractor {
 		
 		//initialize a pipeline and restrict it to run only the requested features
 		//pass language and configuration
-		ProcessorPipeline pipeline = new BasicPipeline(resourceManager, sourceLang, targetLang);
+		pipeline = new BasicPipeline(resourceManager, sourceLang, targetLang);
 		pipeline.restrictToFeatures(requestedFeatures);
 		
 		
