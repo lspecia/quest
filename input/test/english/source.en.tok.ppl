@@ -2,17 +2,17 @@ mass slaughter on a personal level
 1 sentences, 6 words, 0 OOVs
 0 zeroprobs, logprob= -22.8371 ppl= 1829.99 ppl1= 6400.14
 
-Peter englund ' s intense and bighearted new book , " the beauty and the sorrow : an intimate history of the first world war , " begins with a long dramatis personae of the sort that can make your heart sink .
+peter englund ' s intense and bighearted new book , " the beauty and the sorrow : an intimate history of the first world war , " begins with a long dramatis personae of the sort that can make your heart sink .
 1 sentences, 43 words, 2 OOVs
-0 zeroprobs, logprob= -129.54 ppl= 1214.21 ppl1= 1443.85
+0 zeroprobs, logprob= -132.569 ppl= 1433.49 ppl1= 1711.51
 
-Mr. englund is a Swedish historian and journalist .
-1 sentences, 9 words, 1 OOVs
-0 zeroprobs, logprob= -27.1228 ppl= 1031.93 ppl1= 2456.72
+mr. englund is a swedish historian and journalist .
+1 sentences, 9 words, 3 OOVs
+0 zeroprobs, logprob= -17.6083 ppl= 327.691 ppl1= 860.416
 
-he is also the new permanent secretary of the Swedish academy , which awards the nobel prize in literature .
-1 sentences, 20 words, 1 OOVs
-0 zeroprobs, logprob= -58.0815 ppl= 801.819 ppl1= 1140.05
+he is also the new permanent secretary of the swedish academy , which awards the nobel prize in literature .
+1 sentences, 20 words, 2 OOVs
+0 zeroprobs, logprob= -53.8502 ppl= 682.687 ppl1= 981.022
 
 what he has written here is an unusual book , one he describes , not inaccurately , as " a work of anti- history . "
 1 sentences, 26 words, 1 OOVs
@@ -30,13 +30,13 @@ a few of these people will become heroes .
 1 sentences, 9 words, 0 OOVs
 0 zeroprobs, logprob= -23.5444 ppl= 226.172 ppl1= 413.088
 
-Mr. englund ' s book is a deviation from standard history books .
-1 sentences, 13 words, 1 OOVs
-0 zeroprobs, logprob= -40.5921 ppl= 1325.77 ppl1= 2413.65
+mr. englund ' s book is a deviation from standard history books .
+1 sentences, 13 words, 2 OOVs
+0 zeroprobs, logprob= -36.7492 ppl= 1154.6 ppl1= 2191.97
 
 it is a corrective too to the notion that world war i was only about the dire trench warfare on the western front .
 1 sentences, 24 words, 0 OOVs
-0 zeroprobs, logprob= -73.2571 ppl= 851.697 ppl1= 1128.19
+0 zeroprobs, logprob= -73.2571 ppl= 851.697 ppl1= 1128.18
 
-file /home/jie/work/quest/input/test/english/source.en.tok: 10 sentences, 234 words, 7 OOVs
-0 zeroprobs, logprob= -747.054 ppl= 1419.47 ppl1= 1954.28
+file /home/jie/work/sumat/evaluation/qe/quest/input/test/english/source.en.tok: 10 sentences, 234 words, 11 OOVs
+0 zeroprobs, logprob= -732.493 ppl= 1392.35 ppl1= 1926.3

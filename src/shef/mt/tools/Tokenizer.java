@@ -52,26 +52,27 @@ public class Tokenizer extends Resource {
         long start = System.currentTimeMillis();
 
         try {
-            System.out.println(lowercasePath);
             System.out.println(tokPath);
-           // Logger.log("Transforming the input to lower case...");
-            Logger.log("Transforming the input to true case...");
+
+            System.out.println(lowercasePath);
 
             //run lowercase first into a temporary file
             String tempOut = output + ".temp";
-          //  System.out.println("running lowercase");
-            System.out.println("running truecase");
-           // String[] args = new String[]{"perl", lowercasePath, "-l", lang};
-            String[] truecaseOptions = lowercasePath.split("\\|");
-            String[] args = new String[]{"perl",truecaseOptions[0], "--model", truecaseOptions[1]};
+            //pipe the standard input and output to the lowercase input and output streams so it accepts input from the file
+            FileOutputStream fos = new FileOutputStream(tempOut);
+
+            //now run the tokenizer
+            System.out.println("tokenizing...");
+            Logger.log("Tokenizing the input...");
+            String tokCmd = "perl " + tokPath + " -q -l " + lang;
+            System.err.println(tokCmd);
+            String[] args = tokCmd.split("\\s+");
             ProcessBuilder pb = new ProcessBuilder(args);
             Process process = pb.start();
             Logger.log("Executing: " + process.toString());
 
-            //pipe the standard input and output to the lowercase input and output streams so it accepts input from the file
-            FileOutputStream fos = new FileOutputStream(tempOut);
 
-            // any error message form the process?
+            // any error message from the process?
             StreamGobbler errorGobbler = new StreamGobbler(process.getErrorStream(), "STDERR");
             // any output from the process?
             StreamGobbler outputGobbler = new StreamGobbler(process.getInputStream(), "STDOUT", fos);
@@ -82,10 +83,7 @@ public class Tokenizer extends Resource {
 
             // Process any input to the process
             if (input != null) {
-              //  BufferedReader br = new BufferedReader(new FileReader(input));
-               
                 BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(input), "utf-8"));
-                
                 PrintWriter writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(process.getOutputStream())), true);
 
                 // Send input to the process
@@ -94,7 +92,6 @@ public class Tokenizer extends Resource {
                     writer.print((char) ch);
                     //System.out.print((char)ch);
                 }
-
                 writer.flush();
                 writer.close();
                 br.close();
@@ -113,12 +110,17 @@ public class Tokenizer extends Resource {
 
             System.out.println("done");
 
-            //finished running lowercase
-            //now run the tokenizer
-            System.out.println("tokenizing...");
-            System.out.println("perl " + tokPath + " -a -l " + lang + " " + tempOut);
-            Logger.log("Tokenizing the input...");
-            args = new String[]{"perl", tokPath, "-a -l", lang};
+           // Logger.log("Transforming the input to lower case...");
+            Logger.log("Transforming the input to true case...");
+
+
+          //  System.out.println("running lowercase");
+            System.out.println("running truecase");
+           // String[] args = new String[]{"perl", lowercasePath, "-l", lang};
+            //String[] truecaseOptions = lowercasePath.split("\\|");
+            //args = new String[]{"perl",truecaseOptions[0], "--model", truecaseOptions[1]};
+            System.err.println(lowercasePath);
+            args = ("perl " + lowercasePath).split("\\s+");
             pb = new ProcessBuilder(args);
             process = pb.start();
             Logger.log("Executing: " + process.toString());
@@ -126,7 +128,7 @@ public class Tokenizer extends Resource {
             // Create the final output file
             fos = new FileOutputStream(output);
 
-            // any error message from the process?
+            // any error message form the process?
             errorGobbler = new StreamGobbler(process.getErrorStream(), "STDERR");
             // any output from the process?
             outputGobbler = new StreamGobbler(process.getInputStream(), "STDOUT", fos);
@@ -137,7 +139,10 @@ public class Tokenizer extends Resource {
 
             // Process any input to the process
             if (input != null) {
+              //  BufferedReader br = new BufferedReader(new FileReader(input));
+               
                 BufferedReader br = new BufferedReader(new FileReader(tempOut));
+                
                 PrintWriter writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(process.getOutputStream())), true);
 
                 // Send input to the process
@@ -146,6 +151,7 @@ public class Tokenizer extends Resource {
                     writer.print((char) ch);
                     //System.out.print((char)ch);
                 }
+
                 writer.flush();
                 writer.close();
                 br.close();

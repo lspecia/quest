@@ -41,6 +41,8 @@ import os
 import sys
 import yaml
 
+from customize_scorer import pearson_corrcoef, binary_precision, classify_report_bin, classify_report_bin_regression, classify_report_regression
+
 __all__ = []
 __version__ = 0.1
 __date__ = '2012-11-01'
@@ -136,6 +138,10 @@ def set_scorer_functions(scorers):
             scores.append((score, precision_score))
         elif score == 'recall_score':
             scores.append((score, recall_score))
+        elif score == 'pearson_corrcoef':
+            scores.append((score, pearson_corrcoef))
+        elif score == 'binary_precision':
+            scores.append((score, binary_precision))
             
     return scores
 
@@ -283,7 +289,7 @@ def set_learning_method(config, X_train, y_train):
     return estimator, scorers
 
 
-def fit_predict(config, X_train, y_train, X_test=None, y_test=None):
+def fit_predict(config, X_train, y_train, X_test=None, y_test=None, ref_thd=None):
     '''
     Uses the configuration dictionary settings to train a model using the
     specified training algorithm. If set, also evaluates the trained model 
@@ -328,12 +334,55 @@ def fit_predict(config, X_train, y_train, X_test=None, y_test=None):
     if (X_test is not None) and (y_test is not None):
         log.info("Predicting unseen data using the trained model...")
         y_hat = estimator.predict(X_test)
-        
         log.info("Evaluating prediction on the test set...")
         for scorer_name, scorer_func in scorers:
             v = scorer_func(y_test, y_hat)
             log.info("%s = %s" % (scorer_name, v))
-
+        log.info("Customized scores: ")
+        try:
+            log.info("pearson_corrcoef = %s" % pearson_corrcoef(y_test,  y_hat))
+        except:
+            pass
+        try:
+            log.info("Precision score: = %s" % precision_score(y_test, y_hat))
+        except:
+            pass
+        try:
+            log.info("Recall score: = %s" % recall_score(y_test, y_hat))
+        except:
+            pass
+        try:
+            log.info("F1 score: = %s" % f1_score(y_test, y_hat))
+        except:
+            pass
+        try:
+            log.info("MAE: = %s" % mean_absolute_error(y_test, y_hat))
+        except:
+            pass
+        try:
+            log.info("RMSE: = %s" % root_mean_squared_error(y_test, y_hat))
+        except:
+            pass
+        try:
+            res = classify_report_bin(y_test, y_hat)
+            if "N/A" <> res:
+                log.info("Classify report bin: = %s" % res)
+            else:
+                res = classify_report_bin_regression(y_test, y_hat)
+                if "N/A" <> res:
+                    log.info("Classify report bin regression: = %s" % res)
+                else:
+                    if ref_thd is None:
+                        log.error("No ref thd defined")
+                    else:
+                        refthd = float(ref_thd)
+                        res = classify_report_regression(y_test, y_hat, refthd)
+                        log.info("Classify report regression: = %s" % res)
+        except Exception, e:
+            print e
+        with open("predicted.csv", 'w') as _fout:
+            for _x,  _y in zip(y_test, y_hat):
+                print >> _fout,  "%f\t%f" % (_x,  _y)
 
 def run(config):
     '''
@@ -385,7 +434,7 @@ def run(config):
         X_train, X_test = scale_datasets(X_train, X_test)
 
     # fits training data and predicts the test set using the trained model
-    y_hat = fit_predict(config, X_train, y_train, X_test, y_test)
+    y_hat = fit_predict(config, X_train, y_train, X_test, y_test, config.get("ref_thd", None))
     
     
 def main(argv=None): # IGNORE:C0111
@@ -426,7 +475,7 @@ USAGE
                             help="set verbosity level [default: %(default)s]")
         parser.add_argument('-V', '--version', action='version', 
                             version=program_version_message)
-        
+
         # Process arguments
         args = parser.parse_args()
         

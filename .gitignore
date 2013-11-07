@@ -28,3 +28,7 @@ lang_resources/
 __init__.py
 .ropeproject/
 
+*.sh
+*.csv
+*~
+*.ods

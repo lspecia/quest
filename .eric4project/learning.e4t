@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-4.2.dtd">
 <!-- eric4 tasks file for project learning -->
-<!-- Saved: 2013-09-10, 13:46:41 -->
+<!-- Saved: 2013-10-17, 17:17:16 -->
 <Tasks version="4.2">
   <Task priority="1" completed="False" bugfix="False">
     <Summary>TODO: implement the same method using reflection (load the class dinamically</Summary>
     <Description></Description>
-    <Created>2013-09-10, 12:28:08</Created>
+    <Created>2013-10-17, 17:16:58</Created>
     <Resource>
       <Filename>learning/src/learn_model.py</Filename>
-      <Linenumber>69</Linenumber>
+      <Linenumber>71</Linenumber>
     </Resource>
   </Task>
   <Task priority="1" completed="False" bugfix="False">
     <Summary>TODO: set verbosity according to global level</Summary>
     <Description></Description>
-    <Created>2013-09-10, 12:28:08</Created>
+    <Created>2013-10-17, 17:16:58</Created>
     <Resource>
       <Filename>learning/src/learn_model.py</Filename>
-      <Linenumber>93</Linenumber>
+      <Linenumber>95</Linenumber>
     </Resource>
   </Task>
   <Task priority="1" completed="False" bugfix="False">
     <Summary>TODO: set verbosity according to global level</Summary>
     <Description></Description>
-    <Created>2013-09-10, 12:28:08</Created>
+    <Created>2013-10-17, 17:16:58</Created>
     <Resource>
       <Filename>learning/src/learn_model.py</Filename>
-      <Linenumber>116</Linenumber>
+      <Linenumber>118</Linenumber>
     </Resource>
   </Task>
   <Task priority="1" completed="False" bugfix="False">
     <Summary>TODO: use reflection to instantiate the classes</Summary>
     <Description></Description>
-    <Created>2013-09-10, 12:28:08</Created>
+    <Created>2013-10-17, 17:16:58</Created>
     <Resource>
       <Filename>learning/src/learn_model.py</Filename>
-      <Linenumber>182</Linenumber>
+      <Linenumber>186</Linenumber>
     </Resource>
   </Task>
 </Tasks>
