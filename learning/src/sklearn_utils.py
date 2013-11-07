@@ -72,6 +72,7 @@ def open_datasets(train_path, train_ref_path, test_path,
         raise IOError("the test dataset must be in the format of a matrix with M lines and N columns.")
         
     if X_train.shape[0] != y_train.shape[0]:
+        print X_train.shape[0],  y_train.shape[0]
         raise IOError("the number of instances in the train features file does not match the number of references given.")
         
     if X_test.shape[0] != y_test.shape[0]:

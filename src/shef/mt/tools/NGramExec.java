@@ -109,7 +109,7 @@ public class NGramExec {
     public void runNGramPerplex(String inputFile, String outputFile, String lmFile) {
         File f = new File(outputFile);
         System.out.println("Executing ngramperplex on " + inputFile + " with lm=" + lmFile + " into " + outputFile);
-        if (f.exists()) {
+        if (!this.forceRun && f.exists()) {
             Logger.log("Output file " + outputFile + " already exists. Ngram will not run");
             System.out.println("Output file " + outputFile + " already exists. Ngram will not run");
             return;

@@ -84,6 +84,8 @@ public class FeatureExtractorSimple{
     private static String configPath;
 	private static String gbXML;
 
+    private static boolean isBaseline = false;
+
 	
     /**
 	 * set to 0 if the parameter sent to the -gb option is an xml file, 0 otherwise
@@ -162,8 +164,10 @@ public class FeatureExtractorSimple{
         Option rebuild = new Option("rebuild", "run all preprocessing tools");
         rebuild.setRequired(false);
 
+        //separate 17 BB from 79 BB
+        Option baseline = new Option("baseline", "only 17 baseline feature will be calculated");
+        baseline.setRequired(false);
 
-		
         CommandLineParser parser = new PosixParser();
         Options options = new Options();
 
@@ -175,6 +179,7 @@ public class FeatureExtractorSimple{
 		options.addOption(gb);
         options.addOption(rebuild);
         options.addOption(config);
+        options.addOption(baseline);
 
         try {
             // parse the command line arguments
@@ -252,6 +257,10 @@ public class FeatureExtractorSimple{
                 forceRun = true;
             }
 
+            if (line.hasOption("baseline")) {
+                isBaseline = true;
+            }
+
 
         } catch (ParseException exp) {
             System.out.println("Unexpected exception:" + exp.getMessage());
@@ -326,7 +335,7 @@ public class FeatureExtractorSimple{
     private static void runNGramPPL() {
         // required by BB features 8-13
         NGramExec nge = new NGramExec(
-                resourceManager.getString("tools.ngram.path"));
+                resourceManager.getString("tools.ngram.path"), forceRun);
         System.out.println("runNgramPPL");
         File f = new File(sourceFile);
         String sourceOutput = input
@@ -401,33 +410,45 @@ public class FeatureExtractorSimple{
         System.out.println("running tokenizer");
        
        String src_abbr = ""; 
-        if (sourceLang.equals ("english"))
-                src_abbr = "en";
-            else if (sourceLang.equals ("spanish"))
-                src_abbr = "es";
-            else if (sourceLang.equals ("french"))
-                src_abbr = "fr";
-            else if (sourceLang.equals ("german"))
-                src_abbr = "de"; 
-            else 
-                System.out.println("Don't recognise the source language");
+        if (sourceLang.equalsIgnoreCase ("english"))
+            src_abbr = "en";
+        else if (sourceLang.equalsIgnoreCase ("spanish"))
+            src_abbr = "es";
+        else if (sourceLang.equalsIgnoreCase ("french"))
+            src_abbr = "fr";
+        else if (sourceLang.equalsIgnoreCase ("german"))
+            src_abbr = "de";
+        else if (targetLang.equalsIgnoreCase("dutch"))
+            src_abbr = "nl";
+        else if (targetLang.equalsIgnoreCase("portuguese"))
+            src_abbr = "pt";
+        else
+            System.out.println("Don't recognise the source language");
         
         
         String tgt_abbr = ""; 
-        if (targetLang.equals ("english"))
-                tgt_abbr = "en";
-            else if (targetLang.equals ("spanish"))
-                tgt_abbr = "es";
-            else if (targetLang.equals ("french"))
-                tgt_abbr = "fr";
-            else if (targetLang.equals ("german"))
-                tgt_abbr = "de"; 
-            else 
-                System.out.println("Don't recognise the target language");
+        if (targetLang.equalsIgnoreCase ("english"))
+            tgt_abbr = "en";
+        else if (targetLang.equalsIgnoreCase ("spanish"))
+            tgt_abbr = "es";
+        else if (targetLang.equalsIgnoreCase ("french"))
+            tgt_abbr = "fr";
+        else if (targetLang.equalsIgnoreCase ("german"))
+            tgt_abbr = "de";
+        else if (targetLang.equalsIgnoreCase("dutch"))
+            tgt_abbr = "nl";
+        else if (targetLang.equalsIgnoreCase("portuguese"))
+            tgt_abbr = "pt";
+        else
+            System.out.println("Don't recognise the target language");
         
                 
-                String truecasePath = "";
-        truecasePath = resourceManager.getString(sourceLang + ".truecase") + "|" + resourceManager.getString(sourceLang + ".truecase.model");
+        String truecasePath = "";
+        if (null != resourceManager.getProperty(sourceLang + ".lowercase")) {
+            truecasePath = resourceManager.getProperty(sourceLang + ".lowercase")  + " -q ";
+        } else {
+            truecasePath = resourceManager.getString(sourceLang + ".truecase") + " --model " + resourceManager.getString(sourceLang + ".truecase.model");
+        }
         Tokenizer enTok = new Tokenizer(inputSourceFile.getPath(), inputSourceFile.getPath() + ".tok", truecasePath, resourceManager.getString(sourceLang + ".tokenizer"), src_abbr, forceRun);
         
         
@@ -439,9 +460,13 @@ public class FeatureExtractorSimple{
         //run tokenizer for target (Spanish)
         System.out.println("running tokenizer");
 //        Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(), inputTargetFile.getPath() + ".tok", resourceManager.getString("spanish.lowercase"), resourceManager.getString("spanish.tokenizer"), "es", forceRun);
-       
-         truecasePath = resourceManager.getString(targetLang + ".truecase") + "|" + resourceManager.getString(targetLang + ".truecase.model");
-         Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(),inputTargetFile.getPath() + ".tok", truecasePath, resourceManager.getString(targetLang + ".tokenizer"), tgt_abbr, forceRun);
+
+        if (null != resourceManager.getProperty(targetLang + ".lowercase")) {
+            truecasePath = resourceManager.getProperty(targetLang + ".lowercase")  + " -q ";
+        } else {
+            truecasePath = resourceManager.getString(targetLang + ".truecase") + " --model " + resourceManager.getString(targetLang + ".truecase.model");
+        }
+        Tokenizer esTok = new Tokenizer(inputTargetFile.getPath(),inputTargetFile.getPath() + ".tok", truecasePath, resourceManager.getString(targetLang + ".tokenizer"), tgt_abbr, forceRun);
         
         esTok.run();
         targetFile = esTok.getTok();
@@ -473,25 +498,25 @@ public class FeatureExtractorSimple{
 
         File f = new File(input);
         if (!f.exists()) {
-            f.mkdir();
+            f.mkdirs();
             System.out.println("folder created " + f.getPath());
         }
 
 
         f = new File(input + File.separator + sourceLang);
         if (!f.exists()) {
-            f.mkdir();
+            f.mkdirs();
             System.out.println("folder created " + f.getPath());
         }
         f = new File(input + File.separator + targetLang);
         if (!f.exists()) {
-            f.mkdir();
+            f.mkdirs();
             System.out.println("folder created " + f.getPath());
         }
         f = new File(input + File.separator + targetLang + File.separator
                 + "temp");
         if (!f.exists()) {
-            f.mkdir();
+            f.mkdirs();
             System.out.println("folder created " + f.getPath());
         }
 /*
@@ -518,7 +543,7 @@ public class FeatureExtractorSimple{
         String output = resourceManager.getString("output");
         f = new File(output);
         if (!f.exists()) {
-            f.mkdir();
+            f.mkdirs();
             System.out.println("folder created " + f.getPath());
         }
     }
@@ -557,6 +582,16 @@ public class FeatureExtractorSimple{
         String targetFileName = f.getName();
         String outputFileName = sourceFileName + "_to_" + targetFileName
                 + ".out";
+
+        File file =new File(resourceManager.getString("output"));
+        if (!file.exists()) {
+            System.err.println("Creating dir: " + resourceManager.getString("output"));
+            Logger.log("Creating dir: " + resourceManager.getString("output"));
+            file.mkdirs();
+        } else {
+            Logger.log("output dir exists: " + resourceManager.getString("output"));
+        }
+
         String out = resourceManager.getString("output") + File.separator + outputFileName;
         System.out.println("Output will be: " + out);
         
@@ -573,31 +608,37 @@ public class FeatureExtractorSimple{
                 + resourceManager.getString("tools.ngram.output.ext");
         runNGramPPL();
 
+        FileModel fm = new FileModel(sourceFile,
+                resourceManager.getString(sourceLang + ".corpus"));
+
+        // FileModel fm = new FileModel(sourceFile,
+        //     resourceManager.getString("source" + ".corpus"));
+
+
         PPLProcessor pplProcSource = new PPLProcessor(pplSourcePath,
                 new String[]{"logprob", "ppl", "ppl1"});
         PPLProcessor pplProcTarget = new PPLProcessor(pplTargetPath,
                 new String[]{"logprob", "ppl", "ppl1"});
-        
-      
-          FileModel fm = new FileModel(sourceFile,
-                resourceManager.getString(sourceLang + ".corpus"));
-        
-         // FileModel fm = new FileModel(sourceFile,
-           //     resourceManager.getString("source" + ".corpus"));
-        
-        String sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
-        String targetPosOutput = runPOS(targetFile, targetLang, "target");
 
-        String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
-        System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
-        PPLProcessor pplPosTarget = new PPLProcessor(targetPPLPos,
-                new String[]{"poslogprob", "posppl", "posppl1"});
+        String sourcePosOutput = null;
+        String targetPosOutput = null;
+        PPLProcessor pplPosTarget = null;
+        if (!isBaseline) {
+            sourcePosOutput = runPOS(sourceFile, sourceLang, "source");
+            targetPosOutput = runPOS(targetFile, targetLang, "target");
+
+            String targetPPLPos = runNGramPPLPos(targetPosOutput + PosTagger.getXPOS());
+            System.out.println("---------TARGET PPLPOS: " + targetPPLPos);
+            pplPosTarget = new PPLProcessor(targetPPLPos,
+                    new String[]{"poslogprob", "posppl", "posppl1"});
+
+        }
 
         loadGiza();
         processNGrams();
        boolean gl = false; 
             String temp0 = resourceManager.getString("GL");
-            if (temp0.equals("1")) {
+            if (null != temp0 && temp0.equals("1")) {
                 gl = true ;
             }
         
@@ -631,7 +672,7 @@ public class FeatureExtractorSimple{
            //   if ( ResourceManager.isRegistered("BParser")){   
             boolean bp = false; 
             String temp = resourceManager.getString("BP");
-            if (temp.equals("1")) {
+            if (null != temp && temp.equals("1")) {
                 bp = true ;
             }
 
@@ -653,7 +694,7 @@ public class FeatureExtractorSimple{
           
           boolean tm = false; 
             String temp1 = resourceManager.getString("TM");
-            if (temp1.equals("1")) {
+            if (temp1 != null && temp1.equals("1")) {
                 tm = true ;
             }
           TopicDistributionProcessor sourceTopicDistributionProcessor = null;
@@ -667,14 +708,16 @@ public class FeatureExtractorSimple{
           }
             /* END: Added by Raphael Rubino for the Topic Model Features
             */ 
-    
-            if (posSourceExists) {
-                posSourceProc = new POSProcessor(sourcePosOutput);
-                posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
-            }
-            if (posTargetExists) {
-                posTargetProc = new POSProcessor(targetPosOutput);
-                posTarget = new BufferedReader(new InputStreamReader(new FileInputStream(targetPosOutput)));
+
+            if (!isBaseline) {
+                if (posSourceExists) {
+                    posSourceProc = new POSProcessor(sourcePosOutput);
+                    posSource = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePosOutput), "utf-8"));
+                }
+                if (posTargetExists) {
+                    posTargetProc = new POSProcessor(targetPosOutput);
+                    posTarget = new BufferedReader(new InputStreamReader(new FileInputStream(targetPosOutput)));
+                }
             }
             ResourceManager.printResources();
             Sentence sourceSent;
@@ -690,7 +733,7 @@ public class FeatureExtractorSimple{
             
             boolean tr = false; 
             String temp2 = resourceManager.getString("TR");
-            if (temp2.equals("1")) {
+            if (temp2 != null && temp2.equals("1")) {
                 tr = true ;
             }
           
@@ -765,7 +808,9 @@ public class FeatureExtractorSimple{
                 targetSent.computeNGrams(3);
                 pplProcSource.processNextSentence(sourceSent);
                 pplProcTarget.processNextSentence(targetSent);
-                pplPosTarget.processNextSentence(targetSent);
+                if (!isBaseline) {
+                    pplPosTarget.processNextSentence(targetSent);
+                }
              
                    //lefterav: Parse code here
         

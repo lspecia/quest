@@ -71,6 +71,10 @@ public class Giza extends Resource {
 
     private void parseLine(String line) {
         String[] comps = line.split("\\s+");
+        if (comps.length != 3) {
+            System.err.println("Invalid giza line: " + line);
+            return;
+        }
         String word = comps[0];
         String trans = comps[1];
         float prob = Float.parseFloat(comps[2]);
