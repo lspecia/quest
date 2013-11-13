@@ -21,7 +21,7 @@ test_Y = np.genfromtxt('/Users/kashif/Documents/projects/quest-master/learning/d
 
 # rescale X
 mx = np.mean(X,axis=0)
-sx = np.std(test_X,axis=0)
+sx = np.std(X,axis=0)
 
 ok = (sx > 0)
 X = X[:,ok]
@@ -39,7 +39,7 @@ print np.nonzero(ok == False)[0]
 D = X.shape[1]
 
 # this is as big as I can go on my laptop :)
-if True:
+if False:
     X = X[:1200,:]
     Y = Y[:1200,:]
 
