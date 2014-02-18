@@ -136,15 +136,23 @@ public class XMLReader implements Iterator<ParallelSentence>{
 					String localPart = startElement.getName().getLocalPart();
 					if (localPart.equals(PARALLELSENTENCE)){
 						generalAttributes = getAttributes(startElement);
-					} else if (localPart.equals(SOURCESENTENCE)) {
+					} else {
+                                            String elementText;
+                                            try{
+                                                elementText = event.asCharacters().getData();
+                                            } catch (ClassCastException e) { //if element has no text
+                                                elementText = new String();
+                                            }
+                                            if (localPart.equals(SOURCESENTENCE)) {
 						HashMap<String,Object> sourceAttributes = getAttributes(startElement);
 						event = reader.nextEvent();
-						sourceSentence = new Sentence(event.asCharacters().getData(), sourceAttributes);
-					} else if (localPart.equals(TARGETSENTENCE)) {
+						sourceSentence = new Sentence(elementText, sourceAttributes);
+					    } else if (localPart.equals(TARGETSENTENCE)) {
 						HashMap<String,Object> targetAttributes = getAttributes(startElement);
 						event = reader.nextEvent();
-						Sentence targetSentence = new Sentence(event.asCharacters().getData(), targetAttributes);
+						Sentence targetSentence = new Sentence(elementText, targetAttributes);
 						targetSentences.add(targetSentence);
+                                            }
 					}
 				//if element closing, then create the object
 				} else if (event.isEndElement()) {
