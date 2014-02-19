@@ -21,6 +21,9 @@ public class Sentence {
     private HashMap<String, Object> values;
     private ArrayList<String>[] ngrams;
     private String[] tokens;
+    
+    private String[] tags;
+    
     private int index;
     private TreeSet<Phrase> phrases;
     private TreeSet<Translation> translations;
@@ -34,6 +37,11 @@ public class Sentence {
         center = null;
         values = new HashMap<String, Object>();
         tokens = sentence.trim().split(" ");
+    }
+    
+    public Sentence(String s, String t, int index) {
+        this(s, index);
+        tags = t.trim().split(" ");
     }
 
     public String getText() {
@@ -164,6 +172,10 @@ public class Sentence {
         return tokens;
     }
 
+    public String[] getTags() {
+        return tags;
+    }
+    
     public int getNoTokens() {
         return tokens.length;
     }

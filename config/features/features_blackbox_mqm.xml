@@ -17,14 +17,8 @@
     <disabledfeature class="shef.mt.features.impl.bb.Feature1058" description="percentage of unigrams in the source sentence seen in a corpus (SMT training corpus)" index="1058"/>
     <feature class="shef.mt.features.impl.bb.Feature1074" description="number of punctuation marks in the source sentence" index="1074"/>
     <feature class="shef.mt.features.impl.bb.Feature1075" description="number of punctuation marks in the target sentence" index="1075"/>
-    <feature class="shef.mt.features.impl.bb.Feature9987" description="number of punctuation marks in the target sentence" index="9987"/>
-    <feature class="shef.mt.features.impl.bb.Feature9988" description="argument repetition target - document level" index="9988"/>
-    <feature class="shef.mt.features.impl.bb.Feature9989" description="lemma repetition target - document level" index="9989"/>
-    <feature class="shef.mt.features.impl.bb.Feature9990" description="argument repetition source - document level" index="9990"/>
-    <feature class="shef.mt.features.impl.bb.Feature9991" description="lemma repetition source - document level" index="9991"/>
-    <feature class="shef.mt.features.impl.bb.Feature9992" description="ratio argument repetition target/source - document level" index="9992"/>
-    <feature class="shef.mt.features.impl.bb.Feature9993" description="ratio lemma repetition target/source - document level" index="9993"/>
-    <feature class="shef.mt.features.impl.bb.Feature9994" description="noun repetition target - document level" index="9994"/>
-    <feature class="shef.mt.features.impl.bb.Feature9995" description="noun repetition source - document level" index="9995"/>
-    <feature class="shef.mt.features.impl.bb.Feature9996" description="ratio noun repetition target/source - document level" index="9996"/>
+    <feature class="shef.mt.features.impl.bb.Feature3001" description="number of slang words in target sentence" index="3001"/>
+    <feature class="shef.mt.features.impl.bb.Feature3002" description="number of slang words in target sentence divided by num of words" index="3002"/>
+    <feature class="shef.mt.features.impl.bb.Feature3003" description="number of abbreviation conflicts" index="3003"/>
+    <feature class="shef.mt.features.impl.bb.Feature3004" description="number of abbreviation conflicts divided by total number of abbrev in the doc" index="3004"/>
 </features>
