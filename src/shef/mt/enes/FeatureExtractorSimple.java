@@ -1,7 +1,8 @@
 package shef.mt.enes;
 
 
-
+import shef.mt.tools.mqm.Context;
+import shef.mt.tools.mqm.MQMManager;
 import shef.mt.xmlwrap.MOSES_XMLWrapper;
 import shef.mt.util.PropertiesManager;
 import shef.mt.util.Logger;
@@ -646,6 +647,15 @@ public class FeatureExtractorSimple{
          loadGlobalLexicon();
         }
         
+        //MQM kicks in
+        MQMManager.getInstance().initialize(resourceManager);
+        Context context = new Context();
+        context.setSourceFilePath(sourceFile);
+        context.setTargetFilePath(targetFile);
+        MQMManager.getInstance().globalProcessing(context);
+        
+        
+        
         try {
             BufferedReader brSource = new BufferedReader(new FileReader(
                     sourceFile));
@@ -833,6 +843,10 @@ public class FeatureExtractorSimple{
                 itl_source_target_p.processNextParallelSentences(sourceSent, targetSent);
                 }
                 // end modification by David
+                
+                
+                //MQM kicks in
+                MQMManager.getInstance().processNextParallelSentences(sourceSent, targetSent);
                 
                 ++sentCount;
                 output.write(featureManager.runFeatures(sourceSent, targetSent));
