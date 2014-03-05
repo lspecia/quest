@@ -62,6 +62,10 @@ public class FeatureManager {
         featureLoader = new FeatureLoader(featureConfig);
 
     }
+    
+    public boolean hasFeature(String index) {
+    	return features.containsKey(index);
+    }
 
     /**
      * constructs a list of available features by matching features listed in
