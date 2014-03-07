@@ -1,11 +1,9 @@
 
-
 QuEst
 =====
 
-March 2014:
------------
-This code contains the QuEst version after a merge with the IR_similarity_features branch by Ergun Bicici, which makes it possible to derive information retrieval (IR) features, containing IR similarity features, LIX readability features, and text similarity features as well. The branch is contributed to QuEst as part of the European Union project QTLaunchPad (www.qt21.eu). The quality estimation results are available here (see Sections 2.5.2 and 3.2.4): http://www.qt21.eu/launchpad/system/files/deliverables/qtlp-deliverable-d2.1.3.pdf
+
+[March 2014] This code contains the QuEst version after a merge with the IR_similarity_features branch by Ergun Bicici, which makes it possible to derive information retrieval (IR) features, containing IR similarity features, LIX readability features, and text similarity features as well. The branch is contributed to QuEst as part of the European Union project QTLaunchPad (www.qt21.eu). The quality estimation results are available here (see Sections 2.5.2 and 3.2.4): http://www.qt21.eu/launchpad/system/files/deliverables/qtlp-deliverable-d2.1.3.pdf
 
 To compile:
 
@@ -28,7 +26,8 @@ To run:
 bash runBB.sh
 
 
--------
+
+
 This open source software is aimed at quality estimation (QE) for machine translation. It was developed by Lucia Specia's team at the University of Sheffield and includes contributions from a number of researchers between Feb/2011 and Feb/2013. This particular release was made possible through the QuEst project (http://staffwww.dcs.shef.ac.uk/people/L.Specia/projects/quest.html). The code has two main parts: a feature extractor and a machine learning pipeline.
 
 -----------------------------------------------------------------------
