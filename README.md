@@ -1,32 +1,5 @@
-
 QuEst
 =====
-
-
-[March 2014] This code contains the QuEst version after a merge with the IR_similarity_features branch by Ergun Bicici, which makes it possible to derive information retrieval (IR) features, containing IR similarity features, LIX readability features, and text similarity features as well. The branch is contributed to QuEst as part of the European Union project QTLaunchPad (www.qt21.eu). The quality estimation results are available here (see Sections 2.5.2 and 3.2.4): http://www.qt21.eu/launchpad/system/files/deliverables/qtlp-deliverable-d2.1.3.pdf
-
-To compile:
-
-ant -f build.xml
-
-To prepare:
-
-(1) We provide the system some language resources. These are copied to lang_resources folder. Resources are available from here: http://www.quest.dcs.shef.ac.uk/
-
-(2) You copy these to: lang_resources/language/
-
-(3) Edit the configuration file (i.e. config/config_en-es.properties)
-
-for using IR_similarity_features:
-
-featureConfig.bb = config/features/features_blackbox_IR.xml
-
-To run:
-
-bash runBB.sh
-
-
-
 
 This open source software is aimed at quality estimation (QE) for machine translation. It was developed by Lucia Specia's team at the University of Sheffield and includes contributions from a number of researchers between Feb/2011 and Feb/2013. This particular release was made possible through the QuEst project (http://staffwww.dcs.shef.ac.uk/people/L.Specia/projects/quest.html). The code has two main parts: a feature extractor and a machine learning pipeline.
 
@@ -391,7 +364,6 @@ The exposed parameters are:
 Documentation about the parameters and the method can be found at:
 http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifie
 
-<<<<<<< HEAD
 
 Learning with Gaussian Process
 ==============================
@@ -459,5 +431,3 @@ We thank the European commission Pascal2 Network of Excellence for the funding t
 License
 =======
 The license for the Java code and any python and shell scripts developed here is the very permissive BSD License (http://en.wikipedia.org/wiki/BSD_licenses). For pre-existing code and resources, e.g., scikit-learn and Berkeley parser, please check their websites. 
-=======
->>>>>>> 411bcdaa569d5fda17283505ea55a14e1eecea33
