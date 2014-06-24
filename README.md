@@ -23,6 +23,34 @@ The libraries required to compile and run the code are included in the "lib" dir
 - Stanford POS Tagger 
 - Berkeley Parser 
 
+Apart from these lib files, QuEst requires other external tools / scripts to extract the specified features. The paths for these external tools are set in configuration file under config folder:
+
+- TreeTagger (http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
+- SRILM (http://www.speech.sri.com/projects/srilm/download.html)
+- Tokenizer (available from moses toolkit)
+- Truecaser (available from moses toolkit)
+
+Please note that above list is not exhaustive. Advance set of features require external tools, see details in corresponding section.
+
+
+
+To compile
+==========
+
+ant -f build.xml
+
+OR 
+
+rebuild using NetBeans (NetBeans project files are distributed in this release)
+
+To prepare:
+
+(1) We provide the system some language resources. These are copied to lang_resources folder. Resources are available from here: http://www.quest.dcs.shef.ac.uk/
+
+(2) You copy these to: lang_resources/[language]/
+
+(3) Edit the configuration file (i.e. config/config_en-es.properties)
+
 Running 
 =======
 
@@ -30,15 +58,15 @@ We tested our software on Linux and Mac OS. We have not tested it on Windows yet
 
 For black box features:
 
-./runBB.sh
+./runBB.sh or bash runBB.sh
 
 For glass box features:
 
-./runGB_with_txt.sh
+./runGB_with_txt.sh or bash runGB.sh
 
 Or
 
-./runGB_with_xml.sh
+./runGB_with_xml.sh or bash runGB_with_xml.sh
 
 
 
@@ -49,7 +77,12 @@ Along with the code, we have provided configuration files and toy resources (SMT
 NOTE: One need to adapt the configuration file by providing the paths to the scripts where they are installed on your own system.
       i.e config/config_en-es.properties
 
-More information about the input resources and how they can be created for new language pairs can be found in specific readme files under the relevant resource folders (all under 'lang_resources').
+
+
+Advance Features
+================
+
+For these features more information about the input resources and how they can be created for new language pairs can be found in specific readme files under the relevant resource folders (all under 'lang_resources') which could be downloaded from: http://www.quest.dcs.shef.ac.uk/
 
 
 -----------------------------------------------------------------------
@@ -330,6 +363,51 @@ The exposed parameters are:
 
 Documentation about the parameters and the method can be found at:
 http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifie
+
+
+Learning with Gaussian Process
+==============================
+
+The function of this package of Python scripts is to build models for
+machine translation (MT) quality estimation (QE) using Gaussian Process. The input files are
+a set of instances with features that describe sentence pairs (source
+and target sentences). 
+
+Installation
+============
+
+The program itself does not require any installation step, it is just a matter
+of running it provided that all the dependencies are installed.
+
+
+Dependencies
+============
+
+All the machine learning algorithms are implemented by the GPy library.
+This program provides a command-line interface for some of the implementations
+contained in this toolkit. In order to be able to run, the program requires
+that the following packages are installed in your Python distribution:
+
+- GPy ( https://pypi.python.org/pypi/GPy )
+- sciPy ( http://scipy.org/Download )
+
+Running
+=======
+
+Note: Following commands are based on the assumption that all files are under 'learning' directory. 
+The program takes only one input parameter, the configuration file. For
+example:
+
+python src/GP_wmt_regression.py
+
+Please set the path in above script to the input files.
+e.g
+X = np.genfromtxt('train-79-features.qe.tsv')
+test_X = np.genfromtxt('test-79-features.qe.tsv')
+Y = np.genfromtxt('qe_reference_en-es.train.effort').reshape(-1, 1)
+test_Y = np.genfromtxt('qe_reference_en-es.test.effort').reshape(-1, 1)
+
+
 
 Acknowledgements
 ================
