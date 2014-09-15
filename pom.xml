@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- John Ortega 07/30/2014 This is the pom file that will build all , compile source, and push 
+    the final jar to the artifactory repository. You should have your JAVA_HOME environment set to 1.7 use 
+    export JAVA_HOME='' export JAVA_BIN=''
+	You just need to put the pom file in the root directory and it will compile the source files and grab the dependencies.
+	It will also work using profiles (I called them 'old' and 'new').
+	You will need to install Maven and have your M2_HOME var set correctly.
+	Then run this command from the quest root directory:
+	mvn clean package -P old
+	It will use the older version of the lucence jar (3.6.1) and 
+	build a new runnable jar with all of the jars inside in the "target" directory:
+	-->
+
+  <developers>
+    <developer>
+      <id>john_ortega</id>
+      <name>John Ortega</name>
+      <email>johneortega@gmail.com</email>
+      <organization>Univ. of Alicante</organization>
+      <roles>
+        <role>PhD Student</role>
+      </roles>
+    </developer>
+  </developers>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.quest</groupId>
+  <artifactId>quest-framework</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Quest Framework</name>
+  <profiles>
+    <profile>
+    	<id>old</id>
+    	<dependencies>
+	    <dependency>
+	      <groupId>org.apache.lucene</groupId>
+	      <artifactId>lucene-core</artifactId>
+	      <version>3.6.1</version>
+	      <scope>compile</scope>
+	    </dependency>
+    	</dependencies>
+    </profile>
+    <profile>
+    	<id>new</id>
+    	<dependencies>
+	    <dependency>
+	      <groupId>org.apache.lucene</groupId>
+	      <artifactId>lucene-core</artifactId>
+	      <version>3.6.2</version>
+	      <scope>compile</scope>
+	    </dependency>
+    	</dependencies>
+    </profile>
+</profiles>
+  <properties>
+    <skipTests>true</skipTests>
+  </properties>
+  <description>These are the dependencies</description>
+  <dependencies>
+    <dependency>
+        <groupId>com.quest</groupId>
+        <artifactId>BerkleyParser</artifactId>
+        <version>1.7</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/lib/BerkeleyParser-1.7.jar</systemPath>
+    </dependency>
+    <dependency>
+        <groupId>com.quest</groupId>
+        <artifactId>MTFeatures</artifactId>
+        <version>0.0.1</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/lib/MTFeatures.jar</systemPath>
+    </dependency>
+    <dependency>
+        <groupId>com.quest</groupId>
+        <artifactId>stanford-postagger</artifactId>
+        <version>0.0.1</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/lib/stanford-postagger.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>commons-cli</groupId>
+      <artifactId>commons-cli</artifactId>
+      <version>1.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+	<groupId>edu.stanford.nlp</groupId>
+	<artifactId>stanford-parser</artifactId>
+	<version>3.4</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <sourceDirectory>.</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+          <fork>true</fork>
+          <verbose>true</verbose>
+          <compilerVersion>1.7</compilerVersion>
+          <executable>${JAVA_HOME}/bin/javac</executable>
+          <encoding>UTF-8</encoding>
+          <includes>
+            <include>src/**/*.java</include>
+          </includes>
+          <useIncrementalCompilation>false</useIncrementalCompilation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <archive>
+            <addMavenDescriptor>false</addMavenDescriptor>
+          </archive>
+          <excludes>
+            <exclude>META-INF/*.SF</exclude>
+            <exclude>META-INF/*.DSA</exclude>
+            <exclude>META-INF/*.RSA</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <shadedArtifactAttached>true</shadedArtifactAttached>
+          <shadedClassifierName>with-jars</shadedClassifierName>
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
+              </excludes>
+            </filter>
+          </filters>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
